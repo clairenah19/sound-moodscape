@@ -412,3 +412,23 @@ async function sendChatMessage() {
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 }
+
+// ── ACCESSIBILITY TEXT-TO-SPEECH (TTS) ───────────────────────────────────────
+
+function vocalizeTactileState(stateKey) {
+  if (!window.speechSynthesis) return;
+
+  // Stop any current voice output
+  window.speechSynthesis.cancel();
+
+  const s = MOOD_DATA.states[stateKey];
+  if (!s) return;
+
+  // Compile high-quality descriptive text for the screen reader
+  const text = `${stateKey}. Atmosphere is ${MOOD_LABEL(s.score)}. Score: ${Math.round(s.score * 100)}. Description: ${s.desc}. Press Enter or Space to explore places.`;
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 1.05; // Slightly faster for high responsiveness
+  window.speechSynthesis.speak(utterance);
+}

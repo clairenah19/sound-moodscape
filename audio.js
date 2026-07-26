@@ -171,3 +171,41 @@ function togglePlay() {
     setPlayStatus("");
   }
 }
+
+// ── WEBAUDIO TACTILE CUES ────────────────────────────────────────────────────
+let tactileAudioCtx = null;
+
+function playTactileTick(isNode = false) {
+  try {
+    if (!tactileAudioCtx) {
+      tactileAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (tactileAudioCtx.state === 'suspended') {
+      tactileAudioCtx.resume();
+    }
+    const osc = tactileAudioCtx.createOscillator();
+    const gainNode = tactileAudioCtx.createGain();
+    osc.connect(gainNode);
+    gainNode.connect(tactileAudioCtx.destination);
+
+    if (isNode) {
+      // High-pitched clean double beep for landing on a place node
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(880, tactileAudioCtx.currentTime);
+      gainNode.gain.setValueAtTime(0.08, tactileAudioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, tactileAudioCtx.currentTime + 0.12);
+      osc.start();
+      osc.stop(tactileAudioCtx.currentTime + 0.12);
+    } else {
+      // Low organic triangle wave click for path navigation
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(320, tactileAudioCtx.currentTime);
+      gainNode.gain.setValueAtTime(0.15, tactileAudioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, tactileAudioCtx.currentTime + 0.04);
+      osc.start();
+      osc.stop(tactileAudioCtx.currentTime + 0.04);
+    }
+  } catch (e) {
+    console.error("Tactile audio cue error:", e);
+  }
+}
