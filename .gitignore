@@ -1,0 +1,12 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Log files
+*.log
+chrome.log
+
+# Local user configurations
+.vscode/
+.idea/

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Research — Moodscape</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f1117;
+    --bg2: #1a1d27;
+    --bg3: #22263a;
+    --text: #e8eaf6;
+    --text2: #9096b4;
+    --border: rgba(255,255,255,0.08);
+    --accent: #6c8fff;
+    --green: #4ade80;
+    --amber: #f59e0b;
+    --radius: 12px;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 0; background: var(--bg); z-index: 100;
+  }
+  .logo { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .logo span { color: var(--accent); }
+  header nav a { color: var(--text2); text-decoration: none; font-size: 13px; margin-left: 20px; }
+  header nav a:hover { color: var(--text); }
+
+  main { max-width: 820px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .hero { margin-bottom: 40px; }
+  .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero .kr { color: var(--accent); font-size: 15px; margin-bottom: 4px; }
+  .hero .sub { color: var(--text2); font-size: 15px; }
+
+  .status-banner {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--bg3); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px; margin-bottom: 40px;
+    font-size: 13px; color: var(--text2);
+  }
+  .status-banner b { color: var(--text); }
+
+  section { margin-bottom: 44px; }
+  h2 {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--text2); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  h2 .n { color: var(--accent); }
+  h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  p { color: var(--text2); font-size: 14px; margin-bottom: 12px; }
+  p.lede { color: var(--text); font-size: 16px; }
+  .card {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 20px 22px; margin-bottom: 14px;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.4px; padding: 3px 9px; border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .badge.built { background: rgba(74,222,128,0.12); color: var(--green); border: 0.5px solid rgba(74,222,128,0.3); }
+  .badge.roadmap { background: rgba(245,158,11,0.12); color: var(--amber); border: 0.5px solid rgba(245,158,11,0.3); }
+  .badge.partial { background: rgba(108,143,255,0.12); color: var(--accent); border: 0.5px solid rgba(108,143,255,0.3); }
+
+  .formula {
+    background: var(--bg3); border: 0.5px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px; color: var(--accent); margin: 14px 0; overflow-x: auto;
+    white-space: pre;
+  }
+
+  .param-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; margin-top: 14px; }
+  .param-grid .card { margin-bottom: 0; padding: 14px 16px; }
+  .param-grid .k { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .param-grid .v { font-size: 12.5px; color: var(--text2); }
+
+  .province-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; }
+  .province-grid .card { margin-bottom: 0; }
+  .province-note { font-size: 22px; font-weight: 700; }
+  .province-hz { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+  .province-stats { list-style: none; font-size: 12.5px; color: var(--text2); margin-top: 10px; }
+  .province-stats li { margin-bottom: 4px; }
+  .province-stats b { color: var(--text); }
+
+  .feature-list { display: flex; flex-direction: column; gap: 12px; }
+  .feature-list .card { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 0; }
+  .feature-list .ft { flex: 1; }
+  .feature-list .ft h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .feature-list .ft p { margin-bottom: 0; font-size: 13px; }
+
+  .refs { font-size: 12px; color: var(--text2); }
+  .refs li { margin-bottom: 6px; }
+  .refs ol { padding-left: 20px; }
+
+  footer { text-align: center; padding: 32px 24px; color: var(--text2); font-size: 12px; border-top: 0.5px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">mood<span>scape</span></div>
+  <nav>
+    <a href="index.html">Explore the map</a>
+    <a href="about.html">About &amp; research</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Moodscape</h1>
+    <div class="kr">소리로 느끼는 한국 — Feeling Korea Through Sound</div>
+    <div class="sub">A data sonification project exploring whether geographic and demographic data can be translated into music that communicates the character of a place.</div>
+  </div>
+
+  <div class="status-banner">
+    <span>📍</span>
+    <div>
+      <b>What's actually running vs. what's proposed.</b> This page separates the parts of Moodscape that exist in the live app (the <a href="index.html" style="color:var(--accent)">interactive map</a>) from the research concept and roadmap items that are still design proposals. Badges on each section show the current status.
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="n">01</span> Research question</h2>
+    <p class="lede">Can geographic and demographic data be converted into music that lets a listener understand the character of a place — without seeing a map?</p>
+    <p>Most geographic tools communicate visually: maps, charts, colour gradients. Moodscape investigates whether sound can carry the same information, and whether a piece of music can feel like a more emotionally accurate representation of a place than a number on a chart.</p>
+    <p><b style="color:var(--text)">Hypothesis:</b> a listener who hears a Moodscape sonification for an unfamiliar province, without being told which one it is, will correctly guess its relative population density, energy level, and safety at a rate above chance.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> Why sonification</h2>
+    <p>Sonification — turning data into non-speech audio — sits at the intersection of computer science, cognitive psychology, and data science. Geographic sonification specifically is under-explored, and it addresses a real accessibility gap: maps, heat maps, and choropleth charts are inaccessible to blind and low-vision users, a limitation documented by prior academic work such as the University of Maryland's iSonic project (ACM TOCHI, 2008) and a 2024 systematic review noting the lack of live, assessed sonification tools for this group. Instrumentation also carries cultural meaning a bare statistic can't: a gayageum playing a slow phrase signals "ancient and still" in a way the number 48 does not.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> The sonification algorithm <span class="badge partial" style="margin-left:6px;">Pitch/tempo/timbre/drift mapping built — scoring formula not yet wired in</span></h2>
+    <p>The research design behind Moodscape scores each province on a 0–100 "mood score" from a weighted formula. An earlier version of this document labelled the density term "population density, inverse" — that was backwards: the data shows the opposite relationship. Seoul has both the highest density (16,000/km²) <em>and</em> the highest mood score (92); Jeju has the lowest of both. Density scales the score <em>up</em>, toward "exciting," not down. The corrected formula:</p>
+    <div class="formula">Mood Score = (Safety × 0.30) + (English proficiency × 0.25)
+           + (Density Score × 0.25) + (Annual Temp Score × 0.20)</div>
+    <p>That score drives four audio parameters, plus a fifth — Seasonal Drift — computed independently from the province's temperature <em>swing</em> rather than the composite score:</p>
+    <div class="param-grid">
+      <div class="card">
+        <div class="k">🎵 Pitch</div>
+        <div class="v">A4 (440 Hz) at score 0 → A5 (880 Hz) at score 100, roughly 1–2 semitones per 10 points.</div>
+      </div>
+      <div class="card">
+        <div class="k">📊 Waveform height</div>
+        <div class="v">Bars in the player grow with score — tall and dense for high-energy places, short and spacious for calm ones.</div>
+      </div>
+      <div class="card">
+        <div class="k">🥁 Tempo</div>
+        <div class="v">40 BPM (meditative) at score 0 to 120 BPM (driving) at score 100, mapped linearly.</div>
+      </div>
+      <div class="card">
+        <div class="k">🎻 Timbre</div>
+        <div class="v">0–35: traditional acoustic (gayageum, daegeum, haegeum). 36–65: ambient-electronic hybrid. 66–100: synth, electric bass, digital beats.</div>
+      </div>
+      <div class="card">
+        <div class="k">🍂 Seasonal Drift <span style="color:var(--accent);font-weight:400;">— new</span></div>
+        <div class="v">Pitch/timbre arcs from a cooler "winter" register toward a brighter "summer" one and partway back over the piece's runtime, scaled by that province's actual annual temperature swing.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:28px;">Density Score — named zones, not a raw inverse</h3>
+    <p>Korean provincial density spans more than two orders of magnitude (≈50/km² in the emptiest counties to 16,000/km² in central Seoul), so a linear scale would flatten everything except Seoul to near-zero. Density Score uses a log curve anchored between a floor of 50/km² ("empty") and a ceiling of 18,000/km² (just above Seoul's cited peak, "overcrowded"):</p>
+    <div class="formula">Density Score = 100 × (log₁₀(density) − log₁₀(50)) / (log₁₀(18,000) − log₁₀(50)), clamped to [0, 100]</div>
+    <p>That continuous score is then labelled into six named zones, the same way the app already buckets mood scores into "Calm" / "Balanced" / "Lively":</p>
+    <div class="param-grid">
+      <div class="card"><div class="k">0–15 · Empty</div><div class="v">Remote countryside — near-zero foot traffic, silence dominates.</div></div>
+      <div class="card"><div class="k">15–35 · Sparse</div><div class="v">Rural provinces, small towns, farmland.</div></div>
+      <div class="card"><div class="k">35–55 · Comfortable</div><div class="v">Suburbs and small cities — room to breathe, still populated.</div></div>
+      <div class="card"><div class="k">55–75 · Bustling</div><div class="v">Urban districts, active streets, visible crowds.</div></div>
+      <div class="card"><div class="k">75–90 · Dense</div><div class="v">Major metro areas — constant activity, tight blocks.</div></div>
+      <div class="card"><div class="k">90–100 · Overcrowded</div><div class="v">Megacity core — maximum foot traffic, near-continuous crowding.</div></div>
+    </div>
+    <p style="margin-top:10px;">Applied to the four researched provinces (Jeju's density is derived here from its cited population ÷ its ≈1,833 km² land area, since no density figure for the province was directly cited earlier):</p>
+    <div class="province-grid">
+      <div class="card"><div class="k" style="font-weight:600;">Seoul</div><div class="v">16,000/km² → Density Score <b>98</b> → <span style="color:var(--green);">Overcrowded</span></div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Busan</div><div class="v">4,390/km² → Density Score <b>76</b> → <span style="color:var(--amber);">Dense</span></div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Incheon</div><div class="v">2,580/km² → Density Score <b>67</b> → Bustling</div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Jeju-do</div><div class="v">≈369/km² (computed) → Density Score <b>34</b> → Sparse</div></div>
+    </div>
+
+    <h3 style="margin-top:28px;">Seasonal Drift — the temperature swing, not just the average</h3>
+    <p>The original formula reduced each province's climate to a single annual average, which erases Korea's four sharply distinct seasons. Every province already has cited January (winter) and August (summer) normals — their difference is the Seasonal Swing, and it drives a genuinely new audio dimension rather than folding into the static mood score:</p>
+    <div class="formula">Seasonal Swing = August avg temp − January avg temp
+Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest realistic Korean provincial swing)</div>
+    <p>A province with a wide swing gets a piece that audibly evolves — the pitch centre and timbre brightness ramp up through a simulated "spring→summer" arc across the first half of the 15 seconds, then ease back down through "autumn→winter" in the second half. A province with a narrow swing stays comparatively steady throughout. Spring and autumn aren't independently sourced here — they're modelled as the linear transition between the cited winter and summer normals, which is an honest simplification, not independent KMA seasonal data.</p>
+    <div class="province-grid">
+      <div class="card"><div class="k" style="font-weight:600;">Seoul</div><div class="v">−2.4°C → 25.7°C → swing <b>28.1°C</b> → Drift Depth 0.94 (most dramatic arc)</div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Incheon</div><div class="v">−2.9°C → 25.2°C → swing <b>28.1°C</b> → Drift Depth 0.94</div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Busan</div><div class="v">4.2°C → 27.3°C → swing <b>23.1°C</b> → Drift Depth 0.77</div></div>
+      <div class="card"><div class="k" style="font-weight:600;">Jeju-do</div><div class="v">6.1°C → 28.0°C → swing <b>21.9°C</b> → Drift Depth 0.73 (steadiest of the four)</div></div>
+    </div>
+
+    <p style="margin-top:14px;">In the current app, place and province "mood scores" are hand-assigned rather than computed live from this formula, and neither the corrected Density Score nor Seasonal Drift is wired into the audio yet.</p>
+    <h3 style="margin-top:24px;">Audio: real AI tracks (Suno), with a synth fallback</h3>
+    <p>Each place resolves its soundscape through three layers, in order: <b>(1)</b> a pre-generated real track — a hosted URL, or an MP3 dropped into the <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">audio/</code> folder (generated in <a href="https://suno.com" target="_blank" rel="noopener" style="color:var(--accent)">Suno</a> from a per-place prompt the app builds automatically); <b>(2)</b> fully automatic live generation if a paid <a href="https://sunoapi.org" target="_blank" rel="noopener" style="color:var(--accent)">sunoapi.org</a> API key is saved in the browser — request/response shape verified against their published API docs, not guessed; <b>(3)</b> a built-in Web Audio synth fallback so the player is never silent. The prompts are deliberately genre-distinct by mood band — a "very peaceful" place asks Suno for slow ambient drone, a "very exciting" one for driving EDM — so tracks differ sharply from each other, not just in pitch. When a real track plays it's routed through a live audio analyser, so the waveform reacts to the actual audio. Suno itself has no official public API, which is why layer (2) depends on a paid third-party provider rather than Suno directly; whether that provider's server allows direct browser-origin requests (CORS) is unverified, so the download-and-drop workflow in layer (1) remains the dependable path if live generation fails silently against CORS.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> Four reference provinces <span class="badge built" style="margin-left:6px;">Data collected</span></h2>
+    <p>These four provinces were the initial dataset used to validate the scoring formula against real published statistics. The live app's interactive map now covers all 17 South Korean provinces/metros individually, each with its own real places, illustrative (not formula-derived) mood scores, real Wikimedia Commons photos, and links to real Google Maps review pages — but that per-place dataset isn't yet computed from this formula either.</p>
+    <div class="province-grid">
+      <div class="card">
+        <div class="province-note">A5 · 880 Hz — Seoul</div>
+        <div class="province-hz">Mood score 92/100 · Electric · Dense · Relentless</div>
+        <ul class="province-stats">
+          <li>Population: <b>9.96M</b>, ~16,000/km²</li>
+          <li>English (EF EPI 2024): <b>550</b> — highest in Korea</li>
+          <li>Avg. temp: <b>12.5°C</b> (Jan −2.4° / Aug 25.7°)</li>
+          <li>Safety Index: <b>82.3/100</b> — Very Safe</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="province-note">F#5 · 740 Hz — Busan</div>
+        <div class="province-hz">Mood score 85/100 · Coastal · Cinematic · Warm</div>
+        <ul class="province-stats">
+          <li>Population: <b>3.32M</b>, 4,390/km²</li>
+          <li>English (EF EPI 2024): <b>520</b> — Moderate</li>
+          <li>Avg. temp: <b>15.0°C</b> — warmest mainland city</li>
+          <li>Safety Index: <b>79.1/100</b> — Safe</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="province-note">C5 · 523 Hz — Incheon</div>
+        <div class="province-hz">Mood score 58/100 · Gateway · Modern · In-between</div>
+        <ul class="province-stats">
+          <li>Population: <b>2.99M</b>, 2,580/km²</li>
+          <li>English (EF EPI 2024): <b>532</b> — boosted by 70M+ airport passengers/yr</li>
+          <li>Avg. temp: <b>11.8°C</b></li>
+          <li>Safety Index: <b>80.0/100</b> — Safe</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="province-note">A4 · 440 Hz — Jeju-do</div>
+        <div class="province-hz">Mood score 48/100 · Volcanic · Ancient · Still</div>
+        <ul class="province-stats">
+          <li>Population: <b>676,800</b> (2023 census) — fastest-growing province</li>
+          <li>English: below national average, no EF EPI city data</li>
+          <li>Avg. temp: <b>16.6°C</b> — warmest province in Korea</li>
+          <li>Safety Index: <b>83.0/100</b> — Very Safe</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
+    <p>These five ideas are design proposals for where Moodscape could go next. None of them exist in the current app yet; they're listed here so the goals are documented and each can be checked off as it lands.</p>
+    <div class="feature-list">
+      <div class="card">
+        <div class="ft">
+          <h4>🌡️ Live weather-to-pitch</h4>
+          <p>Pull today's actual temperature per province from the free Open-Meteo API and offset the baseline pitch/tempo from it, so the same province sounds different on a hot day than a cold one.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ft">
+          <h4>♿ Accessibility mode</h4>
+          <p>A non-visual interface: auto-play a province's note on focus, screen-reader-friendly stat readouts, and stereo positioning so the map has a physical sense in audio space — aimed at blind and low-vision users.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ft">
+          <h4>🔬 User study</h4>
+          <p>A structured listening test (sighted and blind/low-vision participants) to check whether people can correctly infer density, safety, and temperature from the sonification alone, above chance.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ft">
+          <h4>🤖 AI mood narrative generator</h4>
+          <p>Generate a short, non-repeating text description of each province's soundscape from its live mood score, note, tempo, and instrumentation via a language model.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ft">
+          <h4>📦 Open dataset</h4>
+          <p>Publish the mood-score formula, source statistics, and resulting musical parameters for all 17 South Korean provinces (not just the four studied so far) so others can reuse or extend it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span> Related work</h2>
+    <div class="card">
+      <h3>NASA — Black Hole Sonification (2022)</h3>
+      <p>NASA's Chandra X-ray Centre mapped pressure waves from the Perseus galaxy cluster into audible sound by scaling them 57 octaves upward, with X-ray brightness as pitch and distance from the black hole as stereo position. Patterns invisible in the raw image became audible in seconds. Moodscape borrows the same basic move — spatial/geographic data mapped directly to audio parameters.</p>
+    </div>
+    <div class="card">
+      <h3>iSonic — Geographic Sonification for Blind Users (ACM TOCHI, 2008)</h3>
+      <p>The University of Maryland's HCI Lab built an interactive sonification tool letting blind users explore georeferenced data through coordinated sound and speech; testing with blind participants showed they could identify facts and trends in unfamiliar geographic data by ear. It's the closest academic precedent for Moodscape's proposed accessibility mode.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">07</span> Sources</h2>
+    <div class="refs">
+      <ol>
+        <li>ACM TOCHI (2008). iSonic: Interactive Data Sonification for Blind Users.</li>
+        <li>EF Education First (2025). EF English Proficiency Index 2024 — South Korea.</li>
+        <li>Frontiers in Data (2023). Data-to-Music Sonification and User Engagement. PMC10448511.</li>
+        <li>Frontiers in Rehabilitation Sciences (2024). SONOICE! Sonification for visually impaired users. doi:10.3389/fresc.2024.1368983</li>
+        <li>Korea Meteorological Administration (KMA). 30-Year Climate Normal (1991–2020).</li>
+        <li>KOSIS — Statistics Korea (2024). Population and Housing Census.</li>
+        <li>NASA Chandra X-ray Centre (2022). Black Hole Sonification — Perseus Galaxy Cluster.</li>
+        <li>Numbeo (2024–2025). Safety Index by City — South Korea.</li>
+        <li>Open-Meteo (2025). Free Weather API — open-meteo.com/en/docs</li>
+        <li>ResearchGate (2024). Review of sonification solutions in assistive systems for visually impaired people.</li>
+        <li>STRAUSS: Sonification Tools & Resources for Analysis Using Sound Synthesis (2025). arXiv:2504.01660</li>
+        <li>University of Illinois iSchool (2023). Making Data Visualizations Accessible to Blind Researchers.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>Moodscape · 소리로 느끼는 한국</footer>
+
+</body>
+</html>
