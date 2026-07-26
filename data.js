@@ -4,6 +4,7 @@ let currentState = null;
 let currentPlace = null;
 let currentPlaceState = null;
 let isPlaying = false;
+let chatHistory = {}; // Store chat logs per place: { "seoul__hongdae": [{role: "user"/"local", text: "..."}] }
 const waveHeights = [0.3,0.6,0.8,0.5,0.9,0.4,0.7,0.5,0.6,0.8,0.3,0.7,0.9,0.4,0.6,0.5,0.8,0.7,0.3,0.6];
 
 const MOOD_DATA = {
@@ -163,4 +164,90 @@ function getMoodDesc(score, name) {
   if (score < 0.55) return `${name} strikes a balance — active enough to feel alive, quiet enough to breathe.`;
   if (score < 0.75) return `${name} buzzes with life and things to do, especially evenings and weekends.`;
   return `${name} is among the most electric places in Korea — constant energy day and night.`;
+}
+
+function getLocalPersona(stateName, place) {
+  const name = (place.name || "").toLowerCase();
+  const type = (place.type || "").toLowerCase();
+  const char = (place.character || "").toLowerCase();
+
+  // 1. Gyeongbokgung
+  if (name.includes("gyeongbokgung")) {
+    return {
+      name: "Min-ho (Royal Guard)",
+      avatar: "💂‍♂️",
+      greeting: "Hello, traveler! I am Min-ho, a guard protecting Gwanghwamun gate. Ask me anything about the Joseon dynasty history, palace secrets, or our changing of the guard ceremony!"
+    };
+  }
+  // 2. Gyeongju Bulguksa
+  if (name.includes("bulguksa")) {
+    return {
+      name: "Beop-gyeong (Buddhist Monk)",
+      avatar: "🙏",
+      greeting: "Welcome. I am monk Beop-gyeong of Bulguksa Temple. Ask me about our ancient pagoda treasures, the Seokguram Grotto, or Buddhist meditation practices!"
+    };
+  }
+  // 3. Hongdae
+  if (name.includes("hongdae")) {
+    return {
+      name: "Ji-hye (Indie Bassist)",
+      avatar: "🎸",
+      greeting: "Hey! I'm Ji-hye, bassist for a local garage rock band. Ask me about the best live indie clubs, hidden record stores, or post-show street food in Hongdae!"
+    };
+  }
+  // 4. Gangnam
+  if (name.includes("gangnam")) {
+    return {
+      name: "Jun-su (Fashion Stylist)",
+      avatar: "🕶️",
+      greeting: "Welcome to Gangnam! I'm Jun-su, a fashion stylist. Ask me about the hottest shopping streets, luxury cafes, or premium rooftop lounges in the district!"
+    };
+  }
+  // 5. Bukchon Hanok
+  if (name.includes("bukchon")) {
+    return {
+      name: "Grandma Kim (Tea House Owner)",
+      avatar: "🍵",
+      greeting: "Hello, dear traveler. I am Grandma Kim, and I run a small traditional tea house here in the village. Ask me about our 600-year-old wooden houses, tea pairings, or quiet alleys!"
+    };
+  }
+  // 6. Jeju Hallasan / Parks
+  if (name.includes("hallasan") || type.includes("mountain") || type.includes("park")) {
+    return {
+      name: "Yeon-woo (Park Ranger)",
+      avatar: "🥾",
+      greeting: "Welcome to the trails! I'm Yeon-woo, a forest ranger. Ask me about the hiking courses, weather conditions, local wildlife, or volcano safety!"
+    };
+  }
+  // 7. Beaches / Haeundae
+  if (name.includes("beach") || type.includes("beach")) {
+    return {
+      name: "Min-ki (Surf Coach)",
+      avatar: "🏄‍♂️",
+      greeting: "Hey, surf's up! I'm Min-ki, a local surf instructor. Ask me about the wave conditions, beach safety, or best coastal sunset bars!"
+    };
+  }
+  // 8. Solemn / Memorial
+  if (name.includes("cemetery") || name.includes("memorial") || name.includes("dmz") || name.includes("5.18")) {
+    return {
+      name: "Mr. Park (Historical Guide)",
+      avatar: "🎙️",
+      greeting: "Greetings. I am Mr. Park, a historical guide. Ask me about the history, solemn background, and commemorative monuments of this memorial site."
+    };
+  }
+
+  // Fallback default persona based on place category
+  if (type.includes("traditional") || type.includes("temple") || type.includes("folk") || type.includes("village")) {
+    return {
+      name: "Sung-ho (Local Craftsman)",
+      avatar: "🏺",
+      greeting: `Welcome to ${place.name}! I am Sung-ho, a local craftsman. Ask me about our traditional arts, village history, or local heritage!`
+    };
+  }
+
+  return {
+    name: "Yoon-a (Local Explorer)",
+    avatar: "🎒",
+    greeting: `Hi! I'm Yoon-a, a local resident who loves exploring ${place.name}. Ask me about my favorite spots, hidden gems, or local food recommendations!`
+  };
 }

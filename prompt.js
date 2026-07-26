@@ -254,3 +254,61 @@ function saveSunoKey() {
   const s = document.getElementById("suno-save-status");
   if (s) { s.textContent = "Saved to this browser."; setTimeout(() => s.textContent = "", 2000); }
 }
+
+// ── GEMINI AI CONFIG & CHAT INTEGRATION ──────────────────────────────────────
+
+function getGeminiConfig() {
+  try { return JSON.parse(localStorage.getItem("moodscape_gemini") || "{}"); }
+  catch (e) { return {}; }
+}
+
+function saveGeminiConfig(cfg) {
+  localStorage.setItem("moodscape_gemini", JSON.stringify(cfg));
+}
+
+function buildSystemPrompt(place, stateName) {
+  const persona = getLocalPersona(stateName, place);
+  return `You are a local resident of ${place.name} in ${stateName}, South Korea. 
+Your persona is: ${persona.name}.
+Your job or role matches the location's character: ${place.type}. 
+Your personality and greeting style is: "${persona.greeting}".
+
+Instructions:
+1. Answer the user's questions in a friendly, conversational, and helpful tone.
+2. Answer from your local resident persona's perspective. Avoid saying "I am an AI" or "I am a language model". Talk about street busking, history, local tea pairings, mountain hiking, or surfing depending on your role!
+3. Keep your answers brief (maximum 2-3 sentences).
+4. Feel free to occasionally use simple Korean words of excitement or friendliness (e.g. "Annyeong!", "Daebak!", "Jinja?") but write the main answer in English.`;
+}
+
+async function askGeminiLocal(question, place, stateName, apiKey) {
+  const systemInstruction = buildSystemPrompt(place, stateName);
+  
+  // Use a CORS proxy if running from file:// protocol to avoid preflight issues
+  let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  if (window.location.protocol === "file:") {
+    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { 
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: question }] }],
+      systemInstruction: { parts: [{ text: systemInstruction }] },
+      generationConfig: { maxOutputTokens: 150, temperature: 0.7 }
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Gemini API error (HTTP ${response.status})`);
+  }
+
+  const json = await response.json();
+  if (json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts[0]) {
+    return json.candidates[0].content.parts[0].text;
+  }
+  
+  throw new Error("Invalid response format from Gemini API");
+}

@@ -153,6 +153,61 @@ function showPlace(stateName, placeIdx) {
       </a>
     </div>
   `;
+
+  // Render "Ask a Local" chat interface (Gemini Integration)
+  const persona = getLocalPersona(stateName, p);
+  const geminiConfig = getGeminiConfig();
+  const hasKey = !!geminiConfig.key;
+  const keyEscaped = (geminiConfig.key || "").replace(/"/g, "&quot;");
+
+  const chatKey = `${stateName}__${p.name}`;
+  if (!chatHistory[chatKey]) {
+    chatHistory[chatKey] = [{ role: "local", text: persona.greeting }];
+  }
+
+  const historyHtml = chatHistory[chatKey].map(m => `
+    <div class="chat-bubble ${m.role === 'user' ? 'user' : 'local'}">
+      ${m.role === 'local' ? `<span>${persona.avatar}</span> ` : ''}${m.text.replace(/</g, "&lt;")}
+    </div>
+  `).join("");
+
+  const chatHtml = `
+    <div class="chat-section">
+      <div class="chat-header">
+        <div class="chat-header-avatar">${persona.avatar}</div>
+        <div class="chat-header-info">
+          <div class="chat-header-name">Ask a Local: ${persona.name}</div>
+          <div class="chat-header-status">● Online</div>
+        </div>
+      </div>
+      <div class="chat-box" id="chat-box">
+        ${historyHtml}
+      </div>
+      
+      <div id="chat-key-area" class="chat-key-prompt" style="display: ${hasKey ? 'none' : 'flex'}">
+        <p>🔑 To chat, please paste your Gemini API key (from Google AI Studio):</p>
+        <div class="chat-key-input-row">
+          <input type="password" id="gemini-key-input" class="chat-key-input" placeholder="Paste your API key here..." value="${keyEscaped}">
+          <button class="chat-key-save-btn" onclick="saveGeminiKey()">Save</button>
+        </div>
+        <span id="gemini-save-status" class="chat-key-save-status"></span>
+      </div>
+
+      <div class="chat-input-row" style="display: ${hasKey ? 'flex' : 'none'}" id="chat-input-area">
+        <input type="text" id="chat-user-input" class="chat-input" placeholder="Ask something about this place..." onkeydown="handleChatKeyDown(event)">
+        <button class="chat-send-btn" onclick="sendChatMessage()">Send</button>
+      </div>
+
+      <button class="chat-settings-toggle" onclick="toggleGeminiSettings()" id="chat-settings-link" style="display: ${hasKey ? 'inline-block' : 'none'}">⚙️ Edit API Key</button>
+    </div>
+  `;
+
+  // Append chat HTML to side panel content
+  panel.innerHTML += chatHtml;
+
+  // Scroll chat box to bottom
+  const chatBox = document.getElementById("chat-box");
+  if (chatBox) chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // ── PHOTO UPLOAD ──────────────────────────────────────────────────────────────
@@ -250,3 +305,110 @@ searchInput.addEventListener("input", () => {
 document.addEventListener("click", e => {
   if (!e.target.closest(".search-wrap")) searchResults.classList.remove("open");
 });
+
+// ── CHAT FUNCTIONS ────────────────────────────────────────────────────────────
+
+function saveGeminiKey() {
+  const key = (document.getElementById("gemini-key-input").value || "").trim();
+  const cfg = getGeminiConfig();
+  cfg.key = key;
+  saveGeminiConfig(cfg);
+  
+  const status = document.getElementById("gemini-save-status");
+  if (status) {
+    status.textContent = "Saved ✓";
+    setTimeout(() => status.textContent = "", 2000);
+  }
+  
+  if (key) {
+    document.getElementById("chat-key-area").style.display = "none";
+    document.getElementById("chat-input-area").style.display = "flex";
+    document.getElementById("chat-settings-link").style.display = "inline-block";
+  }
+}
+
+function toggleGeminiSettings() {
+  const area = document.getElementById("chat-key-area");
+  if (area.style.display === "none") {
+    area.style.display = "flex";
+  } else {
+    area.style.display = "none";
+  }
+}
+
+function handleChatKeyDown(event) {
+  if (event.key === "Enter") {
+    sendChatMessage();
+  }
+}
+
+async function sendChatMessage() {
+  const input = document.getElementById("chat-user-input");
+  if (!input) return;
+  const question = input.value.trim();
+  if (!question) return;
+
+  const place = currentPlace;
+  const stateName = currentPlaceState;
+  if (!place || !stateName) return;
+
+  const chatKey = `${stateName}__${place.name}`;
+  const persona = getLocalPersona(stateName, place);
+  const cfg = getGeminiConfig();
+  
+  if (!cfg.key) {
+    alert("Please enter a Gemini API Key first.");
+    return;
+  }
+
+  // 1. Add user bubble to history & screen
+  chatHistory[chatKey].push({ role: "user", text: question });
+  input.value = "";
+  
+  const chatBox = document.getElementById("chat-box");
+  if (!chatBox) return;
+
+  const userBubble = document.createElement("div");
+  userBubble.className = "chat-bubble user";
+  userBubble.textContent = question;
+  chatBox.appendChild(userBubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // 2. Add typing indicator bubble
+  const typingIndicator = document.createElement("div");
+  typingIndicator.className = "typing-indicator";
+  typingIndicator.id = "chat-typing-indicator";
+  typingIndicator.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  chatBox.appendChild(typingIndicator);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // 3. Make the API Call to Gemini
+  try {
+    const answer = await askGeminiLocal(question, place, stateName, cfg.key);
+    
+    // Remove typing indicator
+    const indicatorEl = document.getElementById("chat-typing-indicator");
+    if (indicatorEl) indicatorEl.remove();
+
+    // Add local response bubble to history & screen
+    chatHistory[chatKey].push({ role: "local", text: answer });
+    
+    const localBubble = document.createElement("div");
+    localBubble.className = "chat-bubble local";
+    localBubble.innerHTML = `<span>${persona.avatar}</span> ${answer.replace(/</g, "&lt;")}`;
+    chatBox.appendChild(localBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  } catch (e) {
+    // Remove typing indicator
+    const indicatorEl = document.getElementById("chat-typing-indicator");
+    if (indicatorEl) indicatorEl.remove();
+
+    // Display error bubble
+    const errorBubble = document.createElement("div");
+    errorBubble.className = "chat-bubble local";
+    errorBubble.style.color = "#ff6c6c";
+    errorBubble.innerHTML = `<span>⚠️</span> Sorry, I couldn't connect. Error: ${e.message}`;
+    chatBox.appendChild(errorBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+}

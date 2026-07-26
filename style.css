@@ -150,3 +150,187 @@ main { display: grid; grid-template-columns: 55% 45%; height: calc(100vh - 57px)
 #side-panel::-webkit-scrollbar { width: 4px; }
 #side-panel::-webkit-scrollbar-track { background: transparent; }
 #side-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* CHAT / ASK A LOCAL */
+.chat-section {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 16px;
+}
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 0.5px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+.chat-header-avatar {
+  font-size: 22px;
+}
+.chat-header-info {
+  flex: 1;
+}
+.chat-header-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.chat-header-status {
+  font-size: 11px;
+  color: #4ade80;
+}
+.chat-box {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-right: 4px;
+}
+.chat-box::-webkit-scrollbar { width: 3px; }
+.chat-box::-webkit-scrollbar-track { background: transparent; }
+.chat-box::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  line-height: 1.42;
+  word-break: break-word;
+}
+.chat-bubble.local {
+  background: var(--bg2);
+  color: var(--text);
+  align-self: flex-start;
+  border-top-left-radius: 2px;
+}
+.chat-bubble.user {
+  background: var(--accent);
+  color: white;
+  align-self: flex-end;
+  border-top-right-radius: 2px;
+}
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+.chat-input {
+  flex: 1;
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 12.5px;
+  outline: none;
+}
+.chat-input:focus {
+  border-color: var(--accent);
+}
+.chat-send-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 0 14px;
+  color: white;
+  font-size: 12.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-send-btn:hover {
+  filter: brightness(1.1);
+}
+.chat-send-btn:active {
+  transform: scale(0.96);
+}
+.chat-key-prompt {
+  background: rgba(108,143,255,0.06);
+  border: 0.5px dashed rgba(108,143,255,0.3);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chat-key-prompt p {
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.4;
+}
+.chat-key-input-row {
+  display: flex;
+  gap: 6px;
+}
+.chat-key-input {
+  flex: 1;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: var(--text);
+  font-size: 11.5px;
+  outline: none;
+}
+.chat-key-save-btn {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 0 10px;
+  color: var(--text);
+  font-size: 11px;
+  cursor: pointer;
+}
+.chat-key-save-btn:hover {
+  background: var(--border);
+}
+.chat-key-save-status {
+  font-size: 10.5px;
+  color: #4ade80;
+}
+.chat-settings-toggle {
+  background: none;
+  border: none;
+  color: var(--text2);
+  font-size: 11px;
+  cursor: pointer;
+  text-decoration: underline;
+  align-self: flex-start;
+  margin-top: 6px;
+  outline: none;
+}
+.chat-settings-toggle:hover {
+  color: var(--text);
+}
+
+/* Typing loader animation */
+.typing-indicator {
+  display: flex;
+  gap: 3.5px;
+  padding: 8px 12px;
+  background: var(--bg2);
+  border-radius: 12px;
+  border-top-left-radius: 2px;
+  align-self: flex-start;
+}
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--text2);
+  border-radius: 50%;
+  animation: typingBounce 1s infinite ease-in-out;
+  opacity: 0.4;
+}
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
