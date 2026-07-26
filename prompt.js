@@ -179,9 +179,10 @@ function buildSunoPrompt(place, stateName) {
     + `Cinematic, atmospheric, no vocals, no lyrics.`;
 }
 
-// Helper to proxy requests through corsproxy.io if running on file:// protocol
+// Helper to proxy requests through corsproxy.io if running on file:// protocol or default sunoapi.org host
 function getProxiedUrl(url) {
-  if (window.location.protocol === "file:") {
+  const isDefaultHost = url.includes("sunoapi.org");
+  if (window.location.protocol === "file:" || isDefaultHost) {
     return "https://corsproxy.io/?url=" + encodeURIComponent(url);
   }
   return url;
