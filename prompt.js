@@ -283,9 +283,17 @@ Instructions:
 
 async function askGeminiLocal(question, place, stateName, apiKey) {
   const systemInstruction = buildSystemPrompt(place, stateName);
-  
+
+  // Model verified against the live Gemini API docs/pricing pages (ai.google.dev) on 2026-08-09.
+  // gemini-1.5-flash is fully shut down (all 1.5/1.0 models return HTTP 404) — this call was
+  // silently broken before this change. gemini-2.5-flash-lite is cheaper ($0.10/$0.40 per 1M
+  // tokens vs gemini-3.5-flash-lite's $0.30/$2.50) but Google has already announced its
+  // retirement for 2026-10-16, so gemini-3.5-flash-lite is used instead: it's the cheapest
+  // model in the current, non-deprecated 3.5 generation with no shutdown date announced.
+  const GEMINI_MODEL = "gemini-3.5-flash-lite";
+
   // Use a CORS proxy if running from file:// protocol to avoid preflight issues
-  let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
   if (window.location.protocol === "file:") {
     url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
   }
