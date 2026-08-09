@@ -251,7 +251,7 @@ function goCountry() {
   isPlaying = false;
   stopPlayback();
   svg.selectAll(".region-path").classed("active", false);
-  document.getElementById("panel-content").innerHTML = `<div class="empty"><div class="big">🗺️</div><p>Hover over a province to preview its vibe.<br>Click to dive into places.</p></div>`;
+  document.getElementById("panel-content").innerHTML = `<div class="empty"><div class="big">🗺️</div><p>Hover over a province to preview its vibe.<br>Click to dive into places.</p><div class="byok-notice"><b>Free to explore, no setup needed.</b> The map, mood scores, real photos, and a synth soundscape all work instantly. Two optional AI features — the "Ask a Local" chat and AI-generated music — need your own free/paid API key (Gemini / Suno), entered when you try them. This is a deliberate bring-your-own-key design for a static site with no backend server, not a bug or a paywall you'll hit unexpectedly.</div><div class="byok-notice"><b>Research status.</b> The mood scores shown here are currently hand-assigned, not yet computed from the sonification formula documented on the <a href="about.html" style="color:var(--accent);">About &amp; research</a> page — so the project's core hypothesis (that sound can communicate real geographic/demographic data) hasn't been tested against live formula output yet. See that page for exactly what's built vs. proposed.</div></div>`;
   document.getElementById("breadcrumb").innerHTML = `<span onclick="goCountry()">South Korea</span>`;
   hint.style.display = "block";
 }
