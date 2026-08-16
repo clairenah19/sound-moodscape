@@ -71,6 +71,14 @@
       </div>
     </div>
 
+    <h3 style="margin-top:28px;">Why this weighting — the judgment call behind the formula</h3>
+    <p>The formula isn't arbitrary, but it isn't derived from a regression or a listener study either — it's a stated design judgment, and it's worth being explicit about the reasoning rather than presenting four numbers as if they were self-evidently correct. Two constraints shaped every input before any weight was assigned: each factor had to map onto a documented axis of how people actually perceive places (ISO 12913's Pleasantness/Eventfulness split, discussed in section 02, plus accessibility and physical comfort), and each had to have a real, cited, apples-to-apples statistic across every province — Numbeo, EF EPI, KOSIS, KMA — so the score is built from sourced numbers rather than invented ones.</p>
+    <p><b style="color:var(--text)">Safety at 30%, the largest single weight.</b> Of the four inputs, safety is the one that can flip a place's whole character rather than just shading it — a dense, beautiful city that felt unsafe wouldn't read as "exciting," it would read as "tense." That qualitative asymmetry, plus the fact that the Numbeo Safety Index is the most consistently sourced, directly comparable number across every province, is why it leads the formula rather than sharing the top weight with something else.</p>
+    <p><b style="color:var(--text)">English proficiency at 25%.</b> This one is a judgment call specific to who Moodscape is for: a listener discovering a Korean province through sound for the first time, without local context, skews toward someone who doesn't speak Korean. How navigable and welcoming a place feels to that specific listener is treated as a first-order input rather than a footnote, even though the EF EPI wasn't originally designed as a "mood" metric — it was repurposed here because it's the closest cited proxy for that audience-specific dimension.</p>
+    <p><b style="color:var(--text)">Density at 25%, matched deliberately to English proficiency.</b> Density is the closest available proxy for the Eventfulness half of ISO 12913 — energy, crowding, pace. It's set equal to English proficiency rather than lower so that neither becomes a rounding error next to Safety's 30%, while still leaving Safety as the one factor allowed to dominate outright.</p>
+    <p><b style="color:var(--text)">Annual temperature at 20%, the smallest weight, on purpose.</b> Of the four inputs, temperature has by far the narrowest real spread across Korean provinces — the four reference provinces cluster within about 5°C of each other on annual average, versus density's two-order-of-magnitude range. Weighting a near-uniform variable any higher would dilute the three inputs that actually differentiate provinces from one another. It stays in the formula as a genuine comfort signal — it isn't dropped — but it's sized to match how little differentiating work it's actually doing at the annual-average level, which is also the reason Seasonal Drift was pulled out as its own, separately-weighted audio dimension below rather than folded into this static score.</p>
+    <p>The same principle — bound each term by a defensible real-world anchor rather than a round number picked for convenience — carries into the Density Score curve and the Seasonal Drift clamp immediately below: the density ceiling is Seoul's actual cited peak, not an arbitrary 100, and the 30°C drift denominator is the widest documented provincial swing, not a guess. None of this is claimed to be the optimal weighting — it's the project's best current, justified judgment, and it's explicitly falsifiable: the listening-test roadmap item in section 06 is what would actually test whether 30/25/25/20 tracks real listener perception better than some other split, or worse.</p>
+
     <h3 style="margin-top:28px;">Density Score — named zones, not a raw inverse</h3>
     <p>Korean provincial density spans more than two orders of magnitude (≈50/km² in the emptiest counties to 16,000/km² in central Seoul), so a linear scale would flatten everything except Seoul to near-zero. Density Score uses a log curve anchored between a floor of 50/km² ("empty") and a ceiling of 18,000/km² (just above Seoul's cited peak, "overcrowded"):</p>
     <div class="formula">Density Score = 100 × (log₁₀(density) − log₁₀(50)) / (log₁₀(18,000) − log₁₀(50)), clamped to [0, 100]</div>
@@ -156,7 +164,81 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
   </section>
 
   <section>
-    <h2><span class="n">05</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
+    <h2><span class="n">05</span> Research pipeline &amp; process <span class="badge built" style="margin-left:6px;">Documented methodology</span></h2>
+    <p class="lede">How the region-level research behind Moodscape — the related-work survey and the fused City Mood &amp; Character Report — was actually produced, so the process is auditable and repeatable, not just the output.</p>
+    <p>This is a methods report, not a findings report. It covers six stages: literature search, framework selection, parallel data compilation, fusion, narrative synthesis, and service integration.</p>
+
+    <div class="pipeline">
+      <div class="card">
+        <div class="num">1</div>
+        <div class="body">
+          <h4>Literature search</h4>
+          <p>Before collecting any new data, a scoping search across ScienceDirect, ACM Digital Library, arXiv, and PLOS One checked whether published research already covers Moodscape's core idea. No paper did exactly that, but it surfaced close precedents — Chatty Maps (Aiello et al., 2016), the ISO 12913 soundscape standard, real Korean urban-soundscape studies of Seoul and Daejeon, place-identity/city-branding research, and iSonic (2008). Delivered as a standalone document first, since it determines what framing the rest of the pipeline can honestly use.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <div class="body">
+          <h4>Framework selection</h4>
+          <p>The brief called for a named psychology framework, with Russell's Circumplex Model suggested as a starting point. ISO 12913 — Russell's model formally adapted for environmental/soundscape research, with Pleasantness and Eventfulness axes and eight standard descriptors — was identified as the stronger fit, since it's the instrument the actual soundscape research community uses and several Stage 1 studies report results in that exact format. The substitution was flagged and confirmed before it was used to structure the rest of the project.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <div class="body">
+          <h4>Parallel data compilation</h4>
+          <p>Covering all 17 Moodscape regions on two axes (emotional and cultural) was split three ways — six regions, six regions, five — and run as three parallel research passes under an identical brief: cite a directly published region-specific soundscape study if one exists; otherwise produce an explicitly labeled reasoned estimate from real proxy data (industrial character, density, tourism, terrain) rather than inventing precise numbers; and compile cultural facts with specific numbers, dates, and named things, each cited.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">4</div>
+        <div class="body">
+          <h4>Fusion</h4>
+          <p>The two data types were combined but deliberately kept in different formats: emotional data as a 0–100 Pleasantness/Eventfulness ratio, visualized as a circumplex scatter chart and table with sourced/estimated status color- and shape-coded; cultural/character data as prose rather than a graph, since cultural identity resists being reduced to a single number the way a soundscape survey response can be.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">5</div>
+        <div class="body">
+          <h4>Narrative synthesis <span style="color:var(--text2);font-weight:400;">— the LLM step</span></h4>
+          <p>The compiled raw facts and citations from Stage 3 were turned into 17 flowing paragraphs, each following the same structure: state the region's Pleasantness/Eventfulness position and its sourcing status, then weave in 2–4 real, cited facts into coherent narrative rather than a bullet list — with every claim traceable back to Stage 3's sourcing in the report's reference list.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">6</div>
+        <div class="body">
+          <h4>Service integration</h4>
+          <p>The fused findings rewrote the 17 region-level taglines shown in the live app, grounding generic phrases in specific researched facts. Deliberately <em>not</em> changed: the app's underlying 0–1 mood scores that drive the map's color and audio engine, which stay hand-assigned rather than computed from either the sonification formula (section 03) or this report's P/E estimates — mixing two differently-sourced scoring systems into one numeric field would create exactly the kind of quiet inconsistency this project tries to avoid. That integration remains a documented, not-yet-done next step.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:28px;">What the process turned up</h3>
+    <div class="param-grid">
+      <div class="card">
+        <div class="k">2 of 17</div>
+        <div class="v">Regions with a directly published soundscape study (Seoul, Daejeon) — a real finding about how sparse this literature is, not an assumption going in.</div>
+      </div>
+      <div class="card">
+        <div class="k">15 of 17</div>
+        <div class="v">Regions whose emotional score is an explicitly labeled estimate rather than a measurement, as a direct consequence of that 2-of-17 hit rate.</div>
+      </div>
+      <div class="card">
+        <div class="k">~3×</div>
+        <div class="v">Wall-clock speedup from running Stage 3 as three parallel research passes instead of one sequential pass, at the cost of needing a shared brief up front so output stayed comparable.</div>
+      </div>
+    </div>
+
+    <p style="margin-top:14px;">Almost every region also split into at least two distinct characters rather than one uniform identity — Ulsan's whaling heritage under its shipyards, Incheon's Chinatown beside Songdo, Ansan's Baekje temples near a Hyundai plant. Several regions' scores in the fused report are explicitly noted as averages of two different local profiles rather than a single clean read.</p>
+
+    <div class="status-banner" style="margin-top:10px;">
+      <span>📎</span>
+      <div><b>What this pipeline is not:</b> a claim that it constitutes a validated scientific methodology. It's a documented, repeatable procedure for compiling and fusing publicly available data under explicit honesty constraints — cite what's real, label what's estimated — stated plainly rather than implied to be more rigorous than it is. Full writeup: <span style="color:var(--text)">research/Moodscape_Process_Pipeline_Report_EN.pdf</span>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
     <p>These five ideas are design proposals for where Moodscape could go next. None of them exist in the current app yet; they're listed here so the goals are documented and each can be checked off as it lands.</p>
     <div class="feature-list">
       <div class="card">
@@ -193,7 +275,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
   </section>
 
   <section>
-    <h2><span class="n">06</span> Related work</h2>
+    <h2><span class="n">07</span> Related work</h2>
     <div class="card">
       <h3>NASA — Black Hole Sonification (2022)</h3>
       <p>NASA's Chandra X-ray Centre mapped pressure waves from the Perseus galaxy cluster into audible sound by scaling them 57 octaves upward, with X-ray brightness as pitch and distance from the black hole as stereo position. Patterns invisible in the raw image became audible in seconds. Moodscape borrows the same basic move — spatial/geographic data mapped directly to audio parameters.</p>
@@ -205,7 +287,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
   </section>
 
   <section>
-    <h2><span class="n">07</span> Sources</h2>
+    <h2><span class="n">08</span> Sources</h2>
     <div class="refs">
       <ol>
         <li>ACM TOCHI (2008). iSonic: Interactive Data Sonification for Blind Users.</li>
