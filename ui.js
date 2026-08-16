@@ -23,6 +23,19 @@ function showStateSide(stateName) {
       </div>
     </div>
     <div class="panel-section">
+      <div class="panel-title">Language accessibility</div>
+      <select id="lang-select" class="suno-input" style="width:100%;margin-bottom:8px;" onchange="onLanguageChange('${stateName}')">
+        ${LANGUAGE_OPTIONS.map(l => `<option value="${l}" ${l === getSelectedLanguage() ? "selected" : ""}>${l}</option>`).join("")}
+      </select>
+      <div id="lang-score-result">${renderLanguageScoreArea(stateName)}</div>
+    </div>
+    <div class="panel-section">
+      <div class="narrative-card">
+        <div class="narrative-label">The vibe, in words</div>
+        ${buildProvinceNarrative(stateName)}
+      </div>
+    </div>
+    <div class="panel-section">
       <div class="panel-title">Places to explore</div>
       ${s.places.map((p, i) => `
         <div class="region-card" onclick="showPlace('${stateName}', ${i})">
@@ -76,6 +89,13 @@ function showPlace(stateName, placeIdx) {
     </div>
 
     <div class="panel-section">
+      <div class="narrative-card">
+        <div class="narrative-label">How this became music</div>
+        ${buildPlaceNarrative(p, stateName)}
+      </div>
+    </div>
+
+    <div class="panel-section">
       <div class="panel-title">Generated soundscape</div>
       <div class="player">
         <div class="player-top">
@@ -84,7 +104,7 @@ function showPlace(stateName, placeIdx) {
           </button>
           <div class="player-info">
             <div class="track-name">${p.name} — ${MOOD_LABEL(p.score)} Mix</div>
-            <div class="track-sub">${Math.round(40 + p.score * 80)} BPM · ${getMusicalKey(p) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p).split(",")[0]}</div>
+            <div class="track-sub">${getSunoBpm(p)} BPM · ${getMusicalKey(p) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p).split(",")[0]}</div>
           </div>
         </div>
         <div class="waveform" id="waveform">${barsHtml}</div>
@@ -129,6 +149,15 @@ function showPlace(stateName, placeIdx) {
           : `<div class="photo-placeholder-static">No free-licensed photo found for this place yet.</div>`
         }
       </div>
+      ${p.photos && p.photos.length ? `
+      <div class="real-photo-gallery">
+        ${p.photos.map(ph => `
+          <a href="${ph.page || ph.url}" target="_blank" rel="noopener" class="real-photo-gallery-cell">
+            <img src="${ph.url}" alt="${p.name}" loading="lazy">
+            <div class="photo-credit">${ph.artist ? "Photo: " + ph.artist : "Wikimedia Commons"}${ph.license ? " · " + ph.license : ""}</div>
+          </a>
+        `).join("")}
+      </div>` : ""}
       <div class="panel-title" style="margin-top:16px;">Add your own photos</div>
       <div class="photo-grid" id="photo-grid">
         ${[0,1].map(i => {
@@ -343,6 +372,74 @@ function toggleGeminiSettings() {
 function handleChatKeyDown(event) {
   if (event.key === "Enter") {
     sendChatMessage();
+  }
+}
+
+// ── LANGUAGE ACCESSIBILITY UI ──────────────────────────────────────────────────
+
+function renderLanguageScoreArea(stateName) {
+  const language = getSelectedLanguage();
+  const cache = getLanguageScoreCache();
+  const cached = cache[languageScoreKey(stateName, language)];
+  const cfg = getGeminiConfig();
+
+  if (cached) {
+    return `
+      <div class="lang-score-card">
+        <div class="lang-score-num">${cached.score}<span>/100</span></div>
+        <div class="lang-score-body">
+          <div class="lang-score-label">${cached.label} — ${language}</div>
+          <div class="lang-score-reason">${cached.reasoning.replace(/</g, "&lt;")}</div>
+        </div>
+      </div>
+      <button class="suno-toggle" style="margin-top:8px;" onclick="runLanguageProficiencyEstimate('${stateName}')">🔁 Re-estimate</button>
+    `;
+  }
+
+  if (cfg.key) {
+    return `<button class="suno-toggle" onclick="runLanguageProficiencyEstimate('${stateName}')">🌐 Estimate ${language} accessibility via AI</button>`;
+  }
+
+  const keyEscaped = (cfg.key || "").replace(/"/g, "&quot;");
+  return `
+    <div class="suno-help" style="margin-top:0;margin-bottom:6px;">Computed live via the same Gemini key used by "Ask a Local" &amp; AI music prediction — free tier available at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="color:var(--accent);">Google AI Studio</a>.</div>
+    <input id="lang-gemini-key-input" class="suno-input" type="password" placeholder="Paste your Gemini API key…" value="${keyEscaped}" style="width:100%;margin-bottom:6px;">
+    <button class="suno-btn" onclick="saveLanguageGeminiKey('${stateName}')">Save &amp; estimate</button>
+  `;
+}
+
+function onLanguageChange(stateName) {
+  const sel = document.getElementById("lang-select");
+  const cfg = getLanguageConfig();
+  cfg.language = sel.value;
+  saveLanguageConfig(cfg);
+  const resultEl = document.getElementById("lang-score-result");
+  if (resultEl) resultEl.innerHTML = renderLanguageScoreArea(stateName);
+}
+
+function saveLanguageGeminiKey(stateName) {
+  const input = document.getElementById("lang-gemini-key-input");
+  const key = (input && input.value || "").trim();
+  if (!key) return;
+  const cfg = getGeminiConfig();
+  cfg.key = key;
+  saveGeminiConfig(cfg);
+  runLanguageProficiencyEstimate(stateName);
+}
+
+async function runLanguageProficiencyEstimate(stateName) {
+  const language = getSelectedLanguage();
+  const cfg = getGeminiConfig();
+  const resultEl = document.getElementById("lang-score-result");
+  if (!cfg.key) return;
+
+  if (resultEl) resultEl.innerHTML = `<div class="suno-help" style="margin-top:0;">🤖 Estimating ${language} accessibility for ${stateName}…</div>`;
+  try {
+    const prediction = await predictLanguageProficiencyWithAI(stateName, language, cfg.key);
+    cacheLanguageScore(languageScoreKey(stateName, language), prediction);
+    if (resultEl) resultEl.innerHTML = renderLanguageScoreArea(stateName);
+  } catch (e) {
+    if (resultEl) resultEl.innerHTML = `<div class="suno-help" style="margin-top:0;color:#ff6c6c;">Estimate failed: ${e.message}</div>`;
   }
 }
 

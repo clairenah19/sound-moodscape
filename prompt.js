@@ -170,13 +170,39 @@ function getSunoStyle(place) {
   return "lively electronic synth-pop, bright arpeggios, energetic groove, upbeat";
 }
 
+// BPM range widened from the original 40–120 to 42–152. The original ceiling meant even
+// Hongdae — the single highest-scoring place across all 85 — only reached ~115 BPM, well
+// below real K-indie/dance-pop energy (120–150+), so the "most energetic" place in the app
+// could never actually sound fast. This keeps the calm end (~42 BPM) about the same while
+// letting high-score places reach a genuinely energetic tempo.
+function getSunoBpm(place) {
+  return Math.round(42 + place.score * 110);
+}
+
+// Most places should stay purely instrumental so the track reads as an ambient soundscape
+// of the place, not a song about it. A few places contradict a blanket "no vocals" with
+// their own instrumentation/character text (pansori is inherently sung, monk chant is
+// vocal, Hongdae's character is literally "buskers") — those get wordless vocals instead,
+// keeping the human voice as texture without introducing unrelated lyrics.
+function getVocalDirective(place) {
+  const name = (place.name || "").toLowerCase();
+  const instr = (place.instrumentation || "").toLowerCase();
+  const char = (place.character || "").toLowerCase();
+
+  if (instr.includes("pansori")) return "wordless pansori-style vocal cries, no full lyrics";
+  if (instr.includes("chant") || instr.includes("monk")) return "wordless Buddhist chant vocals, no full lyrics";
+  if (name.includes("hongdae") || char.includes("busker")) return "wordless vocal ad-libs and shouted crowd energy, no full lyrics";
+  return "no vocals, no lyrics";
+}
+
 function buildSunoPrompt(place, stateName) {
-  const bpm = Math.round(40 + place.score * 80);
+  const bpm = getSunoBpm(place);
   const key = getMusicalKey(place);
   const style = getSunoStyle(place);
-  return `Instrumental music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
+  const vocals = getVocalDirective(place);
+  return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
     + `${style}, ${key}, around ${bpm} BPM. Instrumentation: ${place.instrumentation}. `
-    + `Cinematic, atmospheric, no vocals, no lyrics.`;
+    + `Cinematic, atmospheric, ${vocals}.`;
 }
 
 // Helper to proxy requests through corsproxy.io if running on file:// protocol or default sunoapi.org host
@@ -408,9 +434,123 @@ A real photo of this place is attached — use what you can actually see in it (
 }
 
 function buildSunoPromptFromAIPrediction(place, stateName, prediction) {
-  const bpm = Math.round(40 + place.score * 80);
-  return `Instrumental music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
+  const bpm = getSunoBpm(place);
+  const vocals = getVocalDirective(place);
+  return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
     + `${prediction.genre}, ${prediction.mood_descriptors}, ${prediction.tempo_feel}, ${prediction.key}, around ${bpm} BPM. `
     + `Instrumentation: ${prediction.instrumentation}. `
-    + `Cinematic, atmospheric, no vocals, no lyrics.`;
+    + `Cinematic, atmospheric, ${vocals}.`;
+}
+
+// ── LANGUAGE PROFICIENCY (selectable, AI-estimated) ──────────────────────────
+// The mood formula's "English proficiency" term (about.html §03) hard-coded one
+// language for every listener. This generalizes it: the listener picks their own
+// language, and the province's accessibility score for that specific language is
+// estimated live via the same Gemini key already used by "Ask a Local" and the AI
+// music-style predictor — rather than only ever citing the English-specific EF EPI
+// number. Results are cached per province+language pair since they don't change
+// moment to moment and re-querying on every panel open would just burn quota.
+
+const LANGUAGE_OPTIONS = [
+  "English", "Mandarin Chinese", "Japanese", "Spanish", "French",
+  "German", "Vietnamese", "Russian", "Arabic", "Hindi", "Portuguese", "Thai"
+];
+
+function getLanguageConfig() {
+  try { return JSON.parse(localStorage.getItem("moodscape_language") || "{}"); }
+  catch (e) { return {}; }
+}
+
+function saveLanguageConfig(cfg) {
+  localStorage.setItem("moodscape_language", JSON.stringify(cfg));
+}
+
+function getSelectedLanguage() {
+  return getLanguageConfig().language || "English";
+}
+
+function getLanguageScoreCache() {
+  try { return JSON.parse(localStorage.getItem("moodscape_lang_scores") || "{}"); }
+  catch (e) { return {}; }
+}
+
+function cacheLanguageScore(key, data) {
+  const c = getLanguageScoreCache();
+  c[key] = data;
+  try { localStorage.setItem("moodscape_lang_scores", JSON.stringify(c)); } catch (e) {}
+}
+
+function languageScoreKey(stateName, language) {
+  return slugify(stateName) + "__" + slugify(language);
+}
+
+// Global language picker in the site header (both index.html and about.html).
+// Keeps localStorage as the single source of truth; syncs the in-panel dropdown
+// (rendered per province in ui.js) and refreshes an already-open panel so a
+// language change takes effect immediately rather than only on next visit.
+function onHeaderLanguageChange(value) {
+  const cfg = getLanguageConfig();
+  cfg.language = value;
+  saveLanguageConfig(cfg);
+
+  if (typeof currentState !== "undefined" && currentState && typeof showStateSide === "function") {
+    showStateSide(currentState);
+  }
+  const panelSelect = document.getElementById("lang-select");
+  if (panelSelect && panelSelect.value !== value) panelSelect.value = value;
+}
+
+function initHeaderLanguageSelect() {
+  const sel = document.getElementById("header-lang-select");
+  if (sel) sel.value = getSelectedLanguage();
+}
+
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", initHeaderLanguageSelect);
+}
+
+async function predictLanguageProficiencyWithAI(stateName, language, apiKey) {
+  const GEMINI_MODEL = "gemini-3.5-flash-lite";
+  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+  if (window.location.protocol === "file:") {
+    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
+  }
+
+  const prompt = `You are estimating a "language accessibility" score for Moodscape, a data-sonification app that scores South Korean provinces on a mood formula. One input to that formula is how easy it is for a visitor who speaks ${language} (and no Korean) to navigate and communicate in ${stateName}, South Korea.
+
+Base your estimate on real, general knowledge of ${stateName}: things like international airport/tourism volume, presence of ${language}-speaking expat or immigrant communities, international schools or universities, prevalence of translated signage and menus, and how it compares to other Korean provinces. If ${language} is English, you may anchor on South Korea's real EF English Proficiency Index (nationally "moderate", roughly 520-550 in major metro areas) but still reason about this specific province rather than just repeating the national number. For every other language there is no equivalent published index, so this is a reasoned estimate from proxy signals, not a citation — say so plainly in the reasoning.
+
+Respond ONLY with the requested JSON: a 0-100 integer score (0 = essentially no ${language} accessibility, 100 = fully navigable in ${language} without any Korean), a short label, and 1-2 sentences of reasoning.`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.4,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          properties: {
+            score: { type: "INTEGER", description: "0-100 language accessibility estimate" },
+            label: { type: "STRING", description: "e.g. 'High', 'Moderate', 'Low'" },
+            reasoning: { type: "STRING", description: "1-2 sentences, framed as a reasoned estimate rather than a measured statistic" }
+          },
+          required: ["score", "label", "reasoning"]
+        }
+      }
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Gemini API error (HTTP ${response.status}): ${(await response.text()).slice(0, 200)}`);
+  }
+
+  const json = await response.json();
+  const text = json.candidates && json.candidates[0] && json.candidates[0].content &&
+               json.candidates[0].content.parts[0] && json.candidates[0].content.parts[0].text;
+  if (!text) throw new Error("Invalid response format from Gemini API");
+
+  return JSON.parse(text);
 }

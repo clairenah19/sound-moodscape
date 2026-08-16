@@ -21,6 +21,21 @@
     <span onclick="goCountry()">South Korea</span>
   </div>
   <button class="acc-toggle-btn" id="acc-toggle" onclick="toggleAccessibilityMode()">♿ Accessibility Mode</button>
+  <span class="header-lang-icon" title="Language for the accessibility estimate">🌐</span>
+  <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
+    <option value="English">English</option>
+    <option value="Mandarin Chinese">Mandarin Chinese</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Spanish">Spanish</option>
+    <option value="French">French</option>
+    <option value="German">German</option>
+    <option value="Vietnamese">Vietnamese</option>
+    <option value="Russian">Russian</option>
+    <option value="Arabic">Arabic</option>
+    <option value="Hindi">Hindi</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Thai">Thai</option>
+  </select>
   <a href="about.html" style="color:var(--text2);text-decoration:none;font-size:13px;margin-left:16px;white-space:nowrap;">About &amp; research</a>
 </header>
 
@@ -68,6 +83,7 @@
 <script src="geojson.js" defer></script>
 <script src="data.js" defer></script>
 <script src="prompt.js" defer></script>
+<script src="narrative.js" defer></script>
 <script src="audio.js" defer></script>
 <script src="map.js" defer></script>
 <script src="ui.js" defer></script>
