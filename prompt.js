@@ -321,3 +321,96 @@ async function askGeminiLocal(question, place, stateName, apiKey) {
   
   throw new Error("Invalid response format from Gemini API");
 }
+
+// ── AI MUSIC-STYLE PREDICTION (multimodal: research data + real photo) ──────────
+// Instead of the hand-written keyword rules in getSunoStyle()/getMusicalKey(), this
+// sends Gemini the place's actual research data (character, type, instrumentation
+// tags, region) AND its real Wikimedia photo, and asks it to predict the genre/
+// instrumentation/tempo/key that best fits — a genuine model-based prediction rather
+// than a lookup table. Requires the same Gemini key already used by "Ask a Local".
+
+async function imageUrlToBase64(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("image fetch HTTP " + res.status);
+  const blob = await res.blob();
+  const mimeType = blob.type || "image/jpeg";
+  const data = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result.split(",")[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+  return { data, mimeType };
+}
+
+async function predictMusicStyleWithAI(place, stateName, apiKey) {
+  const GEMINI_MODEL = "gemini-3.5-flash-lite";
+  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+  if (window.location.protocol === "file:") {
+    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
+  }
+
+  const parts = [{
+    text: `You are predicting the best instrumental music style for a place in a sound-mapping app.
+
+Place: ${place.name}, ${stateName}, South Korea
+Type: ${place.type}
+Real description: ${place.character}
+Existing instrumentation tags: ${place.instrumentation}
+Current mood score (0=very calm, 1=very energetic): ${place.score}
+
+A real photo of this place is attached — use what you can actually see in it (crowd density, architecture, nature vs. urban, color/light, activity level) together with the text description above to predict what music would genuinely fit best, not just a generic mapping from the score. Respond ONLY with the requested JSON.`
+  }];
+
+  try {
+    if (place.photo) {
+      const img = await imageUrlToBase64(place.photo);
+      parts.push({ inlineData: { mimeType: img.mimeType, data: img.data } });
+    }
+  } catch (e) {
+    // Photo fetch failed (CORS, offline, etc.) — proceed text-only rather than fail the whole prediction.
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts }],
+      generationConfig: {
+        temperature: 0.6,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          properties: {
+            genre: { type: "STRING", description: "Specific music genre/style, e.g. 'lo-fi city pop' or 'traditional Korean court music'" },
+            instrumentation: { type: "STRING", description: "Comma-separated instruments/sound elements" },
+            tempo_feel: { type: "STRING", description: "e.g. 'slow and spacious' or 'driving and fast'" },
+            key: { type: "STRING", enum: ["major key", "minor key"] },
+            mood_descriptors: { type: "STRING", description: "3-5 adjectives" },
+            reasoning: { type: "STRING", description: "1-2 sentences on why this fits, referencing what's visible in the photo if used" }
+          },
+          required: ["genre", "instrumentation", "tempo_feel", "key", "mood_descriptors", "reasoning"]
+        }
+      }
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Gemini API error (HTTP ${response.status}): ${(await response.text()).slice(0, 200)}`);
+  }
+
+  const json = await response.json();
+  const text = json.candidates && json.candidates[0] && json.candidates[0].content &&
+               json.candidates[0].content.parts[0] && json.candidates[0].content.parts[0].text;
+  if (!text) throw new Error("Invalid response format from Gemini API");
+
+  return JSON.parse(text);
+}
+
+function buildSunoPromptFromAIPrediction(place, stateName, prediction) {
+  const bpm = Math.round(40 + place.score * 80);
+  return `Instrumental music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
+    + `${prediction.genre}, ${prediction.mood_descriptors}, ${prediction.tempo_feel}, ${prediction.key}, around ${bpm} BPM. `
+    + `Instrumentation: ${prediction.instrumentation}. `
+    + `Cinematic, atmospheric, no vocals, no lyrics.`;
+}

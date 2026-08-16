@@ -101,6 +101,10 @@ function showPlace(stateName, placeIdx) {
             <a class="suno-btn" href="https://suno.com/create" target="_blank" rel="noopener">Open Suno ↗</a>
           </div>
           <div class="suno-help">Generate an instrumental in Suno, download the MP3, and save it as <code>audio/${placeKey(stateName, p)}.mp3</code> next to this page — it'll then play automatically. Or set up automatic generation below.</div>
+
+          <button class="suno-toggle" id="ai-predict-btn" onclick="runAIMusicPrediction(${JSON.stringify(stateName)}, ${JSON.stringify(p.name)})" style="margin-top:6px;">🤖 Let AI predict the best music style (uses photo + research data)</button>
+          <div id="ai-predict-result" class="suno-help" style="margin-top:6px;"></div>
+
           <details class="suno-adv">
             <summary>⚡ Fully automatic generation (paste an API key)</summary>
             <div class="suno-adv-body">
@@ -339,6 +343,46 @@ function toggleGeminiSettings() {
 function handleChatKeyDown(event) {
   if (event.key === "Enter") {
     sendChatMessage();
+  }
+}
+
+// ── AI MUSIC-STYLE PREDICTION UI ──────────────────────────────────────────────
+async function runAIMusicPrediction(stateName, placeName) {
+  const s = MOOD_DATA.states[stateName];
+  const place = s && s.places.find(pl => pl.name === placeName);
+  if (!place) return;
+
+  const cfg = getGeminiConfig();
+  const resultEl = document.getElementById("ai-predict-result");
+  const btn = document.getElementById("ai-predict-btn");
+
+  if (!cfg.key) {
+    if (resultEl) resultEl.innerHTML = `⚠️ This needs a Gemini API key — the same one used for "Ask a Local" chat. Scroll up to that section, paste a key there, then try again.`;
+    return;
+  }
+
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = "🤖 Analyzing photo + research data…";
+  if (resultEl) resultEl.textContent = "";
+
+  try {
+    const prediction = await predictMusicStyleWithAI(place, stateName, cfg.key);
+    const newPrompt = buildSunoPromptFromAIPrediction(place, stateName, prediction);
+    const promptArea = document.getElementById("suno-prompt");
+    if (promptArea) promptArea.value = newPrompt;
+
+    if (resultEl) {
+      resultEl.innerHTML = `<b>AI prediction:</b> ${prediction.genre} (${prediction.mood_descriptors}), ${prediction.tempo_feel}, ${prediction.key}.<br>`
+        + `<b>Instrumentation:</b> ${prediction.instrumentation}<br>`
+        + `<i>${prediction.reasoning}</i><br>`
+        + `<span style="color:var(--accent);">Suno prompt above updated with this prediction.</span>`;
+    }
+  } catch (e) {
+    if (resultEl) resultEl.textContent = "AI prediction failed: " + e.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
   }
 }
 
