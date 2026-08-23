@@ -1,0 +1,41 @@
+type,source,detail,used_for
+academic_paper,"Aiello, Schifanella, Quercia & Aletta (2016)","Chatty maps: constructing sound maps of urban areas from social media data. Royal Society Open Science, 3(3), 150690. https://doi.org/10.1098/rsos.150690",Related-work survey — closest precedent combining sound+geography+emotion at city scale
+academic_paper,"International Organization for Standardization (2018)","ISO/TS 12913-2:2018 — Acoustics — Soundscape — Part 2: Data collection and reporting requirements",Emotional-data framework (Pleasantness/Eventfulness circumplex) for all 17 regions
+academic_paper,"Russell, J. A. (1980)","A circumplex model of affect. Journal of Personality and Social Psychology, 39(6), 1161-1178",Parent psychological model behind ISO 12913
+academic_paper,"Hong, J. Y. & Jeon, J. Y. (2020)","Comparing associations among sound sources, human behaviors, and soundscapes on central business and commercial streets in Seoul, Korea. Building and Environment, 186, 107327",Seoul's directly-sourced P/E score (only 1 of 2 regions with real study data)
+academic_paper,"Kim, G. et al. & Hong, J. (2025)","Exploring associations between urban soundscape and contextual factors based on a textual data-driven analysis and mapping approach: A case study in Daejeon, Korea. Applied Acoustics, 228, 110319",Daejeon's directly-sourced P/E score (the other of 2 regions with real study data)
+academic_paper,"Unattributed (2025/2026)","Mapping urban soundscape patterns using user-generated content: A place model approach to acoustic environment perception. PLOS One",Seoul soundscape social-media study (156 points of interest)
+academic_paper,"Zhao, Plaisant, Shneiderman & Lazar (2008)","iSonic — Data sonification for users with visual impairment: A case study with georeferenced data. ACM TOCHI, 15(1)",Accessibility precedent cited in related-work survey and about.html
+academic_paper,"STRAUSS project (2025)","Sonification Tools and Resources for Analysis Using Sound Synthesis. arXiv:2504.01660",Sonification tooling precedent, related-work survey
+academic_paper,"NASA Earthdata (2026)","From Data to Melody: Data Sonification and Its Role in Open Science. earthdata.nasa.gov",Sonification-for-accessibility precedent, related-work survey
+academic_paper,"Unattributed survey (2025)","AI-Powered Sound Awareness Systems for Deaf and Hard-of-Hearing Individuals: A Survey of Recent Advances (2022-2025). ResearchGate preprint",Accessibility section — deaf/HoH sound-awareness state of the art
+academic_paper,"Unattributed (2024)","Exploring the Diversity of Music Experiences for Deaf and Hard of Hearing People. arXiv:2401.09025",Accessibility section — non-auditory music experience
+academic_paper,"Unattributed (2024/2025)","Cultural Imageability on Urban Identity: A Systematic Literature Review. International Journal of Research and Innovation in Social Science",Cultural/character-axis framing (place identity, city branding)
+academic_paper,"Unattributed (2025)","Shaping place identity through cultural storytelling: strategic communication in a small mountain city. Frontiers in Communication",Cultural/character-axis framing
+institution,UNESCO World Heritage Centre,"Baekje Historic Areas; Gyeongju Historic Areas; Jeju Volcanic Island and Lava Tubes; Culture of Jeju Haenyeo (Intangible Heritage). whc.unesco.org / ich.unesco.org",Chungcheongnam-do, Gyeongsangbuk-do, and Jeju-do cultural narratives
+region_evidence,Seoul,"Hong & Jeon (2020) on-site soundwalk study of Seoul CBD/commercial streets; PLOS One social-media soundscape mapping (156 POIs) — directly sourced, not estimated",Region-level P/E score basis
+region_evidence,Busan,"No direct study found; estimated from port/industrial density (world's 6th-largest container port) vs. coastal/tourist districts",Region-level P/E score basis
+region_evidence,Daegu,"No direct study found; estimated from historic market-city character and community-routine daily life",Region-level P/E score basis
+region_evidence,Incheon,"No direct study found; estimated from old port/Chinatown density vs. planned Songdo district",Region-level P/E score basis
+region_evidence,Gwangju,"No direct study found; estimated from memorial/historic core vs. art-and-market districts",Region-level P/E score basis
+region_evidence,Daejeon,"Kim, Kim & Hong (2025) TD-CAMM study of Yuseong-gu, 1006 in-situ surveys — directly sourced, not estimated",Region-level P/E score basis
+region_evidence,Ulsan,"No direct study found; estimated from heavy-industrial/shipbuilding character (Hyundai Heavy Industries, largest single auto plant)",Region-level P/E score basis
+region_evidence,Sejongsi,"No direct study found; estimated from low population density and deliberate green/garden planned-city design",Region-level P/E score basis
+region_evidence,Gyeonggi-do,"No direct study found; estimated using Seoul CBD soundwalk findings as a proxy given its role as Seoul's commuter/tech belt",Region-level P/E score basis
+region_evidence,Gangwon,"No direct study found; estimated from >80% mountainous terrain and general rural-soundscape restorativeness literature",Region-level P/E score basis
+region_evidence,Chungcheongbuk-do,"No direct study found; estimated from agricultural land base with a concentrated semiconductor-industry core in Cheongju",Region-level P/E score basis
+region_evidence,Chungcheongnam-do,"No direct study found; estimated from historic Baekje-heritage rural character with localized industry in Asan",Region-level P/E score basis
+region_evidence,Jeollabuk-do,"No direct study found; estimated from agricultural land base and Jeonju's slow-paced heritage-tourism character",Region-level P/E score basis
+region_evidence,Jeollanam-do,"No direct study found; estimated from rural/coastal character split against Yeosu's large petrochemical complex",Region-level P/E score basis
+region_evidence,Gyeongsangbuk-do,"No direct study found; estimated from Gyeongju's historic/reverent character split against Pohang's steel-industrial zone",Region-level P/E score basis
+region_evidence,Gyeongsangnam-do,"No direct study found; estimated from Geoje's shipbuilding-industrial character split against Jinju's festival/heritage character",Region-level P/E score basis
+region_evidence,Jeju-do,"P/E score is a reasoned estimate, but grounded in a real sourced finding: 63.8% of 2624 surveyed foreign tourists cited natural-scenery appreciation as their primary visit motivation",Region-level P/E score basis
+web_source,Britannica,"City/region reference entries: Seoul, Busan, Daegu, Incheon, Daejeon, Pohang, Suwon",Cultural/historical facts across multiple region narratives
+web_source,VisitKorea (official tourism org),Regional tourism and attraction data,Cultural/character facts across multiple regions
+web_source,Korea.net (government portal),General national and regional facts,Cultural/character facts across multiple regions
+web_source,Wikipedia,"Gyeonggi Province, Jeju language (Jejueo endangered-language status), Daedeok Innopolis",Cultural/character facts
+web_source,POSCO Newsroom,Pohang steelworks history and scale,Gyeongsangbuk-do cultural narrative
+web_source,Hanwha Ocean (company site),Geoje shipyard scale and history,Gyeongsangnam-do cultural narrative
+web_source,korea.stripes.com,Regional travel/culture reporting,Cultural/character facts
+web_source,thesoulofseoul.net,Regional travel/culture reporting,Cultural/character facts
+web_source,tour.jeonju.go.kr (city tourism site),Jeonju/bibimbap/hanok village facts,Jeollabuk-do cultural narrative
