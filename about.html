@@ -282,30 +282,30 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
 
   <section>
     <h2><span class="n">06</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
-    <p>These five ideas are design proposals for where Moodscape could go next. None of them exist in the current app yet; they're listed here so the goals are documented and each can be checked off as it lands.</p>
+    <p>Reconciled against what's actually in the app (DEVELOPMENT_PLAN2.md housekeeping item) — two of these five turned out to be partly built already, not proposals sitting at zero.</p>
     <div class="feature-list">
       <div class="card">
         <div class="ft">
           <h4>🌡️ Live weather-to-pitch</h4>
-          <p>Pull today's actual temperature per province from the free Open-Meteo API and offset the baseline pitch/tempo from it, so the same province sounds different on a hot day than a cold one.</p>
+          <p>Pull today's actual temperature per province from the free Open-Meteo API and offset the baseline pitch/tempo from it, so the same province sounds different on a hot day than a cold one. Not started.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>🔬 User study</h4>
-          <p>A structured listening test (sighted and blind/low-vision participants) to check whether people can correctly infer density, safety, and temperature from the sonification alone, above chance.</p>
+          <h4>🔬 User study <span style="color:var(--accent);font-weight:400;">— protocol ready, fieldwork pending</span></h4>
+          <p>A structured listening test (sighted and blind/low-vision participants) to check whether people can correctly infer density, safety, and temperature from the sonification alone, above chance. The ISO Pleasantness/Eventfulness calculation, the Korean participant questionnaire, and the scatter-plot analysis (<code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/iso_pe_calculator.js</code>, <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/soundwalk_questionnaire_ko.md</code>) are built and ready; only the physical site visits remain, which can't be automated.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>🤖 AI mood narrative generator</h4>
-          <p>Generate a short, non-repeating text description of each province's soundscape from its live mood score, note, tempo, and instrumentation via a language model.</p>
+          <h4>🤖 AI mood narrative generator <span style="color:var(--accent);font-weight:400;">— deterministic version live</span></h4>
+          <p><code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">narrative.js</code> already generates a non-repeating text description of every place and province's soundscape from its live score, note, tempo, key, and instrumentation — instantly, with no API key. What's still proposed is swapping that deterministic template for actual language-model phrasing, the way the AI music-style predictor already uses Gemini.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>📦 Open dataset</h4>
-          <p>Publish the mood-score formula, source statistics, and resulting musical parameters for all 17 South Korean provinces (not just the four studied so far) so others can reuse or extend it.</p>
+          <h4>📦 Open dataset <span style="color:var(--accent);font-weight:400;">— largely published</span></h4>
+          <p>The <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/</code> folder already publishes the official-data inputs, the Activity Proxy and Visitor Pleasantness formulas, external source citations, and the validation protocol as CSVs and markdown. Still missing: the resulting per-place musical parameters (pitch/BPM/key/timbre) for all 17 regions as one downloadable table, rather than only visible inside the live app.</p>
         </div>
       </div>
     </div>

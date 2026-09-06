@@ -50,10 +50,15 @@ function classifyPlaceCategory(place) {
   return { key: "urban", phrase: "an everyday urban space" };
 }
 
-function keyReason(category, score) {
+function keyReason(category, place, stateName) {
   if (category.key === "solemn") return "the site's solemn, memorial character pulls it into a minor key regardless of score";
   if (category.key === "traditional" || category.key === "nature") return "traditional and scenic places default to a major key here, since Moodscape treats heritage and nature as warm rather than tense";
-  return score > 0.45 ? "at this score, the mapping defaults to a major key" : "at this score, the mapping defaults to a minor key";
+  const model = stateName && typeof REGION_MODEL !== "undefined" && REGION_MODEL[stateName];
+  if (model) {
+    const rel = model.pleasantness >= PLEASANTNESS_MEDIAN ? "at or above" : "below";
+    return `${stateName}'s Visitor Pleasantness score (${model.pleasantness.toFixed(1)}) sits ${rel} the median across all 17 regions — that's what selects major vs. minor here, not this place's own activity score`;
+  }
+  return place.score > 0.45 ? "at this score, the mapping defaults to a major key" : "at this score, the mapping defaults to a minor key";
 }
 
 // Deterministic pick from a string, so the same place always gets the same
@@ -69,7 +74,7 @@ function buildPlaceNarrative(place, stateName) {
   const label = MOOD_LABEL(place.score);
   const note = noteForScore(place.score);
   const bpm = getSunoBpm(place);
-  const key = getMusicalKey(place);
+  const key = getMusicalKey(place, stateName);
   const timbre = timbreBand(place.score);
   const category = classifyPlaceCategory(place);
 
@@ -83,7 +88,7 @@ function buildPlaceNarrative(place, stateName) {
 
   const soundLine = `Fed through the sonification formula, that score becomes ${note.name} (${note.freq} Hz) at ${bpm} BPM in a ${key}, drawn from a ${timbre.label} palette — ${timbre.detail}.`;
 
-  const whyLine = `The key lands on ${key.split(" ")[0]} because ${keyReason(category, place.score)}, and the instrumentation you'll hear — ${place.instrumentation} — reflects both that same score band and ${place.name}'s specific character rather than a generic template.`;
+  const whyLine = `The key lands on ${key.split(" ")[0]} because ${keyReason(category, place, stateName)}, and the instrumentation you'll hear — ${place.instrumentation} — reflects both that same score band and ${place.name}'s specific character rather than a generic template.`;
 
   return `${opener} ${scoreLine} ${soundLine} ${whyLine}`;
 }
@@ -121,11 +126,11 @@ function dynamicsBand(score) {
   return { label: "dense", detail: "busy and near-continuous, overlapping events" };
 }
 
-function buildMusicSpecPanel(place) {
+function buildMusicSpecPanel(place, stateName) {
   const score = place.score;
   const note = noteForScore(score);
   const bpm = getSunoBpm(place);
-  const key = getMusicalKey(place);
+  const key = getMusicalKey(place, stateName);
   const timbre = timbreBand(score);
   const dyn = dynamicsBand(score);
 

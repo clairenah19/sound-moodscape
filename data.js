@@ -200,6 +200,17 @@ function computeRegionScore(stateName) {
   return REGION_MODEL[stateName] ? REGION_MODEL[stateName].activity / 100 : null;
 }
 
+// Visitor Pleasantness (data.js §4) is computed but, until now, never reached the
+// audio — DEVELOPMENT_PLAN2.md Priority 2. Its raw values sit in a narrow band
+// (roughly 75-80 across all 17 regions) because it's a satisfaction survey
+// average, not a 0-100 spread like density — so a fixed threshold would call
+// almost every region "pleasant". Comparing each region to the median across
+// all 17 gives a real major/minor split instead. getMusicalKey() (prompt.js)
+// reads this for its default case; the solemn/traditional/nature overrides
+// there are unaffected.
+const PLEASANTNESS_VALUES = Object.values(REGION_MODEL).map(m => m.pleasantness).sort((a, b) => a - b);
+const PLEASANTNESS_MEDIAN = PLEASANTNESS_VALUES[Math.floor(PLEASANTNESS_VALUES.length / 2)];
+
 // Region scores now come live from the composite above. Place-level scores stay
 // illustrative (no per-landmark equivalent data exists) but are re-anchored to the new
 // region baseline so each region's internal spread (e.g. Hongdae vs.
