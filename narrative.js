@@ -104,3 +104,96 @@ function buildProvinceNarrative(stateName) {
     : `Its featured places stay fairly close together in tone, from ${min.name} to ${max.name}, so the soundscape holds a fairly consistent character across the province.`;
   return `${stateName}'s overall mood score is ${pct}/100 — ${label.toLowerCase()}. ${s.desc}. ${spreadLine} Click into any place below to hear exactly how its own score reshapes the pitch, tempo, key, and instrumentation.`;
 }
+
+// ── THE MUSIC, WITHOUT HEARING IT ────────────────────────────────────────────
+// Every other representation of a place in this app is audio, which leaves deaf
+// and hard-of-hearing visitors with nothing to read the sonification by. This
+// renders the same parameters the synth actually uses — pitch, tempo, key,
+// timbre family, dynamics — as text and geometry, so the mapping is inspectable
+// rather than audible-only. Values come from the same functions that drive the
+// audio, so this panel cannot drift away from what is played.
+
+function dynamicsBand(score) {
+  const pct = score * 100;
+  if (pct <= 25) return { label: "soft", detail: "quiet, sparse, long gaps between events" };
+  if (pct <= 50) return { label: "moderate", detail: "steady presence, room to breathe between phrases" };
+  if (pct <= 75) return { label: "full", detail: "layered and continuous, few silences" };
+  return { label: "dense", detail: "busy and near-continuous, overlapping events" };
+}
+
+function buildMusicSpecPanel(place) {
+  const score = place.score;
+  const note = noteForScore(score);
+  const bpm = getSunoBpm(place);
+  const key = getMusicalKey(place);
+  const timbre = timbreBand(score);
+  const dyn = dynamicsBand(score);
+
+  // Pitch position across the mapped range, for the visual pitch scale.
+  const lowFreq = noteForScore(0).freq;
+  const highFreq = noteForScore(1).freq;
+  const pitchPct = Math.round(((note.freq - lowFreq) / (highFreq - lowFreq)) * 100);
+
+  // One beat's duration drives the pulse, so the dot beats at the real tempo.
+  const beatSeconds = (60 / bpm).toFixed(3);
+
+  return `
+    <div class="panel-section">
+      <div class="panel-title">The music, without hearing it</div>
+      <div class="music-spec">
+        <p class="music-spec-intro">Every parameter the soundscape is built from, written out.
+        Nothing here needs to be heard — this is the same data the synth reads.</p>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Pitch</div>
+          <div class="music-spec-val">
+            <b>${note.name}</b> · ${note.freq} Hz
+            <div class="pitch-scale" role="img"
+                 aria-label="Pitch ${note.name}, ${note.freq} hertz, ${pitchPct} percent up the mapped range from ${lowFreq} to ${highFreq} hertz.">
+              <div class="pitch-scale-track"></div>
+              <div class="pitch-scale-dot" style="left:${pitchPct}%;"></div>
+            </div>
+            <div class="music-spec-note">low ${lowFreq} Hz ← → high ${highFreq} Hz</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Tempo</div>
+          <div class="music-spec-val">
+            <b>${bpm} BPM</b>
+            <div class="metronome" role="img" aria-label="Tempo ${bpm} beats per minute.">
+              <span class="metronome-dot" style="animation-duration:${beatSeconds}s;"></span>
+              <span class="metronome-label">one beat every ${beatSeconds}s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Key</div>
+          <div class="music-spec-val"><b>${key.split(" ")[0] === "major" ? "Major" : "Minor"}</b>
+            <div class="music-spec-note">${key === "major key" ? "brighter, more open intervals" : "darker, more closed intervals"}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Timbre</div>
+          <div class="music-spec-val"><b>${timbre.label}</b>
+            <div class="music-spec-note">${timbre.detail}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Density</div>
+          <div class="music-spec-val"><b>${dyn.label}</b>
+            <div class="music-spec-note">${dyn.detail}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Instruments</div>
+          <div class="music-spec-val">${place.instrumentation}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}

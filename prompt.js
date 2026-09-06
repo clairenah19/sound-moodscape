@@ -452,7 +452,7 @@ function buildSunoPromptFromAIPrediction(place, stateName, prediction) {
 // moment to moment and re-querying on every panel open would just burn quota.
 
 const LANGUAGE_OPTIONS = [
-  "English", "Mandarin Chinese", "Japanese", "Spanish", "French",
+  "English", "Korean", "Mandarin Chinese", "Japanese", "Spanish", "French",
   "German", "Vietnamese", "Russian", "Arabic", "Hindi", "Portuguese", "Thai"
 ];
 
@@ -493,6 +493,10 @@ function onHeaderLanguageChange(value) {
   cfg.language = value;
   saveLanguageConfig(cfg);
 
+  if (typeof setInterfaceLanguage === "function") {
+    setInterfaceLanguage(value);
+  }
+
   if (typeof currentState !== "undefined" && currentState && typeof showStateSide === "function") {
     showStateSide(currentState);
   }
@@ -503,6 +507,9 @@ function onHeaderLanguageChange(value) {
 function initHeaderLanguageSelect() {
   const sel = document.getElementById("header-lang-select");
   if (sel) sel.value = getSelectedLanguage();
+  if (typeof setInterfaceLanguage === "function") {
+    setInterfaceLanguage(getSelectedLanguage());
+  }
 }
 
 if (typeof document !== "undefined") {
