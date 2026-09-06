@@ -7,6 +7,8 @@
   --text2: #9096b4;
   --border: rgba(255,255,255,0.08);
   --accent: #6c8fff;
+  --green: #4ade80;
+  --amber: #f59e0b;
   --radius: 12px;
 }
 body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; overflow-x: hidden; }
@@ -28,9 +30,23 @@ header { display: flex; align-items: center; justify-content: space-between; pad
 .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text2); }
 .breadcrumb span { cursor: pointer; }
 .breadcrumb span:hover { color: var(--text); }
-.header-lang-icon { margin-left: 16px; font-size: 14px; }
-.header-lang-select { margin-left: 6px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 7px; padding: 6px 8px; color: var(--text); font-size: 12px; outline: none; cursor: pointer; }
-.header-lang-select:focus { border-color: var(--accent); }
+.lang-picker {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; margin-left: 16px; transition: border-color 0.15s;
+}
+.lang-picker:focus-within { border-color: var(--accent); }
+.header-lang-icon { font-size: 13px; line-height: 1; }
+.header-lang-select {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239096b4' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right center;
+  border: none; outline: none; cursor: pointer;
+  padding: 0 16px 0 2px;
+  color: var(--text);
+  font-family: Calibri, 'Segoe UI', system-ui, sans-serif;
+  font-size: 12px;
+}
+.header-lang-select option { background: var(--bg2); color: var(--text); font-family: Calibri, 'Segoe UI', system-ui, sans-serif; }
 .breadcrumb .sep { color: var(--border); }
 
 /* MAIN LAYOUT */
@@ -69,6 +85,21 @@ main { display: grid; grid-template-columns: 55% 45%; height: calc(100vh - 57px)
 .mood-bar { flex: 1; height: 4px; border-radius: 2px; background: var(--bg); overflow: hidden; }
 .mood-fill { height: 100%; border-radius: 2px; }
 .mood-label { font-size: 11px; color: var(--text2); white-space: nowrap; }
+
+/* RESEARCH-STATUS BADGE and transparent model readout */
+.pe-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; padding: 2px 8px; border-radius: 999px; cursor: help; }
+.pe-badge.sourced { background: rgba(74,222,128,0.12); color: var(--green); border: 0.5px solid rgba(74,222,128,0.3); }
+.pe-badge.partial { background: rgba(108,143,255,0.12); color: var(--accent); border: 0.5px solid rgba(108,143,255,0.3); }
+.pe-badge.estimated { background: rgba(245,158,11,0.12); color: var(--amber); border: 0.5px solid rgba(245,158,11,0.3); }
+.pe-badge.modelled { background: rgba(245,158,11,0.12); color: var(--amber); border: 0.5px solid rgba(245,158,11,0.3); }
+.model-details { margin-top: 12px; border-top: 0.5px solid var(--border); padding-top: 10px; font-size: 11px; color: var(--text2); }
+.model-details summary { color: var(--accent); cursor: pointer; font-weight: 600; }
+.model-summary { margin: 10px 0; color: var(--text); }
+.model-grid { display: grid; grid-template-columns: 1fr auto; gap: 5px 12px; }
+.model-grid b { color: var(--text); font-weight: 500; text-align: right; }
+.model-details p { line-height: 1.5; margin: 10px 0; }
+.model-reference { padding: 8px; border-radius: 6px; background: rgba(74,222,128,0.08); line-height: 1.45; }
+.model-reference.muted { background: var(--bg3); }
 
 /* PLACE VIEW */
 .place-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
@@ -156,6 +187,15 @@ select.suno-input { cursor: pointer; }
 /* VIBE NARRATIVE */
 .narrative-card { background: var(--bg3); border-left: 2px solid var(--accent); border-radius: 8px; padding: 14px 16px; font-size: 12.5px; line-height: 1.65; color: var(--text2); }
 .narrative-card .narrative-label { font-size: 11px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+
+/* HIDDEN GEM */
+.hidden-gem-card { background: linear-gradient(135deg, rgba(108,143,255,0.08), var(--bg3)); border: 1px solid rgba(108,143,255,0.25); border-radius: 10px; padding: 14px 16px; }
+.hidden-gem-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.hidden-gem-note { font-size: 12px; color: var(--text2); line-height: 1.55; margin-bottom: 10px; }
+.hidden-gem-quote { margin: 0 0 8px; padding-left: 10px; border-left: 2px solid var(--accent); font-size: 12px; font-style: italic; color: var(--text); line-height: 1.55; }
+.hidden-gem-source { font-size: 11px; color: var(--text2); }
+.hidden-gem-source a { color: var(--accent); text-decoration: none; }
+.hidden-gem-source a:hover { text-decoration: underline; }
 
 /* BACK BTN */
 .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text2); cursor: pointer; margin-bottom: 16px; padding: 6px 0; }
@@ -408,3 +448,90 @@ select.suno-input { cursor: pointer; }
   pointer-events: none;
 }
 
+/* ── ACCESSIBILITY ─────────────────────────────────────────────────────────── */
+
+/* Visible to screen readers, not on screen. Used by the polite live region. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* Keyboard focus must be visible on the map itself — provinces are now real
+   tab stops, so a focus ring is the only cue a sighted keyboard user gets. */
+/* The shape's own outline rather than a bounding-box rectangle: provinces
+   interlock, so a bbox ring lands on top of its neighbours. The dark halo keeps
+   the white stroke visible against every fill in the mood gradient. */
+.region-path:focus { outline: none; }
+.region-path:focus-visible {
+  outline: none;
+  stroke: #fff;
+  stroke-width: 3px;
+  filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 4px #000);
+}
+#panel-content:focus { outline: none; }
+.region-card:focus-visible,
+.acc-toggle-btn:focus-visible,
+.play-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── THE MUSIC, WITHOUT HEARING IT ─────────────────────────────────────────── */
+
+.music-spec {
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--bg2);
+}
+.music-spec-intro {
+  font-size: 11px; color: var(--text2); line-height: 1.5; margin: 0 0 12px;
+}
+.music-spec-row {
+  display: grid; grid-template-columns: 78px 1fr; gap: 10px;
+  padding: 8px 0; border-top: 0.5px solid var(--border);
+}
+.music-spec-row:first-of-type { border-top: 0; padding-top: 0; }
+.music-spec-key {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.4px; color: var(--text2); padding-top: 2px;
+}
+.music-spec-val { font-size: 12px; color: var(--text); line-height: 1.5; }
+.music-spec-note { font-size: 11px; color: var(--text2); margin-top: 3px; }
+
+/* Pitch as position, so the mapped range is legible without sound. */
+.pitch-scale { position: relative; height: 14px; margin-top: 8px; }
+.pitch-scale-track {
+  position: absolute; top: 6px; left: 0; right: 0; height: 2px; border-radius: 2px;
+  background: linear-gradient(to right, rgb(59,130,246), rgb(139,68,136), rgb(220,20,36));
+  opacity: 0.55;
+}
+.pitch-scale-dot {
+  position: absolute; top: 1px; width: 12px; height: 12px; margin-left: -6px;
+  border-radius: 50%; background: var(--text); border: 2px solid var(--bg2);
+}
+
+/* Tempo as a pulse at the real BPM — animation-duration is set per place. */
+.metronome { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.metronome-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); flex: none;
+  animation-name: metronome-beat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.metronome-label { font-size: 11px; color: var(--text2); }
+@keyframes metronome-beat {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0.35; }
+}
+
+/* An indefinitely pulsing element is a vestibular and migraine trigger. Honour
+   the visitor's own setting: the tempo stays readable as text either way. */
+@media (prefers-reduced-motion: reduce) {
+  .metronome-dot { animation: none; }
+  .wave-bar.playing { animation: none; }
+  .tactile-node-ring { display: none; }
+  * { scroll-behavior: auto !important; }
+}
