@@ -1,0 +1,4 @@
+librosa==1.0.0
+numpy>=1.26
+requests>=2.31
+matplotlib>=3.9

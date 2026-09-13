@@ -1,0 +1,12 @@
+metric,value
+n,10
+mode_match_n,5
+mode_match_pct,50.0
+raw_bpm_mean,70.61
+raw_bpm_median,71.05000000000001
+oct_bpm_mean,12.30891338889264
+oct_bpm_median,1.0698924731182795
+octave_error_n,6
+octave_error_pct,60.0
+confidence_mean_match,0.8852
+confidence_mean_mismatch,0.7422
