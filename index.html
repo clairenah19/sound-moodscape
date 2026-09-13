@@ -20,22 +20,27 @@
   <div class="breadcrumb" id="breadcrumb">
     <span onclick="goCountry()">South Korea</span>
   </div>
-  <button class="acc-toggle-btn" id="acc-toggle" onclick="toggleAccessibilityMode()">♿ Accessibility Mode</button>
-  <span class="header-lang-icon" title="Language for the accessibility estimate">🌐</span>
-  <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
-    <option value="English">English</option>
-    <option value="Mandarin Chinese">Mandarin Chinese</option>
-    <option value="Japanese">Japanese</option>
-    <option value="Spanish">Spanish</option>
-    <option value="French">French</option>
-    <option value="German">German</option>
-    <option value="Vietnamese">Vietnamese</option>
-    <option value="Russian">Russian</option>
-    <option value="Arabic">Arabic</option>
-    <option value="Hindi">Hindi</option>
-    <option value="Portuguese">Portuguese</option>
-    <option value="Thai">Thai</option>
-  </select>
+  <button class="acc-toggle-btn" id="acc-toggle" onclick="toggleAccessibilityMode()"
+          aria-pressed="false"
+          title="Step through all 17 regions with the arrow keys. Each region plays its own activity score as a pitch, with a spoken summary.">🔊 Sound navigation</button>
+  <div class="lang-picker" title="Language for the accessibility estimate">
+    <span class="header-lang-icon">🌐</span>
+    <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
+      <option value="English">English</option>
+      <option value="Korean">한국어</option>
+      <option value="Mandarin Chinese">Mandarin Chinese</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Russian">Russian</option>
+      <option value="Arabic">Arabic</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Thai">Thai</option>
+    </select>
+  </div>
   <a href="about.html" style="color:var(--text2);text-decoration:none;font-size:13px;margin-left:16px;white-space:nowrap;">About &amp; research</a>
 </header>
 
@@ -56,7 +61,7 @@
     <div class="map-tooltip" id="tooltip"></div>
   </div>
   <div id="side-panel">
-    <div class="panel-inner" id="panel-content">
+    <div class="panel-inner" id="panel-content" role="region" aria-label="Region and place details" tabindex="-1">
       <div class="empty">
         <div class="big">🗺️</div>
         <p>Hover over a province to preview its vibe.<br>Click to explore places.</p>
@@ -68,18 +73,24 @@
           backend server, not a bug or a paywall you'll hit unexpectedly.
         </div>
         <div class="byok-notice">
-          <b>Research status.</b> The mood scores shown here are currently hand-assigned, not yet
-          computed from the sonification formula documented on the
-          <a href="about.html" style="color:var(--accent);">About &amp; research</a> page — so the
-          project's core hypothesis (that sound can communicate real geographic/demographic data)
-          hasn't been tested against live formula output yet. See that page for exactly what's
-          built vs. proposed.
+          <b>Research status.</b> Each province's mood score is now computed live from Pleasantness/
+          Eventfulness soundscape research (ISO 12913) — sourced from a published study for 2 of 17
+          regions, reasoned estimates for the rest, shown with a Sourced/Estimated/Partial badge in
+          each province's panel. Per-place scores within a province are still hand-tuned. See the
+          <a href="about.html" style="color:var(--accent);">About &amp; research</a> page for exactly
+          what's built vs. proposed, including the still-unwired Density Score and Seasonal Drift.
         </div>
       </div>
     </div>
   </div>
 </main>
 
+<!-- Concise selection announcements. Deliberately separate from #panel-content:
+     making the whole panel a live region would re-read every control, prompt and
+     API-key field on each click. -->
+<div id="a11y-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<script src="i18n.js" defer></script>
 <script src="geojson.js" defer></script>
 <script src="data.js" defer></script>
 <script src="prompt.js" defer></script>

@@ -4,6 +4,45 @@ const svg = d3.select("#map-svg");
 const tooltip = document.getElementById("tooltip");
 const hint = document.getElementById("map-hint");
 
+// ── PROVINCE IDENTITY + ACCESSIBLE NAME ──────────────────────────────────────
+// The GeoJSON carries Korean and English names under several possible property
+// keys; every lookup in this file goes through here so the mapping is stated once.
+function provinceKeyOf(d) {
+  const rawName = d.properties.CTP_KOR_NM || d.properties.name || "";
+  const engName = d.properties.CTP_ENG_NM || d.properties.name_eng || rawName;
+  return KOREA_PROVINCE_MAP[engName] || KOREA_PROVINCE_MAP[rawName] || null;
+}
+
+// Spoken by the visitor's own screen reader — their voice, their speed, their
+// braille display — rather than by a synthetic voice this page controls.
+function provinceAriaLabel(d) {
+  const moodKey = provinceKeyOf(d);
+  const rawName = d.properties.CTP_KOR_NM || d.properties.name || "";
+  const engName = d.properties.CTP_ENG_NM || d.properties.name_eng || rawName;
+  const s = moodKey && MOOD_DATA.states[moodKey];
+  if (!s) return `${engName || rawName}. No data yet.`;
+  const model = (typeof REGION_MODEL !== "undefined") ? REGION_MODEL[moodKey] : null;
+  const status = model
+    ? (model.reference
+        ? "Modelled proxy, with a direct soundscape study available for comparison."
+        : "Modelled proxy, no direct soundscape measurement.")
+    : "";
+  return `${moodKey}. Modelled activity ${Math.round(s.score * 100)} out of 100, `
+       + `${MOOD_LABEL(s.score).toLowerCase()}. ${status} Press Enter to open.`;
+}
+
+// Shared by pointer click and keyboard Enter/Space so both paths behave identically.
+function selectProvincePath(pathNode, d) {
+  const moodKey = provinceKeyOf(d);
+  if (!moodKey || !MOOD_DATA.states[moodKey]) return;
+  svg.selectAll(".region-path").classed("active", false);
+  d3.select(pathNode).classed("active", true);
+  showStateSide(moodKey);
+  currentState = moodKey;
+  updateBreadcrumb(moodKey, null);
+  hint.style.display = "none";
+}
+
 function initMap(geojson) {
   const panel = document.getElementById("map-panel");
   const W = panel.offsetWidth || 400;
@@ -11,7 +50,9 @@ function initMap(geojson) {
   const pad = 32;
 
   svg.selectAll("*").remove();
-  svg.attr("width", W).attr("height", H).attr("viewBox", null);
+  svg.attr("width", W).attr("height", H).attr("viewBox", null)
+     .attr("role", "group")
+     .attr("aria-label", "Map of South Korea, 17 regions. Use Tab to move between regions and Enter to open one.");
 
   const proj = d3.geoMercator().fitExtent([[pad, pad], [W - pad, H - pad]], geojson);
   const pathFn = d3.geoPath().projection(proj);
@@ -25,7 +66,7 @@ function initMap(geojson) {
     .on("start", () => { svg.node().classList.add("grabbing"); tooltip.style.display = "none"; })
     .on("zoom", (event) => { mapG.attr("transform", event.transform); })
     .on("end", () => { svg.node().classList.remove("grabbing"); });
-    
+
   svg.call(zoom).on("dblclick.zoom", null);
   window._mapZoom = zoom;
   window._mapSvg = svg;
@@ -35,6 +76,9 @@ function initMap(geojson) {
     .join("path")
     .attr("class", "region-path")
     .attr("d", pathFn)
+    .attr("tabindex", d => provinceKeyOf(d) ? 0 : null)
+    .attr("role", d => provinceKeyOf(d) ? "button" : null)
+    .attr("aria-label", d => provinceAriaLabel(d))
     .attr("fill", d => {
       const rawName = d.properties.CTP_KOR_NM || d.properties.name || "";
       const engName = d.properties.CTP_ENG_NM || d.properties.name_eng || rawName;
@@ -50,27 +94,30 @@ function initMap(geojson) {
       tooltip.style.display = "block";
       tooltip.style.left = (event.offsetX + 14) + "px";
       tooltip.style.top = (event.offsetY - 10) + "px";
-      tooltip.innerHTML = `<div class="tt-name">${s ? s.emoji + " " : ""}${engName || rawName}</div><div class="tt-score">${s ? MOOD_LABEL(s.score) + " — " + Math.round(s.score * 100) + " / 100" : "No data yet"}</div>`;
+      tooltip.innerHTML = `<div class="tt-name">${s ? s.emoji + " " : ""}${engName || rawName}</div><div class="tt-score">${s ? "Modelled activity — " + Math.round(s.score * 100) + " / 100" : "No data yet"}</div>`;
     })
     .on("mouseleave", function() { tooltip.style.display = "none"; })
-    .on("click", function(event, d) {
-      const rawName = d.properties.CTP_KOR_NM || d.properties.name || "";
-      const engName = d.properties.CTP_ENG_NM || d.properties.name_eng || rawName;
-      const moodKey = KOREA_PROVINCE_MAP[engName] || KOREA_PROVINCE_MAP[rawName];
+    .on("click", function(event, d) { selectProvincePath(this, d); })
+    // Tab reaches every province; Enter/Space opens it. No separate mode needed.
+    .on("keydown", function(event, d) {
+      if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        event.preventDefault();
+        selectProvincePath(this, d);
+      }
+    })
+    // Focusing a province plays its own mood score as a pitch, so tabbing across
+    // the map traces the country's activity contour as a melody.
+    .on("focus", function(event, d) {
+      const moodKey = provinceKeyOf(d);
       if (!moodKey || !MOOD_DATA.states[moodKey]) return;
-      svg.selectAll(".region-path").classed("active", false);
-      d3.select(this).classed("active", true);
-      showStateSide(moodKey);
-      currentState = moodKey;
-      updateBreadcrumb(moodKey, null);
-      hint.style.display = "none";
+      playTactileTick(false, MOOD_DATA.states[moodKey].score);
     });
 
   // ── DRAW TACTILE PATHS (ACCESSIBILITY OVERLAY) ──────────────────────────────
   const TACTILE_NODES = [
-    "Seoul", "Incheon", "Gyeonggi-do", "Gangwon", "Chungcheongbuk-do", 
-    "Sejongsi", "Daejeon", "Chungcheongnam-do", "Jeollabuk-do", "Gwangju", 
-    "Jeollanam-do", "Jeju-do", "Gyeongsangnam-do", "Busan", "Ulsan", 
+    "Seoul", "Incheon", "Gyeonggi-do", "Gangwon", "Chungcheongbuk-do",
+    "Sejongsi", "Daejeon", "Chungcheongnam-do", "Jeollabuk-do", "Gwangju",
+    "Jeollanam-do", "Jeju-do", "Gyeongsangnam-do", "Busan", "Ulsan",
     "Daegu", "Gyeongsangbuk-do"
   ];
   window._tactileNodes = TACTILE_NODES;
@@ -130,23 +177,32 @@ window.addEventListener("DOMContentLoaded", () => {
 // ── ACCESSIBILITY / TACTILE NAVIGATION CONTROLS ──────────────────────────────
 let activeNodeIdx = -1;
 
+// The guided tour's cues are pitched by the region's own modelled activity, so
+// moving through the list is itself a reading of the data rather than a beep.
+function scoreForNode(nodeKey) {
+  const s = nodeKey && MOOD_DATA.states[nodeKey];
+  return s ? s.score : null;
+}
+
 window.toggleAccessibilityMode = function() {
   const btn = document.getElementById("acc-toggle");
   const panel = document.getElementById("map-panel");
   const pathLine = d3.select(".tactile-path-line");
-  
+
   window._accessibilityActive = !window._accessibilityActive;
-  
+
+  btn.setAttribute("aria-pressed", String(window._accessibilityActive));
+
   if (window._accessibilityActive) {
     btn.classList.add("active");
     panel.classList.add("accessibility-active");
     pathLine.style("display", "block");
-    
+
     // Start at Seoul (Index 0)
     activeNodeIdx = 0;
     const nodeKey = window._tactileNodes[activeNodeIdx];
     highlightTactileNode(nodeKey);
-    playTactileTick(true);
+    playTactileTick(true, scoreForNode(nodeKey));
     vocalizeTactileState(nodeKey);
   } else {
     btn.classList.remove("active");
@@ -154,7 +210,7 @@ window.toggleAccessibilityMode = function() {
     pathLine.style("display", "none");
     d3.select(".map-g").selectAll("circle.tactile-node-ring").remove();
     d3.select("#map-svg").selectAll(".region-path").classed("active-node", false);
-    
+
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     activeNodeIdx = -1;
   }
@@ -163,12 +219,12 @@ window.toggleAccessibilityMode = function() {
 function highlightTactileNode(nodeKey) {
   const mapG = d3.select(".map-g");
   const svg = d3.select("#map-svg");
-  
+
   mapG.selectAll("circle.tactile-node-ring").remove();
   svg.selectAll(".region-path").classed("active-node", false);
-  
+
   if (!nodeKey) return;
-  
+
   // Highlight active province outline path
   svg.selectAll(".region-path").filter(f => {
     const rawName = f.properties.CTP_KOR_NM || f.properties.name || "";
@@ -184,7 +240,7 @@ function highlightTactileNode(nodeKey) {
       .attr("class", "tactile-node-ring")
       .attr("cx", cent.x)
       .attr("cy", cent.y);
-      
+
     const animateRing = () => {
       ring.attr("r", 8)
         .style("opacity", 1)
@@ -209,20 +265,20 @@ function highlightTactileNode(nodeKey) {
 window.addEventListener("keydown", (e) => {
   if (!window._accessibilityActive) return;
   if (!window._tactileNodes || window._tactileNodes.length === 0) return;
-  
+
   if (e.key === "ArrowRight") {
     e.preventDefault();
     activeNodeIdx = (activeNodeIdx + 1) % window._tactileNodes.length;
     const nodeKey = window._tactileNodes[activeNodeIdx];
     highlightTactileNode(nodeKey);
-    playTactileTick(false);
+    playTactileTick(false, scoreForNode(nodeKey));
     vocalizeTactileState(nodeKey);
   } else if (e.key === "ArrowLeft") {
     e.preventDefault();
     activeNodeIdx = (activeNodeIdx - 1 + window._tactileNodes.length) % window._tactileNodes.length;
     const nodeKey = window._tactileNodes[activeNodeIdx];
     highlightTactileNode(nodeKey);
-    playTactileTick(false);
+    playTactileTick(false, scoreForNode(nodeKey));
     vocalizeTactileState(nodeKey);
   } else if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
@@ -234,7 +290,7 @@ window.addEventListener("keydown", (e) => {
         const key = KOREA_PROVINCE_MAP[engName] || KOREA_PROVINCE_MAP[rawName];
         return key === nodeKey;
       }).dispatch("click");
-      playTactileTick(true);
+      playTactileTick(true, scoreForNode(nodeKey));
     }
   } else if (e.key === "Escape") {
     e.preventDefault();

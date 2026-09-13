@@ -50,10 +50,15 @@ function classifyPlaceCategory(place) {
   return { key: "urban", phrase: "an everyday urban space" };
 }
 
-function keyReason(category, score) {
+function keyReason(category, place, stateName) {
   if (category.key === "solemn") return "the site's solemn, memorial character pulls it into a minor key regardless of score";
   if (category.key === "traditional" || category.key === "nature") return "traditional and scenic places default to a major key here, since Moodscape treats heritage and nature as warm rather than tense";
-  return score > 0.45 ? "at this score, the mapping defaults to a major key" : "at this score, the mapping defaults to a minor key";
+  const model = stateName && typeof REGION_MODEL !== "undefined" && REGION_MODEL[stateName];
+  if (model) {
+    const rel = model.pleasantness >= PLEASANTNESS_MEDIAN ? "at or above" : "below";
+    return `${stateName}'s Visitor Pleasantness score (${model.pleasantness.toFixed(1)}) sits ${rel} the median across all 17 regions — that's what selects major vs. minor here, not this place's own activity score`;
+  }
+  return place.score > 0.45 ? "at this score, the mapping defaults to a major key" : "at this score, the mapping defaults to a minor key";
 }
 
 // Deterministic pick from a string, so the same place always gets the same
@@ -69,7 +74,7 @@ function buildPlaceNarrative(place, stateName) {
   const label = MOOD_LABEL(place.score);
   const note = noteForScore(place.score);
   const bpm = getSunoBpm(place);
-  const key = getMusicalKey(place);
+  const key = getMusicalKey(place, stateName);
   const timbre = timbreBand(place.score);
   const category = classifyPlaceCategory(place);
 
@@ -83,7 +88,7 @@ function buildPlaceNarrative(place, stateName) {
 
   const soundLine = `Fed through the sonification formula, that score becomes ${note.name} (${note.freq} Hz) at ${bpm} BPM in a ${key}, drawn from a ${timbre.label} palette — ${timbre.detail}.`;
 
-  const whyLine = `The key lands on ${key.split(" ")[0]} because ${keyReason(category, place.score)}, and the instrumentation you'll hear — ${place.instrumentation} — reflects both that same score band and ${place.name}'s specific character rather than a generic template.`;
+  const whyLine = `The key lands on ${key.split(" ")[0]} because ${keyReason(category, place, stateName)}, and the instrumentation you'll hear — ${place.instrumentation} — reflects both that same score band and ${place.name}'s specific character rather than a generic template.`;
 
   return `${opener} ${scoreLine} ${soundLine} ${whyLine}`;
 }
@@ -103,4 +108,97 @@ function buildProvinceNarrative(stateName) {
     ? `Its featured places range widely — from ${min.name} (${MOOD_LABEL(min.score).toLowerCase()}, ${Math.round(min.score * 100)}/100) up to ${max.name} (${MOOD_LABEL(max.score).toLowerCase()}, ${Math.round(max.score * 100)}/100) — so the soundscape shifts a lot depending which one you open.`
     : `Its featured places stay fairly close together in tone, from ${min.name} to ${max.name}, so the soundscape holds a fairly consistent character across the province.`;
   return `${stateName}'s overall mood score is ${pct}/100 — ${label.toLowerCase()}. ${s.desc}. ${spreadLine} Click into any place below to hear exactly how its own score reshapes the pitch, tempo, key, and instrumentation.`;
+}
+
+// ── THE MUSIC, WITHOUT HEARING IT ────────────────────────────────────────────
+// Every other representation of a place in this app is audio, which leaves deaf
+// and hard-of-hearing visitors with nothing to read the sonification by. This
+// renders the same parameters the synth actually uses — pitch, tempo, key,
+// timbre family, dynamics — as text and geometry, so the mapping is inspectable
+// rather than audible-only. Values come from the same functions that drive the
+// audio, so this panel cannot drift away from what is played.
+
+function dynamicsBand(score) {
+  const pct = score * 100;
+  if (pct <= 25) return { label: "soft", detail: "quiet, sparse, long gaps between events" };
+  if (pct <= 50) return { label: "moderate", detail: "steady presence, room to breathe between phrases" };
+  if (pct <= 75) return { label: "full", detail: "layered and continuous, few silences" };
+  return { label: "dense", detail: "busy and near-continuous, overlapping events" };
+}
+
+function buildMusicSpecPanel(place, stateName) {
+  const score = place.score;
+  const note = noteForScore(score);
+  const bpm = getSunoBpm(place);
+  const key = getMusicalKey(place, stateName);
+  const timbre = timbreBand(score);
+  const dyn = dynamicsBand(score);
+
+  // Pitch position across the mapped range, for the visual pitch scale.
+  const lowFreq = noteForScore(0).freq;
+  const highFreq = noteForScore(1).freq;
+  const pitchPct = Math.round(((note.freq - lowFreq) / (highFreq - lowFreq)) * 100);
+
+  // One beat's duration drives the pulse, so the dot beats at the real tempo.
+  const beatSeconds = (60 / bpm).toFixed(3);
+
+  return `
+    <div class="panel-section">
+      <div class="panel-title">The music, without hearing it</div>
+      <div class="music-spec">
+        <p class="music-spec-intro">Every parameter the soundscape is built from, written out.
+        Nothing here needs to be heard — this is the same data the synth reads.</p>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Pitch</div>
+          <div class="music-spec-val">
+            <b>${note.name}</b> · ${note.freq} Hz
+            <div class="pitch-scale" role="img"
+                 aria-label="Pitch ${note.name}, ${note.freq} hertz, ${pitchPct} percent up the mapped range from ${lowFreq} to ${highFreq} hertz.">
+              <div class="pitch-scale-track"></div>
+              <div class="pitch-scale-dot" style="left:${pitchPct}%;"></div>
+            </div>
+            <div class="music-spec-note">low ${lowFreq} Hz ← → high ${highFreq} Hz</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Tempo</div>
+          <div class="music-spec-val">
+            <b>${bpm} BPM</b>
+            <div class="metronome" role="img" aria-label="Tempo ${bpm} beats per minute.">
+              <span class="metronome-dot" style="animation-duration:${beatSeconds}s;"></span>
+              <span class="metronome-label">one beat every ${beatSeconds}s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Key</div>
+          <div class="music-spec-val"><b>${key.split(" ")[0] === "major" ? "Major" : "Minor"}</b>
+            <div class="music-spec-note">${key === "major key" ? "brighter, more open intervals" : "darker, more closed intervals"}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Timbre</div>
+          <div class="music-spec-val"><b>${timbre.label}</b>
+            <div class="music-spec-note">${timbre.detail}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Density</div>
+          <div class="music-spec-val"><b>${dyn.label}</b>
+            <div class="music-spec-note">${dyn.detail}</div>
+          </div>
+        </div>
+
+        <div class="music-spec-row">
+          <div class="music-spec-key">Instruments</div>
+          <div class="music-spec-val">${place.instrumentation}</div>
+        </div>
+      </div>
+    </div>
+  `;
 }

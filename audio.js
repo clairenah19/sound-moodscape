@@ -175,7 +175,39 @@ function togglePlay() {
 // ── WEBAUDIO TACTILE CUES ────────────────────────────────────────────────────
 let tactileAudioCtx = null;
 
-function playTactileTick(isNode = false) {
+// Semitone offsets of a two-octave pentatonic scale. Successive scores land on
+// scale degrees rather than arbitrary chromatic steps, so moving across the map
+// reads as a melodic contour instead of a random sweep — the point is that the
+// listener can hear which region is more active, not just that focus moved.
+const TICK_SCALE = [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24];
+const TICK_ROOT_HZ = 220; // A3
+
+// The reformed activity proxy deliberately combines several variables, so real
+// regional scores span roughly 0.33–0.61 rather than the full 0–1. Mapping the
+// theoretical range would collapse all 17 regions onto four pitches — nine of
+// them identical — and the contour would be unhearable. Stretching across the
+// observed spread instead keeps every region distinguishable. Recomputed lazily
+// so it still holds if the underlying scores change.
+let _scoreDomain = null;
+function regionScoreDomain() {
+  if (_scoreDomain) return _scoreDomain;
+  const scores = Object.values(MOOD_DATA.states).map(s => s.score).filter(isFinite);
+  if (!scores.length) return (_scoreDomain = { lo: 0, hi: 1 });
+  const lo = Math.min(...scores), hi = Math.max(...scores);
+  return (_scoreDomain = (hi - lo < 0.05) ? { lo: 0, hi: 1 } : { lo, hi });
+}
+
+function pitchForScore(score, domain) {
+  const d = domain || regionScoreDomain();
+  const span = d.hi - d.lo || 1;
+  const s = Math.max(0, Math.min(1, (Number(score) - d.lo) / span));
+  const degree = TICK_SCALE[Math.round(s * (TICK_SCALE.length - 1))];
+  return TICK_ROOT_HZ * Math.pow(2, degree / 12);
+}
+
+// `score` (0–1) makes the cue carry the region's modelled activity. Passing null
+// keeps the original fixed-pitch cue for contexts with no score behind them.
+function playTactileTick(isNode = false, score = null) {
   try {
     if (!tactileAudioCtx) {
       tactileAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -188,22 +220,26 @@ function playTactileTick(isNode = false) {
     osc.connect(gainNode);
     gainNode.connect(tactileAudioCtx.destination);
 
+    const hasScore = typeof score === "number" && isFinite(score);
+    const now = tactileAudioCtx.currentTime;
+
     if (isNode) {
-      // High-pitched clean double beep for landing on a place node
+      // Landing on a region: sustained sine, an octave up so selection reads as
+      // distinct from browsing while still being the same note of the same data.
       osc.type = "sine";
-      osc.frequency.setValueAtTime(880, tactileAudioCtx.currentTime);
-      gainNode.gain.setValueAtTime(0.08, tactileAudioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, tactileAudioCtx.currentTime + 0.12);
+      osc.frequency.setValueAtTime(hasScore ? pitchForScore(score) * 2 : 880, now);
+      gainNode.gain.setValueAtTime(0.08, now);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
       osc.start();
-      osc.stop(tactileAudioCtx.currentTime + 0.12);
+      osc.stop(now + 0.12);
     } else {
-      // Low organic triangle wave click for path navigation
+      // Browsing: short triangle click at the region's own pitch.
       osc.type = "triangle";
-      osc.frequency.setValueAtTime(320, tactileAudioCtx.currentTime);
-      gainNode.gain.setValueAtTime(0.15, tactileAudioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, tactileAudioCtx.currentTime + 0.04);
+      osc.frequency.setValueAtTime(hasScore ? pitchForScore(score) : 320, now);
+      gainNode.gain.setValueAtTime(0.15, now);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, now + (hasScore ? 0.09 : 0.04));
       osc.start();
-      osc.stop(tactileAudioCtx.currentTime + 0.04);
+      osc.stop(now + (hasScore ? 0.09 : 0.04));
     }
   } catch (e) {
     console.error("Tactile audio cue error:", e);

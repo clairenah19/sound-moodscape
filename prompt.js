@@ -32,7 +32,12 @@ function cacheTrackUrl(key, url) {
 // Determine the musical key (major vs minor) with better contextual judgment.
 // Hanok villages, traditional folk sites, temples, scenic parks, lakes, and beaches should be major/happy/serene.
 // Minor keys are reserved for solemn, dramatic, or cave/underground places.
-function getMusicalKey(place) {
+// The default case (no category override) is driven by the place's region's
+// Visitor Pleasantness score, not its own activity-derived score — this is
+// what gives ISO 12913's Pleasantness axis an actual path into the audio
+// (DEVELOPMENT_PLAN2.md Priority 2). Pass stateName when it's available;
+// without it this falls back to the old score-threshold behavior.
+function getMusicalKey(place, stateName) {
   const name = (place.name || "").toLowerCase();
   const type = (place.type || "").toLowerCase();
   const char = (place.character || "").toLowerCase();
@@ -65,7 +70,15 @@ function getMusicalKey(place) {
     return "major key";
   }
   
-  // Default to major key for a happier, less minor-heavy distribution
+  // Default: the region's Visitor Pleasantness relative to the national median
+  // across all 17 regions (see PLEASANTNESS_MEDIAN in data.js) — a fixed
+  // threshold doesn't work here since every region's pleasantness sits in a
+  // narrow band. Falls back to the old score-threshold rule if stateName
+  // wasn't passed or the region model isn't available.
+  const model = stateName && typeof REGION_MODEL !== "undefined" && REGION_MODEL[stateName];
+  if (model) {
+    return model.pleasantness >= PLEASANTNESS_MEDIAN ? "major key" : "minor key";
+  }
   return place.score > 0.45 ? "major key" : "minor key";
 }
 
@@ -197,7 +210,7 @@ function getVocalDirective(place) {
 
 function buildSunoPrompt(place, stateName) {
   const bpm = getSunoBpm(place);
-  const key = getMusicalKey(place);
+  const key = getMusicalKey(place, stateName);
   const style = getSunoStyle(place);
   const vocals = getVocalDirective(place);
   return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
@@ -452,7 +465,7 @@ function buildSunoPromptFromAIPrediction(place, stateName, prediction) {
 // moment to moment and re-querying on every panel open would just burn quota.
 
 const LANGUAGE_OPTIONS = [
-  "English", "Mandarin Chinese", "Japanese", "Spanish", "French",
+  "English", "Korean", "Mandarin Chinese", "Japanese", "Spanish", "French",
   "German", "Vietnamese", "Russian", "Arabic", "Hindi", "Portuguese", "Thai"
 ];
 
@@ -493,6 +506,10 @@ function onHeaderLanguageChange(value) {
   cfg.language = value;
   saveLanguageConfig(cfg);
 
+  if (typeof setInterfaceLanguage === "function") {
+    setInterfaceLanguage(value);
+  }
+
   if (typeof currentState !== "undefined" && currentState && typeof showStateSide === "function") {
     showStateSide(currentState);
   }
@@ -503,6 +520,9 @@ function onHeaderLanguageChange(value) {
 function initHeaderLanguageSelect() {
   const sel = document.getElementById("header-lang-select");
   if (sel) sel.value = getSelectedLanguage();
+  if (typeof setInterfaceLanguage === "function") {
+    setInterfaceLanguage(getSelectedLanguage());
+  }
 }
 
 if (typeof document !== "undefined") {

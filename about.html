@@ -11,21 +11,24 @@
 <header>
   <div class="logo">mood<span>scape</span></div>
   <nav>
-    <span class="header-lang-icon" title="Language for the accessibility estimate">🌐</span>
-    <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
-      <option value="English">English</option>
-      <option value="Mandarin Chinese">Mandarin Chinese</option>
-      <option value="Japanese">Japanese</option>
-      <option value="Spanish">Spanish</option>
-      <option value="French">French</option>
-      <option value="German">German</option>
-      <option value="Vietnamese">Vietnamese</option>
-      <option value="Russian">Russian</option>
-      <option value="Arabic">Arabic</option>
-      <option value="Hindi">Hindi</option>
-      <option value="Portuguese">Portuguese</option>
-      <option value="Thai">Thai</option>
-    </select>
+    <div class="lang-picker" title="Language for the accessibility estimate">
+      <span class="header-lang-icon">🌐</span>
+      <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
+        <option value="English">English</option>
+        <option value="Korean">한국어</option>
+        <option value="Mandarin Chinese">Mandarin Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Russian">Russian</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Portuguese">Portuguese</option>
+        <option value="Thai">Thai</option>
+      </select>
+    </div>
     <a href="index.html">Explore the map</a>
     <a href="about.html">About &amp; research</a>
   </nav>
@@ -58,9 +61,33 @@
   </section>
 
   <section>
-    <h2><span class="n">03</span> The sonification algorithm <span class="badge partial" style="margin-left:6px;">Pitch/tempo/timbre/drift mapping built — scoring formula not yet wired in</span></h2>
-    <p>The research design behind Moodscape scores each province on a 0–100 "mood score" from a weighted formula. An earlier version of this document labelled the density term "population density, inverse" — that was backwards: the data shows the opposite relationship. Seoul has both the highest density (16,000/km²) <em>and</em> the highest mood score (92); Jeju has the lowest of both. Density scales the score <em>up</em>, toward "exciting," not down. The corrected formula:</p>
-    <div class="formula">Mood Score = (Safety × 0.30) + (Language proficiency × 0.25)
+    <h2><span class="n">03</span> The sonification algorithm <span class="badge built" style="margin-left:6px;">Transparent activity proxy live — validation still required</span></h2>
+    <div class="card" style="border-color:rgba(108,143,255,0.35);">
+      <h3 style="margin-bottom:6px;">What's live now: official-data activity proxy</h3>
+      <p style="margin-bottom:8px;">All 17 regions use the same five province-level inputs: 2025 population density, 2024 domestic-tourism trips per resident, 2023 noise complaints per 100,000 residents, registered noise-emitting facilities per 100,000 residents, and crowding pressure derived from the official 2024 National Tourism Survey. Each positive input is log transformed and min–max scaled across the 17 regions before weighting, so a single extreme value cannot automatically decide the result.</p>
+      <div class="formula">Activity Proxy = 35% density + 30% tourism intensity + 15% noise complaints + 10% noise facilities + 10% crowding pressure</div>
+      <p>A second, non-audio context score is kept separate: <b style="color:var(--text)">Visitor Pleasantness = 40% overall satisfaction + 25% recommendation + 20% revisit intention + 15% crowding satisfaction</b>. Keeping activity and pleasantness separate follows the logic of the ISO 12913 circumplex without claiming that tourism responses are an ISO soundscape survey.</p>
+      <p style="margin-bottom:0;">The inputs are measured; the weights are human-chosen starting hypotheses. This score is therefore reproducible but not yet validated as perceived Eventfulness. Direct Seoul and Daejeon soundscape findings appear only as comparison references and are not blended into the score. Place-level values remain illustrative offsets because equivalent landmark-level data do not exist.</p>
+    </div>
+
+    <h3 style="margin-top:24px;">Why these specific percentages — the live formula's weights</h3>
+    <p>Each weight below is argued from how much a variable actually differentiates the 17 regions from each other and how directly it measures what it's standing in for — the same two questions the historical four-variable formula's weights (further down this section) were argued from, applied here to the formula that actually runs.</p>
+    <p><b style="color:var(--text)">Density at 35%, the largest weight in the Activity Proxy.</b> Of the five inputs, density has by far the widest real spread — from about 90/km² in Gangwon to over 15,400/km² in central Seoul, more than two orders of magnitude. It's also the most stable and objective of the five: a census figure, not a self-report subject to mood or memory. The input that both discriminates hardest between regions and is measured most reliably earns the top weight.</p>
+    <p><b style="color:var(--text)">Tourism intensity at 30%, second because it corrects a blind spot density has.</b> Trips-per-resident is what stops a structurally sparse province like Gangwon (90/km²) from reading as dead quiet — Gangwon is actually Korea's most tourism-saturated province per capita, at roughly 20 trips per resident per year, the widest relative spread of any input. Without this term, low-density-but-tourist-flooded regions would be scored purely on emptiness. It sits just under density rather than above it because a trip count is a seasonal flow that moves year to year, while density is a structural fact — the more volatile measure takes the second seat, not the first.</p>
+    <p><b style="color:var(--text)">Noise complaints per 100k at 15%.</b> A genuine measured signal, but a behavioral one before it's an acoustic one — it depends on whether residents in a region actually file a complaint, not purely on how loud things are. Its spread across regions (roughly 9×, Sejongsi to Seoul) is real but noticeably narrower than density's or tourism's. A real but noisier-as-a-construct, moderately-discriminating input sits in the middle of the weighting, not at either end.</p>
+    <p><b style="color:var(--text)">Noise-emitting facilities per 100k at 10%.</b> This one has a large raw spread (roughly 75×) but it doesn't move with the other four inputs — Seoul, the highest-density and highest-tourism region, has the <em>lowest</em> facility count per capita, while an industrial province like Chungcheongbuk-do tops the list. It's measuring industrial character, not crowd energy — a genuinely different signal worth including, but one that could pull a quiet manufacturing province's score up in a way that would mislead if trusted too heavily. Low weight lets it nudge the result, not decide it.</p>
+    <p><b style="color:var(--text)">Crowding pressure at 10%, tied for smallest.</b> Across all 17 regions this is the narrowest band of any Activity Proxy input — under 2× from lowest to highest, since every province's visitors report fairly similar crowding satisfaction. Following the same logic used for temperature in the historical formula below: a near-uniform variable is capped at the smallest weight so it can't dilute the inputs actually doing the work of telling regions apart.</p>
+    <p><b style="color:var(--text)">Overall satisfaction at 40%, the largest Visitor Pleasantness weight, despite the narrowest spread of its four inputs.</b> It only ranges about 5.5 points across all 17 regions on a 100-point scale — the tightest band in either formula. It still leads because it's the single most direct answer available to "was being here pleasant," the headline item the underlying survey is built around. Directness of measurement outweighs the fact that its numbers barely move region to region.</p>
+    <p><b style="color:var(--text)">Recommendation at 25%.</b> A stronger, less self-serving signal than a passive satisfaction rating — recommending a place to others is a costlier, more honest endorsement — and its spread (roughly 8.3 points) is wider than overall satisfaction's. Second-most-direct measure, second-largest weight.</p>
+    <p><b style="color:var(--text)">Revisit intention at 20%.</b> Logically adjacent to recommendation but personal rather than social: a visitor can genuinely find a place pleasant without ever needing to return — a memorial park or a one-time landmark, for instance. Its spread (roughly 9.0 points) is technically the widest of the three headline Pleasantness items, but its link to "was this pleasant" is weaker for certain place types, which is why it sits a notch below recommendation rather than above it.</p>
+    <p style="margin-bottom:0;"><b style="color:var(--text)">Crowding satisfaction at 15%, smallest.</b> It has the widest raw spread of all four Pleasantness inputs (roughly 11.4 points) but is the narrowest in scope — a single facet of experience, not a holistic read. It's also already doing work on the other side of the model, inverted into "crowding pressure" for the Activity Proxy. Keeping it smallest here stops one raw survey question from carrying outsized weight on both axes of the model at once.</p>
+    <div class="status-banner" style="margin-top:14px;">
+      <span>📎</span>
+      <div><b>Honesty note:</b> this per-weight reasoning was written after the formula, from the actual data spreads and each variable's directness and redundancy against the others — it documents a defensible rationale for the numbers above, not a record of the original decision process. Like the historical formula's weights below, none of this is claimed to be the optimal split, and it hasn't been tested against a listener or perception study.</div>
+    </div>
+
+    <p style="margin-top:24px;">The four-variable formula below was Moodscape's original scoring design (Safety, Language proficiency, Density, Annual Temperature). It is retained as design history and does not produce the live region score. Density and Seasonal Drift remain possible independent audio parameters:</p>
+    <div class="formula">Mood Score (four-variable, proposed) = (Safety × 0.30) + (Language proficiency × 0.25)
            + (Density Score × 0.25) + (Annual Temp Score × 0.20)</div>
     <p>The second term used to be fixed as "English proficiency," sourced from the EF EPI — which quietly assumed every listener is, or wants to be understood in, English. That's now generalized to <b style="color:var(--text)">Language proficiency</b>: the live app lets a listener pick their own language from a dropdown in each province's panel (English plus eleven others — Mandarin, Japanese, Spanish, French, German, Vietnamese, Russian, Arabic, Hindi, Portuguese, Thai), and estimates that specific province's accessibility for the chosen language on the spot via a Gemini API call — the same bring-your-own-key mechanism already used by "Ask a Local" and the AI music-style predictor, so no new key is needed if one's already saved. English is the only language with a real citable index (EF EPI) behind it, so the AI is told to anchor on that number when English is selected; every other language gets an explicitly labeled reasoned estimate built from proxy signals (tourism volume, expat communities, signage prevalence) — the same estimate-what's-uncited-rather-than-invent-it approach documented for the research pipeline in section 05. Results are cached per province/language pair in the browser so they're not re-queried on every visit.</p>
     <p>That score drives four audio parameters, plus a fifth — Seasonal Drift — computed independently from the province's temperature <em>swing</em> rather than the composite score:</p>
@@ -127,14 +154,14 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
       <div class="card"><div class="k" style="font-weight:600;">Jeju-do</div><div class="v">6.1°C → 28.0°C → swing <b>21.9°C</b> → Drift Depth 0.73 (steadiest of the four)</div></div>
     </div>
 
-    <p style="margin-top:14px;">In the current app, place and province "mood scores" are hand-assigned rather than computed live from this formula, and neither the corrected Density Score nor Seasonal Drift is wired into the audio yet.</p>
+    <p style="margin-top:14px;">Province-level activity scores in the live app are computed from the official-data composite above, not this historical four-variable design. Place-level scores remain illustrative, and neither the historical Density Score nor Seasonal Drift is independently wired into the audio yet.</p>
     <h3 style="margin-top:24px;">Audio: real AI tracks (Suno), with a synth fallback</h3>
     <p>Each place resolves its soundscape through three layers, in order: <b>(1)</b> a pre-generated real track — a hosted URL, or an MP3 dropped into the <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">audio/</code> folder (generated in <a href="https://suno.com" target="_blank" rel="noopener" style="color:var(--accent)">Suno</a> from a per-place prompt the app builds automatically); <b>(2)</b> fully automatic live generation if a paid <a href="https://sunoapi.org" target="_blank" rel="noopener" style="color:var(--accent)">sunoapi.org</a> API key is saved in the browser — request/response shape verified against their published API docs, not guessed; <b>(3)</b> a built-in Web Audio synth fallback so the player is never silent. The prompts are deliberately genre-distinct by mood band — a "very peaceful" place asks Suno for slow ambient drone, a "very exciting" one for driving EDM — so tracks differ sharply from each other, not just in pitch. When a real track plays it's routed through a live audio analyser, so the waveform reacts to the actual audio. Suno itself has no official public API, which is why layer (2) depends on a paid third-party provider rather than Suno directly; whether that provider's server allows direct browser-origin requests (CORS) is unverified, so the download-and-drop workflow in layer (1) remains the dependable path if live generation fails silently against CORS.</p>
   </section>
 
   <section>
     <h2><span class="n">04</span> Four reference provinces <span class="badge built" style="margin-left:6px;">Data collected</span></h2>
-    <p>These four provinces were the initial dataset used to validate the scoring formula against real published statistics. The live app's interactive map now covers all 17 South Korean provinces/metros individually, each with its own real places, illustrative (not formula-derived) mood scores, real Wikimedia Commons photos, and links to real Google Maps review pages — but that per-place dataset isn't yet computed from this formula either.</p>
+    <p>These four provinces were the initial dataset used to prototype the earlier four-variable formula; they did not scientifically validate it. The live map now covers all 17 South Korean provinces/metros, and its region-level activity values use the official-data composite in section 03. Per-place scores remain illustrative offsets, not independently measured values.</p>
     <div class="province-grid">
       <div class="card">
         <div class="province-note">A5 · 880 Hz — Seoul</div>
@@ -224,7 +251,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
         <div class="num">6</div>
         <div class="body">
           <h4>Service integration</h4>
-          <p>The fused findings rewrote the 17 region-level taglines shown in the live app, grounding generic phrases in specific researched facts. Deliberately <em>not</em> changed: the app's underlying 0–1 mood scores that drive the map's color and audio engine, which stay hand-assigned rather than computed from either the sonification formula (section 03) or this report's P/E estimates — mixing two differently-sourced scoring systems into one numeric field would create exactly the kind of quiet inconsistency this project tries to avoid. That integration remains a documented, not-yet-done next step.</p>
+          <p>The fused findings rewrote the 17 region-level taglines shown in the live app, grounding generic phrases in specific researched facts. Its reasoned P/E estimates are no longer used as measured data. The live color and audio baseline now come from the reproducible official-data composite in section 03; Seoul and Daejeon research is retained only as external comparison evidence. Place-level scores remain illustrative because no equivalent per-landmark dataset exists.</p>
         </div>
       </div>
     </div>
@@ -255,30 +282,30 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
 
   <section>
     <h2><span class="n">06</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
-    <p>These five ideas are design proposals for where Moodscape could go next. None of them exist in the current app yet; they're listed here so the goals are documented and each can be checked off as it lands.</p>
+    <p>Reconciled against what's actually in the app (DEVELOPMENT_PLAN2.md housekeeping item) — two of these five turned out to be partly built already, not proposals sitting at zero.</p>
     <div class="feature-list">
       <div class="card">
         <div class="ft">
           <h4>🌡️ Live weather-to-pitch</h4>
-          <p>Pull today's actual temperature per province from the free Open-Meteo API and offset the baseline pitch/tempo from it, so the same province sounds different on a hot day than a cold one.</p>
+          <p>Pull today's actual temperature per province from the free Open-Meteo API and offset the baseline pitch/tempo from it, so the same province sounds different on a hot day than a cold one. Not started.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>🔬 User study</h4>
-          <p>A structured listening test (sighted and blind/low-vision participants) to check whether people can correctly infer density, safety, and temperature from the sonification alone, above chance.</p>
+          <h4>🔬 User study <span style="color:var(--accent);font-weight:400;">— protocol ready, fieldwork pending</span></h4>
+          <p>A structured listening test (sighted and blind/low-vision participants) to check whether people can correctly infer density, safety, and temperature from the sonification alone, above chance. The ISO Pleasantness/Eventfulness calculation, the Korean participant questionnaire, and the scatter-plot analysis (<code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/iso_pe_calculator.js</code>, <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/soundwalk_questionnaire_ko.md</code>) are built and ready; only the physical site visits remain, which can't be automated.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>🤖 AI mood narrative generator</h4>
-          <p>Generate a short, non-repeating text description of each province's soundscape from its live mood score, note, tempo, and instrumentation via a language model.</p>
+          <h4>🤖 AI mood narrative generator <span style="color:var(--accent);font-weight:400;">— deterministic version live</span></h4>
+          <p><code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">narrative.js</code> already generates a non-repeating text description of every place and province's soundscape from its live score, note, tempo, key, and instrumentation — instantly, with no API key. What's still proposed is swapping that deterministic template for actual language-model phrasing, the way the AI music-style predictor already uses Gemini.</p>
         </div>
       </div>
       <div class="card">
         <div class="ft">
-          <h4>📦 Open dataset</h4>
-          <p>Publish the mood-score formula, source statistics, and resulting musical parameters for all 17 South Korean provinces (not just the four studied so far) so others can reuse or extend it.</p>
+          <h4>📦 Open dataset <span style="color:var(--accent);font-weight:400;">— largely published</span></h4>
+          <p>The <code style="background:var(--bg3);padding:1px 5px;border-radius:4px;">research/</code> folder already publishes the official-data inputs, the Activity Proxy and Visitor Pleasantness formulas, external source citations, and the validation protocol as CSVs and markdown. Still missing: the resulting per-place musical parameters (pitch/BPM/key/timbre) for all 17 regions as one downloadable table, rather than only visible inside the live app.</p>
         </div>
       </div>
     </div>
@@ -288,14 +315,23 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
     <h2><span class="n">07</span> Improvements needed <span class="badge partial" style="margin-left:6px;">Built, but short of the original design</span></h2>
     <p class="lede">Tracked separately from the roadmap (section 06), which is for features that don't exist at all yet. This section is for a feature that's live in the app but doesn't yet do everything it was meant to.</p>
     <div class="card">
-      <h3>♿ Accessibility mode</h3>
-      <p><b style="color:var(--text)">What's actually built:</b> the ♿ Accessibility Mode toggle in the live app turns on keyboard navigation across all 17 provinces — Left/Right arrow steps along a highlighted dashed "tactile path" between province centroids, with a Web Audio tick on every step and a sharper double-beep when landing on a place node; the Web Speech API narrates the province name, mood label, score, and description out loud on each step; Enter/Space opens that province and Escape returns to the country view. This is a real, working keyboard- and audio-driven alternative to mouse/visual map interaction, not a mockup.</p>
-      <p><b style="color:var(--text)">What's still missing against the original design intent:</b></p>
+      <h3>Accessibility</h3>
+      <p><b style="color:var(--text)">The design was corrected, not just extended.</b> The first version put accessibility behind a separate toggle that spoke through the Web Speech API and captured the arrow keys globally. That competes with a blind visitor's actual screen reader — VoiceOver, NVDA or JAWS — which already has the visitor's chosen voice, speed and braille display, and which uses those same arrow keys for its own navigation. The map itself is now accessible, and the guided audio tour is an extra on top rather than the only way in.</p>
+      <p><b style="color:var(--text)">What's built:</b></p>
       <ul style="margin: 0 0 12px 20px; color: var(--text2); font-size: 14px;">
-        <li style="margin-bottom:6px;"><b style="color:var(--text)">Stereo/spatial positioning</b> — moving east or west across the map doesn't pan the audio left or right, so the map still has no physical sense in audio space; every tick and voice line plays dead center regardless of where the selected province actually sits.</li>
-        <li style="margin-bottom:6px;"><b style="color:var(--text)">A real note preview</b> — the navigation tick is a fixed cue (880 Hz landing beep, 320 Hz step click), not the province's actual mapped pitch from section 03's formula, so a listener can't yet hear a preview of what a province sounds like before opening it.</li>
-        <li style="margin-bottom:6px;"><b style="color:var(--text)">Full stat readout</b> — the spoken narration covers mood label, score, and description, but not the underlying sourced stats (safety, English proficiency, density, temperature) that section 03's formula is actually built from.</li>
-        <li><b style="color:var(--text)">No user testing yet</b> — the feature hasn't been tried with blind or low-vision users to confirm it's actually usable end-to-end; that's what the "User study" roadmap item (section 06) is meant to close.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">The map is a set of real controls.</b> All 17 provinces are tab stops with <code>role="button"</code> and an <code>aria-label</code> carrying the region name, its modelled activity score, its mood label and whether a direct soundscape study exists behind it. Tab reaches them, Enter and Space open them, and the visitor's own screen reader reads them in their own voice. A focus outline follows each province's actual shape.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Selections are announced through one small live region</b> rather than by re-reading the whole panel, which would otherwise repeat every control, prompt and API-key field on each click.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">The navigation cue now carries the data.</b> Focusing a province plays that province's own modelled activity as a pitch on a pentatonic scale, so tabbing across the country traces its activity contour as a melody instead of repeating one fixed beep. Because the reformed proxy compresses real scores into roughly 33–61 out of 100, the pitch range is stretched across the observed spread rather than the theoretical 0–100 — mapping the full range would collapse all 17 regions onto four pitches, nine of them identical.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Deaf and hard-of-hearing visitors have a way in.</b> Every place now carries a "The music, without hearing it" panel giving the exact parameters the synth uses — pitch and frequency, tempo with a pulse at the real BPM, key, timbre family, density and instrumentation — read from the same functions that drive the audio, so the two cannot drift apart.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Untranslated text declares its own language.</b> With the interface set to Korean, text still awaiting translation is marked <code>lang="en"</code> so a Korean screen reader voice does not attempt to read English words.</li>
+        <li><b style="color:var(--text)">Motion is opt-out.</b> The tempo pulse, waveform animation and the guided tour's pulsing ring all stop under <code>prefers-reduced-motion</code>; the tempo stays readable as text either way.</li>
+      </ul>
+      <p><b style="color:var(--text)">What's still missing:</b></p>
+      <ul style="margin: 0 0 12px 20px; color: var(--text2); font-size: 14px;">
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Stereo/spatial positioning</b> — moving east or west across the map still doesn't pan the audio, so the map has no physical sense in audio space. This is the next piece, and iSonic (section 08) is the precedent for it.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Directional movement</b> — the guided tour still steps through a fixed list of 17 rather than moving north, south, east or west from wherever you are, so it doesn't teach the country's geography.</li>
+        <li style="margin-bottom:6px;"><b style="color:var(--text)">Full stat readout</b> — the announcement covers name, score and mood label, but not the underlying official inputs (density, tourism, complaints, facilities, crowding) that section 03's proxy is built from.</li>
+        <li><b style="color:var(--text)">No user testing yet</b> — none of this has been tried with blind or low-vision users, so it remains a set of informed guesses. Everything above is a correction made from standards and published practice, not from watching someone use it. That is what the "User study" roadmap item (section 06) is meant to close, and it is the item that matters most.</li>
       </ul>
     </div>
   </section>
@@ -316,13 +352,17 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
     <h2><span class="n">09</span> Sources</h2>
     <div class="refs">
       <ol>
-        <li>ACM TOCHI (2008). iSonic: Interactive Data Sonification for Blind Users.</li>
+        <li>Zhao, H., Plaisant, C., Shneiderman, B. &amp; Lazar, J. (2008). Data Sonification for Users with Visual Impairment. ACM TOCHI, 15(1). <a href="https://doi.org/10.1145/1352782.1352786" target="_blank" rel="noopener">doi:10.1145/1352782.1352786</a></li>
         <li>EF Education First (2025). EF English Proficiency Index 2024 — South Korea.</li>
         <li>Frontiers in Data (2023). Data-to-Music Sonification and User Engagement. PMC10448511.</li>
         <li>Frontiers in Rehabilitation Sciences (2024). SONOICE! Sonification for visually impaired users. doi:10.3389/fresc.2024.1368983</li>
+        <li>Hong, J.Y. &amp; Jeon, J.Y. (2020). Building and Environment. On-site soundwalk study, Seoul CBD/commercial streets. <a href="https://doi.org/10.1016/j.buildenv.2020.107327" target="_blank" rel="noopener">doi:10.1016/j.buildenv.2020.107327</a></li>
+        <li>ISO 12913-2:2018. Acoustics — Soundscape — Part 2: Data collection and reporting requirements. <a href="https://www.iso.org/standard/75267.html" target="_blank" rel="noopener">ISO catalogue record</a> (standards do not use journal DOIs).</li>
+        <li>Kim, G., Kim, T. &amp; Hong, J.Y. (2025). Applied Acoustics. TD-CAMM soundscape study, Daejeon. <a href="https://doi.org/10.1016/j.apacoust.2024.110319" target="_blank" rel="noopener">doi:10.1016/j.apacoust.2024.110319</a></li>
         <li>Korea Meteorological Administration (KMA). 30-Year Climate Normal (1991–2020).</li>
         <li>KOSIS — Statistics Korea (2024). Population and Housing Census.</li>
         <li>NASA Chandra X-ray Centre (2022). Black Hole Sonification — Perseus Galaxy Cluster.</li>
+        <li>Lee, H. &amp; Kim, Y. (2026). PLOS One. Social-media soundscape mapping, Seoul (156 points of interest). <a href="https://doi.org/10.1371/journal.pone.0343393" target="_blank" rel="noopener">doi:10.1371/journal.pone.0343393</a></li>
         <li>Numbeo (2024–2025). Safety Index by City — South Korea.</li>
         <li>Open-Meteo (2025). Free Weather API — open-meteo.com/en/docs</li>
         <li>ResearchGate (2024). Review of sonification solutions in assistive systems for visually impaired people.</li>
@@ -335,6 +375,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
 
 <footer>Moodscape · 소리로 느끼는 한국</footer>
 
+<script src="i18n.js"></script>
 <script src="prompt.js"></script>
 </body>
 </html>

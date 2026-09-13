@@ -153,6 +153,7 @@ function showPlace(stateName, placeIdx) {
       <div>
         <div style="font-size:13px;font-weight:500;">${MOOD_LABEL(p.score)}</div>
         <div class="mood-desc">${getMoodDesc(p.score, p.name)}</div>
+        <div class="pe-badge modelled" style="margin-top:6px;" title="No landmark-level measurement exists for ${p.name}. This score is ${stateName}'s measured regional score, offset by an author judgment of how this specific place compares to others in the region — not an independent measurement of this place.">Illustrative offset, not measured</div>
       </div>
     </div>
 
@@ -163,7 +164,7 @@ function showPlace(stateName, placeIdx) {
       </div>
     </div>
 
-    ${buildMusicSpecPanel(p)}
+    ${buildMusicSpecPanel(p, stateName)}
 
     <div class="panel-section">
       <div class="panel-title">Generated soundscape</div>
@@ -174,7 +175,7 @@ function showPlace(stateName, placeIdx) {
           </button>
           <div class="player-info">
             <div class="track-name">${p.name} — ${MOOD_LABEL(p.score)} Mix</div>
-            <div class="track-sub">${getSunoBpm(p)} BPM · ${getMusicalKey(p) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p).split(",")[0]}</div>
+            <div class="track-sub">${getSunoBpm(p)} BPM · ${getMusicalKey(p, stateName) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p).split(",")[0]}</div>
           </div>
         </div>
         <div class="waveform" id="waveform">${barsHtml}</div>
@@ -258,7 +259,7 @@ function showPlace(stateName, placeIdx) {
   `;
 
   announce(`${p.name}. ${p.type}. Mood ${Math.round(p.score * 100)} out of 100, `
-    + `${MOOD_LABEL(p.score).toLowerCase()}. Soundscape: ${getSunoBpm(p)} BPM, ${getMusicalKey(p)}.`);
+    + `${MOOD_LABEL(p.score).toLowerCase()}. Soundscape: ${getSunoBpm(p)} BPM, ${getMusicalKey(p, stateName)}.`);
 
   // Render "Ask a Local" chat interface (Gemini Integration)
   const persona = getLocalPersona(stateName, p);
