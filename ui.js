@@ -1,5 +1,65 @@
 // ── MOOD SCAPE USER INTERFACE & NAVIGATION ─────────────────────────────────────
 
+// Sends one concise line to the polite live region in index.html, so a screen
+// reader announces what was selected in the visitor's own voice and speed. The
+// blank-then-set is what makes repeat announcements of identical text register.
+function announce(message) {
+  const live = document.getElementById("a11y-live");
+  if (!live) return;
+  live.textContent = "";
+  window.setTimeout(() => { live.textContent = message; }, 60);
+}
+
+// The live score is a reproducible proxy from official comparable statistics.
+// It is deliberately not labelled as measured ISO Eventfulness.
+function renderRegionResearchBadge(stateName) {
+  const model = REGION_MODEL[stateName];
+  if (!model) return "";
+  const reference = model.reference ? " · direct soundscape reference available" : " · no direct regional soundscape measurement";
+  return `<div class="pe-badge modelled" title="Official inputs; hypothesis weights; not a measured ISO score${reference}" style="margin-bottom:10px;">Modelled proxy</div>`;
+}
+
+function renderRegionModelDetails(stateName) {
+  const m = REGION_MODEL[stateName];
+  if (!m) return "";
+  const x = m.input;
+  const reference = m.reference
+    ? `<div class="model-reference"><b>Direct study reference:</b> Eventfulness ${m.reference.eventfulness}/100. This is shown for comparison, not mixed into the model.</div>`
+    : `<div class="model-reference muted">No direct regional soundscape survey is available; this score requires listener validation.</div>`;
+  return `<details class="model-details">
+    <summary>See data and calculation</summary>
+    <div class="model-summary"><b>${m.activity.toFixed(1)}</b> activity proxy · <b>${m.pleasantness.toFixed(1)}</b> visitor pleasantness context</div>
+    <div class="model-grid">
+      <span>Density (35%)</span><b>${x.density.toLocaleString()}/km²</b>
+      <span>Tourism intensity (30%)</span><b>${m.raw.tourism.toFixed(1)} trips/resident</b>
+      <span>Noise complaints (15%)</span><b>${m.raw.complaints.toFixed(1)}/100k</b>
+      <span>Noise facilities (10%)</span><b>${m.raw.facilities.toFixed(1)}/100k</b>
+      <span>Crowding pressure (10%)</span><b>${m.raw.crowdingPressure.toFixed(1)}/100</b>
+    </div>
+    <p>Inputs are log min–max scaled across all 17 regions, then weighted. Pleasantness is kept separate: 40% overall satisfaction + 25% recommendation + 20% revisit + 15% crowding satisfaction.</p>
+    ${reference}
+  </details>`;
+}
+
+// A single, real, sourced "hidden gem" per province — a place surfaced from an
+// independent travel blog rather than picked by us, since a curated app naming
+// its own hidden gems would just be another opinion. Every quote/URL here was
+// pulled from the blog post itself, not paraphrased from a search summary.
+function renderHiddenGem(stateName) {
+  const g = MOOD_DATA.states[stateName].hiddenGem;
+  if (!g) return "";
+  return `
+    <div class="panel-section">
+      <div class="panel-title">Hidden gem</div>
+      <div class="hidden-gem-card">
+        <div class="hidden-gem-name">💎 ${g.name}</div>
+        <div class="hidden-gem-note">${g.note}</div>
+        <blockquote class="hidden-gem-quote">“${g.quote}”</blockquote>
+        <div class="hidden-gem-source">— <a href="${g.sourceUrl}" target="_blank" rel="noopener">${g.source}</a></div>
+      </div>
+    </div>`;
+}
+
 function showStateSide(stateName) {
   const s = MOOD_DATA.states[stateName];
   isPlaying = false;
@@ -9,18 +69,20 @@ function showStateSide(stateName) {
   const panel = document.getElementById("panel-content");
   panel.innerHTML = `
     <div class="panel-section">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
         <div style="font-size:28px;">${s.emoji}</div>
         <div>
           <div style="font-size:16px;font-weight:600;">${stateName}</div>
           <div style="font-size:12px;color:var(--text2);">${s.desc}</div>
         </div>
       </div>
+      ${renderRegionResearchBadge(stateName)}
       <div class="mood-bar-wrap" style="margin-bottom:4px;">
-        <div style="font-size:11px;color:var(--text2);width:60px;">Mood</div>
+        <div style="font-size:11px;color:var(--text2);width:60px;">Activity</div>
         <div class="mood-bar"><div class="mood-fill" style="width:${s.score*100}%;background:${MOOD_COLOR(s.score)};"></div></div>
         <div class="mood-label">${MOOD_LABEL(s.score)}</div>
       </div>
+      ${renderRegionModelDetails(stateName)}
     </div>
     <div class="panel-section">
       <div class="panel-title">Language accessibility</div>
@@ -35,10 +97,14 @@ function showStateSide(stateName) {
         ${buildProvinceNarrative(stateName)}
       </div>
     </div>
+    ${renderHiddenGem(stateName)}
     <div class="panel-section">
       <div class="panel-title">Places to explore</div>
       ${s.places.map((p, i) => `
-        <div class="region-card" onclick="showPlace('${stateName}', ${i})">
+        <div class="region-card" role="button" tabindex="0"
+             aria-label="${p.name}. ${p.type}. Mood ${Math.round(p.score*100)} out of 100, ${MOOD_LABEL(p.score).toLowerCase()}."
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPlace('${stateName}', ${i});}"
+             onclick="showPlace('${stateName}', ${i})">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
             <span style="font-size:16px;">${p.emoji}</span>
             <span class="region-name">${p.name}</span>
@@ -52,6 +118,8 @@ function showStateSide(stateName) {
       `).join("")}
     </div>
   `;
+  announce(`${stateName} opened. Modelled activity ${Math.round(s.score * 100)} out of 100, `
+    + `${MOOD_LABEL(s.score).toLowerCase()}. ${s.places.length} places listed.`);
 }
 
 function showPlace(stateName, placeIdx) {
@@ -94,6 +162,8 @@ function showPlace(stateName, placeIdx) {
         ${buildPlaceNarrative(p, stateName)}
       </div>
     </div>
+
+    ${buildMusicSpecPanel(p)}
 
     <div class="panel-section">
       <div class="panel-title">Generated soundscape</div>
@@ -186,6 +256,9 @@ function showPlace(stateName, placeIdx) {
       </a>
     </div>
   `;
+
+  announce(`${p.name}. ${p.type}. Mood ${Math.round(p.score * 100)} out of 100, `
+    + `${MOOD_LABEL(p.score).toLowerCase()}. Soundscape: ${getSunoBpm(p)} BPM, ${getMusicalKey(p)}.`);
 
   // Render "Ask a Local" chat interface (Gemini Integration)
   const persona = getLocalPersona(stateName, p);
@@ -284,7 +357,7 @@ function goCountry() {
   isPlaying = false;
   stopPlayback();
   svg.selectAll(".region-path").classed("active", false);
-  document.getElementById("panel-content").innerHTML = `<div class="empty"><div class="big">🗺️</div><p>Hover over a province to preview its vibe.<br>Click to dive into places.</p><div class="byok-notice"><b>Free to explore, no setup needed.</b> The map, mood scores, real photos, and a synth soundscape all work instantly. Two optional AI features — the "Ask a Local" chat and AI-generated music — need your own free/paid API key (Gemini / Suno), entered when you try them. This is a deliberate bring-your-own-key design for a static site with no backend server, not a bug or a paywall you'll hit unexpectedly.</div><div class="byok-notice"><b>Research status.</b> The mood scores shown here are currently hand-assigned, not yet computed from the sonification formula documented on the <a href="about.html" style="color:var(--accent);">About &amp; research</a> page — so the project's core hypothesis (that sound can communicate real geographic/demographic data) hasn't been tested against live formula output yet. See that page for exactly what's built vs. proposed.</div></div>`;
+  document.getElementById("panel-content").innerHTML = `<div class="empty"><div class="big">🗺️</div><p>Hover over a province to preview its vibe.<br>Click to dive into places.</p><div class="byok-notice"><b>Free to explore, no setup needed.</b> The map, modelled scores, real photos, and a synth soundscape all work instantly. Two optional AI features — the "Ask a Local" chat and AI-generated music — need your own free/paid API key (Gemini / Suno), entered when you try them.</div><div class="byok-notice"><b>Research status.</b> Province scores now run from a transparent composite of official density, tourism, noise and visitor-survey data. The weights are documented hypotheses, not learned coefficients or measured ISO Eventfulness. Open any province's calculation and see <a href="about.html" style="color:var(--accent);">About &amp; research</a> for limitations.</div></div>`;
   document.getElementById("breadcrumb").innerHTML = `<span onclick="goCountry()">South Korea</span>`;
   hint.style.display = "block";
 }
