@@ -76,17 +76,25 @@ Recorded once per site-time window, alongside the ratings above — matches the 
 
 ## Analysis pipeline this feeds
 
-Ratings collected on this form map directly onto `isoCoordinates()` in
-`research/iso_pe_calculator.js`:
+Enter one row per participant per site-time into
+`research/soundwalk_observation_template.csv`, then run:
 
-```js
-const { isoCoordinates } = require("./iso_pe_calculator.js");
-isoCoordinates({
-  pleasant: 4, annoying: 2, calm: 3, chaotic: 3,
-  vibrant: 4, monotonous: 2, eventful: 4, uneventful: 2,
-});
-// → { pleasantness: 0.354, eventfulness: 0.354 }
+```sh
+python3 research/analyze_soundwalk.py
+python3 research/analyze_soundwalk.py --predictor pedestrians_per_minute
 ```
 
-No real responses have been collected against this form yet — see DEVELOPMENT_PLAN2.md
-Priority 1.
+It computes ISO Pleasantness/Eventfulness for each participant, aggregates to site-time
+means with 95% confidence intervals, and prints the predictor-vs-Eventfulness scatter rows.
+Before any fieldwork exists it reports "0 rows found — no field data collected yet" and
+exits cleanly, so it is safe to run at any point.
+
+`research/iso_pe_calculator.js` holds the same formula for browser use; the Python port is
+checked against its worked example in `research/test_research.py`.
+
+**Every item on this form has a matching column in the CSV** — including 연령대 (`age_band`)
+and 토지이용 구분 (`land_use_category`), both of which this form asked for while the template
+had nowhere to record them until 2026-09-20.
+
+No real responses have been collected against this form yet — see
+[DEVELOPMENT_PLAN.md](../DEVELOPMENT_PLAN.md) Priority 1.

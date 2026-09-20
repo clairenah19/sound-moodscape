@@ -5,7 +5,7 @@
 // calculation"), which is itself ISO/TS 12913-3's standard method for turning
 // the 8-item perceptual questionnaire into two circumplex coordinates.
 //
-// This is a "preparable now" item from DEVELOPMENT_PLAN2.md Priority 1: the
+// This is a "preparable now" item from DEVELOPMENT_PLAN.md Priority 1: the
 // math, aggregation, and scatter-plot data shaping can all be built and
 // tested before a single real soundwalk observation exists. It is deliberately
 // dependency-free (no build step, no framework) so it can run in Node for

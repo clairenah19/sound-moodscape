@@ -62,22 +62,37 @@ Still the highest-leverage item for making the project *tested*, not just *repro
   `eventfulnessScatterData()`. Math-verified against the protocol's formula.
 - `research/soundwalk_questionnaire_ko.md` — Korean 8-item questionnaire.
 
-**New concrete gap found while speccing this out:** the calculator has no code path that
-reads an actual CSV — only the hand-written example in `runExample()`. Before real field data
-exists, this will silently not work.
+**Gap found while speccing this out, now closed:** the calculator had no code path that
+reads an actual CSV — only the hand-written example in `runExample()`.
 
-- [ ] **Write `research/analyze_soundwalk.js`** — a small Node script that:
-      1. reads `research/soundwalk_observation_template.csv` with a plain CSV parser (no
-         dependency needed — split on commas, or add `csv-parse` if quoting gets hairy),
-      2. groups rows by `site_name` + `date` + `start_time` into site-time observations,
-      3. calls `aggregateSiteTime()` per group and `eventfulnessScatterData()` across all
-         groups (using `laeq_db` as the initial predictor),
-      4. prints a table of site, n, Pleasantness mean ± CI, Eventfulness mean ± CI,
-      5. exits cleanly with a clear message ("0 rows found — no field data collected yet") if
-         the CSV is still just the header row, so running it early doesn't look like a crash.
-      - **Done when:** running `node research/analyze_soundwalk.js` against the still-empty
-        template prints that clear "no data yet" message instead of an error, and the same
-        script works unmodified once real rows are added.
+- [x] **`research/analyze_soundwalk.py`** — reads the observation CSV, groups rows by
+      `site_name` + `date` + `start_time`, computes ISO Pleasantness/Eventfulness per
+      participant, aggregates to site-time means with 95% CIs, and prints both a results
+      table and the predictor-vs-Eventfulness scatter rows. Run it with
+      `python3 research/analyze_soundwalk.py`; `--predictor` selects the x-axis column
+      (default `laeq_db`), `--csv` points at another file.
+      - Against the still-empty template it prints "0 rows found — no field data collected
+        yet" and exits 0, so running it early does not look like a crash. Verified.
+      - Rows with blank, non-numeric, or out-of-range ratings are skipped individually with
+        a line number and the specific reason, rather than failing the whole run.
+      - Small-cell 95% CIs use a t-interval, not the normal approximation: pilot cells are
+        ~5–10 ratings, where 1.96 is too narrow.
+      - **Written in Python, not the Node script this plan originally specified.** Every
+        analysis script in `research/` is already Python, and Node is not installed on the
+        development machine, so a Node script could not be run or verified.
+        `iso_pe_calculator.js` is unchanged and still available for browser use; the ported
+        math is checked against its documented worked example by `test_research.py`.
+- [x] **Seven regression tests added** to `research/test_research.py` (`SoundwalkTests`):
+      formula agreement with the protocol, neutral-maps-to-origin and extremes-reach-±1,
+      out-of-range rejection, site-time (not site-only) grouping, distinct blank vs
+      non-numeric skip reasons, t-interval width, and the clean empty-template exit.
+- [x] **Observation template corrected against the protocol.** An audit of all 41 columns
+      found `age_band` missing — a field the protocol's participant questionnaire explicitly
+      requires — along with the required `land_use_category` predictor and four recommended
+      ones (`fluctuation_strength_vacil`, `poi_types_in_buffer`, `sound_event_count`,
+      `sound_event_diversity`). Template is now 47 columns and matches the protocol. Had this
+      not been caught, the pilot would have collected data missing a required field, and no
+      amount of later analysis could recover it.
 
 **Fieldwork (cannot be automated) — do this after the script above exists:**
 - [ ] Pick 1–2 physically reachable provinces and 6–10 sites covering: a commercial street, a
@@ -92,106 +107,43 @@ exists, this will silently not work.
       state in writing whether the official-data proxy actually predicted Eventfulness better
       than chance, even if the honest answer is no.
 
-## Priority 2 — Pleasantness has no live path
+## Priority 2 — Pleasantness → audio
 
-**Done.** Nothing further required unless testing surfaces a bug. For reference:
-`getMusicalKey(place, stateName)` in `prompt.js` now compares
-`REGION_MODEL[stateName].pleasantness` against `PLEASANTNESS_MEDIAN` (`data.js`) for its
-default case. Verified: Gangnam (Seoul) → minor key, because Seoul's Pleasantness (75.8) sits
-below the 17-region median (77.7).
+- [x] Gangnam's current prompt requests a minor key using regional Pleasantness.
+- [x] Added `research/live_feature_checks.html` for actual API calls and a separate human listening record.
+- [ ] Generate a real Gangnam Suno track and confirm it audibly resolves in minor. **Blocked:** no usable key was accessible in the inspected environment; browser-stored keys need the original origin/profile. A minor-key prompt is not proof of minor-key audio.
 
-- [ ] **One remaining check, not yet done:** generate one real Suno track for a place that
-      flipped key under this change (Gangnam is the clearest case) and confirm the returned
-      MP3 is audibly in a minor key. This needs a Suno key to test — flag as blocked if none
-      is available, don't skip silently.
+## Priority 3 — Landmark-level data
 
-## Priority 3 — Landmark level is still illustrative
-
-**Cheap fix done** — every place shows "Illustrative offset, not measured."
-
-**Concrete, automatable improvement found this pass** (doesn't need fieldwork): Wikipedia
-page-view counts are a real, free, per-landmark popularity signal, available with no API key
-via `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/<Article_Title>/monthly/<start>/<end>`. Most places already have a
-Wikipedia URL in `photoPage`.
-
-- [ ] Write `research/fetch_landmark_pageviews.js` (or do it as a one-off script) that:
-      1. loops over every place in `data.js` whose `photoPage` is an `en.wikipedia.org` URL,
-      2. extracts the article title and calls the pageviews API for the last 12 months,
-      3. writes the result to `research/moodscape_landmark_pageviews.csv` (columns: state,
-         place, wikipedia_title, avg_monthly_views, months_covered).
-      - **Done when:** the CSV has a row for every place with a Wikipedia `photoPage` (expect
-        most of the 75; note which ones lack one).
-- [ ] Decide and document a log-scaled 0–100 mapping from pageviews to a landmark-level
-      Eventfulness offset (same log-then-min-max approach as `data.js`'s `logScale()`, for
-      consistency), and note in `about.html` that this is a *popularity* proxy, explicitly
-      not a *soundscape* measurement — don't let it get cited as more than it is.
-- [ ] Wire it in as an *optional* override: if a place has pageview data, show both the
-      current illustrative offset and the pageview-derived one side by side in the UI, rather
-      than silently replacing one unvalidated number with another.
-- [ ] **Better fix, still fieldwork-gated:** during Priority 1's site visits, measure 3–5 of
-      the actual landmarks (not just generic street sites) so at least a handful of places
-      get a real, non-proxy score. Add those as a `measured: true` flag on the place object.
+- [x] `research/fetch_landmark_pageviews.py` retrieves Wikimedia REST pageviews and writes CSV/JSON for all 75 places, including explicit missing-data rows.
+- [x] Actual 2025-09 through 2026-08 pull: 58 complete, one partial, 16 with no linked Wikipedia article.
+- [x] Documented log1p min–max 0–100 popularity offset in `research/landmark_pageviews_method.md`; it is not a soundscape measurement.
+- [x] Detail panel shows popularity evidence alongside the existing illustrative score and offset; scoring and audio mappings are unchanged.
+- [ ] Measure 3–5 real landmarks during Priority 1 fieldwork. Defaults are `measured: false`; set true only with linked actual observations.
 
 ## Priority 4 — Listener experiment
 
-No protocol currently exists for this at all (unlike Priority 1). Unlike Priority 1, **this
-one does not require in-person fieldwork** — participants can rate audio clips remotely.
+- [x] `research/listener_experiment_protocol.md`: ten places across the observed score range, blinded randomized clips, eight adjective ratings, consent/recruitment, target 24 adults (minimum 15 complete sessions for exploratory analysis).
+- [x] Static `research/listener_rating_form.html`: resume, playback-coverage checks, validated ratings, CSV export and delete. Collection stays disabled until ten genuine clips are prepared and hashed.
+- [x] `research/prepare_listener_clips.py` prepares reviewed real tracks; `research/analyze_listener_experiment.py` implements clip-level Spearman with permutation test and participant bootstrap intervals.
+- [ ] Generate/review clips, recruit consenting listeners, collect real responses, and run the analysis. `research/listener_experiment_results.md` remains `[PENDING]`; synthetic software checks are not participant data.
 
-- [ ] **Write `research/listener_experiment_protocol.md`**, covering:
-      - **Stimulus set:** 8–10 places spanning the full score range (pick 2 each from
-        very-peaceful/calm/balanced/lively/very-exciting bands using `MOOD_LABEL()`'s
-        buckets), each rendered as a real Suno track — not synth fallback, since the claim
-        being tested is about the generated music.
-      - **Task:** listener hears one clip, rates it on the same 8-item ISO scale used in
-        `soundwalk_questionnaire_ko.md` (English version), blind to the place name/score.
-      - **Sample size:** ~15 listeners × 8–10 clips = enough for a paired comparison against
-        the generating score; state the actual test up front (Spearman correlation between
-        rated Eventfulness and the place's activity score; a paired t-test or Wilcoxon if
-        comparing two specific conditions).
-      - **Recruitment:** who, how many, how contacted, consent language, anonymity.
-- [ ] **Build the collection tool.** A single static HTML page (`research/listener_rating_form.html`, no framework needed — same stack as the rest of the app) that: plays each of the
-      8–10 clips in a random order per respondent, shows the 8-item scale as radio buttons,
-      and appends responses to a downloadable CSV or a `localStorage`-backed table the
-      respondent can export. This is buildable now, independent of recruiting anyone.
-- [ ] Run it with whatever real listeners are reachable (classmates, family, online), analyze
-      with the correlation test named above, and write results into
-      `research/listener_experiment_results.md` — again, report a null result plainly if
-      that's what happens.
+## Priority 5 — Finish what is incomplete
 
-## Priority 5 — Finish what is live but incomplete
-
-- [ ] **Confirm the Gemini features actually complete.** Get a real (even free-tier) Gemini
-      API key, open the app, and manually check three things complete without error: (1) Ask
-      a Local returns a persona-flavored reply, (2) the AI music-style predictor returns valid
-      JSON with `genre`/`instrumentation`/`key`, (3) the language-accessibility estimate
-      returns a 0–100 score for at least 2 non-English languages. Note the exact error if any
-      of the three fail — "never tested" and "tested and broken" need different fixes.
-- [ ] **Photo gallery — 69 places remaining** (6 of 75 done, Seoul only). Concrete scope:
-      2 additional real, free-licensed Wikimedia Commons photos per place, matching the
-      pattern already in `data.js`'s `photos[]` array for Seoul (url/artist/license/page).
-      At ~2 photos × 69 places = 138 images to source and verify — worth splitting across
-      multiple sessions/passes by region rather than attempting in one sitting.
-- [ ] **Accessibility gaps**, in priority order:
-      1. No testing with blind or low-vision users — everything else is informed guesswork
-         until this happens. Recruit even 1–2 testers before adding more accessibility code.
-      2. Full stat readout in announcements (the raw density/tourism/complaints numbers, not
-         just the final score) — add to the `aria-label` string built in `map.js`.
-      3. Stereo/spatial panning by longitude — set `StereoPannerNode.pan` from each region's
-         relative east-west position when the accessibility tick sound plays.
-      4. Directional (N/S/E/W) navigation instead of the fixed 17-item tab order.
+- [x] Prepared live checks for Ask a Local, music-style JSON, and two non-English language estimates; status recorded in `research/live_feature_checks.md`.
+- [ ] All three Gemini features still need actual key-backed checks. Current status is **blocked / not tested**, not pass or fail.
+- [x] Added two sourced, visually reviewed photos for each of the remaining 69 places. All 75 places now have `photos[]` with two entries; sources are in `research/landmark_photo_sources.csv`.
+- [ ] Original all-free-licensed-photo target is not fully met: seven of the 138 additions are explicitly credited publisher images with rights reserved. Replace those or obtain reuse permission before treating the gallery as wholly free-licensed. The other 131 additions have open-license source metadata.
+- [x] Prepared `research/accessibility_tester_brief.md`.
+- [ ] **Future work, outside the current evaluation scope:** recruit blind/low-vision testers if participation becomes feasible. The user now expects this participation is unlikely. No outreach has been sent; completion of the current project does not depend on this recruitment.
+- [ ] Full stat aria-labels, longitude stereo panning, and N/S/E/W navigation remain deferred as future work. Existing accessibility features are unvalidated with intended users. Technical checks can document keyboard and screen-reader behavior but cannot establish usability for blind/low-vision people. The general listener experiment remains separate and can proceed.
 
 ## Priority 6 — Writeup
 
-- [ ] Draft `research/paper_draft.md` with this section mapping, copying stable prose from
-      `about.html` and adapting tone (paper voice, not app-copy voice):
-      - Abstract + Introduction ← §01 (research question)
-      - Related Work ← §02 + §08
-      - Method ← §03 + §05
-      - Results ← **leave as `[PENDING — see Priority 1 pilot_results.md]`**, don't fabricate
-        placeholder numbers
-      - Limitations / Future Work ← §06 + §07
-- [ ] Once Priority 1 produces `research/pilot_results.md`, fill in the Results section for
-      real and remove the pending marker.
+- [x] `research/paper_draft.md` maps about §01 into Abstract/Introduction, §02/08 into Related Work, §03/05 into Method, and §06/07 into Limitations/Future Work.
+- [ ] Results remain `[PENDING]` until Priority 1 produces real observations and analysis. The listener study is also pending.
+
+Verification and reproducible commands: `research/IMPLEMENTATION_REPORT_2026-09-13.md`.
 
 ---
 
