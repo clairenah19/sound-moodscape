@@ -153,7 +153,7 @@ function showPlace(stateName, placeIdx) {
       <div>
         <div style="font-size:13px;font-weight:500;">${MOOD_LABEL(p.score)}</div>
         <div class="mood-desc">${getMoodDesc(p.score, p.name)}</div>
-        <div class="pe-badge modelled" style="margin-top:6px;" title="No landmark-level measurement exists for ${p.name}. This score is ${stateName}'s measured regional score, offset by an author judgment of how this specific place compares to others in the region — not an independent measurement of this place.">Illustrative offset, not measured</div>
+        <div class="pe-badge modelled" style="margin-top:6px;" title="No landmark-level measurement exists for ${p.name}. This score is ${stateName}'s modelled regional score, offset by an author judgment of how this specific place compares to others in the region — not an independent measurement of this place.">Illustrative offset, not measured</div>
       </div>
     </div>
 
@@ -163,6 +163,8 @@ function showPlace(stateName, placeIdx) {
         ${buildPlaceNarrative(p, stateName)}
       </div>
     </div>
+
+    <div id="landmark-evidence">${renderLandmarkEvidence(p, stateName)}</div>
 
     ${buildMusicSpecPanel(p, stateName)}
 
@@ -193,7 +195,7 @@ function showPlace(stateName, placeIdx) {
           </div>
           <div class="suno-help">Generate an instrumental in Suno, download the MP3, and save it as <code>audio/${placeKey(stateName, p)}.mp3</code> next to this page — it'll then play automatically. Or set up automatic generation below.</div>
 
-          <button class="suno-toggle" id="ai-predict-btn" onclick="runAIMusicPrediction(${JSON.stringify(stateName)}, ${JSON.stringify(p.name)})" style="margin-top:6px;">🤖 Let AI predict the best music style (uses photo + research data)</button>
+          <button class="suno-toggle" id="ai-predict-btn"  style="margin-top:6px;">🤖 Let AI predict the best music style (uses photo + research data)</button>
           <div id="ai-predict-result" class="suno-help" style="margin-top:6px;"></div>
 
           <details class="suno-adv">
@@ -222,10 +224,11 @@ function showPlace(stateName, placeIdx) {
       </div>
       ${p.photos && p.photos.length ? `
       <div class="real-photo-gallery">
-        ${p.photos.map(ph => `
-          <a href="${ph.page || ph.url}" target="_blank" rel="noopener" class="real-photo-gallery-cell">
-            <img src="${ph.url}" alt="${p.name}" loading="lazy">
-            <div class="photo-credit">${ph.artist ? "Photo: " + ph.artist : "Wikimedia Commons"}${ph.license ? " · " + ph.license : ""}</div>
+        ${p.photos.filter(ph => photoIdentity(ph.url) !== photoIdentity(p.photo)).map(ph => `
+          <a href="${evidenceEscape(ph.page || ph.url)}" target="_blank" rel="noopener" class="real-photo-gallery-cell">
+            <img src="${evidenceEscape(ph.url)}" alt="${evidenceEscape(ph.caption || p.name)}" loading="lazy">
+            ${ph.caption ? `<div class="photo-credit">${evidenceEscape(ph.caption)}</div>` : ""}
+            <div class="photo-credit">${ph.artist ? "Photo: " + evidenceEscape(ph.artist) : "Source photo"}${ph.license ? " · " + evidenceEscape(ph.license) : ""}</div>
           </a>
         `).join("")}
       </div>` : ""}
@@ -312,9 +315,18 @@ function showPlace(stateName, placeIdx) {
   // Append chat HTML to side panel content
   panel.innerHTML += chatHtml;
 
+  document.getElementById("ai-predict-btn").addEventListener("click", () => runAIMusicPrediction(stateName, p.name));
+
   // Scroll chat box to bottom
   const chatBox = document.getElementById("chat-box");
   if (chatBox) chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Compare a Commons original and thumbnail as the same photo, avoiding repeated gallery images.
+function photoIdentity(url) {
+  if (!url) return '';
+  try { return decodeURIComponent(new URL(url, location.href).pathname).split('/').pop().replace(/^\d+px-/, '').replaceAll('_', ' ').toLowerCase(); }
+  catch { return url; }
 }
 
 // ── PHOTO UPLOAD ──────────────────────────────────────────────────────────────

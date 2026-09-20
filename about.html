@@ -86,6 +86,12 @@
       <div><b>Honesty note:</b> this per-weight reasoning was written after the formula, from the actual data spreads and each variable's directness and redundancy against the others — it documents a defensible rationale for the numbers above, not a record of the original decision process. Like the historical formula's weights below, none of this is claimed to be the optimal split, and it hasn't been tested against a listener or perception study.</div>
     </div>
 
+    <div class="card" style="margin-top:18px;">
+      <h3>Landmark evidence: Wikipedia popularity, shown separately</h3>
+      <p>Landmark panels now compare the existing illustrative score with a 0–100 log-scaled English Wikipedia readership index over a common 12-month window. The index is a popularity proxy, not a soundscape measurement, and does not replace the score or change the audio. Missing and partial records remain unscored; some linked articles cover wider cities or companies.</p>
+      <p><a href="research/moodscape_landmark_pageviews.csv">Source CSV</a> · <a href="research/landmark_pageviews_method.md">Collection and mapping method</a></p>
+    </div>
+
     <p style="margin-top:24px;">The four-variable formula below was Moodscape's original scoring design (Safety, Language proficiency, Density, Annual Temperature). It is retained as design history and does not produce the live region score. Density and Seasonal Drift remain possible independent audio parameters:</p>
     <div class="formula">Mood Score (four-variable, proposed) = (Safety × 0.30) + (Language proficiency × 0.25)
            + (Density Score × 0.25) + (Annual Temp Score × 0.20)</div>
@@ -282,7 +288,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
 
   <section>
     <h2><span class="n">06</span> Roadmap <span class="badge roadmap" style="margin-left:6px;">Proposed — not yet built</span></h2>
-    <p>Reconciled against what's actually in the app (DEVELOPMENT_PLAN2.md housekeeping item) — two of these five turned out to be partly built already, not proposals sitting at zero.</p>
+    <p>Reconciled against what's actually in the app (DEVELOPMENT_PLAN.md housekeeping item) — two of these five turned out to be partly built already, not proposals sitting at zero.</p>
     <div class="feature-list">
       <div class="card">
         <div class="ft">
@@ -313,6 +319,7 @@ Drift Depth = Seasonal Swing / 30°C   (clamped to [0, 1], ~30°C ≈ the widest
 
   <section>
     <h2><span class="n">07</span> Improvements needed <span class="badge partial" style="margin-left:6px;">Built, but short of the original design</span></h2>
+    <div class="status-banner"><div><b>2026-09-13 update:</b> A listener <a href="research/listener_experiment_protocol.md">protocol</a>, <a href="research/listener_rating_form.html">rating form</a>, and analysis script are prepared. Real clips and participant results remain pending. The <a href="research/paper_draft.md">paper draft</a> retains Results as [PENDING]. New full-stat, stereo, and directional accessibility code is deferred until 1–2 testers are recruited; see the <a href="research/accessibility_tester_brief.md">tester brief</a>.</div></div>
     <p class="lede">Tracked separately from the roadmap (section 06), which is for features that don't exist at all yet. This section is for a feature that's live in the app but doesn't yet do everything it was meant to.</p>
     <div class="card">
       <h3>Accessibility</h3>

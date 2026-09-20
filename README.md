@@ -11,7 +11,7 @@ This README covers what's here and how to run it. For the research question, the
 formula, its sourcing, and an honest list of what's validated vs. proposed, see
 **[`about.html`](about.html)** — that page is the actual methodology writeup and is kept
 more current than this file for anything scientific. For what's built vs. what's next, see
-**[`DEVELOPMENT_PLAN2.md`](DEVELOPMENT_PLAN2.md)**.
+**[`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md)**.
 
 ## Running it locally
 
@@ -31,7 +31,7 @@ open http://localhost:8000/index.html
 Two features are optional and need your own API key, entered in the app itself (never
 committed to this repo): the "Ask a Local" chat and AI-generated music both use your own
 Gemini/Suno key, stored only in your browser's `localStorage`. Everything else — the map,
-region scores, real photos, and a synth soundscape — works with no setup.
+region scores and real photos — works with no setup. Audio needs a local/hosted/cached track or a successful Suno generation; this version has no working synth fallback.
 
 ## What's actually here
 
@@ -85,7 +85,7 @@ caveat in this whole project, and it's stated plainly rather than glossed over:
 If you're evaluating this project (KSEF or otherwise): the honest one-line summary is
 *"the inputs are measured, the weights are reasoned starting hypotheses, and the listening
 study that would actually validate them hasn't been run."* `about.html` says this in more
-detail; `DEVELOPMENT_PLAN2.md` Priority 1 is what closes that gap.
+detail; `DEVELOPMENT_PLAN.md` Priority 1 is what closes that gap.
 
 ## Project structure
 
@@ -102,7 +102,7 @@ i18n.js              Interface translations
 geojson.js           South Korea province boundary data
 research/            Source CSVs/PDFs, validation protocol, ISO calculator, questionnaire
 out/Log.md           Dated development log entries
-DEVELOPMENT_PLAN2.md Consolidated, prioritized view of done vs. next
+DEVELOPMENT_PLAN.md  Consolidated, prioritized view of done vs. next
 ```
 
 ## What this is not (yet)
@@ -121,3 +121,15 @@ No license file is currently included — treat this as all-rights-reserved by d
 one is added. Real photos are Wikimedia Commons images with per-photo artist/license
 credit shown in the app. Hidden-gem entries link back to and credit their original blog
 source; that content is quoted under fair-use-scale excerpt, not reproduced in full.
+
+## Research additions — 2026-09-13
+
+Landmark detail panels now show a separate Wikipedia popularity proxy alongside the illustrative mood score. Missing pageviews stay missing; popularity never changes the music or mood score. See [the method](research/landmark_pageviews_method.md) and [CSV](research/moodscape_landmark_pageviews.csv).
+
+The [listener protocol](research/listener_experiment_protocol.md), [rating form](research/listener_rating_form.html), clip preparation and correlation analyzer are ready for genuine stimuli and participants. The form intentionally stays disabled until its ten audio clips are prepared and verified. Results remain pending.
+
+Open [live feature checks](research/live_feature_checks.html) on the same origin/browser used to save your keys to run Gemini checks and the Gangnam generation/listening check. No successful live calls or minor-key listening result are claimed yet.
+
+The remaining 69 places now have two sourced gallery entries each. [Attribution audit](research/landmark_photo_sources.csv): 131 additions have open-license metadata and seven are labeled publisher images with rights reserved. Existing Seoul galleries were preserved.
+
+Blind/low-vision participation is unlikely for the current study, so intended-user accessibility evaluation and the deferred accessibility changes are future work. Existing features are not validated with blind/low-vision users; the [tester brief](research/accessibility_tester_brief.md) is retained for future use. The general listener study can proceed independently. See the [paper draft](research/paper_draft.md) and [implementation report](research/IMPLEMENTATION_REPORT_2026-09-13.md) for limits and verification.

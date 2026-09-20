@@ -1,0 +1,2366 @@
+[
+  {
+    "state": "Seoul",
+    "place": "Hongdae",
+    "score": 0.7026671995245789,
+    "region_score": 0.6126671995245789,
+    "type": "Youth & arts district",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/db/Street_hongdae_Seoul.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Hongdae_(area)",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hongdae_Party_District_at_Night%2C_Seoul.jpg",
+        "artist": "Ken Eckert",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Hongdae_Party_District_at_Night,_Seoul.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Hongdae_Main_Road%2C_Seoul.jpg",
+        "artist": "Ken Eckert",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Hongdae_Main_Road,_Seoul.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 119,
+    "prompt": "Music for a packed university nightlife district with buskers and pop-up galleries at midnight. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 119 BPM. Instrumentation: K-indie basslines, warehouse techno, street busker guitar. Cinematic, atmospheric, wordless vocal ad-libs and shouted crowd energy, no full lyrics."
+  },
+  {
+    "state": "Seoul",
+    "place": "Gyeongbokgung Palace",
+    "score": 0,
+    "region_score": 0.6126671995245789,
+    "type": "Historic royal palace",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg/3840px-%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Gyeongbokgung",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Gyeonghoeru_Pavilion_in_Gyeongbokgung_Palace.jpg",
+        "artist": "Hhk1201",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Gyeonghoeru_Pavilion_in_Gyeongbokgung_Palace.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Gyeongbokgung_Palace_Changing_of_the_Guard_Ceremony_2019_%284%29.jpg",
+        "artist": "Ethan Doyle White",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Gyeongbokgung_Palace_Changing_of_the_Guard_Ceremony_2019_(4).jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 42,
+    "prompt": "Music for a 14th-century royal palace at dawn, guards changing in ceremonial silence. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 42 BPM. Instrumentation: ceremonial court music, stone courtyard reverb, temple bell. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Seoul",
+    "place": "Gangnam",
+    "score": 0.662667199524579,
+    "region_score": 0.6126671995245789,
+    "type": "Luxury & business hub",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Teheran-ro_Yeongdong-daero_crossing_7.jpg/3840px-Teheran-ro_Yeongdong-daero_crossing_7.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Gangnam_District",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Starfield_Library_COEX_20240218.jpg",
+        "artist": "Sean Young",
+        "license": "CC BY 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Starfield_Library_COEX_20240218.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Gangnam-daero_in_Seoul.jpg",
+        "artist": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Gangnam-daero_in_Seoul.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 115,
+    "prompt": "Music for a glittering high-rise district of designer boutiques and rooftop bars. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 115 BPM. Instrumentation: glossy K-pop synth-pop, sidechain-pumped bass, glass-tower shimmer. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Seoul",
+    "place": "Bukchon Hanok Village",
+    "score": 0,
+    "region_score": 0.6126671995245789,
+    "type": "Traditional hanok village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bukchon_Hanok_Village_01.jpg/3840px-Bukchon_Hanok_Village_01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Bukchon_Hanok_Village",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Bukchon-ro_11-gil_street_with_hanok_houses_and_blue_sky_in_Bukchon_Hanok_Village_Seoul.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Bukchon-ro_11-gil_street_with_hanok_houses_and_blue_sky_in_Bukchon_Hanok_Village_Seoul.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Bukchon-ro_11-gil_street_with_hanok_houses_at_sunrise_in_Bukchon_Hanok_Village_Seoul.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Bukchon-ro_11-gil_street_with_hanok_houses_at_sunrise_in_Bukchon_Hanok_Village_Seoul.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 42,
+    "prompt": "Music for a 600-year-old hillside village of traditional wooden houses at sunrise. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 42 BPM. Instrumentation: solo daegeum flute, dawn stillness, wooden windchime. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Seoul",
+    "place": "N Seoul Tower",
+    "score": 0.312667199524579,
+    "region_score": 0.6126671995245789,
+    "type": "Mountain-top observation tower",
+    "photo": "https://upload.wikimedia.org/wikipedia/en/a/a6/NamsanTower_%28Cropped%29.jpeg",
+    "photoPage": "https://en.wikipedia.org/wiki/Namsan_Seoul_Tower",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/N_Seoul_Tower_Panorama_001.jpg",
+        "artist": "Spike",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:N_Seoul_Tower_Panorama_001.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/View_from_N_Seoul_Tower_at_night.jpg",
+        "artist": "Evilbish",
+        "license": "CC BY-SA 3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:View_from_N_Seoul_Tower_at_night.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 76,
+    "prompt": "Music for a mountaintop tower over the whole skyline at night, love-locks glinting on the railing. calm lo-fi, soft mellow keys, gentle warmth, relaxed, minor key, around 76 BPM. Instrumentation: twinkling glockenspiel, distant city hum, cable-car cable creak. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Seoul",
+    "place": "Dongdaemun Design Plaza",
+    "score": 0.542667199524579,
+    "region_score": 0.6126671995245789,
+    "type": "Futuristic design landmark",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Dongdaemun_Design_Plaza_at_night%2C_Seoul%2C_Korea.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Dongdaemun_Design_Plaza",
+    "photos": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Dongdaemun_Design_Plaza_grass.jpg",
+        "artist": "Tristan Surtel",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dongdaemun_Design_Plaza_grass.jpg"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Dongdaemun_Design_Plaza_-_DDP2369.jpg",
+        "artist": "lumoplank",
+        "license": "CC0 1.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dongdaemun_Design_Plaza_-_DDP2369.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 102,
+    "prompt": "Music for a curving titanium spaceship of a building hosting fashion shows and light-art festivals. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 102 BPM. Instrumentation: sleek electronic pulse, LED-panel shimmer, fashion-week footsteps. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Busan",
+    "place": "Haeundae Beach",
+    "score": 0.6821568332986219,
+    "region_score": 0.6021568332986218,
+    "type": "Beach & resort strip",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Haeundae_Beach_May_2024.jpg/3840px-Haeundae_Beach_May_2024.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Haeundae_Beach",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Haeundae_Beach_in_Busan.jpg/330px-Haeundae_Beach_in_Busan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Haeundae_Beach_in_Busan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Haeundae_Beach_in_Busan.jpg",
+        "artist": "StephNurnberg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Haeundae Beach in Busan.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Haeundae_Beach_NightView.jpg/330px-Haeundae_Beach_NightView.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Haeundae_Beach_NightView.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Haeundae_Beach_NightView.jpg",
+        "artist": "Haeundae District Municipality",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "Haeundae Beach NightView.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 117,
+    "prompt": "Music for Korea's most famous beach backed by glittering resort towers in high summer. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 117 BPM. Instrumentation: summer house music, seagulls, boardwalk crowd hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Busan",
+    "place": "Gamcheon Culture Village",
+    "score": 0.43215683329862187,
+    "region_score": 0.6021568332986218,
+    "type": "Hillside art village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Gamcheon_Houses%2C_2024.jpg/3840px-Gamcheon_Houses%2C_2024.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Gamcheon_Culture_Village",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg/330px-Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Colorful houses in Gamcheon Culture Village at sunset in Busan South Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Gamcheon_Culture_Village_1.jpg/330px-Gamcheon_Culture_Village_1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Gamcheon_Culture_Village_1.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gamcheon_Culture_Village_1.jpg",
+        "artist": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Gamcheon Culture Village 1.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 90,
+    "prompt": "Music for a pastel hillside village stacked like a Korean Cinque Terre, murals on every wall. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 90 BPM. Instrumentation: lo-fi hip-hop, wind chimes, hillside echo. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Busan",
+    "place": "Jagalchi Market",
+    "score": 0.5621568332986219,
+    "region_score": 0.6021568332986218,
+    "type": "Fish market & harbor",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Jagalchi_Market_20200523_019.jpg/3840px-Jagalchi_Market_20200523_019.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Jagalchi_Market",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Jagalchi_Fish_Market_at_Morning.jpg/330px-Jagalchi_Fish_Market_at_Morning.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Jagalchi_Fish_Market_at_Morning.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jagalchi_Fish_Market_at_Morning.jpg",
+        "artist": "Doo Ho Kim",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Jagalchi Fish Market at Morning.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Jagalchi_Market_01.jpg/330px-Jagalchi_Market_01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Jagalchi_Market_01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jagalchi_Market_01.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Jagalchi Market 01.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 104,
+    "prompt": "Music for Korea's largest seafood market, boats unloading at dawn, vendors shouting prices. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, major key, around 104 BPM. Instrumentation: vendor calls, gull cries, harbor engine drone, brass. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Busan",
+    "place": "Taejongdae",
+    "score": 0.2321568332986218,
+    "region_score": 0.6021568332986218,
+    "type": "Cliffside coastal park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/47/Korea-Busan-Taejongdae-03.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Taejongdae",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Korea-Busan-Taejongdae-04.jpg/330px-Korea-Busan-Taejongdae-04.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Korea-Busan-Taejongdae-04.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Busan-Taejongdae-04.jpg",
+        "artist": "*intacto",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Korea-Busan-Taejongdae-04.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Busan_Taejongdae_150.jpg/330px-Busan_Taejongdae_150.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Busan_Taejongdae_150.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Busan_Taejongdae_150.jpg",
+        "artist": "Michiel1972",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Busan Taejongdae 150.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 68,
+    "prompt": "Music for sheer cliffs dropping into the sea, a lighthouse at the end of a pine-forest trail. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, minor key, around 68 BPM. Instrumentation: crashing waves, seabird cry, lighthouse foghorn. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Busan",
+    "place": "BIFF Square",
+    "score": 0.7021568332986218,
+    "region_score": 0.6021568332986218,
+    "type": "Cinema & street-food district",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/55/Nampo-Dong_Christmas_Lights_in_Busan.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Nampo-dong",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/BIFF_Street_on_Cloudy_Day.png/330px-BIFF_Street_on_Cloudy_Day.png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/BIFF_Street_on_Cloudy_Day.png",
+        "page": "https://commons.wikimedia.org/wiki/File:BIFF_Street_on_Cloudy_Day.png",
+        "artist": "Ryan Bodenstein",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "BIFF Street on Cloudy Day.png"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/BIFF_Street_at_Evening.png/330px-BIFF_Street_at_Evening.png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/BIFF_Street_at_Evening.png",
+        "page": "https://commons.wikimedia.org/wiki/File:BIFF_Street_at_Evening.png",
+        "artist": "Ryan Bodenstein",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "BIFF Street at Evening.png"
+      }
+    ],
+    "key": "major key",
+    "bpm": 119,
+    "prompt": "Music for Busan's original film-festival district, street-food stalls sizzling under movie-star handprints. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, major key, around 119 BPM. Instrumentation: sizzling street-food grill, film-reel clatter, neon marquee hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daegu",
+    "place": "Seomun Market",
+    "score": 0.6126017679245803,
+    "region_score": 0.4926017679245804,
+    "type": "Traditional night market",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fd/10%EA%B2%BD_%EC%84%9C%EB%AC%B8%EC%8B%9C%EC%9E%A5.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Seomun_Market",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Seomun_Market_Gate.JPG/330px-Seomun_Market_Gate.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Seomun_Market_Gate.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Seomun_Market_Gate.JPG",
+        "artist": "hyolee2",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Seomun Market Gate.JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Seomun_gate_and_traffic.jpg/330px-Seomun_gate_and_traffic.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Seomun_gate_and_traffic.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Seomun_gate_and_traffic.jpg",
+        "artist": "",
+        "license": "CC SA 1.0",
+        "licenseUrl": "http://creativecommons.org/licenses/sa/1.0/",
+        "caption": "Seomun gate and traffic.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 109,
+    "prompt": "Music for a 500-year-old night market of sizzling street food and lantern-lit stalls. upbeat traditional Korean K-fusion, modern groove with ancient instruments, energetic, warm, major key, around 109 BPM. Instrumentation: sizzling street-food percussion, festival drum, crowd chatter. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daegu",
+    "place": "Apsan Park",
+    "score": 0.1926017679245804,
+    "region_score": 0.4926017679245804,
+    "type": "Mountain park & cable car",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Daegupanorama4.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Apsan_Park",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Apsan.jpg/330px-Apsan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Apsan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Apsan.jpg",
+        "artist": "Pfc. Shim, Ji-sung, USAG Daegu Public Affairs",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "Apsan.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/%EC%95%9E%EC%82%B0%EA%B3%B5%EC%9B%90.jpg/330px-%EC%95%9E%EC%82%B0%EA%B3%B5%EC%9B%90.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/%EC%95%9E%EC%82%B0%EA%B3%B5%EC%9B%90.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EC%95%9E%EC%82%B0%EA%B3%B5%EC%9B%90.jpg",
+        "artist": "Daegu City Official",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "앞산공원.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 63,
+    "prompt": "Music for a forested mountain park overlooking the city, cable cars gliding through pines. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 63 BPM. Instrumentation: acoustic guitar, cicada drone, mountain wind. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daegu",
+    "place": "Donghwasa Temple",
+    "score": 0.032601767924580416,
+    "region_score": 0.4926017679245804,
+    "type": "Mountain Buddhist temple",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/59/Korea-Daegu-Donghwasa-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Donghwasa",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/%EB%8F%99%ED%99%94%EC%82%AC_%EC%A0%84%EA%B2%BD%28%EB%B4%89%EC%84%9C%EB%A3%A8_%EB%A7%88%EB%8B%B9%29.jpg/330px-%EB%8F%99%ED%99%94%EC%82%AC_%EC%A0%84%EA%B2%BD%28%EB%B4%89%EC%84%9C%EB%A3%A8_%EB%A7%88%EB%8B%B9%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/%EB%8F%99%ED%99%94%EC%82%AC_%EC%A0%84%EA%B2%BD%28%EB%B4%89%EC%84%9C%EB%A3%A8_%EB%A7%88%EB%8B%B9%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EB%8F%99%ED%99%94%EC%82%AC_%EC%A0%84%EA%B2%BD(%EB%B4%89%EC%84%9C%EB%A3%A8_%EB%A7%88%EB%8B%B9).jpg",
+        "artist": "HwangHuang",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "동화사 전경(봉서루 마당).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Korea-Daegu-Donghwasa-04.jpg/330px-Korea-Daegu-Donghwasa-04.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Korea-Daegu-Donghwasa-04.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Daegu-Donghwasa-04.jpg",
+        "artist": "by martinroell",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Korea-Daegu-Donghwasa-04.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 46,
+    "prompt": "Music for a mountain temple guarded by a towering stone Buddha, incense drifting through pine trees. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 46 BPM. Instrumentation: temple bell, monk chant, pine-forest hush. Cinematic, atmospheric, wordless Buddhist chant vocals, no full lyrics."
+  },
+  {
+    "state": "Daegu",
+    "place": "E-World & Duryu Park",
+    "score": 0.6426017679245803,
+    "region_score": 0.4926017679245804,
+    "type": "Amusement park & night tower",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/11%EA%B2%BD_83%ED%83%80%EC%9B%8C.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:11경_83타워.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Colorful_DAEGU_Sculpture%2C_Duryu_Park%2C_Daegu.jpg/330px-Colorful_DAEGU_Sculpture%2C_Duryu_Park%2C_Daegu.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Colorful_DAEGU_Sculpture%2C_Duryu_Park%2C_Daegu.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Colorful_DAEGU_Sculpture,_Duryu_Park,_Daegu.jpg",
+        "artist": "Choi2451",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Colorful DAEGU Sculpture, Duryu Park, Daegu.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Daegu_Duryu_Park_Seongdang-mot_1.JPG/330px-Daegu_Duryu_Park_Seongdang-mot_1.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Daegu_Duryu_Park_Seongdang-mot_1.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Daegu_Duryu_Park_Seongdang-mot_1.JPG",
+        "artist": "Namoroka\n\n This photo was taken with Fujifilm FinePix S5600",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Daegu Duryu Park Seongdang-mot 1.JPG"
+      }
+    ],
+    "key": "major key",
+    "bpm": 113,
+    "prompt": "Music for an amusement park lighting up at dusk beneath a spinning observation tower. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 113 BPM. Instrumentation: carnival ride chime, pop-fireworks crackle, Ferris-wheel motor hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Incheon",
+    "place": "Incheon Chinatown",
+    "score": 0.5682671303898297,
+    "region_score": 0.5282671303898296,
+    "type": "Historic Chinatown",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Chinatown%2C_incheon_20230430_002.jpg/3840px-Chinatown%2C_incheon_20230430_002.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Incheon_Chinatown",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Chinatown%2C_incheon_20230430_002.jpg/330px-Chinatown%2C_incheon_20230430_002.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Chinatown%2C_incheon_20230430_002.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Chinatown,_incheon_20230430_002.jpg",
+        "artist": "Mobius6",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Chinatown, incheon 20230430 002.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Incheon_Chinatown.jpg/330px-Incheon_Chinatown.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Incheon_Chinatown.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Incheon_Chinatown.jpg",
+        "artist": "Riodamascus",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Incheon Chinatown.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 105,
+    "prompt": "Music for Korea's oldest Chinatown, red lanterns and the smell of jjajangmyeon at dusk. downtempo, balanced groove, mellow beat, atmospheric pads, minor key, around 105 BPM. Instrumentation: Chinese brass ensemble, sizzling wok percussion, harbor bell. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Incheon",
+    "place": "Songdo Central Park",
+    "score": 0.4882671303898296,
+    "region_score": 0.5282671303898296,
+    "type": "Futuristic waterfront district",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/South_Korea%2C_Incheon%2C_Songdo%2C_the_Sharp_Central_Park_Towers.jpg/3840px-South_Korea%2C_Incheon%2C_Songdo%2C_the_Sharp_Central_Park_Towers.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Songdo",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Songdo_Convensia_and_Central_Park_View.jpg/330px-Songdo_Convensia_and_Central_Park_View.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Songdo_Convensia_and_Central_Park_View.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Songdo_Convensia_and_Central_Park_View.jpg",
+        "artist": "Ken Eckert",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Songdo Convensia and Central Park View.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Songdo_Central_Park_in_2021.jpg/330px-Songdo_Central_Park_in_2021.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Songdo_Central_Park_in_2021.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Songdo_Central_Park_in_2021.jpg",
+        "artist": "José Carioca",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Songdo Central Park in 2021.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 96,
+    "prompt": "Music for a brand-new planned city of glass towers and seawater canals. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 96 BPM. Instrumentation: glassy ambient synth, canal water lapping, distant traffic hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Incheon",
+    "place": "Wolmido",
+    "score": 0.40826713038982965,
+    "region_score": 0.5282671303898296,
+    "type": "Amusement pier",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Walmido_promenade.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Wolmido",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%A4%91%EA%B5%AC_%EC%9B%94%EB%AF%B8%EB%8F%84.jpg/330px-%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%A4%91%EA%B5%AC_%EC%9B%94%EB%AF%B8%EB%8F%84.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%A4%91%EA%B5%AC_%EC%9B%94%EB%AF%B8%EB%8F%84.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C_%EC%A4%91%EA%B5%AC_%EC%9B%94%EB%AF%B8%EB%8F%84.jpg",
+        "artist": "Narubaru7",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "인천광역시 중구 월미도.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Walmido_promenade.jpg/330px-Walmido_promenade.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Walmido_promenade.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Walmido_promenade.jpg",
+        "artist": "Goodwillgames",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Walmido promenade.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 87,
+    "prompt": "Music for an old-fashioned seaside amusement pier with a ferris wheel at sunset. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 87 BPM. Instrumentation: carnival calliope, seagulls, tide bell. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Incheon",
+    "place": "Ganghwa Dolmen Site",
+    "score": 0.008267130389829652,
+    "region_score": 0.5282671303898296,
+    "type": "UNESCO prehistoric megalith site",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Ganghwa_Bugeun-ri_dolmen.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Ganghwa_Bugeun-ri_dolmen.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Dolmen_Ganghwa_Island.JPG/330px-Dolmen_Ganghwa_Island.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Dolmen_Ganghwa_Island.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Dolmen_Ganghwa_Island.JPG",
+        "artist": "",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "caption": "Dolmen Ganghwa Island.JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Korea-Ganghwado-Dolmen-02.jpg/330px-Korea-Ganghwado-Dolmen-02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Korea-Ganghwado-Dolmen-02.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Ganghwado-Dolmen-02.jpg",
+        "artist": "Hairwizard91 at English Wikipedia",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "caption": "Korea-Ganghwado-Dolmen-02.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 43,
+    "prompt": "Music for 5,000-year-old stone tombs standing alone in open farmland, older than the pyramids. slow ambient drone, sparse, meditative, deep reverb, almost silent, minor key, around 43 BPM. Instrumentation: stone-on-stone resonance, open-field wind, distant crow call. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Incheon",
+    "place": "Jayu Park",
+    "score": 0.32826713038982963,
+    "region_score": 0.5282671303898296,
+    "type": "Historic hilltop memorial park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jayu_Park_20230430_024.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Jayu_Park",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Jayu_Park_20230430_024.jpg/330px-Jayu_Park_20230430_024.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jayu_Park_20230430_024.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jayu_Park_20230430_024.jpg",
+        "artist": "Mobius6",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Jayu Park 20230430 024.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Jayu_Park_20230430_040.jpg/330px-Jayu_Park_20230430_040.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Jayu_Park_20230430_040.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jayu_Park_20230430_040.jpg",
+        "artist": "Mobius6",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Jayu Park 20230430 040.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 78,
+    "prompt": "Music for a hilltop war-memorial park overlooking the harbor where the Incheon Landing began. solemn cinematic ambient, deep emotional orchestral drone, moving cello, respectful, quiet, minor key, around 78 BPM. Instrumentation: brass memorial fanfare, harbor foghorn, park-bench quiet. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gwangju",
+    "place": "Mudeungsan National Park",
+    "score": 0.05905249247471442,
+    "region_score": 0.3290524924747144,
+    "type": "Granite-peak national park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Mt_Mudeungsan_-_panoramio.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Mudeungsan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Gwangju_Mudeungsan.jpg/330px-Gwangju_Mudeungsan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Gwangju_Mudeungsan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gwangju_Mudeungsan.jpg",
+        "artist": "Kgw1226",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Gwangju Mudeungsan.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/View_from_Mudeungsan.jpg/330px-View_from_Mudeungsan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/View_from_Mudeungsan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:View_from_Mudeungsan.jpg",
+        "artist": "VaneTrz20",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "View from Mudeungsan.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 48,
+    "prompt": "Music for a granite-peaked mountain sacred to the city, pine forest and quiet trails. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 48 BPM. Instrumentation: solo daegeum, pine wind, distant temple bell. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gwangju",
+    "place": "Yangnim-dong",
+    "score": 0.28905249247471443,
+    "region_score": 0.3290524924747144,
+    "type": "Historic art & missionary quarter",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/45/Gwangju_montage.png",
+    "photoPage": "https://en.wikipedia.org/wiki/Gwangju",
+    "photos": [
+      {
+        "url": "https://tour.gwangju.go.kr/uploads/editor/user/2017/12/201712140420565040.jpg",
+        "originalUrl": "https://tour.gwangju.go.kr/uploads/editor/user/2017/12/201712140420565040.jpg",
+        "page": "https://tour.gwangju.go.kr/eng/board/B0025.cs?act=read&articleId=1548&m=80&pageIndex=1&searchCondition=&searchKeyword=",
+        "artist": "Gwangju Tourism",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://tour.gwangju.go.kr/eng/board/B0025.cs?act=read&articleId=1548&m=80&pageIndex=1&searchCondition=&searchKeyword=",
+        "caption": "Penguin Village in Yangnim-dong, view 1"
+      },
+      {
+        "url": "https://tour.gwangju.go.kr/uploads/editor/user/2017/12/201712140422314500.jpg",
+        "originalUrl": "https://tour.gwangju.go.kr/uploads/editor/user/2017/12/201712140422314500.jpg",
+        "page": "https://tour.gwangju.go.kr/eng/board/B0025.cs?act=read&articleId=1548&m=80&pageIndex=1&searchCondition=&searchKeyword=",
+        "artist": "Gwangju Tourism",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://tour.gwangju.go.kr/eng/board/B0025.cs?act=read&articleId=1548&m=80&pageIndex=1&searchCondition=&searchKeyword=",
+        "caption": "Penguin Village in Yangnim-dong, view 2"
+      }
+    ],
+    "key": "major key",
+    "bpm": 74,
+    "prompt": "Music for a century-old hillside quarter of missionary houses turned into galleries. calm urban ambient, soft minimalist keys, relaxing, peaceful, major key, around 74 BPM. Instrumentation: muted trumpet, rain on tile roofs, sparse piano. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gwangju",
+    "place": "Kia AutoLand Gwangju",
+    "score": 0.5890524924747145,
+    "region_score": 0.3290524924747144,
+    "type": "Automobile assembly plant",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/0/03/Gwangju_KIA_Factory.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Gwangju_KIA_Factory.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Kia_Motors_South_Korea_factory.jpg/330px-Kia_Motors_South_Korea_factory.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Kia_Motors_South_Korea_factory.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Kia_Motors_South_Korea_factory.jpg",
+        "artist": "Kgw5360",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Kia Motors South Korea factory.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Kia_motors_gwangju_factory.jpg/330px-Kia_motors_gwangju_factory.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Kia_motors_gwangju_factory.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Kia_motors_gwangju_factory.jpg",
+        "artist": "Sim1992",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "caption": "Kia motors gwangju factory.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 107,
+    "prompt": "Music for a car rolling off the line every few seconds inside a vast automated assembly plant. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, major key, around 107 BPM. Instrumentation: robotic-arm servo whine, conveyor-belt clank, assembly-line rhythm. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gwangju",
+    "place": "5.18 National Cemetery",
+    "score": 0,
+    "region_score": 0.3290524924747144,
+    "type": "Democracy memorial cemetery",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/83/Gate_of_Memorial.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/May_18th_National_Cemetery",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Gwangju_Democratization_Movement_Cemetery.jpg/330px-Gwangju_Democratization_Movement_Cemetery.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Gwangju_Democratization_Movement_Cemetery.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gwangju_Democratization_Movement_Cemetery.jpg",
+        "artist": "Pioneerhj",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Gwangju Democratization Movement Cemetery.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Gwangju_Democratization_Movement_Cemetery_Tower.jpg/330px-Gwangju_Democratization_Movement_Cemetery_Tower.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Gwangju_Democratization_Movement_Cemetery_Tower.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gwangju_Democratization_Movement_Cemetery_Tower.jpg",
+        "artist": "Pioneerhj",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Gwangju Democratization Movement Cemetery Tower.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 42,
+    "prompt": "Music for the memorial cemetery for Korea's 1980 pro-democracy uprising, solemn rows of white headstones. solemn cinematic ambient, deep emotional orchestral drone, moving cello, respectful, quiet, minor key, around 42 BPM. Instrumentation: solo funeral bell, wind through pines, quiet marble hush. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daejeon",
+    "place": "Yuseong Hot Springs",
+    "score": 0.31571005259078105,
+    "region_score": 0.44571005259078106,
+    "type": "Hot spring resort district",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/49/Yuseong-gu_DAEJEON.PNG",
+    "photoPage": "https://en.wikipedia.org/wiki/Yuseong_District",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/People_take_a_foot_bath_at_an_outdoor_public_hot_spring_in_Yuseong-gu%2C_Daejeon%2C_Korea.jpg/330px-People_take_a_foot_bath_at_an_outdoor_public_hot_spring_in_Yuseong-gu%2C_Daejeon%2C_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/People_take_a_foot_bath_at_an_outdoor_public_hot_spring_in_Yuseong-gu%2C_Daejeon%2C_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:People_take_a_foot_bath_at_an_outdoor_public_hot_spring_in_Yuseong-gu,_Daejeon,_Korea.jpg",
+        "artist": "Pmlydon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "People take a foot bath at an outdoor public hot spring in Yuseong-gu, Daejeon, Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Yuseong_Foot_Spa_at_Night.jpg/330px-Yuseong_Foot_Spa_at_Night.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Yuseong_Foot_Spa_at_Night.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Yuseong_Foot_Spa_at_Night.jpg",
+        "artist": "Pmlydon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Yuseong Foot Spa at Night.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 77,
+    "prompt": "Music for a centuries-old hot spring resort town wrapped in mineral steam. mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, minor key, around 77 BPM. Instrumentation: steam hiss, soft vibraphone, warm pad drone. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daejeon",
+    "place": "Hanbat Arboretum",
+    "score": 0.18571005259078108,
+    "region_score": 0.44571005259078106,
+    "type": "Botanical arboretum",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Korea-Daejeon-Uam_Historic_Park-01.jpg/3840px-Korea-Daejeon-Uam_Historic_Park-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Daejeon",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Hanbat_Treegarden_West_Flowers.JPG/330px-Hanbat_Treegarden_West_Flowers.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Hanbat_Treegarden_West_Flowers.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Hanbat_Treegarden_West_Flowers.JPG",
+        "artist": "Created by 람다람쥐",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Hanbat Treegarden West Flowers.JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Lydon_daejeon-arboretum-lake-2.jpg/330px-Lydon_daejeon-arboretum-lake-2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Lydon_daejeon-arboretum-lake-2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Lydon_daejeon-arboretum-lake-2.jpg",
+        "artist": "Pmlydon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Lydon daejeon-arboretum-lake-2.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 62,
+    "prompt": "Music for a quiet botanical garden in the middle of the science city. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 62 BPM. Instrumentation: birdsong, koto-like pluck, leaf rustle. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daejeon",
+    "place": "Daedeok Innopolis",
+    "score": 0.4657100525907811,
+    "region_score": 0.44571005259078106,
+    "type": "National research & science district",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/25/ETRI-1%2C_Korea.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:ETRI-1,_Korea.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/ETRI_Entrance_-_panoramio.jpg/330px-ETRI_Entrance_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/ETRI_Entrance_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:ETRI_Entrance_-_panoramio.jpg",
+        "artist": "dokaspar",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "ETRI Entrance - panoramio.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/%EB%8C%80%EC%A0%84_ETRI_-_panoramio.jpg/330px-%EB%8C%80%EC%A0%84_ETRI_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/%EB%8C%80%EC%A0%84_ETRI_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EB%8C%80%EC%A0%84_ETRI_-_panoramio.jpg",
+        "artist": "Seongrae Kim",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "caption": "대전 ETRI - panoramio.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 93,
+    "prompt": "Music for Korea's largest research cluster, satellite labs and robotics institutes humming quietly behind glass. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, minor key, around 93 BPM. Instrumentation: server-room hum, cleanroom whir, quiet lab keyboard clatter. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Daejeon",
+    "place": "Expo Park & Hanbit Tower",
+    "score": 0.565710052590781,
+    "region_score": 0.44571005259078106,
+    "type": "Former World's Fair park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/3/37/Maglev_in_Daejeon_06.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Expo_Science_Park",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Daejeon_Expo_Bridge_2020_2.jpg/330px-Daejeon_Expo_Bridge_2020_2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Daejeon_Expo_Bridge_2020_2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Daejeon_Expo_Bridge_2020_2.jpg",
+        "artist": "Aatu Dorochenko",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Daejeon Expo Bridge 2020 2.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Daejeon_Expo_Bridge_2020_1.jpg/330px-Daejeon_Expo_Bridge_2020_1.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Daejeon_Expo_Bridge_2020_1.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Daejeon_Expo_Bridge_2020_1.jpg",
+        "artist": "Aatu Dorochenko",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Daejeon Expo Bridge 2020 1.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 104,
+    "prompt": "Music for the leftover grounds of Korea's 1993 World Expo, a golden tower rising over fountains. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 104 BPM. Instrumentation: retro-futuristic synth chime, fountain splash, science-museum ambience. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Ulsan",
+    "place": "Taehwagang River Park",
+    "score": 0.2737728551562044,
+    "region_score": 0.42377285515620444,
+    "type": "Riverside bamboo park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Taehwa_River_from_Hotel_Riverside_Ulsan.jpg/3840px-Taehwa_River_from_Hotel_Riverside_Ulsan.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Ulsan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Taehwa_River.jpg/330px-Taehwa_River.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Taehwa_River.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Taehwa_River.jpg",
+        "artist": "Rhythm",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Taehwa River.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Taehwa_River_Bamboo_Grove%28Seepri%29%2C_Ulsan.jpg/330px-Taehwa_River_Bamboo_Grove%28Seepri%29%2C_Ulsan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Taehwa_River_Bamboo_Grove%28Seepri%29%2C_Ulsan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Taehwa_River_Bamboo_Grove(Seepri),_Ulsan.jpg",
+        "artist": "Choi2451",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Taehwa River Bamboo Grove(Seepri), Ulsan.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 72,
+    "prompt": "Music for the world's largest riverside bamboo forest, cutting through an industrial city. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 72 BPM. Instrumentation: bamboo wind chime, river flow, soft flute. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Ulsan",
+    "place": "Ganjeolgot",
+    "score": 0.3237728551562044,
+    "region_score": 0.42377285515620444,
+    "type": "Sunrise cape & lighthouse",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ganjeolgot%2C_Ulsan_on_August_16th%2C_2018.jpg/3840px-Ganjeolgot%2C_Ulsan_on_August_16th%2C_2018.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Ganjeolgot,_Ulsan_on_August_16th,_2018.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Ganjeolgot%2C_Ulsan_on_August_16th%2C_2018.jpg/330px-Ganjeolgot%2C_Ulsan_on_August_16th%2C_2018.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ganjeolgot%2C_Ulsan_on_August_16th%2C_2018.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Ganjeolgot,_Ulsan_on_August_16th,_2018.jpg",
+        "artist": "Choi2451",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Ganjeolgot, Ulsan on August 16th, 2018.jpg"
+      },
+      {
+        "url": "https://tong.visitkorea.or.kr/cms/resource_photo/16/2651916_image2_1.jpg",
+        "originalUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/16/2651916_image2_1.jpg",
+        "page": "https://korean1.visitkorea.or.kr/enu/nphotogallery/photo.kto?func_name=photo_view&newphotoDTO.photo_code=1318044202002001k",
+        "artist": "Korea Tourism Organization / Doit Company, No Sihyeon",
+        "license": "KOGL Type 1",
+        "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+        "caption": "Cape Ganjeolgot, February 2020"
+      }
+    ],
+    "key": "major key",
+    "bpm": 78,
+    "prompt": "Music for mainland Korea's easternmost point, first sunrise of the year over open ocean. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 78 BPM. Instrumentation: ocean swell, lighthouse foghorn drone, gull cry. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Ulsan",
+    "place": "Hyundai Motor Ulsan Plant",
+    "score": 0.5937728551562044,
+    "region_score": 0.42377285515620444,
+    "type": "World's largest car-assembly plant",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Hyundai_car_assembly_line.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Hyundai_car_assembly_line.jpg/330px-Hyundai_car_assembly_line.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Hyundai_car_assembly_line.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Hyundai_car_assembly_line.jpg",
+        "artist": "User: Anonyme",
+        "license": "CC BY 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+        "caption": "Hyundai car assembly line.jpg"
+      },
+      {
+        "url": "https://dmassets.hyundai.com/is/image/hyundaiautoever/Production-plant-areal-1",
+        "originalUrl": "https://dmassets.hyundai.com/is/image/hyundaiautoever/Production-plant-areal-1",
+        "page": "https://www.hyundai.com/eu/en/about-hyundai/brand/heritage.html",
+        "artist": "Hyundai Motor",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://www.hyundai.com/eu/en/about-hyundai/brand/heritage.html",
+        "caption": "Hyundai assembly plant in Ulsan, aerial view"
+      }
+    ],
+    "key": "major key",
+    "bpm": 107,
+    "prompt": "Music for the world's largest single automobile plant, five factories producing a car every few seconds. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, major key, around 107 BPM. Instrumentation: stamping-press thud, welding-robot spark crackle, dockside crane hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Ulsan",
+    "place": "Hyundai Heavy Industries Shipyard",
+    "score": 0.5337728551562044,
+    "region_score": 0.42377285515620444,
+    "type": "Megaship shipyard",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/6/68/Hyundai_heavy_industries.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/HD_Hyundai_Heavy_Industries",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Hyundai_ship_engine_under_construction.jpg/330px-Hyundai_ship_engine_under_construction.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Hyundai_ship_engine_under_construction.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Hyundai_ship_engine_under_construction.jpg",
+        "artist": "Erremm",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Hyundai ship engine under construction.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Eberhard_Petzold_-_Schiffbau_in_Dock_3_der_Hyundai_Werft.jpg/330px-Eberhard_Petzold_-_Schiffbau_in_Dock_3_der_Hyundai_Werft.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Eberhard_Petzold_-_Schiffbau_in_Dock_3_der_Hyundai_Werft.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Eberhard_Petzold_-_Schiffbau_in_Dock_3_der_Hyundai_Werft.jpg",
+        "artist": "Eberhard Petzold, http://www.foto-dock.com",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Eberhard Petzold - Schiffbau in Dock 3 der Hyundai Werft.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 101,
+    "prompt": "Music for a shipyard building some of the largest vessels on Earth, cranes the size of skyscrapers. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, major key, around 101 BPM. Instrumentation: Goliath-crane groan, steel-plate welding hiss, dry-dock horn blast. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Sejongsi",
+    "place": "Sejong Lake Park",
+    "score": 0.35401929224963574,
+    "region_score": 0.3840192922496357,
+    "type": "Lakeside planned-city park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sejong_Area_1.jpg/3840px-Sejong_Area_1.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Sejong_City",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Sejong_lake_park_190609_17.jpg/330px-Sejong_lake_park_190609_17.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Sejong_lake_park_190609_17.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sejong_lake_park_190609_17.jpg",
+        "artist": "*Youngjin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Sejong lake park 190609 17.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Sejong_lake_park_190609_01.jpg/330px-Sejong_lake_park_190609_01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Sejong_lake_park_190609_01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sejong_lake_park_190609_01.jpg",
+        "artist": "*Youngjin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Sejong lake park 190609 01.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 81,
+    "prompt": "Music for a brand-new artificial lake park at the heart of Korea's planned administrative capital. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 81 BPM. Instrumentation: minimalist synth pad, water ripple, distant construction hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Sejongsi",
+    "place": "Geumgang Riverside",
+    "score": 0.31401929224963576,
+    "region_score": 0.3840192922496357,
+    "type": "River promenade",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Geum_River_Sejong.jpg/3840px-Geum_River_Sejong.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Geum_River_Sejong.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Honam_HSR_bridge_in_Sejong.jpg/330px-Honam_HSR_bridge_in_Sejong.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Honam_HSR_bridge_in_Sejong.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Honam_HSR_bridge_in_Sejong.jpg",
+        "artist": "Minseong Kim",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "Honam HSR bridge in Sejong.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Geum_River_Sejong.jpg/330px-Geum_River_Sejong.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Geum_River_Sejong.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Geum_River_Sejong.jpg",
+        "artist": "Minseong Kim",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Geum River Sejong.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 77,
+    "prompt": "Music for a quiet riverside promenade at dusk in Korea's newest city. calm lo-fi, soft mellow keys, gentle warmth, relaxed, minor key, around 77 BPM. Instrumentation: acoustic fingerstyle guitar, river current, evening cricket. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Sejongsi",
+    "place": "Government Complex Sejong",
+    "score": 0.48401929224963575,
+    "region_score": 0.3840192922496357,
+    "type": "National government complex",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Sejong_BRT_Station_Gov%27t_Complex_Sejong_South_02.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Sejong_BRT_Station_Gov't_Complex_Sejong_South_02.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Government_Complex_Sejong_20190611_Main_Entrance.jpg/330px-Government_Complex_Sejong_20190611_Main_Entrance.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Government_Complex_Sejong_20190611_Main_Entrance.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Government_Complex_Sejong_20190611_Main_Entrance.jpg",
+        "artist": "*Youngjin",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Government Complex Sejong 20190611 Main Entrance.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Government_Complex_Sejong_NAACC.jpg/330px-Government_Complex_Sejong_NAACC.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Government_Complex_Sejong_NAACC.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Government_Complex_Sejong_NAACC.jpg",
+        "artist": "Minseong Kim",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Government Complex Sejong NAACC.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 95,
+    "prompt": "Music for a decentralized government complex with the world's longest rooftop garden connecting 15 ministries. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, minor key, around 95 BPM. Instrumentation: quiet corridor echo, rooftop-garden breeze, official footsteps. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeonggi-do",
+    "place": "Suwon Hwaseong Fortress",
+    "score": 0.42418586945364684,
+    "region_score": 0.5041858694536469,
+    "type": "UNESCO fortress",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Hwaseong_Fortress%2C_Suwon%2C_Gyeonggi-do%2C_Republic_of_Korea_%282%29.jpg/3840px-Hwaseong_Fortress%2C_Suwon%2C_Gyeonggi-do%2C_Republic_of_Korea_%282%29.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Hwaseong_Fortress",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Chang_%27an_Gate.jpg/330px-Chang_%27an_Gate.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chang_%27an_Gate.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Chang_%27an_Gate.jpg",
+        "artist": "Zhou Yuji1028",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Chang 'an Gate.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Bifyu_8.jpg/330px-Bifyu_8.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Bifyu_8.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Bifyu_8.jpg",
+        "artist": "문화재청 (공공누리 제1유형)\n\nbifyu (a flickr user)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Bifyu 8.jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 89,
+    "prompt": "Music for an 18th-century UNESCO fortress wall you can walk the full 5.7km circuit of. calm lo-fi, soft mellow keys, gentle warmth, relaxed, minor key, around 89 BPM. Instrumentation: martial drum, brass fanfare, stone-wall echo. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeonggi-do",
+    "place": "Nami Island",
+    "score": 0.35418586945364683,
+    "region_score": 0.5041858694536469,
+    "type": "Scenic river island",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/79/Nami_Island.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Namiseom",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/%EB%82%A8%EC%9D%B4%EC%84%AC_%2811%29.JPG/330px-%EB%82%A8%EC%9D%B4%EC%84%AC_%2811%29.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/%EB%82%A8%EC%9D%B4%EC%84%AC_%2811%29.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:%EB%82%A8%EC%9D%B4%EC%84%AC_(11).JPG",
+        "artist": "Jocelyndurrey",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "남이섬 (11).JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/View_of_Nami_Island.JPG/330px-View_of_Nami_Island.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/View_of_Nami_Island.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:View_of_Nami_Island.JPG",
+        "artist": "Shinae Hyun",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "View of Nami Island.JPG"
+      }
+    ],
+    "key": "major key",
+    "bpm": 81,
+    "prompt": "Music for a crescent-shaped river island famous for its tree-lined autumn paths. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 81 BPM. Instrumentation: acoustic guitar, birdsong, tree-lined breeze. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeonggi-do",
+    "place": "Paju Book City",
+    "score": 0.30418586945364684,
+    "region_score": 0.5041858694536469,
+    "type": "Architectural book town",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pajubookcityhanok.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Paju_Book_City",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Pajubookcityhanok.jpg/330px-Pajubookcityhanok.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pajubookcityhanok.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Pajubookcityhanok.jpg",
+        "artist": "Ccmontgom",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Pajubookcityhanok.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Paju_Book_City_07logo_%288021610838%29.jpg/330px-Paju_Book_City_07logo_%288021610838%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Paju_Book_City_07logo_%288021610838%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Paju_Book_City_07logo_(8021610838).jpg",
+        "artist": "Korea.net / Korean Culture and Information Service (Jeon Han)",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Paju Book City 07logo (8021610838).jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 75,
+    "prompt": "Music for a planned town built entirely around publishing houses and bookshops. calm lo-fi, soft mellow keys, gentle warmth, relaxed, minor key, around 75 BPM. Instrumentation: minimalist piano, paper rustle, concrete reverb. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeonggi-do",
+    "place": "Samsung Digital City",
+    "score": 0.7041858694536468,
+    "region_score": 0.5041858694536469,
+    "type": "Global tech HQ campus",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Samsung_headquarters.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Samsung",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Samsung_Digital_Complex%2C_Suwon_-_panoramio.jpg/330px-Samsung_Digital_Complex%2C_Suwon_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Samsung_Digital_Complex%2C_Suwon_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Samsung_Digital_Complex,_Suwon_-_panoramio.jpg",
+        "artist": "Grzegorz Sokol",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "caption": "Samsung Digital Complex, Suwon - panoramio.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Samsung_Electronics_Suwon.JPG/330px-Samsung_Electronics_Suwon.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Samsung_Electronics_Suwon.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Samsung_Electronics_Suwon.JPG",
+        "artist": "hyolee2",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Samsung Electronics Suwon.JPG"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 119,
+    "prompt": "Music for Samsung Electronics' 390-acre headquarters campus, 35,000 engineers working behind glass towers. futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek, minor key, around 119 BPM. Instrumentation: cleanroom hum, glass-elevator chime, semiconductor-fab whir. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeonggi-do",
+    "place": "Korean Folk Village",
+    "score": 0.30418586945364684,
+    "region_score": 0.5041858694536469,
+    "type": "Recreated Joseon-era village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Farmer_dance.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Korean_Folk_Village",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Korean_Folk_House2.jpg/330px-Korean_Folk_House2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Korean_Folk_House2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korean_Folk_House2.jpg",
+        "artist": "AnbyG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Korean Folk House2.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Traditional_Pavilion2.jpg/330px-Traditional_Pavilion2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Traditional_Pavilion2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Traditional_Pavilion2.jpg",
+        "artist": "AnbyG",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Traditional Pavilion2.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 75,
+    "prompt": "Music for a recreated Joseon-dynasty village with 260 relocated houses and live folk performances. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 75 BPM. Instrumentation: farmer's percussion band, tightrope-walker gasp, thatched-roof wind. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gangwon",
+    "place": "Seoraksan National Park",
+    "score": 0.21488165572259899,
+    "region_score": 0.474881655722599,
+    "type": "National park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Dinosaur_Ridge_of_Seoraksan.jpg/3840px-Dinosaur_Ridge_of_Seoraksan.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Seoraksan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Seoraksan_National_Park_panorama_3.jpg/330px-Seoraksan_National_Park_panorama_3.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Seoraksan_National_Park_panorama_3.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Seoraksan_National_Park_panorama_3.jpg",
+        "artist": "kallerna",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Seoraksan National Park panorama 3.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Winter_Seoraksan_2017.jpg/330px-Winter_Seoraksan_2017.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Winter_Seoraksan_2017.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Winter_Seoraksan_2017.jpg",
+        "artist": "Educational Broadcasting System",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "caption": "Winter Seoraksan 2017.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 66,
+    "prompt": "Music for Korea's most dramatic granite peaks, glowing at sunrise above cloud forest. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 66 BPM. Instrumentation: solo cello, alpine wind, sparse piano. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gangwon",
+    "place": "Gangneung",
+    "score": 0.6348816557225989,
+    "region_score": 0.474881655722599,
+    "type": "Coastal coffee city",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Jumunjin_Lighthouse_20220501_026.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Gangneung",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Namdae_stream_water_reflection_of_colorful_clouds_from_Wolhwagyo_bridge_in_Gangneung_South_Korea.jpg/330px-Namdae_stream_water_reflection_of_colorful_clouds_from_Wolhwagyo_bridge_in_Gangneung_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Namdae_stream_water_reflection_of_colorful_clouds_from_Wolhwagyo_bridge_in_Gangneung_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Namdae_stream_water_reflection_of_colorful_clouds_from_Wolhwagyo_bridge_in_Gangneung_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Namdae stream water reflection of colorful clouds from Wolhwagyo bridge in Gangneung South Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Gyeongpo_Lake_Cherry_Blossoms.JPG/330px-Gyeongpo_Lake_Cherry_Blossoms.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Gyeongpo_Lake_Cherry_Blossoms.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Gyeongpo_Lake_Cherry_Blossoms.JPG",
+        "artist": "Scroozle",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Gyeongpo Lake Cherry Blossoms.JPG"
+      }
+    ],
+    "key": "major key",
+    "bpm": 112,
+    "prompt": "Music for Korea's coffee capital, cafes lining a pine-backed beach. downtempo, balanced groove, mellow beat, atmospheric pads, major key, around 112 BPM. Instrumentation: lo-fi coffee-shop beat, ocean ambience, indie guitar. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gangwon",
+    "place": "Chuncheon",
+    "score": 0.534881655722599,
+    "region_score": 0.474881655722599,
+    "type": "Lake city",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chuncheon-01.jpg/3840px-Chuncheon-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Chuncheon",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Chuncheon-01.jpg/330px-Chuncheon-01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Chuncheon-01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Chuncheon-01.jpg",
+        "artist": "Mark Zastrow",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Chuncheon-01.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/%EC%B6%98%EC%B2%9C%EC%97%AD.JPG/330px-%EC%B6%98%EC%B2%9C%EC%97%AD.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/%EC%B6%98%EC%B2%9C%EC%97%AD.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:%EC%B6%98%EC%B2%9C%EC%97%AD.JPG",
+        "artist": "박경수",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "춘천역.JPG"
+      }
+    ],
+    "key": "major key",
+    "bpm": 101,
+    "prompt": "Music for a lake-ringed city famous for grilled chicken and slow afternoons on the water. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 101 BPM. Instrumentation: acoustic mandolin, lake ripple, chalkboard-cafe hum. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gangwon",
+    "place": "Woljeongsa & Odaesan",
+    "score": 0.23488165572259898,
+    "region_score": 0.474881655722599,
+    "type": "Mountain temple & national park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c5/%EC%9B%94%EC%A0%95%EC%82%AC1.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Woljeongsa",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Korea-Gangwon-Woljeongsa_Nine_Story_Pagoda_1724-07.JPG/330px-Korea-Gangwon-Woljeongsa_Nine_Story_Pagoda_1724-07.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Korea-Gangwon-Woljeongsa_Nine_Story_Pagoda_1724-07.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Gangwon-Woljeongsa_Nine_Story_Pagoda_1724-07.JPG",
+        "artist": "Steve46814",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Korea-Gangwon-Woljeongsa Nine Story Pagoda 1724-07.JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Korea-Gangwon-Woljeongsa_Worship_Halls_1732%263-07.jpg/330px-Korea-Gangwon-Woljeongsa_Worship_Halls_1732%263-07.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Korea-Gangwon-Woljeongsa_Worship_Halls_1732%263-07.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Gangwon-Woljeongsa_Worship_Halls_1732%263-07.jpg",
+        "artist": "Steve46814",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Korea-Gangwon-Woljeongsa Worship Halls 1732&3-07.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 68,
+    "prompt": "Music for a nine-story stone pagoda in a fir forest at the foot of Odaesan's highest peaks. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 68 BPM. Instrumentation: fir-forest hush, temple wind chime, stone pagoda stillness. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gangwon",
+    "place": "Cheorwon Peace Observatory",
+    "score": 0.334881655722599,
+    "region_score": 0.474881655722599,
+    "type": "DMZ border observatory",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/DMZ_Tour_during_Best_Squad_Competition_%289085348%29.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:DMZ_Tour_during_Best_Squad_Competition_(9085348).jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/DMZ_Tour_during_2025_Best_Squad_Competition_%289085349%29.jpg/330px-DMZ_Tour_during_2025_Best_Squad_Competition_%289085349%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/DMZ_Tour_during_2025_Best_Squad_Competition_%289085349%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:DMZ_Tour_during_2025_Best_Squad_Competition_(9085349).jpg",
+        "artist": "U.S. Army EIGHTHARMY by Pfc. Yun Hyuk Kim",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "DMZ Tour during 2025 Best Squad Competition (9085349).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/DMZ_Tour_during_Best_Squad_Competition_%289085346%29.jpg/330px-DMZ_Tour_during_Best_Squad_Competition_%289085346%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/DMZ_Tour_during_Best_Squad_Competition_%289085346%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:DMZ_Tour_during_Best_Squad_Competition_(9085346).jpg",
+        "artist": "U.S. Army EIGHTHARMY by Pfc. Yun Hyuk Kim",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "DMZ Tour during Best Squad Competition (9085346).jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 79,
+    "prompt": "Music for an observatory looking straight into the DMZ and a North Korean propaganda village beyond. solemn cinematic ambient, deep emotional orchestral drone, moving cello, respectful, quiet, minor key, around 79 BPM. Instrumentation: monorail motor whir, wind over open plain, distant binocular click. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongbuk-do",
+    "place": "Danyang",
+    "score": 0.3967946407325818,
+    "region_score": 0.42679464073258183,
+    "type": "River valley & limestone peaks",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Korea-Danyang-Dodamsambong_3087-07.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Danyang_County",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Danyanggun_Travel_Day2_24_%2831516993604%29.jpg/330px-Danyanggun_Travel_Day2_24_%2831516993604%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Danyanggun_Travel_Day2_24_%2831516993604%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Danyanggun_Travel_Day2_24_(31516993604).jpg",
+        "artist": "Republic of  Korea from Seoul, Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Danyanggun Travel Day2 24 (31516993604).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Dodamsambong_Rocks%2C_near_Danyang%2C_Korea.jpg/330px-Dodamsambong_Rocks%2C_near_Danyang%2C_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Dodamsambong_Rocks%2C_near_Danyang%2C_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Dodamsambong_Rocks,_near_Danyang,_Korea.jpg",
+        "artist": "Ken Eckert",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Dodamsambong Rocks, near Danyang, Korea.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 86,
+    "prompt": "Music for a river valley threading between limestone peaks, kayaked at golden hour. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 86 BPM. Instrumentation: folk guitar, light percussion, flowing water. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongbuk-do",
+    "place": "Songnisan National Park",
+    "score": 0.2667946407325818,
+    "region_score": 0.42679464073258183,
+    "type": "Mountain Buddhist temple",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Gwaneum_Peak_at_Songnisan.jpg/3840px-Gwaneum_Peak_at_Songnisan.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Songnisan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Gwaneum_Peak_at_Songnisan.jpg/330px-Gwaneum_Peak_at_Songnisan.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Gwaneum_Peak_at_Songnisan.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gwaneum_Peak_at_Songnisan.jpg",
+        "artist": "Yoo Chung",
+        "license": "CC BY-SA 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+        "caption": "Gwaneum Peak at Songnisan.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Songnisan_as_seen_from_Cheonwangbong_%28cropped%29.jpg/330px-Songnisan_as_seen_from_Cheonwangbong_%28cropped%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Songnisan_as_seen_from_Cheonwangbong_%28cropped%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Songnisan_as_seen_from_Cheonwangbong_(cropped).jpg",
+        "artist": "Ashy Minivet",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Songnisan as seen from Cheonwangbong (cropped).jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 71,
+    "prompt": "Music for a mountain temple valley so quiet you can hear pine needles fall. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 71 BPM. Instrumentation: wooden moktak percussion, chanting, forest silence. Cinematic, atmospheric, wordless Buddhist chant vocals, no full lyrics."
+  },
+  {
+    "state": "Chungcheongbuk-do",
+    "place": "SK Hynix Cheongju Campus",
+    "score": 0.8267946407325819,
+    "region_score": 0.42679464073258183,
+    "type": "Semiconductor fabrication campus",
+    "photo": null,
+    "photoPage": "",
+    "photos": [
+      {
+        "url": "https://d18r0a86za96sg.cloudfront.net/wp-content/uploads/2026/06/15090727/SK_hynix_M15_in-Cheongju.jpg",
+        "originalUrl": "https://d18r0a86za96sg.cloudfront.net/wp-content/uploads/2026/06/15090727/SK_hynix_M15_in-Cheongju.jpg",
+        "page": "https://news.skhynix.com/en/cheongju-campus-m15/",
+        "artist": "SK hynix Newsroom",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://news.skhynix.com/en/cheongju-campus-m15/",
+        "caption": "Cheongju M15 campus"
+      },
+      {
+        "url": "https://d18r0a86za96sg.cloudfront.net/wp-content/uploads/2026/06/15091900/SK_hynix_Inside_of_the_Clean_Room_3.jpg",
+        "originalUrl": "https://d18r0a86za96sg.cloudfront.net/wp-content/uploads/2026/06/15091900/SK_hynix_Inside_of_the_Clean_Room_3.jpg",
+        "page": "https://news.skhynix.com/en/cheongju-campus-m15_clean-room-3/",
+        "artist": "SK hynix Newsroom",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://news.skhynix.com/en/cheongju-campus-m15_clean-room-3/",
+        "caption": "Inside the Cheongju M15 clean room"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 133,
+    "prompt": "Music for a sprawling memory-chip fabrication campus, cleanrooms manufacturing the world's DRAM. futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek, minor key, around 133 BPM. Instrumentation: cleanroom air-filter hum, silicon-wafer chime, fab-line drone. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongbuk-do",
+    "place": "Chungju Lake",
+    "score": 0.4667946407325818,
+    "region_score": 0.42679464073258183,
+    "type": "Mountain reservoir lake",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Korea-Chungju-Mountain-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Chungju",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Chungjuho_Lake.jpg/330px-Chungjuho_Lake.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Chungjuho_Lake.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Chungjuho_Lake.jpg",
+        "artist": "Ashy Minivet",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Chungjuho Lake.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Korea-Chungju-Mountain-01.jpg/330px-Korea-Chungju-Mountain-01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Korea-Chungju-Mountain-01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Chungju-Mountain-01.jpg",
+        "artist": "Jared Broad from Auckland, New Zealand",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Korea-Chungju-Mountain-01.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 93,
+    "prompt": "Music for a vast reservoir threading through steep valleys, cruise boats crossing calm water. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 93 BPM. Instrumentation: boat-engine putter, lake ripple, valley echo. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongnam-do",
+    "place": "Buyeo",
+    "score": 0.37233792520461195,
+    "region_score": 0.49233792520461195,
+    "type": "Ancient Baekje capital ruins",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Buyeo_National_Museum_%2820160719_1%29.png/3840px-Buyeo_National_Museum_%2820160719_1%29.png",
+    "photoPage": "https://en.wikipedia.org/wiki/Buyeo_County",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Baek_Je_Cultural_Festival%2C_Bu_Yeo-Gun%2C_South_Korea_-_111007_%286242026151%29.jpg/330px-Baek_Je_Cultural_Festival%2C_Bu_Yeo-Gun%2C_South_Korea_-_111007_%286242026151%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Baek_Je_Cultural_Festival%2C_Bu_Yeo-Gun%2C_South_Korea_-_111007_%286242026151%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Baek_Je_Cultural_Festival,_Bu_Yeo-Gun,_South_Korea_-_111007_(6242026151).jpg",
+        "artist": "USAG- Humphreys",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Baek Je Cultural Festival, Bu Yeo-Gun, South Korea - 111007 (6242026151).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Buyeo_National_Museum_%2820160719_1%29.png/330px-Buyeo_National_Museum_%2820160719_1%29.png",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Buyeo_National_Museum_%2820160719_1%29.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Buyeo_National_Museum_(20160719_1).png",
+        "artist": "Korea.net",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Buyeo National Museum (20160719 1).png"
+      }
+    ],
+    "key": "major key",
+    "bpm": 83,
+    "prompt": "Music for the last capital of the Baekje kingdom, ruins wrapped in river mist. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 83 BPM. Instrumentation: gayageum, temple bell, river mist ambience. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongnam-do",
+    "place": "Taean Beach",
+    "score": 0.6123379252046119,
+    "region_score": 0.49233792520461195,
+    "type": "West-coast tidal beach",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Gauido_at_Taeanhaean_National_Park_image_2.jpg/3840px-Gauido_at_Taeanhaean_National_Park_image_2.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Taeanhaean_National_Park",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Mongsanpo_Beach%2C_Taean_%28%ED%83%9C%EC%95%88_%EB%AA%BD%EC%82%B0%ED%8F%AC_%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5%29_-_panoramio.jpg/330px-Mongsanpo_Beach%2C_Taean_%28%ED%83%9C%EC%95%88_%EB%AA%BD%EC%82%B0%ED%8F%AC_%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5%29_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Mongsanpo_Beach%2C_Taean_%28%ED%83%9C%EC%95%88_%EB%AA%BD%EC%82%B0%ED%8F%AC_%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5%29_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mongsanpo_Beach,_Taean_(%ED%83%9C%EC%95%88_%EB%AA%BD%EC%82%B0%ED%8F%AC_%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5)_-_panoramio.jpg",
+        "artist": "골뱅이",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Mongsanpo Beach, Taean (태안 몽산포 해수욕장) - panoramio.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/TaeanHaean_National_Park%2C_Korea2.jpg/330px-TaeanHaean_National_Park%2C_Korea2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/TaeanHaean_National_Park%2C_Korea2.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:TaeanHaean_National_Park,_Korea2.jpg",
+        "artist": "gary4now",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "caption": "TaeanHaean National Park, Korea2.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 109,
+    "prompt": "Music for a wide tidal-flat beach on the west coast at low tide. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 109 BPM. Instrumentation: tide wash, seagulls, mellow acoustic guitar. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongnam-do",
+    "place": "Hyundai Motor Asan Plant",
+    "score": 0.872337925204612,
+    "region_score": 0.49233792520461195,
+    "type": "Automobile assembly plant",
+    "photo": null,
+    "photoPage": "",
+    "photos": [
+      {
+        "url": "https://www.motorshow.me/uploadImages/GalleryPics/255000/B259101-2016-Asan-Plant--1-.JPG",
+        "originalUrl": "https://www.motorshow.me/uploadImages/GalleryPics/255000/B259101-2016-Asan-Plant--1-.JPG",
+        "page": "https://www.motorshow.me/photo/16594/2016-asan-plant/en",
+        "artist": "MotorShow photo gallery",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://www.motorshow.me/photo/16594/2016-asan-plant/en",
+        "caption": "Hyundai Asan Plant, 2016 gallery photograph 1"
+      },
+      {
+        "url": "https://www.motorshow.me/uploadImages/GalleryPics/255000/B259132-2016-Asan-Plant--4-.jpg",
+        "originalUrl": "https://www.motorshow.me/uploadImages/GalleryPics/255000/B259132-2016-Asan-Plant--4-.jpg",
+        "page": "https://www.motorshow.me/photo/16594/2016-asan-plant/en",
+        "artist": "MotorShow photo gallery",
+        "license": "Publisher image — rights reserved",
+        "licenseUrl": "https://www.motorshow.me/photo/16594/2016-asan-plant/en",
+        "caption": "Body-assembly scale model at the 2016 Asan Plant visit"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 138,
+    "prompt": "Music for a 300,000-car-a-year assembly plant building Sonatas and electric IONIQs. futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek, minor key, around 138 BPM. Instrumentation: press-line stamping thud, paint-booth mist hiss, engine-line torque wrench. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Chungcheongnam-do",
+    "place": "Oeam Folk Village",
+    "score": 0.35233792520461193,
+    "region_score": 0.49233792520461195,
+    "type": "500-year-old hanok village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/90/Oeam_Folk_Village%2C_2006_%281%29.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Oeam",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Oeam_Folk_Village_2010.JPG/330px-Oeam_Folk_Village_2010.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Oeam_Folk_Village_2010.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Oeam_Folk_Village_2010.JPG",
+        "artist": "Jjw",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Oeam Folk Village 2010.JPG"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Oeam_Folk_Village%2C_2006_%284%29.jpg/330px-Oeam_Folk_Village%2C_2006_%284%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Oeam_Folk_Village%2C_2006_%284%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Oeam_Folk_Village,_2006_(4).jpg",
+        "artist": "indytrucks (a flickr user)",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Oeam Folk Village, 2006 (4).jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 81,
+    "prompt": "Music for a 500-year-old village of thatched and tiled hanok where residents still farm the land. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 81 BPM. Instrumentation: thatched-roof wind rustle, stream trickle, wooden gate creak. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollabuk-do",
+    "place": "Jeonju Hanok Village",
+    "score": 0.35406355017091523,
+    "region_score": 0.3940635501709152,
+    "type": "Traditional food village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Jeonju_Hanok_Maeul_01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Jeonju",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Eunhaeng-ro.jpg/330px-Eunhaeng-ro.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Eunhaeng-ro.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Eunhaeng-ro.jpg",
+        "artist": "Minseong Kim",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Eunhaeng-ro.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Jeonju_Hanok_Maeul_02.jpg/330px-Jeonju_Hanok_Maeul_02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Jeonju_Hanok_Maeul_02.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jeonju_Hanok_Maeul_02.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Jeonju Hanok Maeul 02.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 81,
+    "prompt": "Music for the hometown of bibimbap, hundreds of hanok guesthouses in one dense quarter. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 81 BPM. Instrumentation: pansori vocals, gayageum, slow warmth. Cinematic, atmospheric, wordless pansori-style vocal cries, no full lyrics."
+  },
+  {
+    "state": "Jeollabuk-do",
+    "place": "Naejangsan National Park",
+    "score": 0.1640635501709152,
+    "region_score": 0.3940635501709152,
+    "type": "Autumn-foliage national park",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Najaengsan.JPG/3840px-Najaengsan.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Naejangsan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Panorama_of_Naejangsan%2C_South_Korea_%283%29.jpg/330px-Panorama_of_Naejangsan%2C_South_Korea_%283%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Panorama_of_Naejangsan%2C_South_Korea_%283%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_Naejangsan,_South_Korea_(3).jpg",
+        "artist": "Lance Vanlewen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Panorama of Naejangsan, South Korea (3).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Naejangsan_Pavilion_3.jpg/330px-Naejangsan_Pavilion_3.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Naejangsan_Pavilion_3.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Naejangsan_Pavilion_3.jpg",
+        "artist": "Tung Thanh Dang",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Naejangsan Pavilion 3.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 60,
+    "prompt": "Music for a mountain valley considered Korea's finest for autumn foliage. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 60 BPM. Instrumentation: solo daegeum, falling-leaf rustle, mountain stream. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollabuk-do",
+    "place": "Gunsan Modern History Street",
+    "score": 0.41406355017091523,
+    "region_score": 0.3940635501709152,
+    "type": "Japanese colonial-era historic street",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/1/12/%EB%8C%80%EC%95%BC%EC%97%AD.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Gunsan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Gunsanhistorym.jpg/330px-Gunsanhistorym.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Gunsanhistorym.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gunsanhistorym.jpg",
+        "artist": "Kimhs5400",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Gunsanhistorym.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Entrance_of_Gunsan_Modern_History_Museum.jpg/330px-Entrance_of_Gunsan_Modern_History_Museum.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Entrance_of_Gunsan_Modern_History_Museum.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Entrance_of_Gunsan_Modern_History_Museum.jpg",
+        "artist": "Dquai",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Entrance of Gunsan Modern History Museum.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 88,
+    "prompt": "Music for a preserved 1920s colonial port street of Japanese banks and warehouses turned museums. calm lo-fi, soft mellow keys, gentle warmth, relaxed, major key, around 88 BPM. Instrumentation: old bank-vault echo, tram-bell ghost, retro film-reel flutter. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollabuk-do",
+    "place": "Muju Deogyusan Ski Resort",
+    "score": 0.5140635501709152,
+    "region_score": 0.3940635501709152,
+    "type": "Ski resort & mountain gondola",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/47/Mujugun_County_32_%2816860118935%29.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Mujugun_County_32_(16860118935).jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Mujugun_County_31_%2816858966312%29.jpg/330px-Mujugun_County_31_%2816858966312%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Mujugun_County_31_%2816858966312%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mujugun_County_31_(16858966312).jpg",
+        "artist": "Republic of  Korea from Seoul, Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Mujugun County 31 (16858966312).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Mujugun_County_34_%2816672514848%29.jpg/330px-Mujugun_County_34_%2816672514848%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Mujugun_County_34_%2816672514848%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mujugun_County_34_(16672514848).jpg",
+        "artist": "Republic of  Korea from Seoul, Republic of Korea",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Mujugun County 34 (16672514848).jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 99,
+    "prompt": "Music for Korea's alpine ski resort, a gondola climbing through Deogyusan's high mountain snow. downtempo, balanced groove, mellow beat, atmospheric pads, major key, around 99 BPM. Instrumentation: gondola cable hum, powder-snow crunch, alpine wind. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollanam-do",
+    "place": "Suncheon Bay",
+    "score": 0.17938318458736352,
+    "region_score": 0.37938318458736353,
+    "type": "Wetland & reed marsh",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Suncheon3.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Suncheon_Bay_Ecological_Park",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Panorama_of_Reed_fields_in_Suncheon_bay.jpg/330px-Panorama_of_Reed_fields_in_Suncheon_bay.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Panorama_of_Reed_fields_in_Suncheon_bay.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_Reed_fields_in_Suncheon_bay.jpg",
+        "artist": "Bandoche",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "Panorama of Reed fields in Suncheon bay.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/20181231_Suncheon_Bay_002.jpg/330px-20181231_Suncheon_Bay_002.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/20181231_Suncheon_Bay_002.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:20181231_Suncheon_Bay_002.jpg",
+        "artist": "Jjw",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "20181231 Suncheon Bay 002.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 62,
+    "prompt": "Music for a vast tidal reed marsh at golden hour, cranes overhead. slow ambient drone, sparse, meditative, deep reverb, almost silent, major key, around 62 BPM. Instrumentation: ambient wetland drone, solo oboe, bird calls. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollanam-do",
+    "place": "Boseong Green Tea Fields",
+    "score": 0.2993831845873635,
+    "region_score": 0.37938318458736353,
+    "type": "Terraced tea plantation",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/82/Korea-Boseong-Green.tea-02.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Boseong_County",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Korea-Boseong-Green.tea-02.jpg/330px-Korea-Boseong-Green.tea-02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Korea-Boseong-Green.tea-02.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Boseong-Green.tea-02.jpg",
+        "artist": "by Fred Ojardias",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Korea-Boseong-Green.tea-02.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bo-seong_Tea_Field_Entrance_-_panoramio.jpg/330px-Bo-seong_Tea_Field_Entrance_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bo-seong_Tea_Field_Entrance_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Bo-seong_Tea_Field_Entrance_-_panoramio.jpg",
+        "artist": "Cho's",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Bo-seong Tea Field Entrance - panoramio.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 75,
+    "prompt": "Music for terraced green tea fields disappearing into morning mist. ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, major key, around 75 BPM. Instrumentation: koto-like pluck, misty hush, distant rooster. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollanam-do",
+    "place": "Damyang Juknokwon",
+    "score": 0.25938318458736354,
+    "region_score": 0.37938318458736353,
+    "type": "Bamboo grove",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Korea-Damyang-Hanok_in_the_Bamboo_Forest-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Damyang_County",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Damyang_Jungnogwon_%283%29.jpg/330px-Damyang_Jungnogwon_%283%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Damyang_Jungnogwon_%283%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Damyang_Jungnogwon_(3).jpg",
+        "artist": "Christian Bolz (크리스티안 볼츠)",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Damyang Jungnogwon (3).jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Damyang_Jungnogwon_Caf%C3%A9.jpg/330px-Damyang_Jungnogwon_Caf%C3%A9.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Damyang_Jungnogwon_Caf%C3%A9.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Damyang_Jungnogwon_Caf%C3%A9.jpg",
+        "artist": "Christian Bolz (크리스티안 볼츠)",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Damyang Jungnogwon Café.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 71,
+    "prompt": "Music for a dense bamboo forest with wind moving through it like static. calm lo-fi, soft mellow keys, gentle warmth, relaxed, major key, around 71 BPM. Instrumentation: bamboo wind chime, rustling leaves, soft flute. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollanam-do",
+    "place": "Naganeupseong Folk Village",
+    "score": 0.23938318458736352,
+    "region_score": 0.37938318458736353,
+    "type": "Living walled folk village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/26/Naganeupseong_Folk_Village_MS3656.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Naganeupseong",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/%EB%82%99%EC%95%88%EC%9D%8D%EC%84%B1%EC%A0%84%EA%B2%BD.jpg/330px-%EB%82%99%EC%95%88%EC%9D%8D%EC%84%B1%EC%A0%84%EA%B2%BD.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/%EB%82%99%EC%95%88%EC%9D%8D%EC%84%B1%EC%A0%84%EA%B2%BD.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EB%82%99%EC%95%88%EC%9D%8D%EC%84%B1%EC%A0%84%EA%B2%BD.jpg",
+        "artist": "Minquddyd",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "낙안읍성전경.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Hongsalmun_in_Naganeupseong.jpg/330px-Hongsalmun_in_Naganeupseong.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Hongsalmun_in_Naganeupseong.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Hongsalmun_in_Naganeupseong.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Hongsalmun in Naganeupseong.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 68,
+    "prompt": "Music for a 600-year-old walled town still farmed by about 100 households behind stone ramparts. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 68 BPM. Instrumentation: straw-roof wind, well-bucket creak, farmyard rooster. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeollanam-do",
+    "place": "Yeosu",
+    "score": 0.7193831845873635,
+    "region_score": 0.37938318458736353,
+    "type": "Coastal night-view city",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Dolsan_Bridge1.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Yeosu",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Expo_2012_Yeosu_panoramic_view.jpg/330px-Expo_2012_Yeosu_panoramic_view.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Expo_2012_Yeosu_panoramic_view.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Expo_2012_Yeosu_panoramic_view.jpg",
+        "artist": "Cesarexpo",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Expo 2012 Yeosu panoramic view.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/%EC%97%AC%EC%88%98-%EB%8F%8C%EC%82%B0%EA%B3%B5%EC%9B%90-%EB%8F%8C%EC%82%B0%EB%8C%80%EA%B5%90-%EC%95%BC%EA%B2%BD.jpg/330px-%EC%97%AC%EC%88%98-%EB%8F%8C%EC%82%B0%EA%B3%B5%EC%9B%90-%EB%8F%8C%EC%82%B0%EB%8C%80%EA%B5%90-%EC%95%BC%EA%B2%BD.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/%EC%97%AC%EC%88%98-%EB%8F%8C%EC%82%B0%EA%B3%B5%EC%9B%90-%EB%8F%8C%EC%82%B0%EB%8C%80%EA%B5%90-%EC%95%BC%EA%B2%BD.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EC%97%AC%EC%88%98-%EB%8F%8C%EC%82%B0%EA%B3%B5%EC%9B%90-%EB%8F%8C%EC%82%B0%EB%8C%80%EA%B5%90-%EC%95%BC%EA%B2%BD.jpg",
+        "artist": "레이저마인드",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "여수-돌산공원-돌산대교-야경.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 121,
+    "prompt": "Music for a coastal city famous for its glittering night sea view and cross-harbor cable car. downtempo, balanced groove, mellow beat, atmospheric pads, major key, around 121 BPM. Instrumentation: cable-car pulley hum, harbor-light shimmer, night-market sizzle. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangbuk-do",
+    "place": "Gyeongju Historic Area",
+    "score": 0.23816541814121323,
+    "region_score": 0.3981654181412132,
+    "type": "Ancient Silla capital",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/24/Gyeongju_montage.png",
+    "photoPage": "https://en.wikipedia.org/wiki/Gyeongju",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Sunset_over_the_Tumuli_Park_in_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg/330px-Sunset_over_the_Tumuli_Park_in_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Sunset_over_the_Tumuli_Park_in_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_Tumuli_Park_in_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Sunset over the Tumuli Park in Gyeongju Historic Site Wolseong District South Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Pink_sunrise_over_ponds_in_the_Tumuli_Park_of_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg/330px-Pink_sunrise_over_ponds_in_the_Tumuli_Park_of_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Pink_sunrise_over_ponds_in_the_Tumuli_Park_of_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Pink_sunrise_over_ponds_in_the_Tumuli_Park_of_Gyeongju_Historic_Site_Wolseong_District_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Pink sunrise over ponds in the Tumuli Park of Gyeongju Historic Site Wolseong District South Korea.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 68,
+    "prompt": "Music for a 1,000-year former capital where royal burial mounds rise from the city itself. slow ambient drone, sparse, meditative, deep reverb, almost silent, major key, around 68 BPM. Instrumentation: gayageum, slow strings, temple bells. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangbuk-do",
+    "place": "Hahoe Folk Village",
+    "score": 0.2781654181412132,
+    "region_score": 0.3981654181412132,
+    "type": "UNESCO folk village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hahoe_Folk_Village_02.jpg/3840px-Hahoe_Folk_Village_02.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Hahoe_Folk_Village",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Hahoe_Folk_Village_03.jpg/330px-Hahoe_Folk_Village_03.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Hahoe_Folk_Village_03.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Hahoe_Folk_Village_03.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Hahoe Folk Village 03.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Korea-Andong-Hahoe_Folk_Village-01.jpg/330px-Korea-Andong-Hahoe_Folk_Village-01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Korea-Andong-Hahoe_Folk_Village-01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Andong-Hahoe_Folk_Village-01.jpg",
+        "artist": "Theda Grimoire",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "caption": "Korea-Andong-Hahoe Folk Village-01.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 73,
+    "prompt": "Music for a horseshoe-river folk village famous for traditional mask-dance drama. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 73 BPM. Instrumentation: mask-dance drum, courtyard echo, wooden clack. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangbuk-do",
+    "place": "POSCO Pohang Steelworks",
+    "score": 0.7381654181412132,
+    "region_score": 0.3981654181412132,
+    "type": "Integrated steelworks",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4e/%ED%8F%AC%EC%8A%A4%EC%BD%94_%ED%8F%AC%ED%95%AD.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:포스코_포항.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/POSCO.jpg/330px-POSCO.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/POSCO.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:POSCO.jpg",
+        "artist": "Narnars0",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "POSCO.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/POSCO_%28POhang_Steel_Corp.%29_Entrance_-_panoramio.jpg/330px-POSCO_%28POhang_Steel_Corp.%29_Entrance_-_panoramio.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/POSCO_%28POhang_Steel_Corp.%29_Entrance_-_panoramio.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:POSCO_(POhang_Steel_Corp.)_Entrance_-_panoramio.jpg",
+        "artist": "Cho's",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "POSCO (POhang Steel Corp.) Entrance - panoramio.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 123,
+    "prompt": "Music for one of Korea's founding steel mills, blast furnaces glowing orange along the Pohang coast. futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek, major key, around 123 BPM. Instrumentation: blast-furnace roar, molten-steel hiss, rolling-mill clang. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangbuk-do",
+    "place": "Yangdong Folk Village",
+    "score": 0.19816541814121322,
+    "region_score": 0.3981654181412132,
+    "type": "UNESCO clan hanok village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ee/2008-Korea-Gyeongju-Yangdong_Village-13.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:2008-Korea-Gyeongju-Yangdong_Village-13.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Gwangajeong_House_02.jpg/330px-Gwangajeong_House_02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Gwangajeong_House_02.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gwangajeong_House_02.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "Gwangajeong House 02.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/2008-Korea-Gyeongju-Yangdong_Village-06.jpg/330px-2008-Korea-Gyeongju-Yangdong_Village-06.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/2008-Korea-Gyeongju-Yangdong_Village-06.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2008-Korea-Gyeongju-Yangdong_Village-06.jpg",
+        "artist": "Kok Leng Yeo from Singapore, Singapore",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "2008-Korea-Gyeongju-Yangdong Village-06.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 64,
+    "prompt": "Music for Korea's largest traditional clan village, tile-roofed noble houses over 500 years old. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, major key, around 64 BPM. Instrumentation: gayageum, valley wind, 500-year-old wooden-beam creak. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangnam-do",
+    "place": "Tongyeong",
+    "score": 0.46665990822024406,
+    "region_score": 0.4466599082202441,
+    "type": "Harbor & island city",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Korea-Tongyeong-Collage-01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Tongyeong",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Korea-Tongyeong-Cityscape-07.jpg/330px-Korea-Tongyeong-Cityscape-07.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Korea-Tongyeong-Cityscape-07.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Tongyeong-Cityscape-07.jpg",
+        "artist": "by Junho Jung at Flickr from South Korea",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "caption": "Korea-Tongyeong-Cityscape-07.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Tongyeong_Undersea_Tunnel.jpg/330px-Tongyeong_Undersea_Tunnel.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Tongyeong_Undersea_Tunnel.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Tongyeong_Undersea_Tunnel.jpg",
+        "artist": "Trainholic",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Tongyeong Undersea Tunnel.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 93,
+    "prompt": "Music for a hillside harbor city looking out over hundreds of small islands. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 93 BPM. Instrumentation: cable-car wind, harbor engine hum, mellow brass. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangnam-do",
+    "place": "Jinju",
+    "score": 0.4266599082202441,
+    "region_score": 0.4466599082202441,
+    "type": "Fortress river city",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/2/29/View_of_Jinju_01.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Jinju",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Korea-Jinju-Festival-Nam.River-01.jpg/330px-Korea-Jinju-Festival-Nam.River-01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Korea-Jinju-Festival-Nam.River-01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Korea-Jinju-Festival-Nam.River-01.jpg",
+        "artist": "by eimoberg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Korea-Jinju-Festival-Nam.River-01.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/View_of_Jinju_01.jpg/330px-View_of_Jinju_01.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/View_of_Jinju_01.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:View_of_Jinju_01.jpg",
+        "artist": "Bernard Gagnon",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "caption": "View of Jinju 01.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 89,
+    "prompt": "Music for a riverside fortress city famous for its autumn floating-lantern festival. calm lo-fi, soft mellow keys, gentle warmth, relaxed, major key, around 89 BPM. Instrumentation: festival drum, river flow, lantern-float ambience. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangnam-do",
+    "place": "Hanwha Ocean Geoje Shipyard",
+    "score": 0.6266599082202441,
+    "region_score": 0.4466599082202441,
+    "type": "Megaship shipyard",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Aerial_View_of_Daewoo_Shipbuilding_%26_Marine_Engineering.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Daewoo_Shipbuilding_&_Marine_Engineering.jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Offshore_Drilling_Platforms_Under_Construction.jpg/330px-Offshore_Drilling_Platforms_Under_Construction.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Offshore_Drilling_Platforms_Under_Construction.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Offshore_Drilling_Platforms_Under_Construction.jpg",
+        "artist": "KJRSeattle",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Offshore Drilling Platforms Under Construction.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/LNG_Carrier_DSME.jpg/330px-LNG_Carrier_DSME.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/LNG_Carrier_DSME.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:LNG_Carrier_DSME.jpg",
+        "artist": "Towel401 at English Wikipedia",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "LNG Carrier DSME.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 111,
+    "prompt": "Music for a shipyard with the world's largest dry dock, building tankers the length of four football fields. futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek, major key, around 111 BPM. Instrumentation: 900-ton Goliath-crane groan, dry-dock flood roar, steel-hull weld spark. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Gyeongsangnam-do",
+    "place": "Haegeumgang",
+    "score": 0.3866599082202441,
+    "region_score": 0.4466599082202441,
+    "type": "Scenic sea-cliff islet",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/73/KOCIS_Korea_Haegeumgang_05_%2810011598385%29.jpg",
+    "photoPage": "https://commons.wikimedia.org/wiki/File:KOCIS_Korea_Haegeumgang_05_(10011598385).jpg",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Haegeumgang.jpg/330px-Haegeumgang.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Haegeumgang.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Haegeumgang.jpg",
+        "artist": "강응규",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Haegeumgang.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Geoje_Haegeumgang.JPG/330px-Geoje_Haegeumgang.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Geoje_Haegeumgang.JPG",
+        "page": "https://commons.wikimedia.org/wiki/File:Geoje_Haegeumgang.JPG",
+        "artist": "Paul Evans - User: (WT-shared) Snave at  wts wikivoyage",
+        "license": "Public domain",
+        "licenseUrl": "",
+        "caption": "Geoje Haegeumgang.JPG"
+      }
+    ],
+    "key": "major key",
+    "bpm": 85,
+    "prompt": "Music for a jagged sea-cliff islet off Geoje reached only by boat, called Korea's Geumgangsan of the sea. dreamy organic downtempo, gentle acoustic guitar and warm ambient pads, relaxing, peaceful, major key, around 85 BPM. Instrumentation: boat-tour engine, sea-cliff echo, gull chorus. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeju-do",
+    "place": "Hallasan",
+    "score": 0.25597676192795765,
+    "region_score": 0.5559767619279576,
+    "type": "National park & volcano",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Hallasan_Above.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Hallasan",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Wooden_staircase_steps_in_the_forest_of_Hallasan_Park_Eorimok_Trail_at_dusk_on_Jeju_Island_in_South_Korea.jpg/330px-Wooden_staircase_steps_in_the_forest_of_Hallasan_Park_Eorimok_Trail_at_dusk_on_Jeju_Island_in_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Wooden_staircase_steps_in_the_forest_of_Hallasan_Park_Eorimok_Trail_at_dusk_on_Jeju_Island_in_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Wooden_staircase_steps_in_the_forest_of_Hallasan_Park_Eorimok_Trail_at_dusk_on_Jeju_Island_in_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Wooden staircase steps in the forest of Hallasan Park Eorimok Trail at dusk on Jeju Island in South Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Winter_Hallasan_Summit.jpg/330px-Winter_Hallasan_Summit.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Winter_Hallasan_Summit.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Winter_Hallasan_Summit.jpg",
+        "artist": "Jaccoob23",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Winter Hallasan Summit.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 70,
+    "prompt": "Music for a dormant volcano with a crater lake at its summit, above the clouds. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, major key, around 70 BPM. Instrumentation: solo flute, wind, volcanic ambience. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeju-do",
+    "place": "Seongsan Ilchulbong",
+    "score": 0.43597676192795765,
+    "region_score": 0.5559767619279576,
+    "type": "UNESCO sunrise peak",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Seongsan_Ilchulbong_from_the_air.jpg/3840px-Seongsan_Ilchulbong_from_the_air.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Seongsan_Ilchulbong",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Hydrangea_macrophylla_in_front_of_Seongsan_Ilchulbong_volcano_at_blue_hour_in_Jeju_Island_South_Korea.jpg/330px-Hydrangea_macrophylla_in_front_of_Seongsan_Ilchulbong_volcano_at_blue_hour_in_Jeju_Island_South_Korea.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Hydrangea_macrophylla_in_front_of_Seongsan_Ilchulbong_volcano_at_blue_hour_in_Jeju_Island_South_Korea.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Hydrangea_macrophylla_in_front_of_Seongsan_Ilchulbong_volcano_at_blue_hour_in_Jeju_Island_South_Korea.jpg",
+        "artist": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Hydrangea macrophylla in front of Seongsan Ilchulbong volcano at blue hour in Jeju Island South Korea.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81%28%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4%29.jpg/330px-%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81%28%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81%28%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81(%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4).jpg",
+        "artist": "Korea Heritage Service",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "성산일출봉 천연보호구역 2019년 촬영(출처 문화재청 대변인실).jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 90,
+    "prompt": "Music for a tuff-cone crater rising from the sea, famous for sunrise. calm lo-fi, soft mellow keys, gentle warmth, relaxed, major key, around 90 BPM. Instrumentation: gentle strings, ocean breeze, dawn chorus. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeju-do",
+    "place": "Jeju City",
+    "score": 0.7859767619279576,
+    "region_score": 0.5559767619279576,
+    "type": "Island capital",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Jeju_-_Hallasan.JPG",
+    "photoPage": "https://en.wikipedia.org/wiki/Jeju_City",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/View_of_Jeju_city.jpg/330px-View_of_Jeju_city.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/View_of_Jeju_city.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:View_of_Jeju_city.jpg",
+        "artist": "User:Thddbwnd",
+        "license": "CC BY 2.5",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+        "caption": "View of Jeju city.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Jeju_City_Traditional_Five-Day_Market_02.jpg/330px-Jeju_City_Traditional_Five-Day_Market_02.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Jeju_City_Traditional_Five-Day_Market_02.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jeju_City_Traditional_Five-Day_Market_02.jpg",
+        "artist": "Grapesurgeon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Jeju City Traditional Five-Day Market 02.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 128,
+    "prompt": "Music for the relaxed island capital, tangerine orchards and black lava-stone walls. breeze-filled acoustic indie rock, bright coastal groove, happy, celebratory, major key, around 128 BPM. Instrumentation: light jazz, tropical guitar, ocean rhythm. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeju-do",
+    "place": "Seongeup Folk Village",
+    "score": 0.33597676192795767,
+    "region_score": 0.5559767619279576,
+    "type": "600-year-old living folk village",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Seongeup_Historic_Village.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Seongeup_Folk_Village",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Go_Chang-hwan%27s_Historic_House_in_Seongeup_Village%2C_Jeju.jpg/330px-Go_Chang-hwan%27s_Historic_House_in_Seongeup_Village%2C_Jeju.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Go_Chang-hwan%27s_Historic_House_in_Seongeup_Village%2C_Jeju.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Go_Chang-hwan%27s_Historic_House_in_Seongeup_Village,_Jeju.jpg",
+        "artist": "Trainholic",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Go Chang-hwan's Historic House in Seongeup Village, Jeju.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Seongeup_Folk_Village_40.jpg/330px-Seongeup_Folk_Village_40.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Seongeup_Folk_Village_40.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Seongeup_Folk_Village_40.jpg",
+        "artist": "Seefooddiet",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "Seongeup Folk Village 40.jpg"
+      }
+    ],
+    "key": "major key",
+    "bpm": 79,
+    "prompt": "Music for a 600-year-old walled village of black volcanic-stone houses, still lived in today. warm acoustic folk, beautiful traditional Korean court-fusion, serene and happy, gentle rhythm, major key, around 79 BPM. Instrumentation: black-stone wall wind, thatched-roof rustle, horse-hoof clop. Cinematic, atmospheric, no vocals, no lyrics."
+  },
+  {
+    "state": "Jeju-do",
+    "place": "Manjanggul Cave",
+    "score": 0.21597676192795767,
+    "region_score": 0.5559767619279576,
+    "type": "UNESCO lava tube cave",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Manjanggul_lava_column%2C_largest_in_the_world.jpg",
+    "photoPage": "https://en.wikipedia.org/wiki/Manjanggul",
+    "photos": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Manjanggul_Lava_tube.jpg/330px-Manjanggul_Lava_tube.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Manjanggul_Lava_tube.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Manjanggul_Lava_tube.jpg",
+        "artist": "Gary Cycles",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "caption": "Manjanggul Lava tube.jpg"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/%EB%A7%8C%EC%9E%A5%EA%B5%B4_%2824%29.jpg/330px-%EB%A7%8C%EC%9E%A5%EA%B5%B4_%2824%29.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/%EB%A7%8C%EC%9E%A5%EA%B5%B4_%2824%29.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:%EB%A7%8C%EC%9E%A5%EA%B5%B4_(24).jpg",
+        "artist": "Jocelyndurrey\n\n This photo was taken with LG G3",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "caption": "만장굴 (24).jpg"
+      }
+    ],
+    "key": "minor key",
+    "bpm": 66,
+    "prompt": "Music for an 8.9km lava tube cave, one of Earth's longest, formed a hundred thousand years ago. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, minor key, around 66 BPM. Instrumentation: cave-drip echo, deep stone resonance, underground silence. Cinematic, atmospheric, no vocals, no lyrics."
+  }
+]

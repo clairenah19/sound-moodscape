@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moodscape live feature checks</title>
+<style>body{max-width:850px;margin:30px auto;padding:20px;font:16px/1.6 system-ui;background:#101522;color:#eef2ff}button,input{font:inherit;padding:10px;margin:6px}a{color:#b9c9ff}pre{white-space:pre-wrap}audio{width:100%}label{display:block}button:disabled{opacity:.5}</style>
+<script src="../data.js"></script><script src="../prompt.js"></script><script src="live_feature_checks.js" defer></script>
+</head><body>
+<h1>Live feature checks</h1>
+<p>Open this page on the same Moodscape origin where you saved your API keys. Keys stay out of the report. Each test makes a real external request; Suno generation can spend credits.</p>
+<p id="key-status"></p>
+<button id="gemini-check">Test all three Gemini features</button>
+<button id="suno-check">Generate one Gangnam track</button>
+<p id="status" role="status" aria-live="polite"></p>
+<audio id="track" controls hidden></audio><p><a id="track-link" hidden target="_blank" rel="noopener">Download Gangnam track</a></p>
+<fieldset><legend>Human listening check</legend>
+<p>A prompt or successful download does not establish musical mode. Listen to the actual track before recording a judgment.</p>
+<label><input type="radio" name="mode" value="minor">Audibly minor</label>
+<label><input type="radio" name="mode" value="not minor">Not audibly minor</label>
+<label><input type="radio" name="mode" value="uncertain">Uncertain</label>
+<label>Listening notes <input id="review-notes" placeholder="Tonal center, evidence, ambiguity"></label>
+<button id="save-review" disabled>Record listening judgment</button></fieldset>
+<pre id="report"></pre><button id="download">Download check report</button>
+<p><a href="../index.html">Back to Moodscape</a></p>
+</body></html>

@@ -35,7 +35,7 @@ function cacheTrackUrl(key, url) {
 // The default case (no category override) is driven by the place's region's
 // Visitor Pleasantness score, not its own activity-derived score — this is
 // what gives ISO 12913's Pleasantness axis an actual path into the audio
-// (DEVELOPMENT_PLAN2.md Priority 2). Pass stateName when it's available;
+// (DEVELOPMENT_PLAN.md Priority 2). Pass stateName when it's available;
 // without it this falls back to the old score-threshold behavior.
 function getMusicalKey(place, stateName) {
   const name = (place.name || "").toLowerCase();

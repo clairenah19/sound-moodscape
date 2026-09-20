@@ -1,0 +1,67 @@
+{
+  "version": "moodscape-pilot-v1",
+  "protocol_version": "2026-09-13-v1",
+  "ready": false,
+  "clips": [
+    {
+      "id": "clip01",
+      "src": "listener_clips/clip01.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip02",
+      "src": "listener_clips/clip02.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip03",
+      "src": "listener_clips/clip03.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip04",
+      "src": "listener_clips/clip04.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip05",
+      "src": "listener_clips/clip05.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip06",
+      "src": "listener_clips/clip06.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip07",
+      "src": "listener_clips/clip07.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip08",
+      "src": "listener_clips/clip08.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip09",
+      "src": "listener_clips/clip09.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    },
+    {
+      "id": "clip10",
+      "src": "listener_clips/clip10.mp3",
+      "duration_seconds": 25,
+      "sha256": ""
+    }
+  ]
+}

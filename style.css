@@ -535,3 +535,12 @@ select.suno-input { cursor: pointer; }
   .tactile-node-ring { display: none; }
   * { scroll-behavior: auto !important; }
 }
+
+/* Evidence comparisons preserve the existing score and audio mapping. */
+.landmark-evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 12px; font-size: 12px; line-height: 1.6; }
+.landmark-evidence-grid > div { background: var(--bg3); border-radius: 8px; padding: 12px; }
+.landmark-evidence-grid strong { display: block; color: var(--accent); margin-top: 6px; }
+.landmark-evidence-grid p { margin-top: 6px; color: var(--text2); }
+.landmark-evidence-grid a { color: var(--accent); }
+
+.suno-help a { color: var(--accent); }
