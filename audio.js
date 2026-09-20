@@ -143,7 +143,8 @@ async function playCurrentSoundscape() {
   if (cfg.key) {
     setPlayStatus("Generating with Suno… this can take a minute.");
     try {
-      const genUrl = await sunoGenerate(place, stateName, cfg);
+      const promptBox = document.getElementById("suno-prompt");
+      const genUrl = await sunoGenerate(place, stateName, cfg, promptBox ? promptBox.value : "");
       cacheTrackUrl(key, genUrl);
       setPlayStatus("Playing generated track…", genUrl);
       await playAudioUrl(genUrl);
@@ -207,7 +208,7 @@ function pitchForScore(score, domain) {
 
 // `score` (0–1) makes the cue carry the region's modelled activity. Passing null
 // keeps the original fixed-pitch cue for contexts with no score behind them.
-function playTactileTick(isNode = false, score = null) {
+function playTactileTick(isNode = false, score = null, stereoPan = 0) {
   try {
     if (!tactileAudioCtx) {
       tactileAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -218,7 +219,14 @@ function playTactileTick(isNode = false, score = null) {
     const osc = tactileAudioCtx.createOscillator();
     const gainNode = tactileAudioCtx.createGain();
     osc.connect(gainNode);
-    gainNode.connect(tactileAudioCtx.destination);
+    if (typeof tactileAudioCtx.createStereoPanner === "function") {
+      const panner = tactileAudioCtx.createStereoPanner();
+      panner.pan.setValueAtTime(Math.max(-1, Math.min(1, stereoPan)), tactileAudioCtx.currentTime);
+      gainNode.connect(panner);
+      panner.connect(tactileAudioCtx.destination);
+    } else {
+      gainNode.connect(tactileAudioCtx.destination);
+    }
 
     const hasScore = typeof score === "number" && isFinite(score);
     const now = tactileAudioCtx.currentTime;

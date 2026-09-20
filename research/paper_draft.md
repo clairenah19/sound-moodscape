@@ -46,7 +46,7 @@ Tourism intensity is trips per resident; complaints and facilities are per 100,0
 
 `0.40 overall satisfaction + 0.25 recommendation + 0.20 revisit intention + 0.15 crowding satisfaction`.
 
-This visitor-survey composite remains distinct from acoustic Pleasantness. For places without category overrides, values at or above the regional median select major mode; below-median values select minor. Solemn sites and heritage/nature categories have separate rules. Gangnam is a pending real-track check of the below-median case; a minor-key prompt is not proof of a minor-key recording.
+This visitor-survey composite remains distinct from acoustic Pleasantness. For places without category overrides, values at or above the regional median request major mode; below-median values request minor. Solemn sites and heritage/nature categories have separate rules. The completed Gangnam check did not preserve the requested mode: its prompt requested minor, while the resulting clip was detected as A# major at 0.921 confidence. Across ten generated tracks, 5/10 matched the requested mode. Pleasantness therefore reaches the prompt but is not established as a reliable property of the audio.
 
 ### 4.3 Musical representation
 
@@ -72,7 +72,7 @@ Follow `soundscape_relationship_validation_protocol.md`: sample locations and ti
 
 The prepared protocol uses ten real generated clips spanning the observed score range, with identical 25-second extraction and loudness treatment. The participant interface conceals names and scores, randomizes order, requires complete playback and eight ratings, and exports pseudonymous CSV rows. Target 24 complete adults; a cohort of at least 15 may be reported as exploratory, without a claim of sufficient power.
 
-The prespecified primary analysis correlates ten clip-mean rated Eventfulness values with generating scores using Spearman rho and a two-sided clip-label permutation test. Participants are repeated raters; participant-by-clip rows are not independent stimuli. Participant-bootstrap intervals condition on the fixed stimulus set. A positive result would support this encoding on these clips, not geographic truth or causality.
+The prespecified primary analysis correlates ten clip-mean rated Eventfulness values with generating scores using Spearman rho and a two-sided clip-label permutation test. Participants are repeated raters; participant-by-clip rows are not independent stimuli. Participant-bootstrap intervals condition on the fixed stimulus set. A positive result would support this encoding on these clips, not geographic truth or causality. A prespecified secondary metric, pairwise ordering accuracy over the 45 clip pairs (chance 0.50), restates the same rank agreement in plain terms. Descriptive-only metrics (Lin's concordance correlation and WAPE/MAE on min–max-scaled series, plus ICC and Kendall's W for rater consistency) are reported without thresholds; the scaled-error metrics depend on the observed ranges and are not absolute prediction errors. These were added on 2026-09-20 before any data existed.
 
 ### 6.3 Accessibility evaluation
 
@@ -88,7 +88,7 @@ Priority 1 has not produced real field observations. No measured landmark result
 
 The design makes an interpretation inspectable, but administrative density, tourist attention, noise complaints and perceived activity are not interchangeable. Regional averages conceal local and temporal variation. Authored landmark offsets, narrow satisfaction ranges, hand-set weights, language-dependent Wikipedia readership, broad linked articles and category-based musical stereotypes can bias representations. Score clipping can compress calm landmarks toward zero.
 
-Generated music introduces another layer of uncertainty: instrumentation or mode may not follow instructions, and pre-existing tracks may no longer correspond to updated scores. The current documentation contains older scoring and fallback descriptions that require reconciliation. Some browser controls remain less accessible than the map itself. AI personas are not real residents, language-accessibility scores are estimates, and live external-service reliability has not been established in this pass.
+Generated music introduces another layer of uncertainty: instrumentation, mode, or tempo may not follow instructions, and pre-existing tracks may no longer correspond to updated scores. Some browser controls remain less accessible than the map itself. AI personas are not real residents, language-accessibility scores are estimates, and live external-service reliability has not been established in this pass.
 
 Without blind/low-vision participants, this study cannot establish that Moodscape supports independent exploration or meets the needs of those users. General-listener ratings concern perception of musical encoding, not accessibility validation. Testing sighted people with their eyes closed or blindfolded would not resolve this limitation.
 

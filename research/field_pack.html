@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Moodscape 사운드워크 현장 배포용 — Field Pack</title>
+<style>
+  :root { --ink:#111; --mute:#666; --rule:#bbb; }
+  * { box-sizing:border-box; }
+  body { font-family:"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+         color:var(--ink); margin:0; padding:18mm 14mm; font-size:10.5pt; line-height:1.4; }
+  h1 { font-size:15pt; margin:0 0 2mm; }
+  h2 { font-size:11pt; margin:5mm 0 2mm; padding-bottom:1mm; border-bottom:1.5px solid var(--ink); }
+  .sub { color:var(--mute); font-size:9pt; margin:0 0 4mm; }
+  .screen-only { background:#fffbe6; border:1px solid #e6d27a; padding:10px 14px;
+                 border-radius:6px; margin-bottom:8mm; font-size:10pt; }
+  table { width:100%; border-collapse:collapse; margin-bottom:3mm; }
+  th,td { border:1px solid var(--rule); padding:1.6mm 2mm; text-align:left; font-size:9.5pt; }
+  th { background:#f2f2f2; font-weight:600; }
+  .scale td:nth-child(n+4) { text-align:center; width:9%; }
+  .scale th:nth-child(n+4) { text-align:center; }
+  .en { color:var(--mute); font-size:8.5pt; }
+  .field { border-bottom:1px solid var(--ink); display:inline-block; min-width:26mm; }
+  .row { display:flex; gap:5mm; flex-wrap:wrap; margin-bottom:2mm; }
+  .note { font-size:8.5pt; color:var(--mute); margin:2mm 0 4mm; }
+  .page-break { page-break-before:always; }
+  .form { border:1.5px solid var(--ink); border-radius:2mm; padding:4mm; margin-bottom:5mm; }
+  .hdr { display:flex; justify-content:space-between; align-items:baseline;
+         border-bottom:1px solid var(--ink); padding-bottom:1.5mm; margin-bottom:2.5mm; }
+  .hdr b { font-size:11pt; }
+  @media print {
+    .screen-only { display:none; }
+    body { padding:10mm 9mm; }
+    .form { page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  <b>인쇄용 현장 배포 자료 / Print-ready field pack.</b>
+  브라우저에서 <b>Cmd/Ctrl + P</b> → 용지 A4, 배율 100%, 배경 그래픽 켜기.
+  이 안내 상자는 인쇄되지 않습니다.<br>
+  <b>1쪽</b> 기록자용 현장 측정 시트 (장소·시간대마다 1장) ·
+  <b>2쪽부터</b> 참가자 설문지 (참가자 1명당 1장, 장소·시간대마다 5부 권장).<br>
+  응답을 옮겨 적을 곳: <code>research/soundwalk_observation_template.csv</code> ·
+  분석: <code>python3 research/analyze_soundwalk.py</code>
+</div>
+
+<h1>사운드워크 현장 측정 시트 <span class="en">— Recorder sheet</span></h1>
+<p class="sub">장소 1곳 × 시간대 1회당 1장. 참가자 설문과 <b>동시에</b> 기록합니다.
+(Protocol: predictors must be recorded during the exact rating period.)</p>
+
+<h2>장소 식별 <span class="en">Site identity</span></h2>
+<table>
+<tr><th style="width:26%">관찰 ID <span class="en">observation_id</span></th><td></td>
+    <th style="width:20%">시·도 <span class="en">province</span></th><td></td></tr>
+<tr><th>장소명 <span class="en">site_name</span></th><td colspan="3"></td></tr>
+<tr><th>장소 유형 <span class="en">site_type</span></th>
+    <td colspan="3">☐상업가로 ☐업무중심가로 ☐주거가로 ☐공원·자연 ☐교통시설 ☐시장·문화유산·관광 ☐공업지역 경계</td></tr>
+<tr><th>토지이용 <span class="en">land_use_category</span></th><td colspan="3"></td></tr>
+<tr><th>위도 <span class="en">latitude</span></th><td></td>
+    <th>경도 <span class="en">longitude</span></th><td></td></tr>
+</table>
+
+<h2>시간 및 기상 <span class="en">Time and weather</span></h2>
+<table>
+<tr><th style="width:26%">날짜 <span class="en">date</span></th><td></td>
+    <th style="width:20%">시작 시각 <span class="en">start_time</span></th><td></td></tr>
+<tr><th>측정 시간(분) <span class="en">duration_minutes</span></th><td></td>
+    <th>평일/주말 <span class="en">weekday_or_weekend</span></th><td>☐평일 ☐주말</td></tr>
+<tr><th>평상시/행사 <span class="en">ordinary_or_event</span></th><td>☐평상시 ☐축제·행사</td>
+    <th>기온(℃) <span class="en">temperature_c</span></th><td></td></tr>
+<tr><th>강수 <span class="en">rain</span></th><td>☐없음 ☐약간 ☐비</td>
+    <th>바람 <span class="en">wind_condition</span></th><td>☐무풍 ☐약함 ☐강함</td></tr>
+</table>
+
+<h2>필수 측정값 <span class="en">Required predictors</span></h2>
+<table>
+<tr><th style="width:34%">LAeq (dB) <span class="en">laeq_db</span></th><td></td>
+    <th style="width:26%">측정 기기/앱</th><td></td></tr>
+<tr><th>분당 보행자 수 <span class="en">pedestrians_per_minute</span></th><td></td>
+    <th>분당 차량 수 <span class="en">vehicles_per_minute</span></th><td></td></tr>
+</table>
+<p class="note">보행자·차량은 1분간 직접 세어 기록합니다. LAeq는 평가가 진행되는 구간 전체에 대해 기록하며,
+사용한 기기 또는 앱 이름을 반드시 함께 적습니다 (프로토콜: "calibrated or documented measurement device").</p>
+
+<h2>권장 측정값 <span class="en">Recommended — 가능한 경우에만</span></h2>
+<table>
+<tr><th style="width:24%">LCeq <span class="en">lceq_db</span></th><td></td>
+    <th style="width:24%">라우드니스 <span class="en">loudness_sone</span></th><td></td></tr>
+<tr><th>러프니스 <span class="en">roughness_asper</span></th><td></td>
+    <th>샤프니스 <span class="en">sharpness_acum</span></th><td></td></tr>
+<tr><th>변동강도 <span class="en">fluctuation_strength_vacil</span></th><td></td>
+    <th>식생 비율(%) <span class="en">vegetation_percent_buffer</span></th><td></td></tr>
+<tr><th>도로밀도 <span class="en">road_density_buffer</span></th><td></td>
+    <th>주변 시설 유형 <span class="en">poi_types_in_buffer</span></th><td></td></tr>
+<tr><th>개별 음원 개수 <span class="en">sound_event_count</span></th><td></td>
+    <th>음원 다양성 <span class="en">sound_event_diversity</span></th><td></td></tr>
+</table>
+
+<h2>비고 <span class="en">notes</span></h2>
+<table><tr><td style="height:18mm"></td></tr></table>
+<p class="note">이 장소·시간대에서 수집한 참가자 응답 수: <span class="field"></span> 명
+&nbsp;(프로토콜 권장 10명, 파일럿 최소 5명)</p>
+
+<div class="page-break"></div>
+<h1>참가자 설문지 <span class="en">— Participant questionnaire</span></h1>
+<p class="sub">참가자 1명당 1장. 기록자 시트의 관찰 ID를 반드시 함께 적어 주세요.</p>
+
+<div class="form">
+  <div class="hdr">
+    <b>관찰 ID <span class="field"></span> &nbsp; 참가자 번호 <span class="field"></span></b>
+    <span class="en">participant_id_anonymous — 이름은 기록하지 않습니다</span>
+  </div>
+
+  <p style="margin:0 0 2mm;"><b>안내:</b> 안녕하세요. 이 장소의 소리 환경에 대한 짧은 설문입니다.
+  정답·오답은 없으며 지금 느끼시는 그대로 응답해 주시면 됩니다. 약 2분 소요되며, 이름은 기록하지 않습니다.</p>
+
+  <p style="margin:2mm 0 1mm;"><b>"저는 현재 이 장소의 주변 소리 환경이 ___하다고 생각한다."</b></p>
+  <table class="scale">
+    <tr><th>#</th><th>한국어</th><th class="en">English</th>
+        <th>1<br><span class="en">전혀</span></th><th>2</th><th>3<br><span class="en">보통</span></th><th>4</th><th>5<br><span class="en">매우</span></th></tr>
+    <tr><td>1</td><td>쾌적하다</td><td class="en">pleasant_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>2</td><td>혼란스럽다</td><td class="en">chaotic_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>3</td><td>활기차다</td><td class="en">vibrant_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>4</td><td>단조롭다</td><td class="en">uneventful_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>5</td><td>차분하다</td><td class="en">calm_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>6</td><td>거슬린다</td><td class="en">annoying_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>7</td><td>사건이 많다</td><td class="en">eventful_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td>8</td><td>지루하다</td><td class="en">monotonous_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  </table>
+  <p class="note">항목 순서는 ISO 12913 도구에 맞춰 고정되어 있습니다 — 장소가 달라져도 순서를 바꾸지 마세요.</p>
+
+  <p style="margin:2mm 0 1mm;"><b>소리 발생원 인지도</b> <span class="en">(1 전혀 들리지 않음 – 5 매우 지배적)</span></p>
+  <table class="scale">
+    <tr><th colspan="3">소리 종류</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td colspan="2">교통 소음</td><td class="en">traffic_dominance_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td colspan="2">기계 소음</td><td class="en">mechanical_dominance_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td colspan="2">사람 소리</td><td class="en">human_dominance_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    <tr><td colspan="2">자연 소리</td><td class="en">natural_dominance_1_5</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  </table>
+
+  <p style="margin:2mm 0 1mm;"><b>전반적 평가 및 배경 정보</b></p>
+  <div class="row"><span>이 소리 환경이 이 장소에 <b>적절한가</b>? <span class="en">appropriateness_1_5</span>
+    ☐1 ☐2 ☐3 ☐4 ☐5</span></div>
+  <div class="row"><span><b>연령대</b> <span class="en">age_band</span>
+    ☐10대 ☐20대 ☐30대 ☐40대 ☐50대 ☐60대 이상</span></div>
+  <div class="row">
+    <span><b>청력 어려움</b> <span class="en">hearing_difficulty</span> ☐예 ☐아니오 ☐응답 안 함</span>
+    <span><b>거주/방문</b> <span class="en">resident_or_visitor</span> ☐거주자 ☐방문객</span>
+  </div>
+  <div class="row"><span><b>이 장소 친숙도</b> <span class="en">place_familiarity_1_5</span>
+    (1 처음 – 5 매우 익숙) ☐1 ☐2 ☐3 ☐4 ☐5</span></div>
+</div>
+
+<p class="note">이 설문지는 프로토콜을 현장 사용을 위해 번역한 것으로,
+<b>검증된 심리측정 도구가 아닙니다.</b> 본 조사 이전에 역번역(back-translation) 검증이 필요합니다 —
+파일럿 결과를 보고할 때 이 한계를 반드시 함께 기재하세요.</p>
+
+</body>
+</html>

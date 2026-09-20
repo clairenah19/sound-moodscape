@@ -12,7 +12,7 @@ actually finished, not just a direction. Detailed sourcing remains in `about.htm
 
 ## Do this first
 
-- [ ] **Merge [PR #1](https://github.com/clairenah19/sound-moodscape/pull/1)** (hidden gems)
+- [x] **Merge [PR #1](https://github.com/clairenah19/sound-moodscape/pull/1)** (hidden gems)
       and **[PR #2](https://github.com/clairenah19/sound-moodscape/pull/2)** (scoring +
       accessibility + Pleasantness) into `main`. Either order — #2 already contains #1's
       `data.js`/`ui.js` changes, so the second merge shows as already-included, not
@@ -46,7 +46,7 @@ Two ways to close it — pick one, don't leave it open:
       - **Done when:** opening any place with no MP3 and no Suno key, pressing ▶, produces
         audible sound whose pitch/tempo audibly changes between two places with very different
         scores (e.g. Gyeongbokgung vs. Hongdae).
-- [ ] **(Faster) Fix the documentation instead.** Change the §03 sentence and
+- [x] **(Faster) Fix the documentation instead.** Change the §03 sentence and
       `audio/README.md` to say the player shows a status message and needs either a dropped
       MP3 or a Suno key — stop claiming a fallback that isn't there. Lower effort, but it's
       admitting a gap instead of closing one.
@@ -94,24 +94,71 @@ reads an actual CSV — only the hand-written example in `runExample()`.
       not been caught, the pilot would have collected data missing a required field, and no
       amount of later analysis could recover it.
 
-**Fieldwork (cannot be automated) — do this after the script above exists:**
+**Everything printable is now prepared:**
+- [x] **`research/field_pack.html`** — the print-ready paper pack. Page 1 is the recorder
+      sheet (one per site-time: identity, time, weather, LAeq, counts, the recommended
+      psychoacoustic fields); page 2 is the participant questionnaire (one per person).
+      Open it and print at A4, 100%. Every one of the CSV's 47 columns has a slot on paper,
+      verified programmatically, and each rating row is labelled with the exact column name
+      it feeds — so transcription into the CSV is mechanical rather than a guess.
+- [x] **`research/pilot_results.md`** — the write-up scaffold, currently `[PENDING]`. It
+      already contains the protocol's decision rule quoted verbatim, the
+      measured-vs-Activity-Proxy comparison table, and the limitations that are known in
+      advance regardless of outcome (pilot sample size, unit of analysis, the questionnaire
+      not being a validated instrument, convenience sampling, single observer).
+
+**Fieldwork — the only remaining blocker. Cannot be automated:**
 - [ ] Pick 1–2 physically reachable provinces and 6–10 sites covering: a commercial street, a
       residential street, a park/natural area, a transit area, and a market/heritage area.
 - [ ] For each site, 2 time windows (weekday daytime + evening/weekend), ~5 independent
-      participant ratings per site-time, using the printed Korean questionnaire.
+      participant ratings per site-time, using the printed field pack.
 - [ ] Record simultaneously: LAeq (any calibrated/documented phone SPL meter app is fine per
-      the protocol), pedestrians/min, vehicles/min, lat/long, date/time, weather, land use.
+      the protocol — write down which app), pedestrians/min, vehicles/min, lat/long,
+      date/time, weather, land use.
 - [ ] Enter every row into `research/soundwalk_observation_template.csv`.
-- [ ] Run `node research/analyze_soundwalk.js` and paste the output table into a new
-      `research/pilot_results.md`, with the protocol's decision rule applied explicitly:
-      state in writing whether the official-data proxy actually predicted Eventfulness better
-      than chance, even if the honest answer is no.
+- [ ] Run `python3 research/analyze_soundwalk.py` and fill in `research/pilot_results.md`,
+      applying the protocol's decision rule explicitly: state in writing whether the
+      official-data proxy actually predicted Eventfulness better than chance, even if the
+      honest answer is no.
+
+**Deliberately not built yet:** the protocol's analysis steps 4–9 — the mixed-effects model
+with participant and site grouping, held-out-by-site validation, coefficients/RMSE/R², and
+sensitivity analysis. Steps 1–3 (participant ISO coordinates, site-time means with CIs,
+predictor scatter) are what a pilot of this size can actually support. The inferential layer
+should be written against the real data's shape, not against imagined data.
 
 ## Priority 2 — Pleasantness → audio
 
 - [x] Gangnam's current prompt requests a minor key using regional Pleasantness.
 - [x] Added `research/live_feature_checks.html` for actual API calls and a separate human listening record.
-- [ ] Generate a real Gangnam Suno track and confirm it audibly resolves in minor. **Blocked:** no usable key was accessible in the inspected environment; browser-stored keys need the original origin/profile. A minor-key prompt is not proof of minor-key audio.
+- [x] **Generate a real Gangnam track and check the mode. No longer blocked — done on
+      2026-09-13 (`6bc9ded`) with the user's own key.** The answer is negative and is
+      recorded in `research/pleasantness_to_audio_analysis.md`: Gangnam requested **minor**
+      and came back **A# major** at 0.921 detection confidence. Tempo in the same clip was
+      near-perfect (115 requested, 114.8 detected, 0.2% error), so the prompt was not ignored
+      wholesale — the tempo instruction survived and the mode instruction did not. Across all
+      ten generated tracks the major/minor match rate is 5/10.
+- [x] **Quantified how far Pleasantness actually reaches** (same analysis file). It is
+      attenuated three times before anything is audible:
+      1. `getMusicalKey()` checks two hard-coded category overrides first, so Pleasantness
+         decides the key for only **34 of 75 places (45%)** — 6 are solemn overrides, 35 are
+         nature/traditional overrides.
+      2. It reads a *regional* value, so all default-branch places in a region share one key.
+         That is **17 decisions, not 75**.
+      3. `PLEASANTNESS_MEDIAN` is the median of the 17 regions themselves, so **~half get
+         minor by construction** regardless of absolute pleasantness. The 17 values span only
+         75.05–81.74, and Gyeongsangbuk-do sits *exactly* on the median — major only because
+         the comparison is `>=`. Three more regions are within 0.6 of the line.
+      End to end: 45% × ~50% ≈ **23%** of places have a Pleasantness-derived key that is
+      actually audible. **Pleasantness is wired to the prompt, not reliably to the audio.**
+- [x] **Decide what to do about it.** Chose the conservative wording-only option: `README.md`,
+      `about.html`, and `research/paper_draft.md` now distinguish requested parameters from
+      measured audio and state the observed 5/10 mode match. The scoring rule is unchanged.
+      Four options and their trade-offs remain documented at the end
+      of `research/pleasantness_to_audio_analysis.md`: correct the wording only; replace the
+      median split with an absolute or spread-aware threshold; move Pleasantness onto a
+      parameter Suno honours more reliably; or wait for `research/prompt_ablation_experiment.py`,
+      which is already testing why the mode request gets dropped.
 
 ## Priority 3 — Landmark-level data
 
@@ -125,7 +172,7 @@ reads an actual CSV — only the hand-written example in `runExample()`.
 
 - [x] `research/listener_experiment_protocol.md`: ten places across the observed score range, blinded randomized clips, eight adjective ratings, consent/recruitment, target 24 adults (minimum 15 complete sessions for exploratory analysis).
 - [x] Static `research/listener_rating_form.html`: resume, playback-coverage checks, validated ratings, CSV export and delete. Collection stays disabled until ten genuine clips are prepared and hashed.
-- [x] `research/prepare_listener_clips.py` prepares reviewed real tracks; `research/analyze_listener_experiment.py` implements clip-level Spearman with permutation test and participant bootstrap intervals.
+- [x] `research/prepare_listener_clips.py` prepares reviewed real tracks; `research/analyze_listener_experiment.py` implements clip-level Spearman with permutation test and participant bootstrap intervals, plus (added 2026-09-20) pairwise ordering accuracy, Lin's CCC, normalised WAPE/MAE, ICC and Kendall's W.
 - [ ] Generate/review clips, recruit consenting listeners, collect real responses, and run the analysis. `research/listener_experiment_results.md` remains `[PENDING]`; synthetic software checks are not participant data.
 
 ## Priority 5 — Finish what is incomplete
@@ -133,10 +180,16 @@ reads an actual CSV — only the hand-written example in `runExample()`.
 - [x] Prepared live checks for Ask a Local, music-style JSON, and two non-English language estimates; status recorded in `research/live_feature_checks.md`.
 - [ ] All three Gemini features still need actual key-backed checks. Current status is **blocked / not tested**, not pass or fail.
 - [x] Added two sourced, visually reviewed photos for each of the remaining 69 places. All 75 places now have `photos[]` with two entries; sources are in `research/landmark_photo_sources.csv`.
-- [ ] Original all-free-licensed-photo target is not fully met: seven of the 138 additions are explicitly credited publisher images with rights reserved. Replace those or obtain reuse permission before treating the gallery as wholly free-licensed. The other 131 additions have open-license source metadata.
+- [x] Replaced the seven publisher-owned images with visually reviewed Wikimedia Commons
+      images carrying CC or public-domain metadata. Where exact reusable photos of a private
+      industrial site were unavailable, captions explicitly say the image is manufacturing or
+      regional context and not the named campus/plant. All 138 additions are now reusable.
 - [x] Prepared `research/accessibility_tester_brief.md`.
 - [ ] **Future work, outside the current evaluation scope:** recruit blind/low-vision testers if participation becomes feasible. The user now expects this participation is unlikely. No outreach has been sent; completion of the current project does not depend on this recruitment.
-- [ ] Full stat aria-labels, longitude stereo panning, and N/S/E/W navigation remain deferred as future work. Existing accessibility features are unvalidated with intended users. Technical checks can document keyboard and screen-reader behavior but cannot establish usability for blind/low-vision people. The general listener experiment remains separate and can proceed.
+- [x] Added full regional input/stat summaries to map `aria-label`s, east/west stereo panning
+      to score-pitched navigation cues, and geographic N/S/E/W arrow-key movement based on
+      projected region centroids. These are technically implemented but remain unvalidated
+      with intended users; implementation does not establish usability for blind/low-vision people.
 
 ## Priority 6 — Writeup
 
@@ -147,9 +200,41 @@ Verification and reproducible commands: `research/IMPLEMENTATION_REPORT_2026-09-
 
 ---
 
+## Suno / Gemini code-side improvements (added 2026-09-20)
+
+Found by reading `prompt.js`, `audio.js`, `ui.js` against the measured audio results
+(`research/AUDIO_VERIFICATION_REPORT_EN.md`, `research/prompt_ablation_results.csv`). None need
+anything from Suno or Google.
+
+**Done, checked in the browser with a mocked `fetch` (no credits, no real keys):**
+- [x] **Keys no longer pass through a public proxy.** Suno's Bearer key and Gemini's `?key=` URL
+      used to go through `corsproxy.io`. Both APIs answer CORS preflights (localhost and the
+      `null` origin of `file://`), so calls are direct. Gemini's key is now an `x-goog-api-key`
+      header, never in the URL. A user-owned proxy is still possible via `cfg.proxy`.
+- [x] **Live generation uses the prompt the panel shows** (`sunoGenerate(..., promptOverride)`), so
+      the AI-predicted prompt is no longer silently replaced by the rule-based one.
+- [x] **Only a finished track is returned.** `streamAudioUrl` (possibly a partial stream) is used
+      only after status `SUCCESS` with no finished `audioUrl`.
+
+**Still open (need a decision or a test):**
+- [x] Made style words agree with the key at prompt construction time. Minor-mode styles drop
+      explicitly bright/happy wording and receive a minor-color direction; major-mode styles
+      receive a major-color direction. Whether Suno follows it remains a real-audio question.
+- [x] Constrained the AI predictor: the model receives the app's fixed key and BPM, no longer
+      invents a `tempo_feel` or mode, and predictions are cached per place/mapping version.
+- [x] Decided not to offer both generated tracks. The player remains a single-track control and
+      deliberately takes the provider's first finished result; exposing alternates would require
+      selection, caching, download, and accessibility UI for a feature not central to the study.
+- [ ] Slow requests (42-81 BPM) measured 122-161 BPM. Diagnose by ear before changing code.
+- [x] Stated the measured 50% mode match and tempo caveats in `about.html` section 03.
+- [x] Re-verified `gemini-3.5-flash-lite` on 2026-09-20 against Google's official model and
+      deprecation pages: it is a stable multimodal model with no announced shutdown date.
+
+---
+
 ## Housekeeping
 
-- [ ] **Repo-root file cleanup** — specific recommendation per file, not a vague "tidy up":
+- [x] **Repo-root file cleanup** — specific recommendation per file, not a vague "tidy up":
       - `korea_provinces.docx`, `korea_provinces2.docx` (12KB/11KB, dated Jul 12 — predate
         the CSV research pipeline) — not referenced anywhere in code or docs (checked). Move
         to `research/archive/` if they contain notes worth keeping, otherwise delete.
@@ -160,11 +245,10 @@ Verification and reproducible commands: `research/IMPLEMENTATION_REPORT_2026-09-
         convention in `audio/README.md` and move it into `audio/`.
       - `piano-anatomy/` — an unrelated project living inside this repo. Move it to its own
         repo/folder outside `sound-moodscape` entirely.
-- [ ] **Add `.claude/` to `.gitignore`** — currently untracked but not ignored, so it'll keep
+- [x] **Add `.claude/` to `.gitignore`** — currently untracked but not ignored, so it'll keep
       showing up in `git status` as noise.
-- [ ] **Add a `LICENSE` file.** Two reasonable options given Wikimedia CC-BY-SA/CC-BY photo
+- [x] **Add a `LICENSE` file.** Two reasonable options given Wikimedia CC-BY-SA/CC-BY photo
       credits are already carried per-image in the app: MIT for the code (keeps photo
       attribution as-is, most permissive for a KSEF project judges might want to try
-      running), or CC-BY-NC-SA 4.0 if non-commercial use should be required. Pick one and add
-      the file — "no license" currently defaults to all-rights-reserved, which blocks even
-      judges from legally running a local copy.
+      running), or CC-BY-NC-SA 4.0 if non-commercial use should be required. MIT was selected
+      for the code; third-party image terms remain attached to each image.

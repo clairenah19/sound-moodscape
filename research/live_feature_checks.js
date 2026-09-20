@@ -15,7 +15,7 @@ byId('gemini-check').addEventListener('click', async () => {
   byId('gemini-check').disabled = true;
   const checks = [
     ['Ask a Local', () => askGeminiLocal('What kind of atmosphere should a visitor expect here?', gangnam, 'Seoul', key), r => typeof r === 'string' && r.trim().length > 0],
-    ['Music-style prediction', () => predictMusicStyleWithAI(gangnam, 'Seoul', key), r => ['genre','instrumentation','tempo_feel','key','mood_descriptors','reasoning'].every(k => typeof r[k] === 'string' && r[k].trim()) && ['major key','minor key'].includes(r.key)],
+    ['Music-style prediction', () => predictMusicStyleWithAI(gangnam, 'Seoul', key), r => ['genre','instrumentation','key','root_note','mood_descriptors','arrangement','reasoning'].every(k => typeof r[k] === 'string' && r[k].trim()) && Number.isInteger(r.bpm) && r.bpm === getSunoBpm(gangnam) && r.key === getMusicalKey(gangnam, 'Seoul') && r.root_note === getSunoRootNote(gangnam)],
     ...['Japanese', 'Mandarin Chinese'].map(language => ['Language accessibility (' + language + ')', () => predictLanguageProficiencyWithAI('Seoul', language, key), r => Number.isInteger(r.score) && r.score >= 0 && r.score <= 100 && !!r.label && !!r.reasoning])
   ];
   for (const [name, call, valid] of checks) {

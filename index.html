@@ -22,7 +22,7 @@
   </div>
   <button class="acc-toggle-btn" id="acc-toggle" onclick="toggleAccessibilityMode()"
           aria-pressed="false"
-          title="Step through all 17 regions with the arrow keys. Each region plays its own activity score as a pitch, with a spoken summary.">🔊 Sound navigation</button>
+          title="Move geographically with all four arrow keys. Pitch carries activity and stereo position carries east/west location.">🔊 Sound navigation</button>
   <div class="lang-picker" title="Language for the accessibility estimate">
     <span class="header-lang-icon">🌐</span>
     <select id="header-lang-select" class="header-lang-select" onchange="onHeaderLanguageChange(this.value)">
@@ -66,11 +66,13 @@
         <div class="big">🗺️</div>
         <p>Hover over a province to preview its vibe.<br>Click to explore places.</p>
         <div class="byok-notice">
-          <b>Free to explore, no setup needed.</b> The map, mood scores, real photos, and a synth
-          soundscape all work instantly. Two optional AI features — the "Ask a Local" chat and
-          AI-generated music — need your own free/paid API key (Gemini / Suno), entered when you
-          try them. This is a deliberate bring-your-own-key design for a static site with no
-          backend server, not a bug or a paywall you'll hit unexpectedly.
+          <b>Free to explore, no setup needed.</b> The map, mood scores, real photos, and the
+          plain-language explanation of how each place becomes music all work instantly.
+          <b>Audio is the exception:</b> playback needs either an MP3 in the <code>audio/</code>
+          folder or your own Suno API key — there is no built-in synthesiser, so without one of
+          those the player has nothing to play. The "Ask a Local" chat likewise needs a Gemini
+          key. This is a deliberate bring-your-own-key design for a static site with no backend
+          server, not a bug or a paywall you'll hit unexpectedly.
         </div>
         <div class="byok-notice">
           <b>Research status.</b> Regional activity scores use an explicit composite of official density,

@@ -8,7 +8,8 @@ import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_landmark_pageviews import last_complete_year, month_keys, summarize, scale_rows
-from analyze_listener_experiment import iso_eventfulness, validated_sessions, analyze, ATTRS
+from analyze_listener_experiment import (iso_eventfulness, validated_sessions, analyze, ATTRS,
+    pairwise_accuracy, lins_ccc, normalised_error, icc_two_way, kendalls_w, render_figure)
 from analyze_soundwalk import iso_coordinates, group_site_times, summarize as sw_summarize, main as sw_main
 
 class PageviewTests(unittest.TestCase):
@@ -78,6 +79,61 @@ class ListenerTests(unittest.TestCase):
         self.assertEqual(result['participants'],15)
         self.assertGreater(result['rho'],.95)
         self.assertLess(result['p_two_sided'],.05)
+
+class AgreementMetricTests(unittest.TestCase):
+    """Hand-checkable values; none of these touch participant data."""
+
+    def test_pairwise_accuracy(self):
+        import numpy as np
+        s = np.array([0., 10, 20, 30])
+        self.assertEqual(pairwise_accuracy(s, np.array([1., 2, 3, 4])), (1.0, 6))
+        self.assertEqual(pairwise_accuracy(s, np.array([4., 3, 2, 1])), (0.0, 6))
+        acc, pairs = pairwise_accuracy(s, np.array([1., 1, 3, 4]))  # one tied pair counts 0.5
+        self.assertAlmostEqual(acc, 5.5 / 6); self.assertEqual(pairs, 6)
+        self.assertEqual(pairwise_accuracy(np.array([1., 1, 2]), np.array([1., 2, 3]))[1], 2)  # equal scores skipped
+
+    def test_ccc_and_error_perfect_and_shifted(self):
+        import numpy as np
+        x = np.array([0., .25, .5, 1.])
+        self.assertAlmostEqual(lins_ccc(x, x), 1.0)
+        self.assertLess(lins_ccc(x, x + .5), lins_ccc(x, x))  # same ordering, worse agreement
+        self.assertEqual(normalised_error(np.array([0., 5, 10]), np.array([1., 2, 3])), (0.0, 0.0))
+        wape, mae = normalised_error(np.array([0., 5, 10]), np.array([3., 2, 1]))
+        self.assertAlmostEqual(wape, 4 / 3); self.assertAlmostEqual(mae, 2 / 3)  # reversed: sum|a-p|=2, sum a=1.5
+
+    def test_icc_matches_shrout_fleiss_1979_table_2(self):
+        import numpy as np
+        # 6 targets x 4 judges, published ICC(2,1)=.29 and ICC(2,k)=.62.
+        data = np.array([[9,2,5,8],[6,1,3,2],[8,4,6,8],[7,1,2,6],[10,5,6,9],[6,2,4,7]], float)
+        icc1, icck = icc_two_way(data.T)  # rows=raters, columns=targets
+        self.assertAlmostEqual(icc1, .29, places=2); self.assertAlmostEqual(icck, .62, places=2)
+        self.assertAlmostEqual(icc_two_way(np.tile([1., 2, 4], (5, 1)))[0], 1.0)
+
+    def test_kendalls_w(self):
+        import numpy as np
+        self.assertAlmostEqual(kendalls_w(np.tile([1., 2, 3, 4], (5, 1))), 1.0)
+        self.assertAlmostEqual(kendalls_w(np.array([[1., 2, 3], [1, 3, 2], [2, 1, 3]])), 4 / 9)
+
+    def test_secondary_block_in_analyze(self):
+        rows, meta, cfg = fixtures()
+        result, _ = analyze(rows, meta, cfg, permutations=999, bootstrap=50)
+        sec = result['secondary']
+        self.assertAlmostEqual(sec['pairwise_accuracy'], (45 - 5 + 2.5) / 45)  # five tied clip pairs in the fixture
+        self.assertEqual(sec['pairs'], 45)
+        self.assertLess(sec['pairwise_p_two_sided'], .05)
+        self.assertGreater(sec['icc2_1'], .99)  # identical raters
+
+class FigureTests(unittest.TestCase):
+    def test_figure_is_valid_svg_with_every_clip(self):
+        import xml.dom.minidom as minidom
+        rows, meta, cfg = fixtures()
+        result, _ = analyze(rows, meta, cfg, permutations=99, bootstrap=20)
+        svg = render_figure(result)
+        doc = minidom.parseString(svg)  # raises if malformed
+        self.assertEqual(len(doc.getElementsByTagName('circle')), 10)
+        self.assertIn('role="img"', svg)
+        self.assertIn('pairwise ordering accuracy', svg)
+        self.assertIn('not real places', svg)
 
 class SoundwalkTests(unittest.TestCase):
     """The CSV-reading path iso_pe_calculator.js never had. Synthetic rows only."""

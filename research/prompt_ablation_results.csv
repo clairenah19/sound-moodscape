@@ -1,0 +1,7 @@
+clip_id,condition,rep,track,task_id,requested_bpm,detected_bpm,octave_corrected_err_pct,requested_mode,detected_key,detected_mode,mode_match,key_confidence,duration_s
+clip07,C_custom,0,0,e19e2dd0daca21b23bceab83b91c9d77,95.0,127.8,32.7,minor,A minor,minor,True,0.505,
+clip07,C_custom,0,1,e19e2dd0daca21b23bceab83b91c9d77,95.0,127.8,32.7,minor,A minor,minor,True,0.525,
+clip09,C_custom,0,0,c25ba6a0f4330d87983f2239bcd085ed,115.0,117.2,1.9,minor,C major,major,False,0.887,176.8
+clip09,C_custom,0,1,c25ba6a0f4330d87983f2239bcd085ed,115.0,117.2,1.9,minor,C major,major,False,0.856,167.68
+clip09,B_plain,0,0,b5e69e62b092b237769728a901dc6e1d,115.0,112.5,2.2,minor,D major,major,False,0.698,212.8
+clip09,B_plain,0,1,b5e69e62b092b237769728a901dc6e1d,115.0,117.2,1.9,minor,E minor,minor,True,0.689,190.0

@@ -1,7 +1,9 @@
 # Moodscape audio tracks
 
-Drop Suno-generated (or any) MP3s here to have Moodscape play them as a place's
-soundscape instead of the built-in synth fallback.
+Drop Suno-generated (or any) MP3s here to give a place a soundscape. This is
+one of only two ways to get audio out of Moodscape — the other is a live Suno
+API key. There is no built-in synth fallback, so a place with neither stays
+silent.
 
 ## Naming
 

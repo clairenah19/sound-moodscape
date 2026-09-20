@@ -69,7 +69,7 @@ Two corrections to `buildSunoPrompt()`:
   monk chant is vocal, Hongdae's character is literally "buskers" — so those now get a wordless-
   vocal directive instead (e.g. "wordless pansori-style vocal cries, no full lyrics"), keeping
   the human voice as texture without introducing unrelated lyrics. Everywhere else stays fully
-  instrumental. `suno-prompts.md` was regenerated from the live code to match.
+  instrumental. `docs/suno-prompts.md` was regenerated from the live code to match.
 
 ## 5. AI music-style prediction (multimodal Gemini)
 

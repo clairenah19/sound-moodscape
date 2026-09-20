@@ -27,8 +27,16 @@ function provinceAriaLabel(d) {
         ? "Modelled proxy, with a direct soundscape study available for comparison."
         : "Modelled proxy, no direct soundscape measurement.")
     : "";
+  const stats = model ? ` Population ${model.input.populationK.toLocaleString()} thousand; `
+       + `density ${model.input.density.toLocaleString()} people per square kilometre; `
+       + `domestic tourism ${model.input.tourismTripsK.toLocaleString()} thousand trips; `
+       + `${model.input.complaints.toLocaleString()} noise complaints and `
+       + `${model.input.facilities.toLocaleString()} noise-producing facilities; `
+       + `visitor crowding satisfaction ${model.input.crowding.toFixed(1)} out of 100; `
+       + `Visitor Pleasantness ${model.pleasantness.toFixed(1)} out of 100.` : "";
   return `${moodKey}. Modelled activity ${Math.round(s.score * 100)} out of 100, `
-       + `${MOOD_LABEL(s.score).toLowerCase()}. ${status} Press Enter to open.`;
+       + `${MOOD_LABEL(s.score).toLowerCase()}.${stats} ${status} `
+       + `Use the arrow keys to move geographically; press Enter to open.`;
 }
 
 // Shared by pointer click and keyboard Enter/Space so both paths behave identically.
@@ -102,7 +110,12 @@ function initMap(geojson) {
     .on("keydown", function(event, d) {
       if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
         event.preventDefault();
+        event.stopPropagation();
         selectProvincePath(this, d);
+      } else if (["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"].includes(event.key)) {
+        event.preventDefault();
+        event.stopPropagation();
+        focusProvinceByKey(spatialNeighbor(provinceKeyOf(d), event.key));
       }
     })
     // Focusing a province plays its own mood score as a pitch, so tabbing across
@@ -110,7 +123,7 @@ function initMap(geojson) {
     .on("focus", function(event, d) {
       const moodKey = provinceKeyOf(d);
       if (!moodKey || !MOOD_DATA.states[moodKey]) return;
-      playTactileTick(false, MOOD_DATA.states[moodKey].score);
+      playTactileTick(false, MOOD_DATA.states[moodKey].score, panForNode(moodKey));
     });
 
   // ── DRAW TACTILE PATHS (ACCESSIBILITY OVERLAY) ──────────────────────────────
@@ -184,6 +197,57 @@ function scoreForNode(nodeKey) {
   return s ? s.score : null;
 }
 
+// Projected centroids let arrow keys behave like a map: east/west follow x and
+// north/south follow y. The weighted score prefers a nearby candidate in the
+// requested half-plane and penalizes large sideways jumps.
+function spatialNeighbor(nodeKey, arrowKey) {
+  const points = window._tactileCentroids || [];
+  const from = points.find(p => p.key === nodeKey);
+  if (!from) return nodeKey;
+  const candidates = points.filter(p => {
+    if (p.key === nodeKey) return false;
+    if (arrowKey === "ArrowRight") return p.x > from.x;
+    if (arrowKey === "ArrowLeft") return p.x < from.x;
+    if (arrowKey === "ArrowDown") return p.y > from.y;
+    return p.y < from.y;
+  });
+  const vertical = arrowKey === "ArrowUp" || arrowKey === "ArrowDown";
+  candidates.sort((a, b) => {
+    const rank = p => {
+      const forward = Math.abs((vertical ? p.y : p.x) - (vertical ? from.y : from.x));
+      const sideways = Math.abs((vertical ? p.x : p.y) - (vertical ? from.x : from.y));
+      return forward + sideways * 1.75;
+    };
+    return rank(a) - rank(b);
+  });
+  return candidates.length ? candidates[0].key : nodeKey;
+}
+
+function panForNode(nodeKey) {
+  const points = window._tactileCentroids || [];
+  const point = points.find(p => p.key === nodeKey);
+  if (!point || points.length < 2) return 0;
+  const xs = points.map(p => p.x);
+  return ((point.x - Math.min(...xs)) / (Math.max(...xs) - Math.min(...xs)) * 1.5) - 0.75;
+}
+
+function focusProvinceByKey(nodeKey) {
+  let target = null;
+  d3.select("#map-svg").selectAll(".region-path").each(function(d) {
+    if (provinceKeyOf(d) === nodeKey) target = this;
+  });
+  if (target) target.focus();
+}
+
+function activateTactileNode(nodeKey, landing = false) {
+  const idx = window._tactileNodes.indexOf(nodeKey);
+  if (idx < 0) return;
+  activeNodeIdx = idx;
+  highlightTactileNode(nodeKey);
+  playTactileTick(landing, scoreForNode(nodeKey), panForNode(nodeKey));
+  vocalizeTactileState(nodeKey);
+}
+
 window.toggleAccessibilityMode = function() {
   const btn = document.getElementById("acc-toggle");
   const panel = document.getElementById("map-panel");
@@ -202,8 +266,7 @@ window.toggleAccessibilityMode = function() {
     activeNodeIdx = 0;
     const nodeKey = window._tactileNodes[activeNodeIdx];
     highlightTactileNode(nodeKey);
-    playTactileTick(true, scoreForNode(nodeKey));
-    vocalizeTactileState(nodeKey);
+    activateTactileNode(nodeKey, true);
   } else {
     btn.classList.remove("active");
     panel.classList.remove("accessibility-active");
@@ -266,20 +329,10 @@ window.addEventListener("keydown", (e) => {
   if (!window._accessibilityActive) return;
   if (!window._tactileNodes || window._tactileNodes.length === 0) return;
 
-  if (e.key === "ArrowRight") {
+  if (["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"].includes(e.key)) {
     e.preventDefault();
-    activeNodeIdx = (activeNodeIdx + 1) % window._tactileNodes.length;
-    const nodeKey = window._tactileNodes[activeNodeIdx];
-    highlightTactileNode(nodeKey);
-    playTactileTick(false, scoreForNode(nodeKey));
-    vocalizeTactileState(nodeKey);
-  } else if (e.key === "ArrowLeft") {
-    e.preventDefault();
-    activeNodeIdx = (activeNodeIdx - 1 + window._tactileNodes.length) % window._tactileNodes.length;
-    const nodeKey = window._tactileNodes[activeNodeIdx];
-    highlightTactileNode(nodeKey);
-    playTactileTick(false, scoreForNode(nodeKey));
-    vocalizeTactileState(nodeKey);
+    const current = window._tactileNodes[activeNodeIdx];
+    activateTactileNode(spatialNeighbor(current, e.key));
   } else if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
     const nodeKey = window._tactileNodes[activeNodeIdx];
@@ -290,7 +343,7 @@ window.addEventListener("keydown", (e) => {
         const key = KOREA_PROVINCE_MAP[engName] || KOREA_PROVINCE_MAP[rawName];
         return key === nodeKey;
       }).dispatch("click");
-      playTactileTick(true, scoreForNode(nodeKey));
+      playTactileTick(true, scoreForNode(nodeKey), panForNode(nodeKey));
     }
   } else if (e.key === "Escape") {
     e.preventDefault();

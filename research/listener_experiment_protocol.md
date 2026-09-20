@@ -63,6 +63,20 @@ Primary statistic: **Spearman correlation between the ten generating activity sc
 
 Report a 95% percentile interval from 5,000 participant-bootstrap samples (resample entire participants and all their ratings together). This interval is conditional on the selected clips and does not support population-wide generalization over places or musical outputs. The small, purposive stimulus set remains a limitation. Pleasantness ratings and presentation-order patterns may be described as exploratory; no additional confirmatory tests or selective condition comparisons are planned.
 
+### Agreement metrics (analysis amendment, 2026-09-20, before any recruitment or data)
+
+Added on request after the primary analysis was drafted; no responses existed, and the collection procedure and `protocol_version` are unchanged. The primary statistic and its decision rule above are **not** altered. Everything below uses the same ten clip means and the same participant-bootstrap resampling.
+
+**Prespecified secondary: pairwise ordering accuracy.** Over the 45 clip pairs, the share whose rated-Eventfulness order matches the generating-score order (tied clip means count 0.5; pairs with equal generating scores are skipped). Chance is 0.50; it equals (τ + 1) / 2 when there are no ties. Report the value, a 95% participant-bootstrap interval, and a two-sided permutation p (49,999 clip-label permutations, +1 correction, seed 20260914). It is a plain-language restatement of rank agreement, not an independent second test, so no multiplicity claim is made from it.
+
+**Descriptive only, no pass/fail threshold:**
+- **Lin's CCC, WAPE and MAE** between min–max-scaled generating score (treated as the "actual" series) and min–max-scaled clip-mean Eventfulness. The two variables are on different scales (0–100 vs. a −1 to 1 index), so scaling is required and the values depend on the observed ranges. They describe how closely the shapes coincide; they are not absolute prediction errors and must not be quoted without this caveat. Report WAPE as Σ|a − p| / Σ|a| and MAE as the mean |a − p|, each with a bootstrap interval.
+- **Rater consistency**: ICC(2,1) and ICC(2,k) (two-way random, absolute agreement, participants as raters, clips as targets) and Kendall's W with tie correction. These say whether listeners agree with *each other*. A high pairwise accuracy with low rater consistency means the average matches but individuals do not.
+
+**Results figure.** When real data are analysed, the script also writes `research/listener_experiment_figure.svg` and embeds it in the results file: generating score (x) against mean rated Eventfulness (y) for each of the ten clips, with 95% participant-bootstrap intervals, and ρ, pairwise accuracy and n in the subtitle. No fitted line is drawn, because the tested claim is rank order. The figure is generated only from real responses and is never committed with synthetic data.
+
+Implementation: `research/analyze_listener_experiment.py`. Unit tests in `research/test_research.py` check the formulas against hand-worked values and the published Shrout & Fleiss (1979) Table 2 example (ICC(2,1) = .29, ICC(2,k) = .62). Those tests use synthetic fixtures only; no verified clip set or participant responses exist.
+
 Exclude incomplete sessions. Reject invalid Likert values, mismatched hashes/versions, missing consent, impossible timing, or conflicting duplicate trials. Deduplicate exact repeated downloads. Do not remove unfavorable ratings, “outliers,” or listeners with low correlations. Log all exclusions and any post-freeze amendments.
 
 Run `python3 research/analyze_listener_experiment.py /path/to/returned/*.csv` with NumPy and SciPy installed. With no rows, the script reports pending and does not overwrite results. With fewer than 15 complete sessions, it also leaves inference pending. The empty results file is not a failed or null experiment.

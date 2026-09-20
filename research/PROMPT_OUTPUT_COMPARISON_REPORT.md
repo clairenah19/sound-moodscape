@@ -1,8 +1,16 @@
 # Moodscape — Rule-Based Prompt vs. AI-Predicted Prompt: Comparison Report
 
+> **Historical comparison (superseded 2026-09-20).** This report describes the earlier
+> predictor, which asked Gemini to choose tempo and mode independently. The live pipeline now
+> keeps the score-derived BPM, pitch centre, mode, and vocal treatment fixed, and asks Gemini
+> only for photo-grounded genre, instrumentation, mood, and arrangement. Those locked values
+> are then sent to Suno in custom mode. The observations below remain useful evidence for why
+> that contract was changed, but they no longer describe the current request shape.
+
 ## Purpose
 
-Moodscape has two separate ways of deciding what a place's music should sound like:
+At the time of this comparison, Moodscape had two separate ways of deciding what a place's
+music should sound like:
 
 1. **The rule-based path** (`prompt.js`): `getSunoBpm()`, `getMusicalKey()`, `getSunoStyle()`,
    `getVocalDirective()` — deterministic keyword/threshold rules, feeding `buildSunoPrompt()`.

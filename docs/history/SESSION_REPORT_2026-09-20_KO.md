@@ -30,7 +30,7 @@
 | 09-13 | `0211190` | 언어 접근성 모델 검증 보고서 |
 | 09-13 | `6bc9ded` | **실제 Suno 트랙 10곡 생성 및 프롬프트 대비 검증, EN/KO 보고서 발행** |
 
-병합 과정은 `MERGE_REPORT_2026-09-13.md`에 기록되어 있습니다. PR #2가 충돌한 원인은 예상했던
+병합 과정은 `docs/history/MERGE_REPORT_2026-09-13.md`에 기록되어 있습니다. PR #2가 충돌한 원인은 예상했던
 `data.js`/`ui.js` 중복이 아니라, `main`에만 있던 한 줄짜리 README 플레이스홀더였습니다.
 
 ---
@@ -94,7 +94,7 @@ Pleasantness를 조성에 연결한 것은 코드상으로는 작동하지만, *
 
 ## 5. 문서가 코드와 어긋난 부분 (미해결)
 
-`MERGE_REPORT_2026-09-13.md`가 "Priority 0"으로 지목했던 문제가 **아직 그대로 남아 있습니다.**
+`docs/history/MERGE_REPORT_2026-09-13.md`가 "Priority 0"으로 지목했던 문제가 **아직 그대로 남아 있습니다.**
 
 `audio.js`를 직접 확인한 결과, 소리를 내는 신시사이저 폴백은 **존재하지 않습니다.**
 `createOscillator()`는 파일 전체에서 단 한 곳, 접근성 내비게이션 틱에만 쓰입니다.
@@ -161,7 +161,7 @@ scipy가 설치된 환경 기준이므로 거짓은 아닙니다. 다만 **저�
 
 - 수정: `DEVELOPMENT_PLAN.md`, `README.md`, `about.html`, `data.js`, `index.html`,
   `style.css`, `ui.js` (+157 / −177행)
-- 신규: `landmark-evidence.js`, `MERGE_REPORT_2026-09-13.md`,
+- 신규: `landmark-evidence.js`, `docs/history/MERGE_REPORT_2026-09-13.md`,
   `research/` 아래 청취 실험·랜드마크 조회수·사진 출처·논문 초안 등 약 20개 파일
 
 현재 브랜치는 `feature/accessibility-and-scoring-reform`이며 `main`이 아닙니다.

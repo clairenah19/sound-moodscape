@@ -177,7 +177,7 @@ function showPlace(stateName, placeIdx) {
           </button>
           <div class="player-info">
             <div class="track-name">${p.name} — ${MOOD_LABEL(p.score)} Mix</div>
-            <div class="track-sub">${getSunoBpm(p)} BPM · ${getMusicalKey(p, stateName) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p).split(",")[0]}</div>
+            <div class="track-sub">${getSunoBpm(p)} BPM · ${getMusicalKey(p, stateName) === "major key" ? "Major" : "Minor"} key · ${getSunoStyle(p, stateName).split(",")[0]}</div>
           </div>
         </div>
         <div class="waveform" id="waveform">${barsHtml}</div>
@@ -550,16 +550,22 @@ async function runAIMusicPrediction(stateName, placeName) {
   if (resultEl) resultEl.textContent = "";
 
   try {
-    const prediction = await predictMusicStyleWithAI(place, stateName, cfg.key);
+    let prediction = getCachedMusicPrediction(place, stateName);
+    const usedCache = !!prediction;
+    if (!prediction) {
+      prediction = await predictMusicStyleWithAI(place, stateName, cfg.key);
+      cacheMusicPrediction(place, stateName, prediction);
+    }
     const newPrompt = buildSunoPromptFromAIPrediction(place, stateName, prediction);
     const promptArea = document.getElementById("suno-prompt");
     if (promptArea) promptArea.value = newPrompt;
 
     if (resultEl) {
-      resultEl.innerHTML = `<b>AI prediction:</b> ${prediction.genre} (${prediction.mood_descriptors}), ${prediction.tempo_feel}, ${prediction.key}.<br>`
-        + `<b>Instrumentation:</b> ${prediction.instrumentation}<br>`
-        + `<i>${prediction.reasoning}</i><br>`
-        + `<span style="color:var(--accent);">Suno prompt above updated with this prediction.</span>`;
+      resultEl.innerHTML = `<b>AI direction${usedCache ? " (saved)" : ""}:</b> ${evidenceEscape(prediction.genre)} (${evidenceEscape(prediction.mood_descriptors)}), exactly ${prediction.bpm} BPM, ${evidenceEscape(prediction.root_note)} ${evidenceEscape(prediction.key.split(" ")[0])}.<br>`
+        + `<b>Instrumentation:</b> ${evidenceEscape(prediction.instrumentation)}<br>`
+        + `<b>Arrangement:</b> ${evidenceEscape(prediction.arrangement)}<br>`
+        + `<i>${evidenceEscape(prediction.reasoning)}</i><br>`
+        + `<span style="color:var(--accent);">Suno style above updated. Tempo, mode, and vocal treatment stay locked to Moodscape's data mapping.</span>`;
     }
   } catch (e) {
     if (resultEl) resultEl.textContent = "AI prediction failed: " + e.message;

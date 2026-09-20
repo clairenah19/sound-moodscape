@@ -38,10 +38,10 @@ region scores and real photos — works with no setup. Audio needs a local/hoste
 | Area | What it does | Where |
 |---|---|---|
 | **Region scoring** | A reproducible "Activity Proxy" computed from real official statistics (2025 population density, 2024 tourism trips, 2023 noise complaints/facilities, visitor crowding) for all 17 regions — weights are stated hypotheses, not fitted coefficients. A separate Visitor Pleasantness score is computed from satisfaction/recommend/revisit data. | `data.js` (`REGION_MODEL`), documented in `about.html` §03 |
-| **Sonification** | Score → pitch (12-TET), tempo (BPM), timbre band, and — as of this plan cycle — musical key/mode, which now reads the region's Visitor Pleasantness relative to the national median instead of the place's own score. | `narrative.js`, `prompt.js` (`getMusicalKey`, `getSunoBpm`, `getSunoStyle`) |
-| **Real audio** | Three-layer fallback: a pre-generated track (hosted URL or a local MP3 you drop in `audio/`), live generation via a paid third-party Suno API if you supply a key, or a Web Audio synth so the player is never silent. | `audio.js` |
+| **Sonification** | Score → requested pitch (12-TET), tempo (BPM), timbre band, and musical key/mode. For places without a category override, the requested mode reads regional Visitor Pleasantness relative to the national median. Generated audio does not always follow these requests: the measured mode match is 5/10. | `narrative.js`, `prompt.js` (`getMusicalKey`, `getSunoBpm`, `getSunoStyle`) |
+| **Real audio** | Two layers, no synth fallback: a pre-generated track (hosted URL or a local MP3 you drop in `audio/`), or live generation via a paid third-party Suno API if you supply a key. With neither, the player reports that no track was found and stays silent. | `audio.js` |
 | **Plain-language narrative** | A deterministic (no API key needed) explanation of exactly why each place/region sounds the way it does, read from the same functions that drive the audio. | `narrative.js` (`buildPlaceNarrative`, `buildProvinceNarrative`) |
-| **"The music, without hearing it"** | A text-and-geometry panel for deaf/hard-of-hearing users, showing the same pitch/tempo/key/timbre/density parameters the synth reads. | `narrative.js` (`buildMusicSpecPanel`) |
+| **"The music, without hearing it"** | A text-and-geometry panel for deaf/hard-of-hearing users, showing the same pitch/tempo/key/timbre/density parameters the Suno prompt is built from. | `narrative.js` (`buildMusicSpecPanel`) |
 | **Sound navigation (accessibility mode)** | All 17 provinces are real keyboard tab stops with `aria-label`s carrying region name, score, and mood label. One `aria-live="polite"` region announces changes without fighting a screen reader. A focused province plays its own score as a pitch. `prefers-reduced-motion` is honored throughout. | `map.js`, `audio.js`, `index.html` |
 | **Hidden gem per province** | One place per region surfaced from an independent local/travel blog — not curated by the app — with the blog's own quote and a link back to the source. | `data.js` (`hiddenGem`), `ui.js` (`renderHiddenGem`) |
 | **AI features (bring your own key)** | "Ask a Local" chat with a region-flavored persona; an AI music-style predictor that looks at a place's real photo plus its research data; a per-language accessibility estimate. All via Gemini. | `prompt.js` |
@@ -96,11 +96,13 @@ data.js              All region/place data, REGION_MODEL scoring, hiddenGem entr
 map.js               D3 map rendering + keyboard/screen-reader navigation
 ui.js                Side-panel rendering for regions and places
 audio.js             Playback (real tracks + Suno generation) and Web Audio tactile cues
+audio/               Local soundscape tracks, named by region and place
 narrative.js         Deterministic text explanations + the accessible music-spec panel
 prompt.js            Suno prompt construction, Gemini calls (chat/prediction/language)
 i18n.js              Interface translations
 geojson.js           South Korea province boundary data
 research/            Source CSVs/PDFs, validation protocol, ISO calculator, questionnaire
+docs/                 Generated prompt reference and archived session reports
 out/Log.md           Dated development log entries
 DEVELOPMENT_PLAN.md  Consolidated, prioritized view of done vs. next
 ```
@@ -117,10 +119,11 @@ DEVELOPMENT_PLAN.md  Consolidated, prioritized view of done vs. next
 
 ## License / attribution
 
-No license file is currently included — treat this as all-rights-reserved by default until
-one is added. Real photos are Wikimedia Commons images with per-photo artist/license
-credit shown in the app. Hidden-gem entries link back to and credit their original blog
-source; that content is quoted under fair-use-scale excerpt, not reproduced in full.
+The project code is available under the [MIT License](LICENSE). Third-party photos retain
+their own Creative Commons or public-domain terms, with per-photo artist/license credit
+shown in the app and recorded in `research/landmark_photo_sources.csv`; the MIT license does
+not replace those terms. Hidden-gem entries link back to and credit their original blog
+source; that content is quoted at excerpt scale, not reproduced in full.
 
 ## Research additions — 2026-09-13
 
@@ -128,8 +131,8 @@ Landmark detail panels now show a separate Wikipedia popularity proxy alongside 
 
 The [listener protocol](research/listener_experiment_protocol.md), [rating form](research/listener_rating_form.html), clip preparation and correlation analyzer are ready for genuine stimuli and participants. The form intentionally stays disabled until its ten audio clips are prepared and verified. Results remain pending.
 
-Open [live feature checks](research/live_feature_checks.html) on the same origin/browser used to save your keys to run Gemini checks and the Gangnam generation/listening check. No successful live calls or minor-key listening result are claimed yet.
+Open [live feature checks](research/live_feature_checks.html) on the same origin/browser used to save your keys to run Gemini checks. The completed Gangnam generation check requested minor but produced a confidently detected A# major clip; the ten-clip mode match was 5/10. The three Gemini features still need successful key-backed checks.
 
-The remaining 69 places now have two sourced gallery entries each. [Attribution audit](research/landmark_photo_sources.csv): 131 additions have open-license metadata and seven are labeled publisher images with rights reserved. Existing Seoul galleries were preserved.
+The remaining 69 places now have two sourced gallery entries each. All 138 additions in the [attribution audit](research/landmark_photo_sources.csv) now carry reusable Creative Commons or public-domain metadata. Where exact reusable photos of private industrial facilities were unavailable, captions identify the images as context rather than claiming they show the named site. Existing Seoul galleries were preserved.
 
-Blind/low-vision participation is unlikely for the current study, so intended-user accessibility evaluation and the deferred accessibility changes are future work. Existing features are not validated with blind/low-vision users; the [tester brief](research/accessibility_tester_brief.md) is retained for future use. The general listener study can proceed independently. See the [paper draft](research/paper_draft.md) and [implementation report](research/IMPLEMENTATION_REPORT_2026-09-13.md) for limits and verification.
+Blind/low-vision participation is unlikely for the current study, so intended-user accessibility evaluation remains future work. Technical features now include full-stat map labels, geographic four-arrow navigation, and score-pitched cues whose stereo position carries east/west location. These features are not validated with blind/low-vision users; the [tester brief](research/accessibility_tester_brief.md) is retained for future use. The general listener study can proceed independently. See the [paper draft](research/paper_draft.md) and [implementation report](research/IMPLEMENTATION_REPORT_2026-09-13.md) for limits and verification.

@@ -8,7 +8,7 @@ This pass implements the research infrastructure and UI evidence display for pri
 - Separate popularity evidence and original illustrative offset in place details. No score or music-mapping replacement. Unmeasured places remain `measured: false`.
 - Ten-stimulus listener protocol, gated static form, genuine-track preparation, CSV validation and clip-level correlation analysis. Results remain `[PENDING]`.
 - Live three-feature Gemini harness and Gangnam Suno/human-listening harness. No key values are embedded or recorded in reports.
-- 138 sourced and visually reviewed images added to 69 galleries; all 75 places have two photos[] entries. Metadata/source audit retained. 131 additions carry open-license metadata; seven carry explicit publisher rights-reserved labels. This completes photo coverage but not the older all-free-licensed target. Asan exhibit imagery is explicitly captioned as a scale model. KTO preview watermark is retained. External hotlinks can expire.
+- 138 sourced and visually reviewed images added to 69 galleries; all 75 places have two photos[] entries. Metadata/source audit retained. As of 2026-09-20, all 138 additions carry reusable Creative Commons or public-domain metadata. Seven publisher-owned images were replaced; contextual replacements are explicitly captioned when they do not show the named private facility. External hotlinks can expire.
 - Tester brief and paper draft with pending Results. No tester outreach; no changes to map.js/audio.js accessibility behavior.
 - Fixed the existing malformed music-prediction inline click handler by registering the click listener after rendering.
 
@@ -44,4 +44,4 @@ Photo sourcing script and reviewed selection are retained for provenance. `insta
 - Human listening review of an actual Gangnam output; prompt text alone is insufficient.
 - Ten genuine reviewed tracks, consenting listeners, and real response CSVs before listener results.
 - Priority 1 field observations before marking landmarks measured or writing paper Results.
-- Scope update: blind/low-vision participation is unlikely for the current study. Intended-user evaluation and the deferred accessibility implementation are future work, not a blocker for the general listener study or current project. No accessibility-validation claim is supported.
+- Scope update: blind/low-vision participation is unlikely for the current study. Full-stat labels, geographic four-arrow navigation, and longitude stereo cues were implemented on 2026-09-20, but intended-user evaluation remains future work. No accessibility-validation claim is supported.

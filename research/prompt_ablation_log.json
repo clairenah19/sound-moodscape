@@ -1,0 +1,89 @@
+[
+ {
+  "clip_id": "clip07",
+  "condition": "C_custom",
+  "rep": 0,
+  "payload": {
+   "instrumental": true,
+   "model": "V4_5",
+   "callBackUrl": "https://httpbin.org/post",
+   "customMode": true,
+   "style": "ambient IDM, glitchy minimalist electronic, warm synthesizer pads, cleanroom atmosphere, precise, in A minor, 95 BPM",
+   "title": "Moodscape ablation"
+  },
+  "task_id": "e19e2dd0daca21b23bceab83b91c9d77",
+  "status": "SUCCESS",
+  "recovered_from_console": true,
+  "tracks": [
+   {
+    "id": null,
+    "audio_url": null,
+    "duration": null,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/99a65805-91b4-404e-b301-01824c8835ea/scratchpad/ablation_audio/clip07_C_custom_r0_t0.mp3"
+   },
+   {
+    "id": null,
+    "audio_url": null,
+    "duration": null,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/99a65805-91b4-404e-b301-01824c8835ea/scratchpad/ablation_audio/clip07_C_custom_r0_t1.mp3"
+   }
+  ]
+ },
+ {
+  "clip_id": "clip09",
+  "condition": "C_custom",
+  "rep": 0,
+  "payload": {
+   "instrumental": true,
+   "model": "V4_5",
+   "callBackUrl": "https://httpbin.org/post",
+   "customMode": true,
+   "style": "mellow lo-fi hip-hop, relaxing city-pop synth pads, chill urban beat, warm, in A minor, 115 BPM",
+   "title": "Moodscape ablation"
+  },
+  "task_id": "c25ba6a0f4330d87983f2239bcd085ed",
+  "tracks": [
+   {
+    "id": "43743f21-7fd3-4f1a-bad0-64f8488350a3",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/43743f21-7fd3-4f1a-bad0-64f8488350a3.mp3",
+    "duration": 176.8,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/2688920e-b3ae-4fca-bfac-98336effa985/scratchpad/ablation_audio/clip09_C_custom_r0_t0.mp3"
+   },
+   {
+    "id": "a0ab7c72-a6a6-4141-ab8a-cc65821b31dc",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/a0ab7c72-a6a6-4141-ab8a-cc65821b31dc.mp3",
+    "duration": 167.68,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/2688920e-b3ae-4fca-bfac-98336effa985/scratchpad/ablation_audio/clip09_C_custom_r0_t1.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip09",
+  "condition": "B_plain",
+  "rep": 0,
+  "payload": {
+   "instrumental": true,
+   "model": "V4_5",
+   "callBackUrl": "https://httpbin.org/post",
+   "customMode": false,
+   "prompt": "Instrumental music. Minor key, around 115 BPM. No vocals."
+  },
+  "task_id": "b5e69e62b092b237769728a901dc6e1d",
+  "tracks": [
+   {
+    "id": "7cd7e208-56ca-481b-a1d9-1e8e8cfdd7b0",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/7cd7e208-56ca-481b-a1d9-1e8e8cfdd7b0.mp3",
+    "duration": 212.8,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/2688920e-b3ae-4fca-bfac-98336effa985/scratchpad/ablation_audio/clip09_B_plain_r0_t0.mp3"
+   },
+   {
+    "id": "5650ae7d-8841-4a0c-bafc-fdf7782d8774",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/5650ae7d-8841-4a0c-bafc-fdf7782d8774.mp3",
+    "duration": 190.0,
+    "file": "/private/tmp/claude-503/-Users-claireyunhanah-Desktop-ksef-sound/2688920e-b3ae-4fca-bfac-98336effa985/scratchpad/ablation_audio/clip09_B_plain_r0_t1.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ }
+]

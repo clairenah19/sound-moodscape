@@ -142,7 +142,7 @@ column-header template only. Checked directly: 1 line in the file, the header ro
 rows. No fieldwork has been conducted yet. This is the one file in this list that is not
 "data that was scraped or compiled" — it's a data-entry structure waiting for data that
 doesn't exist yet, tracked as the fieldwork task in `DEVELOPMENT_PLAN.md` Priority 1 and
-`MERGE_REPORT_2026-09-13.md`.
+`docs/history/MERGE_REPORT_2026-09-13.md`.
 
 ---
 

@@ -10,6 +10,21 @@ function placeKey(stateName, place) {
   return slugify(stateName) + "__" + slugify(place.name);
 }
 
+const PLACE_TERMS = {
+  keySolemn: { name: ["cemetery", "memorial", "5.18", "observatory", "dmz", "cave", "tomb", "dolmen", "taejongdae"], type: ["cemetery", "memorial", "observatory", "cave"], character: ["dmz"] },
+  keyMajor: { name: ["hanok", "temple", "palace", "village"], type: ["hanok", "traditional", "folk", "temple", "palace", "ruins", "park", "beach", "lake", "island", "nature", "valley", "garden", "arboretum", "springs"] },
+  styleSolemn: { name: ["cemetery", "memorial", "5.18", "observatory", "dmz"], type: ["cemetery", "memorial", "observatory"] },
+  traditional: { name: ["hanok", "temple", "palace", "village"], type: ["hanok", "traditional", "folk", "temple", "palace", "ruins"] },
+  nature: { name: ["mountain", "beach", "lake", "cave"], type: ["park", "beach", "lake", "island", "nature", "valley", "garden", "arboretum", "cape", "cliff", "cave"] },
+  industrial: { name: ["hynix", "posco", "hyundai", "kia"], type: ["plant", "factory", "shipyard", "tech", "science", "complex", "research", "fabrication", "industrial"] },
+  urban: { name: ["hongdae", "gangnam", "biff", "plaza", "market"], type: ["district", "youth", "hub", "center", "cinema", "plaza", "amusement", "pier", "market", "shopping", "design", "quarter"] }
+};
+
+function matchesPlace(place, termsByField) {
+  return Object.entries(termsByField).some(([field, terms]) =>
+    terms.some(term => String(place[field] || "").toLowerCase().includes(term)));
+}
+
 function getSunoConfig() {
   try { return JSON.parse(localStorage.getItem("moodscape_suno") || "{}"); }
   catch (e) { return {}; }
@@ -38,35 +53,13 @@ function cacheTrackUrl(key, url) {
 // (DEVELOPMENT_PLAN.md Priority 2). Pass stateName when it's available;
 // without it this falls back to the old score-threshold behavior.
 function getMusicalKey(place, stateName) {
-  const name = (place.name || "").toLowerCase();
-  const type = (place.type || "").toLowerCase();
-  const char = (place.character || "").toLowerCase();
-  
   // Solemn, memorial, war, observatory, DMZ, or cave locations use minor key
-  if (
-    name.includes("cemetery") || type.includes("cemetery") ||
-    name.includes("memorial") || type.includes("memorial") ||
-    name.includes("5.18") ||
-    name.includes("observatory") || type.includes("observatory") ||
-    name.includes("dmz") || char.includes("dmz") ||
-    name.includes("cave") || type.includes("cave") ||
-    name.includes("tomb") || type.includes("tomb") ||
-    name.includes("dolmen") || type.includes("dolmen") ||
-    name.includes("taejongdae")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.keySolemn)) {
     return "minor key";
   }
   
   // Hanok, traditional, folk, temples, palaces, ruins, parks, beaches, lakes, nature are always major
-  if (
-    type.includes("hanok") || type.includes("traditional") || type.includes("folk") ||
-    type.includes("temple") || type.includes("palace") || type.includes("ruins") ||
-    type.includes("park") || type.includes("beach") || type.includes("lake") ||
-    type.includes("island") || type.includes("nature") || type.includes("valley") ||
-    type.includes("garden") || type.includes("arboretum") || type.includes("springs") ||
-    name.includes("hanok") || name.includes("temple") || name.includes("palace") ||
-    name.includes("village")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.keyMajor)) {
     return "major key";
   }
   
@@ -83,29 +76,17 @@ function getMusicalKey(place, stateName) {
 }
 
 // Tailor the style words based on score and place type to avoid repetitive EDM/electro house
-function getSunoStyle(place) {
+function getSunoStyleBase(place) {
   const name = (place.name || "").toLowerCase();
-  const type = (place.type || "").toLowerCase();
   const score = place.score;
 
   // 1. Solemn / Memorial / DMZ
-  if (
-    name.includes("cemetery") || type.includes("cemetery") ||
-    name.includes("memorial") || type.includes("memorial") ||
-    name.includes("5.18") ||
-    name.includes("observatory") || type.includes("observatory") ||
-    name.includes("dmz")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.styleSolemn)) {
     return "solemn cinematic ambient, deep emotional orchestral drone, moving cello, respectful, quiet";
   }
 
   // 2. Traditional / Hanok / Palace / Temple / Folk
-  if (
-    type.includes("hanok") || type.includes("traditional") || type.includes("folk") ||
-    type.includes("temple") || type.includes("palace") || type.includes("ruins") ||
-    name.includes("hanok") || name.includes("temple") || name.includes("palace") ||
-    name.includes("village")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.traditional)) {
     if (score > 0.6) {
       return "upbeat traditional Korean K-fusion, modern groove with ancient instruments, energetic, warm";
     } else if (score > 0.3) {
@@ -116,13 +97,7 @@ function getSunoStyle(place) {
   }
 
   // 3. Nature / Scenic / Park / Beach / Lake / Mountain / Valley
-  if (
-    type.includes("park") || type.includes("beach") || type.includes("lake") ||
-    type.includes("island") || type.includes("nature") || type.includes("valley") ||
-    type.includes("garden") || type.includes("arboretum") || type.includes("cape") ||
-    type.includes("cliff") || type.includes("cave") || name.includes("mountain") ||
-    name.includes("beach") || name.includes("lake") || name.includes("cave")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.nature)) {
     if (score > 0.75) {
       if (name.includes("haeundae")) {
         return "tropical house, sun-drenched coastal synth groove, warm summer beach vibe, uplifting";
@@ -136,12 +111,7 @@ function getSunoStyle(place) {
   }
 
   // 4. Industrial / Tech / Science
-  if (
-    type.includes("plant") || type.includes("factory") || type.includes("shipyard") ||
-    type.includes("tech") || type.includes("science") || type.includes("complex") ||
-    type.includes("research") || type.includes("fabrication") || type.includes("industrial") ||
-    name.includes("hynix") || name.includes("posco") || name.includes("hyundai") || name.includes("kia")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.industrial)) {
     if (score > 0.6) {
       return "futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek";
     } else {
@@ -150,14 +120,7 @@ function getSunoStyle(place) {
   }
 
   // 5. Modern / Urban / Youth / Art / Entertainment
-  if (
-    type.includes("district") || type.includes("youth") || type.includes("hub") ||
-    type.includes("center") || type.includes("cinema") || type.includes("plaza") ||
-    type.includes("amusement") || type.includes("pier") || type.includes("market") ||
-    type.includes("shopping") || type.includes("design") || type.includes("quarter") ||
-    name.includes("hongdae") || name.includes("gangnam") || name.includes("biff") ||
-    name.includes("plaza") || name.includes("market")
-  ) {
+  if (matchesPlace(place, PLACE_TERMS.urban)) {
     if (score > 0.75) {
       if (name.includes("hongdae")) {
         return "energetic K-indie rock, electric guitar riffs, lively drums, youthful band vibe, upbeat";
@@ -181,6 +144,21 @@ function getSunoStyle(place) {
   if (score < 0.5) return "calm lo-fi, soft mellow keys, gentle warmth, relaxed";
   if (score < 0.75) return "downtempo, balanced groove, mellow beat, atmospheric pads";
   return "lively electronic synth-pop, bright arpeggios, energetic groove, upbeat";
+}
+
+// Keep descriptive style words from contradicting the independently computed
+// mode. This improves the request; it does not imply that Suno will obey it.
+function getSunoStyle(place, stateName) {
+  const key = getMusicalKey(place, stateName);
+  let style = getSunoStyleBase(place);
+  if (key === "minor key") {
+    style = style
+      .replace(/\b(bright|cheerful|happy|uplifting|celebratory)\b,?\s*/gi, "")
+      .replace(/\s+,/g, ",")
+      .replace(/,\s*,/g, ",");
+    return `${style.replace(/[\s,]+$/, "")}, shadowed minor-key color`;
+  }
+  return `${style.replace(/[\s,]+$/, "")}, open major-key color`;
 }
 
 // BPM range widened from the original 40–120 to 42–152. The original ceiling meant even
@@ -211,38 +189,76 @@ function getVocalDirective(place) {
 function buildSunoPrompt(place, stateName) {
   const bpm = getSunoBpm(place);
   const key = getMusicalKey(place, stateName);
-  const style = getSunoStyle(place);
+  const style = getSunoStyle(place, stateName);
   const vocals = getVocalDirective(place);
   return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
     + `${style}, ${key}, around ${bpm} BPM. Instrumentation: ${place.instrumentation}. `
     + `Cinematic, atmospheric, ${vocals}.`;
 }
 
-// Helper to proxy requests through corsproxy.io if running on file:// protocol or default sunoapi.org host
-function getProxiedUrl(url) {
-  const isDefaultHost = url.includes("sunoapi.org");
-  if (window.location.protocol === "file:" || isDefaultHost) {
-    return "https://corsproxy.io/?url=" + encodeURIComponent(url);
+// Keep the generated style inside Suno's documented V4.5 custom-mode limit.
+// Normalising whitespace also prevents copied line breaks from consuming useful
+// style space or changing how the provider tokenises an otherwise identical prompt.
+function normalizeSunoStyle(style) {
+  return String(style || "").replace(/\s+/g, " ").trim().slice(0, 1000);
+}
+
+function sunoPhrase(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().replace(/[\s,;.!?]+$/, "");
+}
+
+function getSunoRootNote(place) {
+  const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  const score = Math.max(0, Math.min(1, Number(place.score) || 0));
+  return notes[Math.round(score * 12) % 12];
+}
+
+function buildSunoGenerationRequest(place, stateName, model, promptOverride) {
+  const style = normalizeSunoStyle(promptOverride || buildSunoPrompt(place, stateName));
+  if (!style) throw new Error("Suno style is empty");
+  const vocalDirective = getVocalDirective(place);
+  const isFullyInstrumental = vocalDirective === "no vocals, no lyrics";
+  const request = {
+    customMode: true,
+    instrumental: isFullyInstrumental,
+    model,
+    // In custom mode Suno documents style + title as explicit controls. Sending
+    // scene prose as a non-custom prompt made it reinterpret
+    // Gemini's decisions instead of treating them as explicit music settings.
+    style,
+    title: `${place.name} — Moodscape`.slice(0, 80),
+    callBackUrl: "https://httpbin.org/post"
+  };
+  // Custom vocal mode also requires a lyrics prompt. Section tags request voice
+  // as timbre without supplying words for the model to sing.
+  if (!isFullyInstrumental) {
+    request.prompt = "[Instrumental Intro]\n[Wordless Vocalise]\n[Instrumental Outro]";
   }
-  return url;
+  return request;
+}
+
+// sunoapi.org answers browser CORS preflights (checked 2026-09-20 for both localhost and the "null"
+// origin of a file:// page), so requests go straight there. The Bearer key used to be sent through the
+// public corsproxy.io on every call; a proxy is now used only if the user sets one they control
+// (cfg.proxy, e.g. "https://my-worker.example.workers.dev/?url=").
+function getProxiedUrl(url, cfg) {
+  return cfg && cfg.proxy ? cfg.proxy + encodeURIComponent(url) : url;
 }
 
 // Live generation against sunoapi.org
-async function sunoGenerate(place, stateName, cfg) {
+async function sunoGenerate(place, stateName, cfg, promptOverride) {
   const base = (cfg.base || "https://api.sunoapi.org").replace(/\/+$/, "");
   const genPath = cfg.generatePath || "/api/v1/generate";
   const pollPath = cfg.pollPath || "/api/v1/generate/record-info";
   const model = cfg.model || "V4_5";
-  const prompt = buildSunoPrompt(place, stateName);
+  // Use the prompt the panel is showing (it may be the AI-predicted one), not a silently rebuilt copy.
+  const prompt = (promptOverride && promptOverride.trim()) || buildSunoPrompt(place, stateName);
 
-  const genUrl = getProxiedUrl(base + genPath);
+  const genUrl = getProxiedUrl(base + genPath, cfg);
   const genRes = await fetch(genUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json", "Authorization": "Bearer " + cfg.key },
-    body: JSON.stringify({
-      prompt, customMode: false, instrumental: true, model,
-      callBackUrl: "https://httpbin.org/post"
-    })
+    body: JSON.stringify(buildSunoGenerationRequest(place, stateName, model, prompt))
   });
   if (!genRes.ok) throw new Error("generate HTTP " + genRes.status + ": " + (await genRes.text()).slice(0, 200));
   const genJson = await genRes.json();
@@ -252,7 +268,7 @@ async function sunoGenerate(place, stateName, cfg) {
   // poll up to ~2.5 min (generation typically takes 30-90s)
   for (let i = 0; i < 50; i++) {
     await new Promise(r => setTimeout(r, 3000));
-    const pollUrl = getProxiedUrl(base + pollPath + "?taskId=" + encodeURIComponent(taskId));
+    const pollUrl = getProxiedUrl(base + pollPath + "?taskId=" + encodeURIComponent(taskId), cfg);
     const pr = await fetch(pollUrl, {
       headers: { "Authorization": "Bearer " + cfg.key }
     });
@@ -262,9 +278,15 @@ async function sunoGenerate(place, stateName, cfg) {
     if (status && /FAIL|ERROR/i.test(status)) throw new Error("generation failed: " + status);
     const sunoData = pj.data && pj.data.response && pj.data.response.sunoData;
     if (Array.isArray(sunoData)) {
+      // audioUrl is the finished file. streamAudioUrl can be a partial stream while the task is still
+      // running, so it is only accepted once the task reports SUCCESS and no finished file is listed.
       for (const it of sunoData) {
-        const audioUrl = it.audioUrl || it.streamAudioUrl;
-        if (audioUrl) return audioUrl;
+        if (it.audioUrl) return it.audioUrl;
+      }
+      if (status && /^SUCCESS$/i.test(status)) {
+        for (const it of sunoData) {
+          if (it.streamAudioUrl) return it.streamAudioUrl;
+        }
       }
     }
   }
@@ -306,6 +328,17 @@ function saveGeminiConfig(cfg) {
   localStorage.setItem("moodscape_gemini", JSON.stringify(cfg));
 }
 
+// The API key goes in a header, never the URL, and requests go straight to Google: both APIs answer
+// browser CORS preflights (checked 2026-09-20, including the "null" origin of a file:// page), so the
+// public corsproxy.io hop that used to carry every key is not needed.
+function geminiEndpoint(model) {
+  return `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+}
+
+function geminiHeaders(apiKey) {
+  return { "Content-Type": "application/json", "x-goog-api-key": apiKey };
+}
+
 function buildSystemPrompt(place, stateName) {
   const persona = getLocalPersona(stateName, place);
   return `You are a local resident of ${place.name} in ${stateName}, South Korea. 
@@ -331,17 +364,11 @@ async function askGeminiLocal(question, place, stateName, apiKey) {
   // model in the current, non-deprecated 3.5 generation with no shutdown date announced.
   const GEMINI_MODEL = "gemini-3.5-flash-lite";
 
-  // Use a CORS proxy if running from file:// protocol to avoid preflight issues
-  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-  if (window.location.protocol === "file:") {
-    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
-  }
+  const url = geminiEndpoint(GEMINI_MODEL);
 
   const response = await fetch(url, {
     method: "POST",
-    headers: { 
-      "Content-Type": "application/json"
-    },
+    headers: geminiHeaders(apiKey),
     body: JSON.stringify({
       contents: [{ parts: [{ text: question }] }],
       systemInstruction: { parts: [{ text: systemInstruction }] },
@@ -368,6 +395,28 @@ async function askGeminiLocal(question, place, stateName, apiKey) {
 // instrumentation/tempo/key that best fits — a genuine model-based prediction rather
 // than a lookup table. Requires the same Gemini key already used by "Ask a Local".
 
+const MUSIC_PREDICTION_CACHE_VERSION = "v1";
+
+function musicPredictionCacheKey(place, stateName) {
+  return [MUSIC_PREDICTION_CACHE_VERSION, stateName, place.name, getSunoBpm(place),
+    getMusicalKey(place, stateName), getSunoRootNote(place)].join("|");
+}
+
+function getMusicPredictionCache() {
+  try { return JSON.parse(localStorage.getItem("moodscape_music_predictions") || "{}"); }
+  catch (e) { return {}; }
+}
+
+function getCachedMusicPrediction(place, stateName) {
+  return getMusicPredictionCache()[musicPredictionCacheKey(place, stateName)] || null;
+}
+
+function cacheMusicPrediction(place, stateName, prediction) {
+  const cache = getMusicPredictionCache();
+  cache[musicPredictionCacheKey(place, stateName)] = prediction;
+  try { localStorage.setItem("moodscape_music_predictions", JSON.stringify(cache)); } catch (e) {}
+}
+
 async function imageUrlToBase64(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error("image fetch HTTP " + res.status);
@@ -384,21 +433,27 @@ async function imageUrlToBase64(url) {
 
 async function predictMusicStyleWithAI(place, stateName, apiKey) {
   const GEMINI_MODEL = "gemini-3.5-flash-lite";
-  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-  if (window.location.protocol === "file:") {
-    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
-  }
+  const url = geminiEndpoint(GEMINI_MODEL);
 
+  const targetBpm = getSunoBpm(place);
+  const targetKey = getMusicalKey(place, stateName);
+  const targetRoot = getSunoRootNote(place);
+  const vocalDirective = getVocalDirective(place);
   const parts = [{
-    text: `You are predicting the best instrumental music style for a place in a sound-mapping app.
+    text: `You are the music director for a place-based, instrumental sound-mapping app. Choose the aesthetic details that will make a Suno V4.5 generation evoke this specific place.
 
 Place: ${place.name}, ${stateName}, South Korea
 Type: ${place.type}
 Real description: ${place.character}
 Existing instrumentation tags: ${place.instrumentation}
 Current mood score (0=very calm, 1=very energetic): ${place.score}
+Locked tempo from the app's data mapping: exactly ${targetBpm} BPM
+Locked tonal center and mode from the app's pitch/pleasantness mapping: ${targetRoot} ${targetKey.split(" ")[0]}
+Locked vocal treatment: ${vocalDirective}
 
-A real photo of this place is attached — use what you can actually see in it (crowd density, architecture, nature vs. urban, color/light, activity level) together with the text description above to predict what music would genuinely fit best, not just a generic mapping from the score. Respond ONLY with the requested JSON.`
+A real photo of this place is attached. Use visible architecture, landscape, materials, color, light, and activity to refine genre, timbre, mood, and arrangement. A single photo may show a quiet moment at a normally energetic place, so treat the real description as the stable identity and the photo as texture; do not let time of day or temporary crowd density contradict the locked tempo or mode.
+
+Use concrete, audible production language that Suno can follow. Do not name artists. Do not repeat the place name, BPM, key, vocal instruction, or generic words such as "cinematic" and "atmospheric" in your fields. Keep genre under 8 words, instrumentation to 3-6 comma-separated sound sources, mood_descriptors to 3-5 adjectives, and arrangement to one concise sentence describing density, rhythm, and development. Respond ONLY with the requested JSON.`
   }];
 
   try {
@@ -412,23 +467,22 @@ A real photo of this place is attached — use what you can actually see in it (
 
   const response = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: geminiHeaders(apiKey),
     body: JSON.stringify({
       contents: [{ parts }],
       generationConfig: {
-        temperature: 0.6,
+        temperature: 0.35,
         responseMimeType: "application/json",
         responseSchema: {
           type: "OBJECT",
           properties: {
             genre: { type: "STRING", description: "Specific music genre/style, e.g. 'lo-fi city pop' or 'traditional Korean court music'" },
             instrumentation: { type: "STRING", description: "Comma-separated instruments/sound elements" },
-            tempo_feel: { type: "STRING", description: "e.g. 'slow and spacious' or 'driving and fast'" },
-            key: { type: "STRING", enum: ["major key", "minor key"] },
             mood_descriptors: { type: "STRING", description: "3-5 adjectives" },
+            arrangement: { type: "STRING", description: "One concise sentence describing density, rhythm, and how the piece develops" },
             reasoning: { type: "STRING", description: "1-2 sentences on why this fits, referencing what's visible in the photo if used" }
           },
-          required: ["genre", "instrumentation", "tempo_feel", "key", "mood_descriptors", "reasoning"]
+          required: ["genre", "instrumentation", "mood_descriptors", "arrangement", "reasoning"]
         }
       }
     })
@@ -443,16 +497,27 @@ A real photo of this place is attached — use what you can actually see in it (
                json.candidates[0].content.parts[0] && json.candidates[0].content.parts[0].text;
   if (!text) throw new Error("Invalid response format from Gemini API");
 
-  return JSON.parse(text);
+  const prediction = JSON.parse(text);
+  // These are app-controlled sonification parameters, not model guesses. Adding
+  // them after parsing gives every downstream consumer one consistent object.
+  prediction.bpm = targetBpm;
+  prediction.key = targetKey;
+  prediction.root_note = targetRoot;
+  prediction.vocals = vocalDirective;
+  return prediction;
 }
 
 function buildSunoPromptFromAIPrediction(place, stateName, prediction) {
   const bpm = getSunoBpm(place);
+  const key = getMusicalKey(place, stateName);
+  const root = getSunoRootNote(place);
   const vocals = getVocalDirective(place);
-  return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
-    + `${prediction.genre}, ${prediction.mood_descriptors}, ${prediction.tempo_feel}, ${prediction.key}, around ${bpm} BPM. `
-    + `Instrumentation: ${prediction.instrumentation}. `
-    + `Cinematic, atmospheric, ${vocals}.`;
+  return normalizeSunoStyle(
+    `${sunoPhrase(prediction.genre)}; ${sunoPhrase(prediction.mood_descriptors)}. `
+    + `Exactly ${bpm} BPM, in ${root} ${key.split(" ")[0]}. Instrumentation: ${sunoPhrase(prediction.instrumentation)}. `
+    + `Arrangement: ${sunoPhrase(prediction.arrangement)}. ${vocals}. `
+    + `Evokes ${place.character || (place.name + ", " + stateName + ", South Korea")}.`
+  );
 }
 
 // ── LANGUAGE PROFICIENCY (selectable, AI-estimated) ──────────────────────────
@@ -531,10 +596,7 @@ if (typeof document !== "undefined") {
 
 async function predictLanguageProficiencyWithAI(stateName, language, apiKey) {
   const GEMINI_MODEL = "gemini-3.5-flash-lite";
-  let url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-  if (window.location.protocol === "file:") {
-    url = "https://corsproxy.io/?url=" + encodeURIComponent(url);
-  }
+  const url = geminiEndpoint(GEMINI_MODEL);
 
   const prompt = `You are estimating a "language accessibility" score for Moodscape, a data-sonification app that scores South Korean provinces on a mood formula. One input to that formula is how easy it is for a visitor who speaks ${language} (and no Korean) to navigate and communicate in ${stateName}, South Korea.
 
@@ -544,7 +606,7 @@ Respond ONLY with the requested JSON: a 0-100 integer score (0 = essentially no 
 
   const response = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: geminiHeaders(apiKey),
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
