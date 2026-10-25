@@ -1,0 +1,30 @@
+{
+  "source": "/private/tmp/clip07_sejong_source_pcm_v3.wav",
+  "source_sha256": "30800cf68a9ff6f5e3442103769ac5a1c2a44772f93c9ee418f68400e8a69c29",
+  "source_suno_file": "research/listener_clips/clip07_sejong_perceived95_candidate2.mp3",
+  "source_suno_sha256": "f966b95b9148b153a1c2a91ef917aa5857510d145e3b05deab2f6d79e6358981",
+  "source_human_perceived_bpm": 48,
+  "output": "research/listener_clips/clip07_sejong_95bpm_corrected.wav",
+  "output_sha256": "87f80cb2eadc56705b47ee89d7af988480dbd88b06a43879e6e3306cd3faef4f",
+  "lossless_delivery_file": "research/listener_clips/clip07_sejong_95bpm_corrected.flac",
+  "lossless_delivery_sha256": "9d3a1a5dfee462e9dbfd4e9b0b621c280c57ebac197874959a252d41b2327db6",
+  "blind_test_file": "research/listener_clips/clip07_corrected_blind_test.flac",
+  "blind_test_sha256": "e92d63a543b22076e15ba3849f15f0ea070b0ee65642f1baee2d6484012e9995",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 164.413,
+  "bpm": 95.0,
+  "seconds_per_beat": 0.631578947368421,
+  "source_gain": 0.82,
+  "kick_gain": 0.3,
+  "rim_gain": 0.1,
+  "beat_count": 261,
+  "pitch_or_duration_changed": false,
+  "automatic_screening": {
+    "default_prior_bpm": 95.3,
+    "uniform_prior_bpm": 47.7,
+    "top_tempo_peaks_bpm": [95.3, 47.7, 194.0, 63.9, 144.2],
+    "interpretation": "the deterministic 95 BPM pulse is strongest under the default model, but 48 BPM remains a competing metrical level; human tapping decides"
+  },
+  "validation": "pending blind human tap-tempo test"
+}

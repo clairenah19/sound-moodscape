@@ -15,6 +15,13 @@ chrome.log
 .env
 audio-analysis-venv/
 
+# Generated research audio is large and reproducible from the recorded prompts.
+# The ten already tracked baseline clips remain tracked; this prevents new local
+# MP3/WAV/FLAC experiments from being added accidentally.
+research/listener_clips/*.mp3
+research/listener_clips/*.wav
+research/listener_clips/*.flac
+
 # Python bytecode
 __pycache__/
 *.pyc

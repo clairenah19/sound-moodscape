@@ -1,0 +1,35 @@
+{
+  "task_id": "6a42be181c76573587716b6fec85b212",
+  "model": "V4_5",
+  "target_bpm": 95,
+  "success_rule": "median human tap tempo within 5% of 95 BPM",
+  "prompt": "Instrumental rhythm-forward electronic music for Government Complex Sejong and its rooftop garden. Bright, composed and understated in D-sharp major, with soft airy synthesizer pads, a clean modern pulse, and subtle corridor ambience. Use a 190 BPM double-time production grid in 4/4, but make the PRIMARY HUMAN-TAPPED PULSE exactly 95 BPM: place a firm muted kick on every other 190 BPM grid beat, exactly 95 kick pulses per minute, with a clear snare backbeat and bass-note attack reinforcing that same 95 BPM pulse. The listener must naturally nod and tap at 95 BPM, never at 47 or 48 BPM. Start the 95 BPM kick immediately and keep it constant throughout. Midtempo minimal electronic groove, not beatless ambient; no slow half-speed pulse, no rubato, no tempo changes, no long intro. Light rooftop breeze and restrained footsteps must not obscure the beat. Cinematic, clean, atmospheric, no vocals, no lyrics.",
+  "suno_instruction_bpm": 190,
+  "compensation_for_observed_half_speed": true,
+  "tracks": [
+    {
+      "candidate": 1,
+      "file": "research/listener_clips/clip07_sejong_perceived95_compensated_candidate1.mp3",
+      "bytes": 4075982,
+      "suno_id": "17ea2252-353f-4417-86db-249791e13d61",
+      "duration_seconds": 162.0,
+      "default_prior_bpm": 97.0,
+      "uniform_prior_bpm": 194.0,
+      "top_tempo_peaks_bpm": [194.0, 97.0, 127.8, 77.1, 64.7],
+      "screening_result": "preferred for blind human tap test; 97 BPM is the default estimate"
+    },
+    {
+      "candidate": 2,
+      "file": "research/listener_clips/clip07_sejong_perceived95_compensated_candidate2.mp3",
+      "bytes": 4058333,
+      "suno_id": "b2dd213d-bf51-4be4-805e-85117b9fb6a0",
+      "duration_seconds": 101.5,
+      "default_prior_bpm": 127.8,
+      "uniform_prior_bpm": 194.0,
+      "top_tempo_peaks_bpm": [194.0, 127.8, 95.3, 77.1, 63.9],
+      "screening_result": "secondary candidate; default estimate is 127.8 BPM"
+    }
+  ],
+  "recommended_candidate": 1,
+  "final_validation_pending": "blind human tap-tempo measurement; automatic estimates are not the pass criterion"
+}

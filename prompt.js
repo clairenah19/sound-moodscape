@@ -12,10 +12,21 @@ function placeKey(stateName, place) {
 
 const PLACE_TERMS = {
   keySolemn: { name: ["cemetery", "memorial", "5.18", "observatory", "dmz", "cave", "tomb", "dolmen", "taejongdae"], type: ["cemetery", "memorial", "observatory", "cave"], character: ["dmz"] },
-  keyMajor: { name: ["hanok", "temple", "palace", "village"], type: ["hanok", "traditional", "folk", "temple", "palace", "ruins", "park", "beach", "lake", "island", "nature", "valley", "garden", "arboretum", "springs"] },
+  // "government" added below after real-world correction: Sejong's government complex
+  // is also surrounded by a large number of kindergartens/young families (a planned
+  // city built for relocated civil-servant households), not just ministries — so it
+  // should read as major/lively, not the solemn minor key the generic regional-
+  // pleasantness fallback was otherwise assigning it.
+  keyMajor: { name: ["hanok", "temple", "palace", "village"], type: ["hanok", "traditional", "folk", "temple", "palace", "ruins", "park", "beach", "lake", "island", "nature", "valley", "garden", "arboretum", "springs", "government"] },
   styleSolemn: { name: ["cemetery", "memorial", "5.18", "observatory", "dmz"], type: ["cemetery", "memorial", "observatory"] },
   traditional: { name: ["hanok", "temple", "palace", "village"], type: ["hanok", "traditional", "folk", "temple", "palace", "ruins"] },
   nature: { name: ["mountain", "beach", "lake", "cave"], type: ["park", "beach", "lake", "island", "nature", "valley", "garden", "arboretum", "cape", "cliff", "cave"] },
+  // Checked before `industrial` below: "National government complex" otherwise matched
+  // industrial's bare "complex" keyword and got a semiconductor-fab "cleanroom atmosphere"
+  // style, even though it's an administrative building with the world's longest rooftop
+  // garden, not a factory. "assembly" is deliberately excluded here since "Automobile
+  // assembly plant" / "car-assembly plant" need to stay industrial.
+  institutional: { name: ["government"], type: ["government", "ministry", "ministries", "civic", "city hall"] },
   industrial: { name: ["hynix", "posco", "hyundai", "kia"], type: ["plant", "factory", "shipyard", "tech", "science", "complex", "research", "fabrication", "industrial"] },
   urban: { name: ["hongdae", "gangnam", "biff", "plaza", "market"], type: ["district", "youth", "hub", "center", "cinema", "plaza", "amusement", "pier", "market", "shopping", "design", "quarter"] }
 };
@@ -110,7 +121,21 @@ function getSunoStyleBase(place) {
     }
   }
 
-  // 4. Industrial / Tech / Science
+  // 4. Institutional / Government / Civic — checked before Industrial so a "government
+  // complex" doesn't fall into the factory/cleanroom bucket just because both use the
+  // word "complex". Composed and airy rather than glitchy/mechanical: these are
+  // administrative buildings, often with courtyards or gardens, not production lines.
+  if (matchesPlace(place, PLACE_TERMS.institutional)) {
+    if (score > 0.6) {
+      return "stately civic ambient, composed string pads, open courtyard air, orderly, dignified";
+    } else if (score > 0.3) {
+      return "calm institutional ambient, soft airy pads, quiet rooftop-garden breeze, composed, understated";
+    } else {
+      return "hushed administrative ambient, distant corridor echo, sparse pads, quiet, restrained";
+    }
+  }
+
+  // 5. Industrial / Tech / Science
   if (matchesPlace(place, PLACE_TERMS.industrial)) {
     if (score > 0.6) {
       return "futuristic progressive electronic, clean high-tech synth layers, driving modular rhythm, sleek";
@@ -119,7 +144,7 @@ function getSunoStyleBase(place) {
     }
   }
 
-  // 5. Modern / Urban / Youth / Art / Entertainment
+  // 6. Modern / Urban / Youth / Art / Entertainment
   if (matchesPlace(place, PLACE_TERMS.urban)) {
     if (score > 0.75) {
       if (name.includes("hongdae")) {
@@ -148,17 +173,22 @@ function getSunoStyleBase(place) {
 
 // Keep descriptive style words from contradicting the independently computed
 // mode. This improves the request; it does not imply that Suno will obey it.
+// A real-audio test (research/AUDIO_VERIFICATION_REPORT_EN.md) found minor-key
+// requests failed 0/3: the style list still carried words like "warm", "chill",
+// "mellow", "sleek" that are statistically pleasant/major-coded, so they likely
+// outvoted the single word "minor key" buried in the same run-on sentence. The
+// strip list below now covers those words too, not just the most obvious ones.
 function getSunoStyle(place, stateName) {
   const key = getMusicalKey(place, stateName);
   let style = getSunoStyleBase(place);
   if (key === "minor key") {
     style = style
-      .replace(/\b(bright|cheerful|happy|uplifting|celebratory)\b,?\s*/gi, "")
+      .replace(/\b(bright|cheerful|happy|uplifting|celebratory|warm|chill|mellow|sleek|glossy|shimmer(?:ing)?|sunny|playful|breezy|cozy)\b,?\s*/gi, "")
       .replace(/\s+,/g, ",")
-      .replace(/,\s*,/g, ",");
-    return `${style.replace(/[\s,]+$/, "")}, shadowed minor-key color`;
+      .replace(/,\s*,/g, ",")
+      .replace(/^[\s,]+/, "");
   }
-  return `${style.replace(/[\s,]+$/, "")}, open major-key color`;
+  return style.replace(/[\s,]+$/, "");
 }
 
 // BPM range widened from the original 40–120 to 42–152. The original ceiling meant even
@@ -186,13 +216,35 @@ function getVocalDirective(place) {
   return "no vocals, no lyrics";
 }
 
+// The key/mode used to be one word ("minor key") tacked onto the end of a long
+// comma list dominated by pleasant-coded words (warm, chill, mellow...) — a
+// real-audio test found that lost 3/3 times (AUDIO_VERIFICATION_REPORT_EN.md).
+// It's now its own short, early sentence, paired with a root note (already
+// computed by getSunoRootNote but previously unused here) and explicit mood
+// words, since "minor key" alone is abstract theory a text-to-music model
+// may weight no higher than any other single adjective.
+//
+// The root note is phrased as "around {root}", not "In {root} minor key", on
+// purpose: a real-audio re-verification (research/MINOR_KEY_FIDELITY_STUDY.md)
+// found mode (major/minor) became reliable for at least one place once the
+// genre words stopped fighting it, but the exact root note did not — the same
+// "F minor" request came back as F, G, and D# minor across 3 identical runs.
+// Stating a specific root as a flat fact ("In F minor key") overclaims a
+// precision Suno doesn't actually honor; "around {root}" keeps the root as a
+// soft anchor (it may still nudge the overall color) without asserting
+// something we've shown isn't true.
 function buildSunoPrompt(place, stateName) {
   const bpm = getSunoBpm(place);
   const key = getMusicalKey(place, stateName);
+  const root = getSunoRootNote(place);
   const style = getSunoStyle(place, stateName);
   const vocals = getVocalDirective(place);
+  const modeClause = key === "minor key"
+    ? `In a minor key (around ${root}) — melancholic, somber, shadowed tonality, no major-key brightness.`
+    : `In a major key (around ${root}) — bright, open, uplifted tonality.`;
   return `Music for ${place.character || (place.name + ", " + stateName + ", South Korea")}. `
-    + `${style}, ${key}, around ${bpm} BPM. Instrumentation: ${place.instrumentation}. `
+    + `${modeClause} `
+    + `${style}, around ${bpm} BPM. Instrumentation: ${place.instrumentation}. `
     + `Cinematic, atmospheric, ${vocals}.`;
 }
 

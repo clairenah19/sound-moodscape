@@ -1,0 +1,35 @@
+{
+  "task_id": "725b59f87a8f77bd7ea8e3abe74428a6",
+  "model": "V4_5",
+  "target_bpm": 95,
+  "success_rule": "median human tap tempo within 5% of 95 BPM",
+  "prompt": "Instrumental music for Government Complex Sejong and its rooftop garden. Calm, bright institutional ambient in D-sharp major, composed and understated, with soft airy synthesizer pads and subtle corridor ambience. STRICT TEMPO: exactly 95 BPM in 4/4. The main beat a listener taps must be the 95 BPM quarter-note pulse. Start that pulse immediately and keep it unchanged for the entire track. Use a soft muted kick on every quarter note, a quiet rim click on beats 2 and 4, and delicate closed hi-hats on eighth notes so the 95 BPM beat is unmistakable. No half-time feel, no double-time feel, no rubato, no beatless intro, no tempo changes, and no long free-floating passages. Include a light rooftop-garden breeze and restrained official footsteps without obscuring the beat. Cinematic and atmospheric, but clearly rhythmic. No vocals, no lyrics.",
+  "tracks": [
+    {
+      "candidate": 1,
+      "file": "research/listener_clips/clip07_sejong_perceived95_candidate1.mp3",
+      "bytes": 4168420,
+      "suno_id": "b6b4d167-6291-4fe3-9023-1dfba375c242",
+      "duration_seconds": 182.0,
+      "beat_track_bpm": 95.3,
+      "default_prior_bpm": 95.3,
+      "uniform_prior_bpm": 194.0,
+      "top_tempo_peaks_bpm": [194.0, 95.3, 63.9, 281.2, 48.1],
+      "screening_result": "95 BPM is strong, but 194 BPM subdivision is dominant without a tempo prior"
+    },
+    {
+      "candidate": 2,
+      "file": "research/listener_clips/clip07_sejong_perceived95_candidate2.mp3",
+      "bytes": 3767380,
+      "suno_id": "a96f6d45-1808-4178-bd73-cdaded9c2b39",
+      "duration_seconds": 164.4,
+      "beat_track_bpm": 95.3,
+      "default_prior_bpm": 95.3,
+      "uniform_prior_bpm": 95.3,
+      "top_tempo_peaks_bpm": [194.0, 95.3, 63.9, 48.1, 244.6],
+      "screening_result": "preferred candidate; both default and uniform-prior estimates select 95.3 BPM"
+    }
+  ],
+  "recommended_candidate": 2,
+  "final_validation_pending": "blind human tap-tempo measurement"
+}

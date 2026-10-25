@@ -1,0 +1,209 @@
+[
+ {
+  "clip_id": "clip01",
+  "condition": "pulse_anchor",
+  "rep": 2,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 14th-century royal palace at dawn, guards changing in ceremonial silence. In a major key (around A) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 42 BPM. Instrumentation: ceremonial court music, stone courtyard reverb, temple bell. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 42 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Gyeongbokgung Palace - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "23e792b028037395399e8f3f95ed2d0c",
+  "tracks": [
+   {
+    "id": "2cf7fdf9-f27d-466b-bbd2-a6475dad3a7a",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/2cf7fdf9-f27d-466b-bbd2-a6475dad3a7a.mp3",
+    "duration": 188.8,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip01_r2.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip01",
+  "condition": "pulse_anchor",
+  "rep": 1,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 14th-century royal palace at dawn, guards changing in ceremonial silence. In a major key (around A) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 42 BPM. Instrumentation: ceremonial court music, stone courtyard reverb, temple bell. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 42 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Gyeongbokgung Palace - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "81dba8bf31a2b6914ade4acc660f95a0",
+  "tracks": [
+   {
+    "id": "5157575d-276d-4d72-ab5f-3fba7a2e887f",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/5157575d-276d-4d72-ab5f-3fba7a2e887f.mp3",
+    "duration": 206.64,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip01_r1.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip01",
+  "condition": "pulse_anchor",
+  "rep": 0,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 14th-century royal palace at dawn, guards changing in ceremonial silence. In a major key (around A) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 42 BPM. Instrumentation: ceremonial court music, stone courtyard reverb, temple bell. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 42 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Gyeongbokgung Palace - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "06557404c4101184a5b906bdca4f38c5",
+  "tracks": [
+   {
+    "id": "4c72ae39-1cd5-4a55-b327-007b61148288",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/4c72ae39-1cd5-4a55-b327-007b61148288.mp3",
+    "duration": 192.92,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip01_r0.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip02",
+  "condition": "pulse_anchor",
+  "rep": 0,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a quiet botanical garden in the middle of the science city. In a major key (around B) \u2014 bright, open, uplifted tonality. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, around 62 BPM. Instrumentation: birdsong, koto-like pluck, leaf rustle. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 62 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Hanbat Arboretum - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "55429de9e09500db4b402b36ae76e7e8",
+  "tracks": [
+   {
+    "id": "fee0f76c-6113-4f12-818d-c2c943468c2b",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/fee0f76c-6113-4f12-818d-c2c943468c2b.mp3",
+    "duration": 212.4,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip02_r0.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip02",
+  "condition": "pulse_anchor",
+  "rep": 1,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a quiet botanical garden in the middle of the science city. In a major key (around B) \u2014 bright, open, uplifted tonality. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, around 62 BPM. Instrumentation: birdsong, koto-like pluck, leaf rustle. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 62 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Hanbat Arboretum - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "e55595a080b1a0f00ef04fb0edaa89d9",
+  "tracks": [
+   {
+    "id": "7049867a-87fb-4ff1-96ff-fd51cdfbbf8c",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/7049867a-87fb-4ff1-96ff-fd51cdfbbf8c.mp3",
+    "duration": 229.48,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip02_r1.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip02",
+  "condition": "pulse_anchor",
+  "rep": 2,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a quiet botanical garden in the middle of the science city. In a major key (around B) \u2014 bright, open, uplifted tonality. peaceful cinematic ambient, quiet nature soundscape, gentle acoustic strings, serene, warm, around 62 BPM. Instrumentation: birdsong, koto-like pluck, leaf rustle. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 62 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Hanbat Arboretum - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "3b6aa6ae25122e7c317317d8377ff229",
+  "tracks": [
+   {
+    "id": "01c77dc4-0870-4324-bdf0-d47cce79712a",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/01c77dc4-0870-4324-bdf0-d47cce79712a.mp3",
+    "duration": 207.72,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip02_r2.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip03",
+  "condition": "pulse_anchor",
+  "rep": 1,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 600-year-old walled town still farmed by about 100 households behind stone ramparts. In a major key (around C) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 68 BPM. Instrumentation: straw-roof wind, well-bucket creak, farmyard rooster. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 68 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Naganeupseong Folk Village - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "277543e1459d720324d23ea04cb73295",
+  "tracks": [
+   {
+    "id": "1fe013e3-738b-48cc-beb7-a82b18d8b81a",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/1fe013e3-738b-48cc-beb7-a82b18d8b81a.mp3",
+    "duration": 199.52,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip03_r1.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip03",
+  "condition": "pulse_anchor",
+  "rep": 2,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 600-year-old walled town still farmed by about 100 households behind stone ramparts. In a major key (around C) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 68 BPM. Instrumentation: straw-roof wind, well-bucket creak, farmyard rooster. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 68 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Naganeupseong Folk Village - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "0d5779b0902a71d7933ef726f8e436bf",
+  "tracks": [
+   {
+    "id": "a8da3c80-1d40-4c99-8295-d7d5e14c6fba",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/a8da3c80-1d40-4c99-8295-d7d5e14c6fba.mp3",
+    "duration": 197.6,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip03_r2.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ },
+ {
+  "clip_id": "clip03",
+  "condition": "pulse_anchor",
+  "rep": 0,
+  "payload": {
+   "customMode": true,
+   "instrumental": true,
+   "model": "V4_5",
+   "style": "Music for a 600-year-old walled town still farmed by about 100 households behind stone ramparts. In a major key (around C) \u2014 bright, open, uplifted tonality. serene traditional Korean meditation music, peaceful daegeum flute and gayageum pluck, warm, quiet, contemplative, around 68 BPM. Instrumentation: straw-roof wind, well-bucket creak, farmyard rooster. Cinematic, atmospheric, no vocals, no lyrics. A soft, steady pulse at 68 BPM with sparse low percussion keeps the beat clear.",
+   "title": "Naganeupseong Folk Village - Moodscape pulse test",
+   "callBackUrl": "https://httpbin.org/post"
+  },
+  "task_id": "d7c2064cae1bbd8e0c27b62f31322ae1",
+  "tracks": [
+   {
+    "id": "afb95028-111d-4f61-b52d-007d959a55ec",
+    "audio_url": "https://tempfile.aiquickdraw.com/r/afb95028-111d-4f61-b52d-007d959a55ec.mp3",
+    "duration": 197.16,
+    "file": "/Users/claireyunhanah/Desktop/ksef/sound/research/listener_clips/slowpulse_clip03_r0.mp3"
+   }
+  ],
+  "status": "SUCCESS"
+ }
+]

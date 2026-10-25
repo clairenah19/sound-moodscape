@@ -1,0 +1,11 @@
+clip_id,place,requested_bpm,detected_bpm,bpm_diff_pct,metrical_relation,octave_aware_diff_pct,onsets_per_s,events_per_requested_beat,requested_mode,detected_key,mode_match,key_detection_confidence
+clip01,Gyeongbokgung Palace,42.0,122.3,191.1,3x,3.0,1.55,2.21,major,D# major,True,0.911
+clip02,Hanbat Arboretum,62.0,125.0,101.6,2x,0.8,2.47,2.39,major,D# major,True,0.856
+clip03,Naganeupseong Folk Village,68.0,130.8,92.4,2x,3.8,1.68,1.49,major,G major,True,0.903
+clip04,Korean Folk Village,75.0,152.0,102.7,2x,1.4,2.86,2.29,major,D# major,True,0.913
+clip05,Oeam Folk Village,81.0,160.7,98.4,2x,0.8,4.13,3.06,major,B minor,False,0.873
+clip06,Gunsan Modern History Street,88.0,44.3,49.7,1/2x,0.7,3.6,2.45,major,C major,True,0.843
+clip07,Government Complex Sejong,95.0,127.8,34.6,2x,32.7,6.95,4.39,minor,D# major,False,0.638
+clip08,Kia AutoLand Gwangju,107.0,144.2,34.8,2x,32.6,7.13,4.0,major,G minor,False,0.563
+clip09,Gangnam,115.0,114.8,0.2,1x,0.2,3.79,1.98,minor,A# major,False,0.921
+clip10,Hyundai Motor Asan Plant,138.0,137.2,0.6,1x,0.6,8.4,3.65,minor,D major,False,0.716

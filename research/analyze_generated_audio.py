@@ -85,11 +85,34 @@ def detect_bpm(y, sr):
     return float(np.atleast_1d(tempo)[0])
 
 
-def analyze_clip(path):
+# Metrical relations accepted as "the same tempo" — the standard set used in tempo-estimation evaluation
+# (MIREX "Accuracy 2": the estimate may be 1/3, 1/2, 1, 2 or 3 times the reference). Automatic beat trackers lock onto
+# a subdivision of slow, sparse, plucked or arpeggiated music, so a slow request is routinely reported at 2-3x.
+# The raw deviation is still written out; this adds the octave-aware reading beside it instead of replacing it.
+RELATIONS = ((1 / 3, "1/3x"), (1 / 2, "1/2x"), (1.0, "1x"), (2.0, "2x"), (3.0, "3x"))
+
+
+def metrical_relation(requested, detected):
+    """Return (relation label, % deviation from the nearest accepted multiple of the requested tempo)."""
+    best = min(RELATIONS, key=lambda rel: abs(detected - requested * rel[0]) / (requested * rel[0]))
+    target = requested * best[0]
+    return best[1], abs(detected - target) / target * 100
+
+
+def event_density(y, sr, requested_bpm):
+    """Onsets per second, and onsets per requested beat. Separates 'the music is sparse' from 'the tracker
+    counted subdivisions': a slow request that is honoured has few events per second even when the tracker says 125."""
+    onsets = librosa.onset.onset_detect(y=y, sr=sr, units="time")
+    rate = len(onsets) / (len(y) / sr)
+    return rate, rate / (requested_bpm / 60.0)
+
+
+def analyze_clip(path, requested_bpm):
     y, sr = librosa.load(path, sr=None, mono=True)
     bpm = detect_bpm(y, sr)
     root, mode, confidence = detect_key(y, sr)
-    return bpm, f"{root} {mode}", mode, confidence
+    rate, per_beat = event_density(y, sr, requested_bpm)
+    return bpm, f"{root} {mode}", mode, confidence, rate, per_beat
 
 
 def main():
@@ -118,12 +141,13 @@ def main():
         requested_mode = "major" if "major" in r["intended_mode"].lower() else "minor"
 
         try:
-            detected_bpm, detected_key_label, detected_mode, confidence = analyze_clip(path)
+            detected_bpm, detected_key_label, detected_mode, confidence, onset_rate, events_per_beat = analyze_clip(path, requested_bpm)
         except Exception as e:
             print(f"  {clip_id}: FAILED to analyze ({e})")
             continue
 
         bpm_diff_pct = abs(detected_bpm - requested_bpm) / requested_bpm * 100
+        relation, octave_diff_pct = metrical_relation(requested_bpm, detected_bpm)
         mode_match = detected_mode == requested_mode
 
         results.append({
@@ -132,13 +156,17 @@ def main():
             "requested_bpm": requested_bpm,
             "detected_bpm": round(detected_bpm, 1),
             "bpm_diff_pct": round(bpm_diff_pct, 1),
+            "metrical_relation": relation,
+            "octave_aware_diff_pct": round(octave_diff_pct, 1),
+            "onsets_per_s": round(onset_rate, 2),
+            "events_per_requested_beat": round(events_per_beat, 2),
             "requested_mode": requested_mode,
             "detected_key": detected_key_label,
             "mode_match": mode_match,
             "key_detection_confidence": round(confidence, 3),
         })
         print(f"  {clip_id}: requested {requested_bpm} BPM / {requested_mode} "
-              f"-> detected {detected_bpm:.1f} BPM ({bpm_diff_pct:.1f}% off) / {detected_key_label} "
+              f"-> detected {detected_bpm:.1f} BPM ({bpm_diff_pct:.1f}% off raw; {octave_diff_pct:.1f}% off as {relation}) / {detected_key_label} "
               f"({'MATCH' if mode_match else 'MISMATCH'})")
 
     if results:
@@ -150,8 +178,11 @@ def main():
         n = len(results)
         mode_matches = sum(1 for r in results if r["mode_match"])
         avg_bpm_diff = sum(r["bpm_diff_pct"] for r in results) / n
+        avg_oct_diff = sum(r["octave_aware_diff_pct"] for r in results) / n
+        within5 = sum(1 for r in results if r["octave_aware_diff_pct"] <= 5)
         print(f"\nSummary: {mode_matches}/{n} clips matched requested major/minor mode "
-              f"({mode_matches/n*100:.0f}%); average BPM deviation {avg_bpm_diff:.1f}%.")
+              f"({mode_matches/n*100:.0f}%); average BPM deviation {avg_bpm_diff:.1f}% raw, "
+              f"{avg_oct_diff:.1f}% octave-aware; {within5}/{n} within 5% of a 1/3, 1/2, 1, 2 or 3x multiple.")
         print(f"Full results written to {args.out}")
 
 

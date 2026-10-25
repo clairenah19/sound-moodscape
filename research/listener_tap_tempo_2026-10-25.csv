@@ -1,0 +1,11 @@
+clip_id,place,requested_bpm,requested_mode,heard_bpm,detector_bpm,listener_note
+clip01,Gyeongbokgung Palace,42,major,60,130.8,"heard 59-61"
+clip02,Hanbat Arboretum,62,major,63,125.0,
+clip03,Naganeupseong Folk Village,68,major,65.5,130.8,"heard 65-66"
+clip04,Korean Folk Village,75,major,74,75.0,
+clip05,Oeam Folk Village,81,major,80,160.7,
+clip06,Gunsan Modern History Street,88,major,60,59.8,
+clip07,Government Complex Sejong,95,major,48,95.3,
+clip08,Kia AutoLand Gwangju,107,major,107,144.2,
+clip09,Gangnam,115,minor,120,117.2,"heard 120 because the mood was upbeat; would be 60 if it were sad"
+clip10,Hyundai Motor Asan Plant,138,minor,139.5,137.2,"heard 139-140"

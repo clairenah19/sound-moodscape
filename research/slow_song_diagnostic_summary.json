@@ -1,0 +1,17 @@
+{
+ "n_tracks": 40,
+ "n_clips": 10,
+ "rho_requested_vs_onset_rate": 0.927,
+ "rho_requested_vs_median_ioi": -0.83,
+ "slow_clips": [
+  "clip01",
+  "clip02",
+  "clip03",
+  "clip04",
+  "clip05"
+ ],
+ "mean_onsets_per_s_slow": 2.31,
+ "mean_onsets_per_s_fast": 6.53,
+ "mean_events_per_beat_slow": 2.27,
+ "mean_events_per_beat_fast": 3.12
+}

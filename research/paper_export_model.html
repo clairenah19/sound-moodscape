@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Export the live Moodscape model for the paper</title>
+<!-- Headless use (writes research/paper_model_export.json via the shell pipeline in paper_analysis.py's docstring):
+     chrome --headless=new --allow-file-access-from-files --dump-dom file:///ABS/PATH/research/paper_export_model.html -->
+<pre id="o"></pre>
+<script src="../data.js"></script>
+<script src="../prompt.js"></script>
+<script>
+const regions = Object.entries(REGION_MODEL).map(([n, m]) => ({
+  region: n, activity: m.activity, pleasantness: m.pleasantness, comps: m.components, raw: m.raw, input: m.input,
+  state_score: MOOD_DATA.states[n].score}));
+const places = [];
+Object.entries(MOOD_DATA.states).forEach(([sn, st]) => st.places.forEach(p => places.push({
+  region: sn, name: p.name, type: p.type, score: p.score, offset: p.illustrativeOffset,
+  key: getMusicalKey(p, sn), bpm: getSunoBpm(p), style: getSunoStyle(p, sn), prompt: buildSunoPrompt(p, sn), root: getSunoRootNote(p), measured: p.measured,
+  solemn: matchesPlace(p, PLACE_TERMS.keySolemn), majorOv: matchesPlace(p, PLACE_TERMS.keyMajor)})));
+document.getElementById('o').textContent = JSON.stringify({median: PLEASANTNESS_MEDIAN, regions, places});
+</script>

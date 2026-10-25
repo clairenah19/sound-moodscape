@@ -1,0 +1,218 @@
+{
+ "summary": {
+  "n": 9,
+  "present": 4,
+  "dominant": 0,
+  "earlier_present": 2,
+  "earlier_dominant": 0,
+  "earlier_n": 6
+ },
+ "tracks": [
+  {
+   "clip": "clip01",
+   "rep": 2,
+   "task_id": "23e792b028037395399e8f3f95ed2d0c",
+   "requested": 42,
+   "single": 127.8,
+   "top3": [
+    127.8,
+    63.2,
+    255.7
+   ],
+   "present": false,
+   "dominant": false,
+   "key": "A major",
+   "duration_s": 188.8
+  },
+  {
+   "clip": "clip01",
+   "rep": 1,
+   "task_id": "81dba8bf31a2b6914ade4acc660f95a0",
+   "requested": 42,
+   "single": 122.3,
+   "top3": [
+    122.3,
+    61.1,
+    244.6
+   ],
+   "present": false,
+   "dominant": false,
+   "key": "D# major",
+   "duration_s": 206.7
+  },
+  {
+   "clip": "clip01",
+   "rep": 0,
+   "task_id": "06557404c4101184a5b906bdca4f38c5",
+   "requested": 42,
+   "single": 125.0,
+   "top3": [
+    125.0,
+    244.6,
+    61.8
+   ],
+   "present": false,
+   "dominant": false,
+   "key": "D# major",
+   "duration_s": 192.9
+  },
+  {
+   "clip": "clip02",
+   "rep": 0,
+   "task_id": "55429de9e09500db4b402b36ae76e7e8",
+   "requested": 62,
+   "single": 125.0,
+   "top3": [
+    125.0,
+    244.6,
+    62.5
+   ],
+   "present": true,
+   "dominant": false,
+   "key": "G major",
+   "duration_s": 212.4
+  },
+  {
+   "clip": "clip02",
+   "rep": 1,
+   "task_id": "e55595a080b1a0f00ef04fb0edaa89d9",
+   "requested": 62,
+   "single": 125.0,
+   "top3": [
+    125.0,
+    244.6,
+    82.7
+   ],
+   "present": false,
+   "dominant": false,
+   "key": "A# minor",
+   "duration_s": 229.5
+  },
+  {
+   "clip": "clip02",
+   "rep": 2,
+   "task_id": "3b6aa6ae25122e7c317317d8377ff229",
+   "requested": 62,
+   "single": 125.0,
+   "top3": [
+    125.0,
+    255.7,
+    84.0
+   ],
+   "present": false,
+   "dominant": false,
+   "key": "D# major",
+   "duration_s": 207.7
+  },
+  {
+   "clip": "clip03",
+   "rep": 1,
+   "task_id": "277543e1459d720324d23ea04cb73295",
+   "requested": 68,
+   "single": 133.9,
+   "top3": [
+    133.9,
+    67.8,
+    267.9
+   ],
+   "present": true,
+   "dominant": false,
+   "key": "D# major",
+   "duration_s": 199.5
+  },
+  {
+   "clip": "clip03",
+   "rep": 2,
+   "task_id": "0d5779b0902a71d7933ef726f8e436bf",
+   "requested": 68,
+   "single": 133.9,
+   "top3": [
+    133.9,
+    67.0,
+    267.9
+   ],
+   "present": true,
+   "dominant": false,
+   "key": "C major",
+   "duration_s": 197.6
+  },
+  {
+   "clip": "clip03",
+   "rep": 0,
+   "task_id": "d7c2064cae1bbd8e0c27b62f31322ae1",
+   "requested": 68,
+   "single": 133.9,
+   "top3": [
+    133.9,
+    67.8,
+    267.9
+   ],
+   "present": true,
+   "dominant": false,
+   "key": "C major",
+   "duration_s": 197.2
+  }
+ ],
+ "earlier": {
+  "clip01_round1": {
+   "single": 119.7,
+   "top3": [
+    122.3,
+    175.8,
+    148.0
+   ],
+   "present": false,
+   "dominant": false
+  },
+  "clip01_round2": {
+   "single": 130.8,
+   "top3": [
+    130.8,
+    267.9,
+    64.7
+   ],
+   "present": false,
+   "dominant": false
+  },
+  "clip02_round1": {
+   "single": 125.0,
+   "top3": [
+    125.0,
+    244.6,
+    82.7
+   ],
+   "present": false,
+   "dominant": false
+  },
+  "clip02_round2": {
+   "single": 125.0,
+   "top3": [
+    125.0,
+    255.7,
+    63.2
+   ],
+   "present": true,
+   "dominant": false
+  },
+  "clip03_round1": {
+   "single": 127.8,
+   "top3": [
+    130.8,
+    234.4,
+    200.9
+   ],
+   "present": false,
+   "dominant": false
+  },
+  "clip03_round2": {
+   "single": 130.8,
+   "top3": [
+    130.8,
+    255.7,
+    66.2
+   ],
+   "present": true,
+   "dominant": false
+  }
+ }
+}

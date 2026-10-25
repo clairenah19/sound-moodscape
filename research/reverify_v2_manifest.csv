@@ -1,0 +1,11 @@
+clip_id,name,requested_bpm,requested_mode,path,status
+clip01,Gyeongbokgung Palace,42,major,research/listener_clips/v2_clip01.mp3,ok
+clip02,Hanbat Arboretum,62,major,research/listener_clips/v2_clip02.mp3,ok
+clip03,Naganeupseong Folk Village,68,major,research/listener_clips/v2_clip03.mp3,ok
+clip04,Korean Folk Village,75,major,research/listener_clips/v2_clip04.mp3,ok
+clip05,Oeam Folk Village,81,major,research/listener_clips/v2_clip05.mp3,ok
+clip06,Gunsan Modern History Street,88,major,research/listener_clips/v2_clip06.mp3,ok
+clip07,Government Complex Sejong,95,major,research/listener_clips/v2_clip07.mp3,ok
+clip08,Kia AutoLand Gwangju,107,major,research/listener_clips/v2_clip08.mp3,ok
+clip09,Gangnam,115,minor,research/listener_clips/v2_clip09.mp3,ok
+clip10,Hyundai Motor Asan Plant,138,minor,research/listener_clips/v2_clip10.mp3,ok
