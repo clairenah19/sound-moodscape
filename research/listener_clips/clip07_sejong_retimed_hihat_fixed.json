@@ -1,0 +1,41 @@
+{
+  "source": "/private/tmp/clip07_retimed_hihat95.wav",
+  "source_sha256": "99e2c5e21167fd6221a758bfdf0ad1ec4f494f05e4b84f17c15b65810910520a",
+  "original_suno_file": "research/listener_clips/clip07_sejong_perceived95_candidate2.mp3",
+  "original_human_perceived_bpm": 48.0,
+  "retime_source_bpm": 47.0,
+  "retime_rate": 2.021276595744681,
+  "original_duration_seconds": 164.413,
+  "output": "research/listener_clips/clip07_sejong_retimed_hihat_fixed.wav",
+  "output_sha256": "4f0d3f0963e472a65f32516e458b97da14bd26535e1cca93e74b1e881185b703",
+  "lossless_delivery_file": "research/listener_clips/clip07_sejong_retimed_hihat_fixed.flac",
+  "blind_test_file": "research/listener_clips/clip07_hihat_fixed_blind_test.wav",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 81.341,
+  "bpm": 95.0,
+  "seconds_per_beat": 0.631578947368421,
+  "source_gain": 0.88,
+  "kick_gain": 0.26,
+  "rim_gain": 0.07,
+  "beat_count": 129,
+  "hihat_correction": {
+    "pattern": "one closed hi-hat per 95 BPM quarter note; no subdivisions",
+    "seconds_per_hihat": 0.631578947368421,
+    "original_high_frequency_retain": 0.12,
+    "shelf_cutoff_hz": 5200.0,
+    "replacement_hihat_gain": 0.105,
+    "replacement_hihat_count": 129
+  },
+  "pitch_preserved": true,
+  "duration_changed": true,
+  "human_validation": {
+    "target_bpm": 95.0,
+    "blind_tap_bpm": 96.0,
+    "absolute_error_bpm": 1.0,
+    "absolute_error_percent": 1.053,
+    "acceptance_threshold_percent": 5.0,
+    "result": "PASS"
+  },
+  "validation": "passed blind human tap-tempo test at 96 BPM"
+}

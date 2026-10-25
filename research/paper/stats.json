@@ -1,0 +1,1130 @@
+{
+ "seed": 20260920,
+ "pleasantness_median": 77.715,
+ "table1": [
+  {
+   "label": "Population density (per km\u00b2)",
+   "min": 90.0,
+   "max": 15432.0,
+   "mean": 2101.235294117647,
+   "median": 855.0,
+   "sd": 3671.1230660625465
+  },
+  {
+   "label": "Domestic tourism trips per resident",
+   "min": 0.9426399447131997,
+   "max": 20.48121292023731,
+   "mean": 6.9017605807001585,
+   "median": 3.8468663167644332,
+   "sd": 5.723131586184163
+  },
+  {
+   "label": "Noise/vibration complaints per 100,000 residents",
+   "min": 76.63316582914574,
+   "max": 679.3576017130621,
+   "mean": 242.1468464877793,
+   "median": 211.71410136927378,
+   "sd": 147.96451602655472
+  },
+  {
+   "label": "Regulated noise-emitting facilities per 100,000 residents",
+   "min": 2.84796573875803,
+   "max": 214.1017780502759,
+   "mean": 72.21782141940497,
+   "median": 38.03559657218194,
+   "sd": 69.86108862487964
+  },
+  {
+   "label": "Crowding pressure (100 \u2212 crowding satisfaction)",
+   "min": 17.900000000000006,
+   "max": 29.299999999999997,
+   "mean": 22.876470588235293,
+   "median": 23.0,
+   "sd": 3.0136210386685787
+  },
+  {
+   "label": "Overall satisfaction (0\u2013100)",
+   "min": 77.8,
+   "max": 83.3,
+   "mean": 80.32941176470588,
+   "median": 80.0,
+   "sd": 1.9038660358210457
+  },
+  {
+   "label": "Recommendation intention (0\u2013100)",
+   "min": 71.0,
+   "max": 79.3,
+   "mean": 74.85882352941177,
+   "median": 74.8,
+   "sd": 2.2702034114615732
+  },
+  {
+   "label": "Revisit intention (0\u2013100)",
+   "min": 72.6,
+   "max": 81.6,
+   "mean": 76.86470588235295,
+   "median": 76.9,
+   "sd": 2.3884987901584203
+  },
+  {
+   "label": "Crowding satisfaction (0\u2013100)",
+   "min": 70.7,
+   "max": 82.1,
+   "mean": 77.12352941176471,
+   "median": 77.0,
+   "sd": 3.0136210386685787
+  },
+  {
+   "label": "Activity Proxy (0\u2013100)",
+   "min": 32.90524924747144,
+   "max": 61.26671995245789,
+   "mean": 46.41586198688282,
+   "median": 44.66599082202441,
+   "sd": 7.97511490754719
+  },
+  {
+   "label": "Visitor Pleasantness composite (0\u2013100)",
+   "min": 75.045,
+   "max": 81.74000000000001,
+   "mean": 77.78794117647058,
+   "median": 77.715,
+   "sd": 2.1145641238381816
+  }
+ ],
+ "n_regions": 17,
+ "activity_rank": {
+  "Seoul": 1,
+  "Busan": 2,
+  "Daegu": 6,
+  "Incheon": 4,
+  "Gwangju": 17,
+  "Daejeon": 10,
+  "Ulsan": 12,
+  "Sejongsi": 15,
+  "Gyeonggi-do": 5,
+  "Gangwon": 8,
+  "Chungcheongbuk-do": 11,
+  "Chungcheongnam-do": 7,
+  "Jeollabuk-do": 14,
+  "Jeollanam-do": 16,
+  "Gyeongsangbuk-do": 13,
+  "Gyeongsangnam-do": 9,
+  "Jeju-do": 3
+ },
+ "component_vs_activity_rho": {
+  "density": 0.44852941176470595,
+  "tourism": -0.06617647058823531,
+  "complaints": 0.6764705882352942,
+  "facilities": -0.19607843137254904,
+  "crowding": 0.6511343958381575
+ },
+ "drop_one_rho": {
+  "density": 0.2303921568627451,
+  "tourism": 0.5955882352941178,
+  "complaints": 0.8529411764705884,
+  "facilities": 0.911764705882353,
+  "crowding": 0.9362745098039217
+ },
+ "equal_weights_rho": 0.9436274509803922,
+ "mc_local": {
+  "concentration": 20,
+  "n": 10000,
+  "rho_median": 0.8725490196078433,
+  "rho_p5": 0.34313725490196084,
+  "rho_min": 0.002450980392156863,
+  "share_rho_ge_90": 0.4175,
+  "weight_sd": [
+   0.10366453213992008,
+   0.10117605004917045,
+   0.07923390435330588,
+   0.06548885998066542,
+   0.06569440664408457
+  ]
+ },
+ "mc_global": {
+  "n": 10000,
+  "rho_median": 0.7156862745098039,
+  "rho_p5": 0.007352941176470588,
+  "rho_min": -0.17401960784313728,
+  "share_rho_ge_90": 0.1451
+ },
+ "rank_range_local": {
+  "Seoul": [
+   1.0,
+   13.024999999999636
+  ],
+  "Busan": [
+   1.0,
+   6.0
+  ],
+  "Daegu": [
+   3.0,
+   15.0
+  ],
+  "Incheon": [
+   3.0,
+   11.0
+  ],
+  "Gwangju": [
+   7.0,
+   17.0
+  ],
+  "Daejeon": [
+   5.0,
+   16.0
+  ],
+  "Ulsan": [
+   8.0,
+   15.0
+  ],
+  "Sejongsi": [
+   9.0,
+   17.0
+  ],
+  "Gyeonggi-do": [
+   2.0,
+   10.0
+  ],
+  "Gangwon": [
+   2.0,
+   15.0
+  ],
+  "Chungcheongbuk-do": [
+   6.0,
+   15.0
+  ],
+  "Chungcheongnam-do": [
+   2.0,
+   11.0
+  ],
+  "Jeollabuk-do": [
+   8.0,
+   16.0
+  ],
+  "Jeollanam-do": [
+   5.0,
+   17.0
+  ],
+  "Gyeongsangbuk-do": [
+   6.0,
+   17.0
+  ],
+  "Gyeongsangnam-do": [
+   5.0,
+   12.0
+  ],
+  "Jeju-do": [
+   1.0,
+   9.0
+  ]
+ },
+ "median_rank_interval_width_local": 9.0,
+ "top3_stable_local": {
+  "Seoul": 0.7433,
+  "Busan": 0.9018,
+  "Jeju-do": 0.5623
+ },
+ "reference_check": {
+  "seoul_activity": 61.26671995245789,
+  "daejeon_activity": 44.571005259078106,
+  "seoul_rank": 1,
+  "daejeon_rank": 10,
+  "order_agrees": true,
+  "published_seoul": 78,
+  "published_daejeon": 45
+ },
+ "place_variance": {
+  "n_places": 75,
+  "n_regions": 17,
+  "eta_sq": 0.12154734444665923,
+  "icc1": -0.12758643687649232,
+  "score": {
+   "min": 0.0,
+   "max": 0.872337925204612,
+   "mean": 0.4027275440231465,
+   "median": 0.37233792520461195,
+   "sd": 0.2073509295161052
+  },
+  "places_per_region": [
+   3,
+   6
+  ],
+  "n_clipped_at_0": 3,
+  "n_clipped_at_1": 0,
+  "offset_sd": 0.2140950365718101,
+  "offset_range": [
+   -0.6699999999999999,
+   0.4
+  ]
+ },
+ "popularity": {
+  "n_complete": 58,
+  "n_total": 75,
+  "rho": 0.247089044460456,
+  "p_perm": 0.06199690015499225,
+  "status_counts": {
+   "ok": 58,
+   "partial": 1,
+   "no_wikipedia_article": 16
+  }
+ },
+ "spec": {
+  "bpm_min": 42,
+  "bpm_max": 138,
+  "n_places": 75
+ },
+ "key_rules": {
+  "Regional Pleasantness default": {
+   "major key": 20,
+   "minor key": 15
+  },
+  "Traditional/nature override": {
+   "major key": 34,
+   "minor key": 0
+  },
+  "Solemn override": {
+   "major key": 0,
+   "minor key": 6
+  }
+ },
+ "n_minor": 21,
+ "regions_below_median": [
+  "Seoul",
+  "Daegu",
+  "Incheon",
+  "Daejeon",
+  "Sejongsi",
+  "Gyeonggi-do",
+  "Chungcheongbuk-do",
+  "Chungcheongnam-do"
+ ],
+ "pleasantness_band": [
+  75.045,
+  81.74000000000001
+ ],
+ "n_regions_within1_of_median": 6,
+ "pleasantness_values": {
+  "Seoul": 75.815,
+  "Busan": 77.875,
+  "Daegu": 75.33500000000001,
+  "Incheon": 76.14999999999999,
+  "Gwangju": 80.935,
+  "Daejeon": 75.045,
+  "Ulsan": 78.27,
+  "Sejongsi": 75.14999999999999,
+  "Gyeonggi-do": 77.00999999999999,
+  "Gangwon": 78.10999999999999,
+  "Chungcheongbuk-do": 76.85,
+  "Chungcheongnam-do": 76.535,
+  "Jeollabuk-do": 80.91,
+  "Jeollanam-do": 81.74000000000001,
+  "Gyeongsangbuk-do": 77.715,
+  "Gyeongsangnam-do": 79.25000000000001,
+  "Jeju-do": 79.69999999999999
+ },
+ "valence_conflict": {
+  "minor_total": 21,
+  "minor_strong_positive": 0,
+  "minor_soft_positive": 12,
+  "minor_any_positive": 12,
+  "strong_words": [
+   "upbeat",
+   "happy",
+   "cheerful",
+   "uplifting",
+   "celebratory",
+   "lively",
+   "energetic",
+   "groovy",
+   "catchy"
+  ],
+  "soft_words": [
+   "warm",
+   "relaxing",
+   "mellow",
+   "peaceful",
+   "serene"
+  ],
+  "default_minor_examples": [
+   "Hongdae (Seoul)",
+   "Gangnam (Seoul)",
+   "N Seoul Tower (Seoul)",
+   "Dongdaemun Design Plaza (Seoul)",
+   "Incheon Chinatown (Incheon)",
+   "Songdo Central Park (Incheon)"
+  ]
+ },
+ "audio": {
+  "n": 10,
+  "within10_raw": 2,
+  "within10_corrected": 7,
+  "ratio_min": 0.5034090909090909,
+  "ratio_max": 2.9119047619047618,
+  "detected_min": 44.3,
+  "detected_max": 160.7,
+  "n_detected_115_161": 9,
+  "rho_raw": 0.06666666666666665,
+  "p_raw": 0.8647567621618919,
+  "rho_corrected": 0.7696969696969697,
+  "p_corrected": 0.012049397530123494,
+  "median_corrected_err_pct": 1.0698924731182795,
+  "mean_corrected_err_pct": 11.915012749443553,
+  "n_not_explained_by_octave": 3,
+  "mode_hits": 5,
+  "mode_ci": [
+   0.18708602844739855,
+   0.8129139715526015
+  ],
+  "major_hits": 5,
+  "major_n": 7,
+  "minor_hits": 0,
+  "minor_n": 3,
+  "mean_conf_match": 0.8852,
+  "mean_conf_mismatch": 0.7422000000000001,
+  "major_ci": [
+   0.2904208637373427,
+   0.9633074338239145
+  ],
+  "minor_ci": [
+   0.0,
+   0.7075982261787134
+  ],
+  "rows": [
+   {
+    "clip": "clip01",
+    "place": "Gyeongbokgung Palace",
+    "score": 0.0,
+    "req_bpm": 42.0,
+    "det_bpm": 122.3,
+    "ratio": 2.9119047619047618,
+    "req_mode": "major",
+    "det_key": "D# major",
+    "match": true,
+    "conf": 0.911
+   },
+   {
+    "clip": "clip02",
+    "place": "Hanbat Arboretum",
+    "score": 18.571005,
+    "req_bpm": 62.0,
+    "det_bpm": 125.0,
+    "ratio": 2.0161290322580645,
+    "req_mode": "major",
+    "det_key": "D# major",
+    "match": true,
+    "conf": 0.856
+   },
+   {
+    "clip": "clip03",
+    "place": "Naganeupseong Folk Village",
+    "score": 23.938318,
+    "req_bpm": 68.0,
+    "det_bpm": 130.8,
+    "ratio": 1.9235294117647062,
+    "req_mode": "major",
+    "det_key": "G major",
+    "match": true,
+    "conf": 0.903
+   },
+   {
+    "clip": "clip04",
+    "place": "Korean Folk Village",
+    "score": 30.418587,
+    "req_bpm": 75.0,
+    "det_bpm": 152.0,
+    "ratio": 2.026666666666667,
+    "req_mode": "major",
+    "det_key": "D# major",
+    "match": true,
+    "conf": 0.913
+   },
+   {
+    "clip": "clip05",
+    "place": "Oeam Folk Village",
+    "score": 35.233793,
+    "req_bpm": 81.0,
+    "det_bpm": 160.7,
+    "ratio": 1.9839506172839505,
+    "req_mode": "major",
+    "det_key": "B minor",
+    "match": false,
+    "conf": 0.873
+   },
+   {
+    "clip": "clip06",
+    "place": "Gunsan Modern History Street",
+    "score": 41.406355,
+    "req_bpm": 88.0,
+    "det_bpm": 44.3,
+    "ratio": 0.5034090909090909,
+    "req_mode": "major",
+    "det_key": "C major",
+    "match": true,
+    "conf": 0.843
+   },
+   {
+    "clip": "clip07",
+    "place": "Government Complex Sejong",
+    "score": 48.401929,
+    "req_bpm": 95.0,
+    "det_bpm": 127.8,
+    "ratio": 1.3452631578947367,
+    "req_mode": "minor",
+    "det_key": "D# major",
+    "match": false,
+    "conf": 0.638
+   },
+   {
+    "clip": "clip08",
+    "place": "Kia AutoLand Gwangju",
+    "score": 58.905249,
+    "req_bpm": 107.0,
+    "det_bpm": 144.2,
+    "ratio": 1.347663551401869,
+    "req_mode": "major",
+    "det_key": "G minor",
+    "match": false,
+    "conf": 0.563
+   },
+   {
+    "clip": "clip09",
+    "place": "Gangnam",
+    "score": 66.26672,
+    "req_bpm": 115.0,
+    "det_bpm": 114.8,
+    "ratio": 0.9982608695652173,
+    "req_mode": "minor",
+    "det_key": "A# major",
+    "match": false,
+    "conf": 0.921
+   },
+   {
+    "clip": "clip10",
+    "place": "Hyundai Motor Asan Plant",
+    "score": 87.233793,
+    "req_bpm": 138.0,
+    "det_bpm": 137.2,
+    "ratio": 0.9942028985507245,
+    "req_mode": "minor",
+    "det_key": "D major",
+    "match": false,
+    "conf": 0.716
+   }
+  ]
+ },
+ "ablation": [
+  {
+   "clip": "clip07",
+   "condition": "C_custom",
+   "track": 0,
+   "task": "e19e2dd0daca21b23bceab83b91c9d77",
+   "req_bpm": 95.0,
+   "det_bpm": 127.8,
+   "key": "A minor",
+   "match": true,
+   "conf": 0.505
+  },
+  {
+   "clip": "clip07",
+   "condition": "C_custom",
+   "track": 1,
+   "task": "e19e2dd0daca21b23bceab83b91c9d77",
+   "req_bpm": 95.0,
+   "det_bpm": 127.8,
+   "key": "A minor",
+   "match": true,
+   "conf": 0.525
+  },
+  {
+   "clip": "clip09",
+   "condition": "C_custom",
+   "track": 0,
+   "task": "c25ba6a0f4330d87983f2239bcd085ed",
+   "req_bpm": 115.0,
+   "det_bpm": 117.2,
+   "key": "C major",
+   "match": false,
+   "conf": 0.887
+  },
+  {
+   "clip": "clip09",
+   "condition": "C_custom",
+   "track": 1,
+   "task": "c25ba6a0f4330d87983f2239bcd085ed",
+   "req_bpm": 115.0,
+   "det_bpm": 117.2,
+   "key": "C major",
+   "match": false,
+   "conf": 0.856
+  },
+  {
+   "clip": "clip09",
+   "condition": "B_plain",
+   "track": 0,
+   "task": "b5e69e62b092b237769728a901dc6e1d",
+   "req_bpm": 115.0,
+   "det_bpm": 112.5,
+   "key": "D major",
+   "match": false,
+   "conf": 0.698
+  },
+  {
+   "clip": "clip09",
+   "condition": "B_plain",
+   "track": 1,
+   "task": "b5e69e62b092b237769728a901dc6e1d",
+   "req_bpm": 115.0,
+   "det_bpm": 117.2,
+   "key": "E minor",
+   "match": true,
+   "conf": 0.689
+  }
+ ],
+ "round1": {
+  "n": 10,
+  "mode_hits": 5,
+  "mode_ci": [
+   0.18708602844739855,
+   0.8129139715526015
+  ],
+  "major_hits": 5,
+  "major_n": 7,
+  "minor_hits": 0,
+  "minor_n": 3,
+  "within10": 2,
+  "rho": 0.06666666666666665,
+  "p": 0.864106794660267,
+  "det_min": 44.3,
+  "det_max": 160.7,
+  "conf_match": 0.8852,
+  "conf_mismatch": 0.7422000000000001,
+  "minor_clips": [
+   "clip07",
+   "clip09",
+   "clip10"
+  ]
+ },
+ "round2": {
+  "n": 10,
+  "mode_hits": 7,
+  "mode_ci": [
+   0.3475471499400027,
+   0.9332604888222655
+  ],
+  "major_hits": 7,
+  "major_n": 8,
+  "minor_hits": 0,
+  "minor_n": 2,
+  "within10": 4,
+  "rho": 0.0790277206784084,
+  "p": 0.8293585320733964,
+  "det_min": 59.8,
+  "det_max": 160.7,
+  "conf_match": 0.8745714285714286,
+  "conf_mismatch": 0.7913333333333332,
+  "minor_clips": [
+   "clip09",
+   "clip10"
+  ],
+  "rows": [
+   {
+    "clip": "clip01",
+    "place": "Gyeongbokgung Palace",
+    "req_bpm": 42,
+    "det_bpm": 130.8,
+    "req_mode": "major",
+    "key": "A major",
+    "match": true,
+    "conf": 0.888
+   },
+   {
+    "clip": "clip02",
+    "place": "Hanbat Arboretum",
+    "req_bpm": 62,
+    "det_bpm": 125.0,
+    "req_mode": "major",
+    "key": "B major",
+    "match": true,
+    "conf": 0.912
+   },
+   {
+    "clip": "clip03",
+    "place": "Naganeupseong Folk Village",
+    "req_bpm": 68,
+    "det_bpm": 130.8,
+    "req_mode": "major",
+    "key": "C major",
+    "match": true,
+    "conf": 0.93
+   },
+   {
+    "clip": "clip04",
+    "place": "Korean Folk Village",
+    "req_bpm": 75,
+    "det_bpm": 75.0,
+    "req_mode": "major",
+    "key": "C# major",
+    "match": true,
+    "conf": 0.864
+   },
+   {
+    "clip": "clip05",
+    "place": "Oeam Folk Village",
+    "req_bpm": 81,
+    "det_bpm": 160.7,
+    "req_mode": "major",
+    "key": "C# major",
+    "match": true,
+    "conf": 0.898
+   },
+   {
+    "clip": "clip06",
+    "place": "Gunsan Modern History Street",
+    "req_bpm": 88,
+    "det_bpm": 59.8,
+    "req_mode": "major",
+    "key": "B minor",
+    "match": false,
+    "conf": 0.71
+   },
+   {
+    "clip": "clip07",
+    "place": "Government Complex Sejong",
+    "req_bpm": 95,
+    "det_bpm": 95.3,
+    "req_mode": "major",
+    "key": "D# major",
+    "match": true,
+    "conf": 0.906
+   },
+   {
+    "clip": "clip08",
+    "place": "Kia AutoLand Gwangju",
+    "req_bpm": 107,
+    "det_bpm": 144.2,
+    "req_mode": "major",
+    "key": "B major",
+    "match": true,
+    "conf": 0.724
+   },
+   {
+    "clip": "clip09",
+    "place": "Gangnam",
+    "req_bpm": 115,
+    "det_bpm": 117.2,
+    "req_mode": "minor",
+    "key": "G# major",
+    "match": false,
+    "conf": 0.833
+   },
+   {
+    "clip": "clip10",
+    "place": "Hyundai Motor Asan Plant",
+    "req_bpm": 138,
+    "det_bpm": 137.2,
+    "req_mode": "minor",
+    "key": "D major",
+    "match": false,
+    "conf": 0.831
+   }
+  ]
+ },
+ "replication": {
+  "rho_detected_tempo": 0.5592731001856595,
+  "n_identical": 5,
+  "slow_clips_r1": [
+   122.3,
+   125.0,
+   130.8
+  ],
+  "slow_clips_r2": [
+   130.8,
+   125.0,
+   130.8
+  ],
+  "mode_agreement": 7,
+  "identical_values": [
+   125.0,
+   130.8,
+   137.2,
+   144.2,
+   160.7
+  ]
+ },
+ "tempo_diag": {
+  "tol": 0.05,
+  "round1": {
+   "top3_hits": 7,
+   "null_mean": 1.49005,
+   "null_p95": 3.0,
+   "p_perm": 4.999750012499375e-05,
+   "slow_hits": 0,
+   "slow_n": 3,
+   "fast_hits": 7,
+   "fast_n": 7,
+   "best_estimate_hits": 3,
+   "default_rho": 0.09118583155200968,
+   "flat_rho": 0.22424242424242422,
+   "default_range": [
+    89.3,
+    160.7
+   ],
+   "flat_range": [
+    44.3,
+    216.3
+   ],
+   "missed": [
+    "clip01",
+    "clip02",
+    "clip03"
+   ]
+  },
+  "round2": {
+   "top3_hits": 9,
+   "null_mean": 1.597,
+   "null_p95": 4.0,
+   "p_perm": 4.999750012499375e-05,
+   "slow_hits": 2,
+   "slow_n": 3,
+   "fast_hits": 7,
+   "fast_n": 7,
+   "best_estimate_hits": 4,
+   "default_rho": -0.06686960980480709,
+   "flat_rho": 0.5410359338752574,
+   "default_range": [
+    89.3,
+    160.7
+   ],
+   "flat_range": [
+    75.0,
+    234.4
+   ],
+   "missed": [
+    "clip01"
+   ]
+  },
+  "beat_track_start_bpm": 120.0,
+  "librosa": "1.0.0"
+ },
+ "gangnam": [
+  {
+   "condition": "Round 1 wording, non-custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "A# major",
+     "conf": 0.921,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Reworded, non-custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "D# major",
+     "conf": 0.938,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Explicit \"A minor\", custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "C major",
+     "conf": 0.887,
+     "minor": false
+    },
+    {
+     "key": "C major",
+     "conf": 0.856,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Round 2 prompt, custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "G# major",
+     "conf": 0.833,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Mode + tempo only (no genre words)",
+   "group": "no genre words",
+   "tracks": [
+    {
+     "key": "D major",
+     "conf": 0.698,
+     "minor": false
+    },
+    {
+     "key": "E minor",
+     "conf": 0.689,
+     "minor": true
+    }
+   ]
+  },
+  {
+   "condition": "Genre swapped to dark synth-pop",
+   "group": "swapped genre words",
+   "tracks": [
+    {
+     "key": "F minor",
+     "conf": 0.643,
+     "minor": true
+    },
+    {
+     "key": "G minor",
+     "conf": 0.684,
+     "minor": true
+    },
+    {
+     "key": "D# minor",
+     "conf": 0.805,
+     "minor": true
+    }
+   ]
+  }
+ ],
+ "asan": [
+  {
+   "condition": "Round 1 wording, non-custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "D major",
+     "conf": 0.716,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Reworded, custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "G minor",
+     "conf": 0.666,
+     "minor": true
+    }
+   ]
+  },
+  {
+   "condition": "Round 2 prompt, custom",
+   "group": "original genre words",
+   "tracks": [
+    {
+     "key": "D major",
+     "conf": 0.831,
+     "minor": false
+    }
+   ]
+  },
+  {
+   "condition": "Genre swapped to dark techno",
+   "group": "swapped genre words",
+   "tracks": [
+    {
+     "key": "D major",
+     "conf": 0.812,
+     "minor": false
+    },
+    {
+     "key": "D major",
+     "conf": 0.592,
+     "minor": false
+    },
+    {
+     "key": "G major",
+     "conf": 0.594,
+     "minor": false
+    }
+   ]
+  }
+ ],
+ "gangnam_by_group": {
+  "original genre words": [
+   0,
+   5
+  ],
+  "no genre words": [
+   1,
+   2
+  ],
+  "swapped genre words": [
+   3,
+   3
+  ]
+ },
+ "asan_by_group": {
+  "original genre words": [
+   1,
+   3
+  ],
+  "swapped genre words": [
+   0,
+   3
+  ]
+ },
+ "sejong_pilot": [
+  {
+   "key": "A minor",
+   "conf": 0.505,
+   "bpm": 127.8
+  },
+  {
+   "key": "A minor",
+   "conf": 0.525,
+   "bpm": 127.8
+  }
+ ],
+ "sejong": [
+  {
+   "label": "Round 1: original prompt, customMode=false",
+   "key": "D# major",
+   "conf": 0.638,
+   "bpm": 127.8
+  },
+  {
+   "label": "Round 2: revised prompt, customMode=true",
+   "key": "D# major",
+   "conf": 0.906,
+   "bpm": 95.3
+  },
+  {
+   "label": "Sejong: reworded prompt, customMode=true",
+   "key": "D# minor",
+   "conf": 0.763,
+   "bpm": 130.8
+  },
+  {
+   "label": "Sejong: institutional-category style fix, minor requested",
+   "key": "D# minor",
+   "conf": 0.827,
+   "bpm": 95.3
+  },
+  {
+   "label": "Sejong: institutional style + major requested",
+   "key": "D# major",
+   "conf": 0.942,
+   "bpm": 95.3
+  }
+ ],
+ "genre_swap_pooled": {
+  "gangnam_minor": 3,
+  "asan_minor": 0
+ },
+ "root_note_gangnam_swap_detected": [
+  "F",
+  "G",
+  "D#"
+ ],
+ "prompt_features": {
+  "n": 21,
+  "k": 9,
+  "shape": {
+   "non-custom": {
+    "k": 1,
+    "n": 6,
+    "ci": [
+     0.00421074451448947,
+     0.6412345789976748
+    ]
+   },
+   "custom": {
+    "k": 8,
+    "n": 15,
+    "ci": [
+     0.26586134727739663,
+     0.7873332704806921
+    ]
+   }
+  },
+  "genre": {
+   "original": {
+    "k": 4,
+    "n": 12,
+    "ci": [
+     0.09924609114958328,
+     0.6511244935811844
+    ]
+   },
+   "none": {
+    "k": 1,
+    "n": 2,
+    "ci": [
+     0.01257911709342505,
+     0.9874208829065749
+    ]
+   },
+   "changed": {
+    "k": 4,
+    "n": 7,
+    "ci": [
+     0.184051567640083,
+     0.9010117215574921
+    ]
+   }
+  },
+  "wording": {
+   "bare": {
+    "k": 3,
+    "n": 9,
+    "ci": [
+     0.07485463141969183,
+     0.7007049437914596
+    ]
+   },
+   "descriptive": {
+    "k": 6,
+    "n": 12,
+    "ci": [
+     0.21094463823929666,
+     0.7890553617607033
+    ]
+   }
+  },
+  "p_shape": 0.17779743476337906,
+  "p_wording": 0.660490592998333,
+  "p_genre": 0.37651821862348184,
+  "gangnam_swap": [
+   3,
+   3
+  ],
+  "gangnam_rest": [
+   1,
+   7
+  ],
+  "p_gangnam": 0.03333333333333333
+ },
+ "gen_check": {
+  "p_original": 0.3333333333333333,
+  "p_pooled": 0.42857142857142855,
+  "at_least_one_of_2": 0.5555555555555555,
+  "tracks_for_90": 6,
+  "tracks_for_90_pooled": 5,
+  "credits_per_call": 18
+ },
+ "rankplots": {
+  "tempo_r1": [
+   0.06666666666666665,
+   154.0
+  ],
+  "tempo_r2": [
+   0.0790277206784084,
+   151.5
+  ],
+  "popularity": [
+   0.247089044460456,
+   24474.5
+  ]
+ }
+}

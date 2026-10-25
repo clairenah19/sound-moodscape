@@ -1,0 +1,622 @@
+[
+ {
+  "file": "clip01.mp3",
+  "group": "round1",
+  "clip": "clip01",
+  "requested_mode": null,
+  "requested_bpm": 42,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.911,
+  "beat_track_bpm": 122.3,
+  "tempo_default_prior": 119.7,
+  "tempo_flat_prior": 119.7,
+  "top3": [
+   122.3,
+   175.8,
+   148.0
+  ],
+  "duration_s": 104.2
+ },
+ {
+  "file": "v2_clip01.mp3",
+  "group": "round2",
+  "clip": "clip01",
+  "requested_mode": null,
+  "requested_bpm": 42,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "A major",
+  "mode": "major",
+  "confidence": 0.888,
+  "beat_track_bpm": 130.8,
+  "tempo_default_prior": 130.8,
+  "tempo_flat_prior": 130.8,
+  "top3": [
+   130.8,
+   267.9,
+   64.7
+  ],
+  "duration_s": 94.6
+ },
+ {
+  "file": "clip02.mp3",
+  "group": "round1",
+  "clip": "clip02",
+  "requested_mode": null,
+  "requested_bpm": 62,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.856,
+  "beat_track_bpm": 125.0,
+  "tempo_default_prior": 125.0,
+  "tempo_flat_prior": 125.0,
+  "top3": [
+   125.0,
+   244.6,
+   82.7
+  ],
+  "duration_s": 70.8
+ },
+ {
+  "file": "v2_clip02.mp3",
+  "group": "round2",
+  "clip": "clip02",
+  "requested_mode": null,
+  "requested_bpm": 62,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "B major",
+  "mode": "major",
+  "confidence": 0.912,
+  "beat_track_bpm": 125.0,
+  "tempo_default_prior": 125.0,
+  "tempo_flat_prior": 125.0,
+  "top3": [
+   125.0,
+   255.7,
+   63.2
+  ],
+  "duration_s": 117.3
+ },
+ {
+  "file": "clip03.mp3",
+  "group": "round1",
+  "clip": "clip03",
+  "requested_mode": null,
+  "requested_bpm": 68,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "G major",
+  "mode": "major",
+  "confidence": 0.903,
+  "beat_track_bpm": 130.8,
+  "tempo_default_prior": 127.8,
+  "tempo_flat_prior": 130.8,
+  "top3": [
+   130.8,
+   234.4,
+   200.9
+  ],
+  "duration_s": 163.3
+ },
+ {
+  "file": "v2_clip03.mp3",
+  "group": "round2",
+  "clip": "clip03",
+  "requested_mode": null,
+  "requested_bpm": 68,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "C major",
+  "mode": "major",
+  "confidence": 0.93,
+  "beat_track_bpm": 130.8,
+  "tempo_default_prior": 130.8,
+  "tempo_flat_prior": 130.8,
+  "top3": [
+   130.8,
+   255.7,
+   66.2
+  ],
+  "duration_s": 117.7
+ },
+ {
+  "file": "clip04.mp3",
+  "group": "round1",
+  "clip": "clip04",
+  "requested_mode": null,
+  "requested_bpm": 75,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.913,
+  "beat_track_bpm": 152.0,
+  "tempo_default_prior": 152.0,
+  "tempo_flat_prior": 152.0,
+  "top3": [
+   152.0,
+   76.0,
+   102.3
+  ],
+  "duration_s": 102.2
+ },
+ {
+  "file": "v2_clip04.mp3",
+  "group": "round2",
+  "clip": "clip04",
+  "requested_mode": null,
+  "requested_bpm": 75,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "C# major",
+  "mode": "major",
+  "confidence": 0.864,
+  "beat_track_bpm": 75.0,
+  "tempo_default_prior": 148.0,
+  "tempo_flat_prior": 75.0,
+  "top3": [
+   148.0,
+   75.0,
+   100.4
+  ],
+  "duration_s": 182.0
+ },
+ {
+  "file": "clip05.mp3",
+  "group": "round1",
+  "clip": "clip05",
+  "requested_mode": null,
+  "requested_bpm": 81,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "B minor",
+  "mode": "minor",
+  "confidence": 0.873,
+  "beat_track_bpm": 160.7,
+  "tempo_default_prior": 160.7,
+  "tempo_flat_prior": 160.7,
+  "top3": [
+   160.7,
+   81.5,
+   108.2
+  ],
+  "duration_s": 113.9
+ },
+ {
+  "file": "v2_clip05.mp3",
+  "group": "round2",
+  "clip": "clip05",
+  "requested_mode": null,
+  "requested_bpm": 81,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "C# major",
+  "mode": "major",
+  "confidence": 0.898,
+  "beat_track_bpm": 160.7,
+  "tempo_default_prior": 160.7,
+  "tempo_flat_prior": 160.7,
+  "top3": [
+   160.7,
+   81.5,
+   216.3
+  ],
+  "duration_s": 103.2
+ },
+ {
+  "file": "clip06.mp3",
+  "group": "round1",
+  "clip": "clip06",
+  "requested_mode": null,
+  "requested_bpm": 88,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "C major",
+  "mode": "major",
+  "confidence": 0.843,
+  "beat_track_bpm": 44.3,
+  "tempo_default_prior": 89.3,
+  "tempo_flat_prior": 44.3,
+  "top3": [
+   175.8,
+   89.3,
+   44.3
+  ],
+  "duration_s": 102.9
+ },
+ {
+  "file": "v2_clip06.mp3",
+  "group": "round2",
+  "clip": "clip06",
+  "requested_mode": null,
+  "requested_bpm": 88,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "B minor",
+  "mode": "minor",
+  "confidence": 0.71,
+  "beat_track_bpm": 59.8,
+  "tempo_default_prior": 89.3,
+  "tempo_flat_prior": 175.8,
+  "top3": [
+   175.8,
+   89.3,
+   117.2
+  ],
+  "duration_s": 95.7
+ },
+ {
+  "file": "clip07.mp3",
+  "group": "round1",
+  "clip": "clip07",
+  "requested_mode": null,
+  "requested_bpm": 95,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.638,
+  "beat_track_bpm": 127.8,
+  "tempo_default_prior": 127.8,
+  "tempo_flat_prior": 194.0,
+  "top3": [
+   194.0,
+   127.8,
+   97.0
+  ],
+  "duration_s": 137.5
+ },
+ {
+  "file": "v2_clip07.mp3",
+  "group": "round2",
+  "clip": "clip07",
+  "requested_mode": null,
+  "requested_bpm": 95,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.906,
+  "beat_track_bpm": 95.3,
+  "tempo_default_prior": 95.3,
+  "tempo_flat_prior": 95.3,
+  "top3": [
+   194.0,
+   95.3,
+   63.9
+  ],
+  "duration_s": 175.0
+ },
+ {
+  "file": "clip08.mp3",
+  "group": "round1",
+  "clip": "clip08",
+  "requested_mode": null,
+  "requested_bpm": 107,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "G minor",
+  "mode": "minor",
+  "confidence": 0.563,
+  "beat_track_bpm": 144.2,
+  "tempo_default_prior": 144.2,
+  "tempo_flat_prior": 216.3,
+  "top3": [
+   216.3,
+   144.2,
+   108.2
+  ],
+  "duration_s": 116.8
+ },
+ {
+  "file": "v2_clip08.mp3",
+  "group": "round2",
+  "clip": "clip08",
+  "requested_mode": null,
+  "requested_bpm": 107,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "B major",
+  "mode": "major",
+  "confidence": 0.724,
+  "beat_track_bpm": 144.2,
+  "tempo_default_prior": 144.2,
+  "tempo_flat_prior": 216.3,
+  "top3": [
+   216.3,
+   144.2,
+   106.1
+  ],
+  "duration_s": 105.9
+ },
+ {
+  "file": "clip09.mp3",
+  "group": "round1",
+  "clip": "clip09",
+  "requested_mode": null,
+  "requested_bpm": 115,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "A# major",
+  "mode": "major",
+  "confidence": 0.921,
+  "beat_track_bpm": 114.8,
+  "tempo_default_prior": 114.8,
+  "tempo_flat_prior": 114.8,
+  "top3": [
+   234.4,
+   114.8,
+   77.1
+  ],
+  "duration_s": 99.7
+ },
+ {
+  "file": "v2_clip09.mp3",
+  "group": "round2",
+  "clip": "clip09",
+  "requested_mode": null,
+  "requested_bpm": 115,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "G# major",
+  "mode": "major",
+  "confidence": 0.833,
+  "beat_track_bpm": 117.2,
+  "tempo_default_prior": 117.2,
+  "tempo_flat_prior": 234.4,
+  "top3": [
+   234.4,
+   117.2,
+   77.1
+  ],
+  "duration_s": 106.5
+ },
+ {
+  "file": "clip10.mp3",
+  "group": "round1",
+  "clip": "clip10",
+  "requested_mode": null,
+  "requested_bpm": 138,
+  "description": "Round 1: original prompt, customMode=false",
+  "key": "D major",
+  "mode": "major",
+  "confidence": 0.716,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   281.2,
+   137.2,
+   92.2
+  ],
+  "duration_s": 133.9
+ },
+ {
+  "file": "v2_clip10.mp3",
+  "group": "round2",
+  "clip": "clip10",
+  "requested_mode": null,
+  "requested_bpm": 138,
+  "description": "Round 2: revised prompt, customMode=true",
+  "key": "D major",
+  "mode": "major",
+  "confidence": 0.831,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   137.2,
+   281.2,
+   181.5
+  ],
+  "duration_s": 133.5
+ },
+ {
+  "file": "clip09_retest_minor_fix.mp3",
+  "group": "followup",
+  "clip": "clip09",
+  "requested_mode": "minor",
+  "requested_bpm": 115,
+  "description": "Gangnam: reworded prompt, customMode=false",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.938,
+  "beat_track_bpm": 119.7,
+  "tempo_default_prior": 119.7,
+  "tempo_flat_prior": 234.4,
+  "top3": [
+   234.4,
+   119.7,
+   79.2
+  ],
+  "duration_s": 101.0
+ },
+ {
+  "file": "clip09_genre_swap_test.mp3",
+  "group": "genre_swap",
+  "clip": "clip09",
+  "requested_mode": "minor",
+  "requested_bpm": 115,
+  "description": "Gangnam: genre words swapped, run 1",
+  "key": "F minor",
+  "mode": "minor",
+  "confidence": 0.643,
+  "beat_track_bpm": 117.2,
+  "tempo_default_prior": 117.2,
+  "tempo_flat_prior": 234.4,
+  "top3": [
+   234.4,
+   117.2,
+   77.1
+  ],
+  "duration_s": 115.6
+ },
+ {
+  "file": "clip09_genre_swap_test_run2.mp3",
+  "group": "genre_swap",
+  "clip": "clip09",
+  "requested_mode": "minor",
+  "requested_bpm": 115,
+  "description": "Gangnam: genre words swapped, run 2",
+  "key": "G minor",
+  "mode": "minor",
+  "confidence": 0.684,
+  "beat_track_bpm": 114.8,
+  "tempo_default_prior": 114.8,
+  "tempo_flat_prior": 114.8,
+  "top3": [
+   234.4,
+   114.8,
+   77.1
+  ],
+  "duration_s": 103.8
+ },
+ {
+  "file": "clip09_genre_swap_test_run3.mp3",
+  "group": "genre_swap",
+  "clip": "clip09",
+  "requested_mode": "minor",
+  "requested_bpm": 115,
+  "description": "Gangnam: genre words swapped, run 3",
+  "key": "D# minor",
+  "mode": "minor",
+  "confidence": 0.805,
+  "beat_track_bpm": 117.2,
+  "tempo_default_prior": 117.2,
+  "tempo_flat_prior": 234.4,
+  "top3": [
+   234.4,
+   117.2,
+   78.1
+  ],
+  "duration_s": 121.2
+ },
+ {
+  "file": "clip10_asan_retest_custommode.mp3",
+  "group": "followup",
+  "clip": "clip10",
+  "requested_mode": "minor",
+  "requested_bpm": 138,
+  "description": "Asan: reworded prompt, customMode=true",
+  "key": "G minor",
+  "mode": "minor",
+  "confidence": 0.666,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   137.2,
+   281.2,
+   181.5
+  ],
+  "duration_s": 133.7
+ },
+ {
+  "file": "clip10_genre_swap_test_run1.mp3",
+  "group": "genre_swap",
+  "clip": "clip10",
+  "requested_mode": "minor",
+  "requested_bpm": 138,
+  "description": "Asan: genre words swapped, run 1",
+  "key": "D major",
+  "mode": "major",
+  "confidence": 0.812,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   137.2,
+   281.2,
+   181.5
+  ],
+  "duration_s": 124.8
+ },
+ {
+  "file": "clip10_genre_swap_test_run2.mp3",
+  "group": "genre_swap",
+  "clip": "clip10",
+  "requested_mode": "minor",
+  "requested_bpm": 138,
+  "description": "Asan: genre words swapped, run 2",
+  "key": "D major",
+  "mode": "major",
+  "confidence": 0.592,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   137.2,
+   281.2,
+   181.5
+  ],
+  "duration_s": 120.6
+ },
+ {
+  "file": "clip10_genre_swap_test_run3.mp3",
+  "group": "genre_swap",
+  "clip": "clip10",
+  "requested_mode": "minor",
+  "requested_bpm": 138,
+  "description": "Asan: genre words swapped, run 3",
+  "key": "G major",
+  "mode": "major",
+  "confidence": 0.594,
+  "beat_track_bpm": 137.2,
+  "tempo_default_prior": 137.2,
+  "tempo_flat_prior": 137.2,
+  "top3": [
+   137.2,
+   281.2,
+   181.5
+  ],
+  "duration_s": 129.6
+ },
+ {
+  "file": "clip07_sejong_retest_custommode.mp3",
+  "group": "followup",
+  "clip": "clip07",
+  "requested_mode": "minor",
+  "requested_bpm": 95,
+  "description": "Sejong: reworded prompt, customMode=true",
+  "key": "D# minor",
+  "mode": "minor",
+  "confidence": 0.763,
+  "beat_track_bpm": 130.8,
+  "tempo_default_prior": 130.8,
+  "tempo_flat_prior": 194.0,
+  "top3": [
+   194.0,
+   130.8,
+   98.7
+  ],
+  "duration_s": 121.0
+ },
+ {
+  "file": "clip07_sejong_institutional_fix.mp3",
+  "group": "followup",
+  "clip": "clip07",
+  "requested_mode": "minor",
+  "requested_bpm": 95,
+  "description": "Sejong: institutional-category style fix, minor requested",
+  "key": "D# minor",
+  "mode": "minor",
+  "confidence": 0.827,
+  "beat_track_bpm": 95.3,
+  "tempo_default_prior": 95.3,
+  "tempo_flat_prior": 95.3,
+  "top3": [
+   194.0,
+   95.3,
+   234.4
+  ],
+  "duration_s": 117.6
+ },
+ {
+  "file": "clip07_sejong_major_fix.mp3",
+  "group": "followup",
+  "clip": "clip07",
+  "requested_mode": "major",
+  "requested_bpm": 95,
+  "description": "Sejong: institutional style + major requested",
+  "key": "D# major",
+  "mode": "major",
+  "confidence": 0.942,
+  "beat_track_bpm": 95.3,
+  "tempo_default_prior": 95.3,
+  "tempo_flat_prior": 194.0,
+  "top3": [
+   194.0,
+   95.3,
+   127.8
+  ],
+  "duration_s": 113.5
+ }
+]
